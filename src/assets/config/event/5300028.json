@@ -1,0 +1,24 @@
+ {
+        "id": 5300028,
+        "text": "还书",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":[2,3] // 仪式开始时
+        },
+        "condition":{  //条件
+            "table_have.2000161":1 //看书少女存活
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5002009,
+                    "event_off":5300028
+                }
+            }
+
+        ]
+    } 

@@ -1,0 +1,27 @@
+{
+    "id": 5300054,
+    "text": "暗杀1",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "table_have.2000012":1, //禁卫队长在牌池中
+        "hand_have.主角":1
+    },
+    "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000554, //开启暗杀1仪式
+                "success":{
+                    "event_off":5300054 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

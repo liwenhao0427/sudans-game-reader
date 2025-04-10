@@ -1,0 +1,32 @@
+{
+    "id": 5300230,
+    "text": "生成宰相的召见-二",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":[1,2]
+    },
+    "condition":{  //条件
+        "table_have.2000349":1, //宰相存在卡池或手牌
+        "counter.7000086<":1 //懦夫线没完结
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000723,
+                "success":{
+                    "event_off":5300230, //关闭本幕后
+                    "prompt":{
+                        "id": "5300230_prompt_01",
+                        "text":"宰相阿卜德派仆人来，召你到府上一叙。",
+                        "icon":"cards/2000349"
+                    }
+                }
+            }
+        }
+
+    ]
+}

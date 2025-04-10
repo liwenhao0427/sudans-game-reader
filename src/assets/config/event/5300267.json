@@ -1,0 +1,33 @@
+{
+    "id": 5300267,
+    "text": "黑街的邀约",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "counter.7000228>=":1,  //将军夜猎已完成
+        "counter.7100004>=":6,  //侠名大于等于6
+        "have.2000054":1  //哲巴尔还活着
+    },
+    "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000760,
+                "prompt":{
+                    "id":"5300267_prompt_1",
+                    "text":"<size=+10><font=\"Title SDF\"><b>你在黑街的声名远播</b></font></size>\n这一天，有人邀请你去看一场地下拳斗比赛，保证十分刺激。\n你有一种预感，此行说不定会有特别的收获。",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5300267 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

@@ -1,0 +1,172 @@
+{
+    "id": 8000503,
+    "name": "",
+    "tips": "",
+    "bg": "yy_01_bg",
+    "fg": "yy_01_fg",
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 210
+    },
+    "title_pos": {
+        "x": 1689,
+        "y": -228
+    },
+    "slots": {
+        "s7": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1978,
+                "y": 1384
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s8": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1846,
+                "y": 963
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s9": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1992,
+                "y": 527
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s10": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 2304,
+                "y": 705
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s11": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 2305,
+                "y": 1113
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1032,
+                "y": 959
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1184,
+                "y": 526
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1175,
+                "y": 1378
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1815,
+                "y": 1384
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1683,
+                "y": 964
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s6": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_3",
+            "pos": {
+                "x": 1830,
+                "y": 528
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "id": 5300254,
+    "text": "法律的底线的第一次开启",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合开始
+    },
+    "condition":{  //条件
+        "hand_have.2000558":1, //手上有罪证
+        "table_have.2000067":1, //艾迪勒捉贼人在卡池里
+        "counter.7000193<":1 //没有因为官吏的调查而关闭 
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5300255
+            }
+        }
+    ]
+}

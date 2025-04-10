@@ -1,0 +1,30 @@
+{
+    "id": 5300099,
+    "text": "第8天生成黑街",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start":false,  //"auto_start_init": [1]  暂时关闭
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 //每回合刷一次
+    },
+    "condition":{  //条件
+        "counter.7000060>=":8
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5300077,
+                "success":{
+                    "prompt":{
+                        "id": "5300099_prompt_01",
+                        "text":"你居然活过了7天，你的威名已传入黑街。",
+                        "icon":"cards/1_item_0"
+                    }
+                }
+            }
+        }
+
+    ]
+}

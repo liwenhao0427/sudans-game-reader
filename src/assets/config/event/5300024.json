@@ -1,0 +1,25 @@
+ {
+        "id": 5300024,
+        "text": "捉奸",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": true, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":1 // 仪式开始时
+        },
+        "condition":{  //条件
+            "!rite":5003008,  //场上不存在正在酝酿的不满
+            "table_have.妻子":1, //妻子空闲
+            "table_have.2000014":1  //厨子空闲
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5003008
+                }
+            }
+
+        ]
+    } 

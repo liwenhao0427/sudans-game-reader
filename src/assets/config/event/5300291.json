@@ -1,0 +1,30 @@
+{
+    "id": 5300291,
+    "text": "工匠街区的意外",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [2,3] //每回合开始
+    },
+    "condition":{  //条件
+        "table_have.2000773":1  //哈布娜闲置
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000786,  //开启火中的自由
+                "prompt":{
+                    "id":"5300291_prompt_1",
+                    "text":"这天夜里，你突然听见外面一阵骚动，他们说，平民街区着火了！",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5300291
+                }
+            }
+        }
+    ]
+}

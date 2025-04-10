@@ -1,0 +1,35 @@
+{
+        "id": 5310808,
+        "text": "神圣的会晤",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": 1
+        },
+        "condition":{
+            "any":{
+                "all":{
+                    "table_have.2000843":1, //3级邪神
+                    "table_have.2000847":1, //3级正神
+                },
+                "all":{
+                    "table_have.2000843":1, //3级邪神
+                    "table_have.2000848":1, //4级正神
+                },
+                "all":{
+                    "table_have.2000844":1, //4级邪神
+                    "table_have.2000847":1, //3级正神
+                }
+            }
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "rite":5004808  //神圣的会晤
+            }
+        }
+    ]
+} 

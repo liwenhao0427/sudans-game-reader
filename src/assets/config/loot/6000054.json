@@ -1,0 +1,26 @@
+{
+    "id": 6000054,
+    "name": "珠宝-2",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000436",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000440",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000444",
+            "type" : "card",
+            "weight" : 60
+        }
+    ]
+}

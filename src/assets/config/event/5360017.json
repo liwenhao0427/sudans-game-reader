@@ -1,0 +1,23 @@
+{
+    "id": 5360017,
+    "text": "一局游戏内侠名达到X点",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "counter":7100004
+    },
+    "condition":{
+        "counter.7100004>=":5
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210015": 1,
+            "debug": "一局游戏内侠民达到5点"
+        }
+    }
+    ]
+}

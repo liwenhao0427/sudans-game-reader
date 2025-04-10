@@ -1,0 +1,25 @@
+{
+    "id": 5300246,
+    "text": "获得禁忌的古书的幕后（废弃，获取方法另做）",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "hand_have.2000022":1 //手中有邪术师
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5300250,//开启购买古书的计时幕后
+                "success":{   
+                    "event_off":5300246
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "id": 5321149,
+    "text": "第四次帮助",     
+    "is_replay": 0, //是否可以重复触发
+     "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{
+
+        "have.2000680":1, //苏丹的猜忌
+        "have.2000173":1  //法德耶还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000554":1, //标志法德耶即将牺牲自己，无法触发新月了+1
+                "rite":5008157,
+                "success":{
+                    "event_off":5321149
+                }
+            }
+        }
+
+    ]
+}

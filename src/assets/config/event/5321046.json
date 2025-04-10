@@ -1,0 +1,27 @@
+{
+    "id": 5321046,
+    "text": "哲瓦德大敌事件",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [3,5]
+    },
+    "condition":{  //条件
+        "counter.7000191<":1, //没有因为国民的支持而关闭
+        "table_have.2000057":1, //哲瓦德闲置
+        "have.2000057.大敌":1  // 哲瓦德有大敌标签
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":2000781,
+                "card":2000782,
+                "loot":6001054
+            }
+        }
+
+    ]
+}

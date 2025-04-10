@@ -1,0 +1,34 @@
+{
+    "id": 5320172,
+    "text": "铁头声望事件--激活美味的救济日",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 2
+    },
+    "condition":{
+        "!rite":5006616, //如果当前场上没有救济日
+        "counter.7000239>=":1,  //正常完成救济日
+        "counter.7000251<":1, //铁头没堕落
+        "counter.7000240<":1,  //在救济日没有做坏事
+        "table_have.2000371.追随者":1, //小圆还是追随者，并且闲置
+        "table_have.2000369.追随者":1  //铁头还是追随者，并且闲置
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_off":5320156, //关闭幕后正在运转的救济日计时
+                "rite":5006617, //开启美味救济日
+                "prompt":{
+                    "id":"5320172_prompt_01",
+                    "text":"很快又要到施粥的日子，你还记得此前答应过，这次将让小圆和铁头来负责。",
+                    "icon":"common/position_yewai_1"
+                }
+            }
+        }
+
+    ]
+}

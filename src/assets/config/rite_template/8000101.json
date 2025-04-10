@@ -1,0 +1,88 @@
+{
+    "id": 8000101,
+    "name": "",
+    "tips": "",
+    "bg": "zz_01_bg",
+    "fg": "zz_01_fg",
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 210
+    },
+    "title_pos": {
+        "x": 1427,
+        "y": -227
+    },
+    "slots": {
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_1",
+            "pos": {
+                "x": 1268,
+                "y": 921
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_1",
+            "pos": {
+                "x": 1588,
+                "y": 921
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_1",
+            "pos": {
+                "x": 880,
+                "y": 874
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 352.0848
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_1",
+            "pos": {
+                "x": 1907,
+                "y": 920
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_1",
+            "pos": {
+                "x": 628,
+                "y": 921
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        }
+    }
+}

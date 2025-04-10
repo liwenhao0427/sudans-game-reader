@@ -1,0 +1,23 @@
+{
+    "id": 5360012,
+    "text": "持有金币数量达到50",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "card_born":2000029
+    },
+    "condition":{
+        "have.金币>=":50
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210010": 1,
+            "debug": "持有金币数量达到20"
+        }
+    }
+    ]
+}

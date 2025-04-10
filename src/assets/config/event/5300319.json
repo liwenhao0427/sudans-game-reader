@@ -1,0 +1,29 @@
+{
+    "id": 5300319,
+    "text": "探访监狱(首次)",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":9
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5001006,
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300319_01",
+                        "text": "消息：最近听闻有两位贵族惹毛了苏丹被关进了监狱。"
+                    },
+                    "event_off":5300085
+                }
+            }
+        }
+
+    ]
+}

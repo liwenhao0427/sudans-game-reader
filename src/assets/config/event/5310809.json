@@ -1,0 +1,23 @@
+{
+        "id": 5310809,
+        "text": "疯癫与幻觉",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": [3,7]
+        },
+        "condition":{
+            "table_have.疯狂":1,
+            "table_have.主角":1
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "loot":6000505  //疯癫与幻觉
+            }
+        }
+    ]
+} 

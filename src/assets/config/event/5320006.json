@@ -1,0 +1,29 @@
+{
+    "id": 5320006,
+    "text": "询问妻子的意见",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "hand_have.妻子":1,
+        "have.2000062":1, //法图娜存活
+        "have.2000063":1 //扎存活
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite": 5006505,
+                "prompt":{
+                    "id":"5320006_prompt_01",
+                    "text":"法图娜的提议一直在你脑海里盘旋着……现在你总算有机会、也有胆子和梅姬谈这件事了。",
+                    "icon":["cards/2000006"]
+                }
+            }
+        }
+    ]
+}

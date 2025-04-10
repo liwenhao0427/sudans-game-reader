@@ -1,0 +1,27 @@
+{
+    "id": 5320542,
+    "text": "突然的摊牌妻子的反应",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "rite_end": 5000002
+    },
+    "condition": { //条件
+        "table_have.妻子": 1 //妻子还活着
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "table.妻子-事件提示":1,
+                "counter+7000185":1, //本仪式已经触发过的计数
+                "rite":5006053,
+                "success": {
+                    "event_off": 5320542
+                }
+            }
+        }
+    ]
+}

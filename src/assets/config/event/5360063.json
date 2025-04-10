@@ -1,0 +1,22 @@
+{
+    "id": 5360063,
+    "text": "成就-无所不知-金预兆",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "have.2000417":1, //金预兆
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7200118": 1, //成就-无所不知-金预兆
+        }
+    }
+    ]
+}

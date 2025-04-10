@@ -1,0 +1,65 @@
+{
+    "id": 6000506,
+    "name": "怪物",
+    "repeat": 1,
+    "type": 2, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000493", //多眼智者
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000494", //暗影黑手
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000495", //蛇女
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000496", //空壳骑士
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000498", //利齿残骸
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000499", //扭曲残骸
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000501", //填充者
+            "type" : "card",
+            "weight" : 50
+        }
+    ]
+}
+

@@ -1,0 +1,116 @@
+{
+    "id": 8000519,
+    "name": "",
+    "tips": "",
+    "bg": "mj_05_bg",
+    "fg": "mj_05_fg",
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": -108,
+        "y": 9
+    },
+    "title_pos": {
+        "x": 1569,
+        "y": 26
+    },
+    "slots": {
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_3",
+            "pos": {
+                "x": 1486,
+                "y": 950
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_3",
+            "pos": {
+                "x": 1182,
+                "y": 872
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_3",
+            "pos": {
+                "x": 1790,
+                "y": 872
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_3",
+            "pos": {
+                "x": 806,
+                "y": 1006
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_3",
+            "pos": {
+                "x": 2152,
+                "y": 1006
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s6": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_3",
+            "pos": {
+                "x": 900,
+                "y": 1550
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s7": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_3",
+            "pos": {
+                "x": 522,
+                "y": 951
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        }
+    }
+}

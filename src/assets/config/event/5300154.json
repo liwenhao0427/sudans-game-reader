@@ -1,0 +1,29 @@
+{
+    "id": 5300154,
+    "text": "暗潮涌动2",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":3
+    },
+    "condition":{  //条件
+        "hand_have.2000365":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000664,
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300154_01",
+                        "text": "你和麦娜尔在远方发现了一座繁荣城市的消息已经广为人知，一束满含征服欲的目光也随之投向此处。"
+                    },
+                    "event_off":5300154
+                }
+            }
+        }
+    ]
+}

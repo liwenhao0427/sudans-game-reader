@@ -1,0 +1,22 @@
+{
+        "id": 5300317,
+        "text": "升华",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start": false, //默认本局开始时即启动
+        "start_trigger": true, 
+        "on":{   //时机
+            "round_begin_ba":1
+        },
+        "condition":{      
+            "table_have.2000082":1  
+        },
+        "settlement": [
+        {
+            "tips_resource":"",
+            "tips_text":"",
+            "action":{
+                "rite":5002034,
+            }
+        }
+    ]
+} 

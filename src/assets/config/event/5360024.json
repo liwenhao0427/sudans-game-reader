@@ -1,0 +1,24 @@
+{
+    "id": 5360024,
+    "text": "在30天内没有获得妻子的不满",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba": 1 
+    },
+    "condition":{
+        "round":30,
+        "counter.7000093=":0
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210022":1,
+            "debug": "在30天内没有获得妻子的不满"
+        }
+    }
+    ]
+}

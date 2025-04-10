@@ -1,0 +1,22 @@
+{
+    "id": 5360037,
+    "text": "掰断所有苏丹卡（废弃）",
+    "is_replay": 1, 
+    "auto_start": false, 
+    "start_trigger": false, 
+    "on":{   
+        "game_end":0 
+    },
+    "condition":{
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210037": 1,
+            "debug": "掰断所有苏丹卡"
+        }
+    }
+    ]
+}

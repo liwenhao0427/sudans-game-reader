@@ -1,0 +1,60 @@
+{
+    "id": 6000113,
+    "name": "正教打工仪式",
+    "repeat": 1,
+    "type": 2,   
+    "item": [
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "5004504",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "5004505",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "5004506",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "5004507",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "table_have.2001090>=":2,  //还有正教的乙太可以偷
+                "counter.7100004>=":9,  //侠名大于等于9
+                "counter.7100002<":10,   //恶名小于10,
+                "any":{
+                    "table_have.2000727":1,  //拥有三级正教思潮
+                    "table_have.2000728":1,  //拥有四级正教思潮
+                },
+                "counter.7000613>=":1   //监守自盗待补充玛希尔偷到counter
+            },
+            "num" : "1",
+            "id" : "5004508",
+            "type" : "rite",
+            "weight" : 60
+        }
+    ]
+}

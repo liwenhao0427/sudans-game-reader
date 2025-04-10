@@ -1,0 +1,33 @@
+{
+        "id": 5310636,
+        "text": "讨伐",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,  //立即触发
+        "on":{   
+            "round_begin_ba": 1, //1回合
+        },
+        "condition":{
+           
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "no_prompt":{
+                    "card":2001127,  //生成buff卡
+                },
+                "rite":5010058,  //开启讨伐
+                "prompt":{
+                    "id":"5310636_prompt_01",
+                    "text":"这是降神前最后一道关卡了",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5310636  //关闭自己
+                }
+            }
+        }
+    ]
+} 

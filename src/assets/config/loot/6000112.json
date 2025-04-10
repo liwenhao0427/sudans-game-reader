@@ -1,0 +1,53 @@
+{
+    "id": 6000112,
+    "name": "贾丽拉的游戏的随机仪式",
+    "repeat": 1,
+    "type": 2,   
+    "item": [
+        {
+            "condition":{
+                "table_have.妻子":1  //妻子还活着
+            },
+            "num" : "1",
+            "id" : "5000857",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "table_have.2000082":1  //夏玛还活着
+            },
+            "num" : "1",
+            "id" : "5000858",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "table_have.2000080":1  //朱娜还活着
+            },
+            "num" : "1",
+            "id" : "5000859",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "table_have.2000081":1  //贾丽拉还活着
+            },
+            "num" : "1",
+            "id" : "5000860",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "table_have.2000312":1  //奈费勒还活着
+            },
+            "num" : "1",
+            "id" : "5000861",
+            "type" : "rite",
+            "weight" : 60
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "id": 5321095,
+    "text": "妻子的偏好",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+         "have.妻子":1,  //妻子活着
+         "hand_have.2000083":1,   //存在妻子的不满
+         "hand_have.2000014":1,  //厨子在手牌
+         "counter.7000380>=":1  //需要建立舍馆
+        
+    },
+    "settlement": [    //效果 
+        {
+            "action":{
+                "rite": 5008089,  //妻子的偏好
+                "success":{
+                    "event_off":5321095 //关闭自检
+                }
+         
+            }
+        }
+
+    ]
+}

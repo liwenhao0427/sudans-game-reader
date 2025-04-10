@@ -1,0 +1,27 @@
+{
+    "id": 5360005,
+    "text": "累计消除X张杀戮卡",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "card_clean": [  //消除杀戮苏丹卡
+            2010001,
+            2010002,
+            2010003,
+            2010004
+        ]
+    },
+    "condition":{  
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter+7210003": 1,
+            "debug": "消除1张杀戮苏丹卡"
+        }
+    }
+    ]
+}

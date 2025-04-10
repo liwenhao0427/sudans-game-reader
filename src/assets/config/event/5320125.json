@@ -1,0 +1,22 @@
+{
+    "id": 5320125,
+    "text": "娜依拉声望事件--死亡计数",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean": 2000022 //拜铃耶被移除时
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000213": 1 //死亡计数
+            }
+        }
+
+    ]
+}

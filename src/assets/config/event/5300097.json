@@ -1,0 +1,37 @@
+{
+    "id": 5300097,
+    "text": "第3天生成妓院",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 //每回合刷一次
+    },
+    "condition":{  //条件
+        "counter.7000060>=":3
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5300012, //激活妓院
+                //"event_on":5300013, //激活妓院
+                //"event_on":5300014, //激活妓院
+                //"event_on":5300015, //激活妓院
+                //"event_on":5300016, //激活妓院
+                //"event_on":5300017, //激活妓院
+                //"event_on":5300018, //激活妓院
+                //"event_on":5300038, //激活神秘商人
+                "success":{
+                    "prompt":{
+                        "id": "5300097_prompt_01",
+                        "text":"传单：我们这里有最好的姑娘，欢迎来玩啊！----欢愉之馆",
+                        "icon":"cards/2000792"
+                    }
+                }
+            }
+        }
+
+    ]
+}

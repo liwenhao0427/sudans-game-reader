@@ -1,0 +1,26 @@
+{
+    "id": 5300336,
+    "text": "记录玩家是否有战斗力超过4的人",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "hand_have.战斗>=":4 
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000085":1,
+                "success":{
+                    "event_off":5300336
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "id": 5320069,
+    "text": "罪恶滔天的俺寻思提示",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "hand_have.主角":1, //主角在手上
+        "counter.7100002>=":20, //恶名大于等于20
+        "counter.7100005>=":3 //灵视大于等于3       
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "hand_pop.5320069_01.主角": "你心中的恶念已抑制不住。放入<color=white><size=172%>俺寻思</size></color>。",
+                "counter+7000162":1,
+                "table.主角+事件提示":1
+            }
+        }
+
+    ]
+}

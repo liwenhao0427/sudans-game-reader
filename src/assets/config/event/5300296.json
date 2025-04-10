@@ -1,0 +1,33 @@
+{
+    "id": 5300296,
+    "text": "你的游戏前置",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 2 //每回合开始
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                //"clean.rite":5001001,  //关闭权力的游戏
+                //"clean.rite":5001004, //关闭群龙无首以免多开
+                "clean.rite":5002003,
+                "clean.rite":5002004,
+                "clean.rite":5002005,
+                "clean.rite":5002035, //关闭妓院
+                "event_off":5300012 ,  //关闭妓院自动开启
+                //"table.2000024=上朝":0,  
+                //"rite":5001004,  //开启群龙无首 
+                "rite":5000798,  //开启你的游戏
+                "event_off":5300296 //关闭自己
+
+            }
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+        "id": 5310456,
+        "text": "结局-消除苏丹卡",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+	    "round_begin_ba": 1, //回合结算开始时
+            "rite_end": 1, //任意仪式关闭时
+            "close_wizard":1  //关闭魔法师界面时
+        },
+        "condition":{
+            "!have.sudan":1, //没有苏丹卡了
+            "sudan_pool_have.sudan<=":0, //女术士牌库里已经无牌了
+        },
+        "settlement": [    
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{   
+                    "global_counter=7210037": 1, //成就-游戏没有结束
+                    "no_prompt":{
+                        "clean.rite":1, //移除所有仪式
+                        "event_off":1, //关闭所有幕后  
+                        "delay_off":1, //关闭所哟delay
+                        "total.2001019+冻结":1, //冻结莎姬的信物
+                        "total.sudan+冻结":1, //冻结苏丹卡
+                        "total.2000680+冻结":1, //冻结猜忌
+                        "total.2000024=上朝":0,
+                        "enable_auto_gen_sudan_card": true, //禁用自动生成抽卡
+                    },
+                    "rite":5010032, //苏丹的奖赏
+                    "prompt":{
+                        "id":"prompt_5310456_01",
+                        "text":"因为你已经完成了这个游戏，苏丹打算公开嘉奖你。"
+                    },
+                    "event_on":5310455  //女术士的邀请
+                }
+            }
+    ]
+} 
+
+
+
+

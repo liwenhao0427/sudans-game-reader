@@ -1,0 +1,32 @@
+{
+    "id": 5321017,
+    "text": "盖斯声望事件激活提示",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "hand_have.2000056":1, //盖斯在手牌区
+        "any":{
+            "all":{
+                "counter.7000256<":1,   //本体没有触发过
+                "counter.7100003>=":9, //权势2
+                "counter.7000281>=":1  //触发过哲瓦德的来访(哲瓦德出狱)
+                
+            }
+        }
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "hand_pop.5321017.2000056": "盖斯似乎有话想对你说，将其放入<color=white><size=172%>俺寻思</size></color>。",
+                "table.2000056+事件提示":1
+            }
+        }
+
+    ]
+}

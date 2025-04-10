@@ -1,0 +1,44 @@
+{
+    "id": 6000026,
+    "name": "购物狂掉落",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000262",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000263",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000264",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000265",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000266",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000267",
+            "type" : "card",
+            "weight" : 60
+        }
+    ]
+}

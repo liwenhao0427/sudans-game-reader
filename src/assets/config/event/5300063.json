@@ -1,0 +1,27 @@
+{
+    "id": 5300063,
+    "text": "失去",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "!rite":5000567            //场上没有失去
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000567, //开启失去
+                "success":{
+                    "event_off":5300063  //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

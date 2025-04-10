@@ -1,0 +1,21 @@
+{
+        "id": 5310843,
+        "text": "心灵之战-16",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": [2,3]
+        },
+        "condition":{
+            "counter.7100005>=":60
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+            }
+        }
+    ]
+} 

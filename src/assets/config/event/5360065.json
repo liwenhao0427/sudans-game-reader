@@ -1,0 +1,22 @@
+{
+    "id": 5360065,
+    "text": "成就-无所不知-金秘氛",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "have.2000422":1, //金秘氛
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7200120": 1, //成就-无所不知-金秘氛
+        }
+    }
+    ]
+}

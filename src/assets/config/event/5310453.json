@@ -1,0 +1,35 @@
+{
+        "id": 5310453,
+        "text": "结局-消除苏丹卡",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 1, //任意仪式关闭时
+            "round_begin_ba": 1, //回合结算开始时
+            "close_wizard":1  //关闭魔法师界面时
+        },
+        "condition":{
+            "have.sudan=":1, //手上有且只有1张苏丹卡
+            "hand_have.sudan=":1, //手上有且只有1张苏丹卡
+            "sudan_pool_have.sudan<=":0, //女术士牌库里已经无牌了
+            "have.主角.邪恶化身":1
+        },
+        "settlement": [    
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{   
+                    "rite":5010030, //深渊的邀请
+                    "prompt":{
+                        "id":"prompt_5310453_01",
+                        "text":"苏丹的游戏就快结束了……但你不止这一条选择，还记得么？那黑暗的存在们曾经为你预约了一个位置——现在，这最后的苏丹卡，就是罪合适的入场券。"
+                    },
+                }
+            }
+    ]
+} 
+
+
+
+

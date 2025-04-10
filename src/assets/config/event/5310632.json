@@ -1,0 +1,32 @@
+{
+        "id": 5310632,
+        "text": "伊曼的离开",
+        "is_replay": 1, 
+        "auto_start": false, 
+        "start_trigger": false,  //立即触发
+        "on":{   
+            "round_begin_ba": 1, //1回合
+        },
+        "condition":{
+            "table_have.2000021":1,  //有伊曼,
+            "!table_have.2000021.密教徒":1  //伊曼没有密教徒
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "table.2000021=追随者":0,  //移除伊曼追随者tag
+                "counter+7000572":1, //和正教决裂
+                "prompt":{
+                    "id":"5310632_prompt_01",
+                    "text":"你哺育了黑暗之卵——这是一个不可逆的选择。现在，黑暗之主的种子已经在这个世界扎根……伊曼非常失望，为了你，也为了这个世界。",
+                    "icon":"cards/2000021"
+                },
+                "success":{
+                    "event_off":5310632  //关闭自己
+                }
+            }
+        }
+    ]
+} 

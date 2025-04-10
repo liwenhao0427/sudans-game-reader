@@ -1,0 +1,24 @@
+{
+    "id": 5321174,
+    "text": "重启拼凑真相",     
+    "is_replay": 0, //是否可以重复触发
+     "auto_start": false,
+    "start_trigger":true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{  //条件
+
+    "counter.7000603<":1   //拼凑真相关闭计数器
+        
+    },
+    "settlement": [    //效果 
+    {
+        "action":{
+            "rite":5008150,  //开启拼凑真相
+            "event_off": 5321174
+        }
+    }
+
+    ]
+}

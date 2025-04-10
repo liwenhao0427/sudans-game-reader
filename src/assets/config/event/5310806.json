@@ -1,0 +1,22 @@
+{
+        "id": 5310806,
+        "text": "神的启示",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": 1
+        },
+        "condition":{
+            "table_have.2000846.正神的连接>=":3,
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "rite":5004806  //神的启示
+            }
+        }
+    ]
+} 

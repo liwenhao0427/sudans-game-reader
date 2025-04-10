@@ -1,0 +1,25 @@
+{
+    "id": 5321131,
+    "text": "唯一的牺牲者",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "prompt":{
+                    "id":"5321131_prompt_01",
+                    "text":"之前在酒会上高谈阔论的老佣兵死了，他的阳具被割下来，塞在了他的嘴里。\n大家都大概能猜出来他是因何而死的，战战兢兢地又过了很久也没有出现其他受害者，这件事就慢慢地被人们淡忘。"
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "id": 5320181,
+    "text": "小圆声望事件--小圆失踪",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "table_have.2000371.追随者":1 //小圆闲置的时候
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.clean.2000371": 1, //小圆被移除
+                "prompt":{
+                    "id":"5320181_prompt_01",
+                    "text":"这一天，时间已经很晚，有几名奴隶匆匆找到梅姬，梅姬又忧心地告诉你，今天出门采买的小圆没有按时回来。你连忙派人去找，最后也没能把人找到。\n你失去了这名奴隶。",
+                    "icon":"cards/2000371"
+                }
+            }
+        }
+
+    ]
+}

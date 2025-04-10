@@ -1,0 +1,29 @@
+{
+    "id": 5300250,
+    "text": "获得禁忌的古书的幕后（废弃）",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [8,10] //随机8~10回合
+    },
+    "condition":{  //条件
+        "hand_have.2000022":1 //手中有邪术师
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000741,//开启购买古书的仪式
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300250_01",
+                        "text": "又是一个夜晚，拜铃耶告诉你，书店老板收藏有一本禁忌的古书，希望你可以获得它。"
+                    },
+                    "event_off":5300250
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,2741 @@
+{
+    "3300001": {
+        "id": 3300001,
+        "name": "坠落的初端",
+        "text": "讲述了一名臣子终结了1场苏丹的游戏的故事。",
+        "favour_text": "以生命为代价，又或以灵魂为代价。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "完成1局苏丹的游戏",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7220001>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300002": {
+        "id": 3300002,
+        "name": "终结的希望",
+        "text": "讲述了一名臣子终结了5场苏丹的游戏的故事。",
+        "favour_text": "你总希望能得到更好的结果，就像沙漠中的旅行者渴望着绿洲。",
+        "upgrade_point": 1,
+        "pre": 3200002,
+        "target": [
+            {
+                "text": "完成5局苏丹的游戏",
+                "show_counter": "global_counter.7220001",
+                "condition": {
+                    "global_counter.7220001>=":5
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300003": {
+        "id": 3300003,
+        "name": "轮回之人",
+        "text": "讲述了一名臣子终结了20场苏丹的游戏的故事。",
+        "favour_text": "你已经乐在其中了吗？……你可还记得自己原本是谁？",
+        "upgrade_point": 1,
+        "pre": 3200003,
+        "target": [
+            {
+                "text": "完成20局苏丹的游戏",
+                "show_counter": "global_counter.7220001",
+                "condition": {
+                    "global_counter.7220001>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300004": {
+        "id": 3300004,
+        "name": "幸存者",
+        "text": "讲述了一名臣子在苏丹的游戏中幸运地存活下来的故事。",
+        "favour_text": "恭喜你，幸运的家伙，你活下来了。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在苏丹的游戏中取得1次胜利",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7220002>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300005": {
+        "id": 3300005,
+        "name": "挑战者",
+        "text": "讲述了一名臣子在苏丹的游戏中熟练地存活下来的故事。",
+        "favour_text": "勇敢的家伙，竟敢屡次挑战黑色的命运？",
+        "upgrade_point": 1,
+        "pre": 3200005,
+        "target": [
+            {
+                "text": "在苏丹的游戏中取得2次胜利",
+                "show_counter": "global_counter.7220002",
+                "condition": {
+                    "global_counter.7220002>=":2
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300006": {
+        "id": 3300006,
+        "name": "胜利者",
+        "text": "讲述了一名臣子在苏丹的游戏中游刃有余地取得了数度胜利的故事。",
+        "favour_text": "你现在玩的比苏丹还好，但这能算是夸奖吗？",
+        "upgrade_point": 1,
+        "pre": 3200006,
+        "target": [
+            {
+                "text": "在苏丹的游戏中取得5次胜利",
+                "show_counter": "global_counter.7220002",
+                "condition": {
+                    "global_counter.7220002>=":5
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300007": {
+        "id": 3300007,
+        "name": "命运的启示·一",
+        "text": "讲述了一名臣子从无穷的命运中汲取力量，继续前行的故事。",
+        "favour_text": "接受祂的慷慨馈赠，这会让你的游戏变得更简单……",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在命运商店中进行1次交换",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7220003>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300008": {
+        "id": 3300008,
+        "name": "命运的启示·二",
+        "text": "讲述了一名臣子从无穷的命运中汲取力量，继续前行的故事。",
+        "favour_text": "接受祂的慷慨馈赠，这会让你的游戏变得更简单……",
+        "upgrade_point": 1,
+        "pre": 3200008,
+        "target": [
+            {
+                "text": "在命运商店中进行5次交换",
+                "show_counter": "global_counter.7220003",
+                "condition": {
+                    "global_counter.7220003>=":5
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300009": {
+        "id": 3300009,
+        "name": "命运的启示·三",
+        "text": "讲述了一名臣子从无穷的命运中汲取力量，继续前行的故事。",
+        "favour_text": "接受祂的慷慨馈赠，这会让你的游戏变得更简单……",
+        "upgrade_point": 1,
+        "pre": 3200009,
+        "target": [
+            {
+                "text": "在命运商店中进行20次交换",
+                "show_counter": "global_counter.7220003",
+                "condition": {
+                    "global_counter.7220003>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300010": {
+        "id": 3300010,
+        "name": "亘古回音·一",
+        "text": "讲述了一名挑战命运的勇士，其所言所行，都在冥冥之中与星辰们遥相呼应的故事。",
+        "favour_text": "你的劫难，你的机缘，于创世之初便已于命运之书中写就。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计获得20点命运点",
+                "show_counter": "global_counter.7220004",
+                "condition": {
+                    "global_counter.7220004>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300011": {
+        "id": 3300011,
+        "name": "亘古回音·二",
+        "text": "讲述了一名挑战命运的勇士，其所言所行，都在冥冥之中与星辰们遥相呼应的故事。",
+        "favour_text": "你的劫难，你的机缘，于创世之初便已于命运之书中写就。",
+        "upgrade_point": 1,
+        "pre": 3200011,
+        "target": [
+            {
+                "text": "累计获得100点命运点",
+                "show_counter": "global_counter.7220004",
+                "condition": {
+                    "global_counter.7220004>=":100
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300012": {
+        "id": 3300012,
+        "name": "亘古回音·三",
+        "text": "讲述了一名挑战命运的勇士，其所言所行，都在冥冥之中与星辰们遥相呼应的故事。",
+        "favour_text": "你的劫难，你的机缘，于创世之初便已于命运之书中写就。",
+        "upgrade_point": 1,
+        "pre": 3200012,
+        "target": [
+            {
+                "text": "累计获得300点命运点",
+                "show_counter": "global_counter.7220004",
+                "condition": {
+                    "global_counter.7220004>=":300
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300013": {
+        "id": 3300013,
+        "name": "违心之事",
+        "text": "讲述一名大臣为了完成苏丹卡的任务，做出许多违心之事、在愧疚中挣扎煎熬的故事。",
+        "favour_text": "这不是你的错。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计折断30张任意苏丹卡",
+                "show_counter": "global_counter.7210001",
+                "condition": {
+                    "global_counter.7210001>=":30
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300014": {
+        "id": 3300014,
+        "name": "不甘之事",
+        "text": "讲述一名大臣为了完成苏丹卡的任务，纵使心有不甘，亦忍辱负重，暗中筹谋的故事。",
+        "favour_text": "告诉他们，他们的牺牲是有价值的，这样你会好受一点吗？",
+        "upgrade_point": 1,
+        "pre": 3200014,
+        "target": [
+            {
+                "text": "累计折断100张任意苏丹卡",
+                "show_counter": "global_counter.7210001",
+                "condition": {
+                    "global_counter.7210001>=":100
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300015": {
+        "id": 3300015,
+        "name": "无尽欢愉",
+        "text": "讲述一名大臣在不属于自己的权力、爱欲、金钱和权柄中追逐着无尽的欢愉，慢慢忘记了自我的故事。",
+        "favour_text": "没错，这就是这场游戏真正的玩法。",
+        "upgrade_point": 1,
+        "pre": 3200015,
+        "target": [
+            {
+                "text": "累计折断200张任意苏丹卡",
+                "show_counter": "global_counter.7210001",
+                "condition": {
+                    "global_counter.7210001>=":200
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300016": {
+        "id": 3300016,
+        "name": "藉藉无名",
+        "text": "讲述了一位藉藉无名的大臣为了折断征服卡，第一次征服他地的故事。",
+        "favour_text": "倘若你追求荣誉，那便去征服吧！",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "折断1张征服卡",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210002>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300017": {
+        "id": 3300017,
+        "name": "赫赫之功",
+        "text": "讲述了一位远近闻名的大臣为了折断征服卡，立下赫赫战功的故事。",
+        "favour_text": "毁灭是征服的另一个名字。",
+        "upgrade_point": 1,
+        "pre": 3200017,
+        "target": [
+            {
+                "text": "累计折断20张征服卡",
+                "show_counter": "global_counter.7210002",
+                "condition": {
+                    "global_counter.7210002>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300018": {
+        "id": 3300018,
+        "name": "我见，我征服",
+        "text": "讲述了一位声名煊赫的大臣将自己的旗帜插遍版图的故事。",
+        "favour_text": "旗帜之下，埋葬了无数发不出的呼号。世界仅剩下的沉默，是你冕冠上最醒目的宝石。",
+        "upgrade_point": 1,
+        "pre": 3200018,
+        "target": [
+            {
+                "text": "累计折断50张征服卡",
+                "show_counter": "global_counter.7210002",
+                "condition": {
+                    "global_counter.7210002>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300019": {
+        "id": 3300019,
+        "name": "第一滴血",
+        "text": "讲述了一名大臣为了保住自己而夺取他人生命的故事。",
+        "favour_text": "和血一起滴落的，会有泪水么？",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "折断1张杀戮卡",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210003>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300020": {
+        "id": 3300020,
+        "name": "血色蔓延",
+        "text": "讲述了一名大臣为了完成杀戮任务，双手沾满再也洗不净的鲜血的故事。",
+        "favour_text": "再多一点，再多一点，这美丽的红色，会为你铺就通往胜利的道路！",
+        "upgrade_point": 1,
+        "pre": 3200020,
+        "target": [
+            {
+                "text": "累计折断20张杀戮卡",
+                "show_counter": "global_counter.7210003",
+                "condition": {
+                    "global_counter.7210003>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300021": {
+        "id": 3300021,
+        "name": "欣狂之血",
+        "text": "讲述了一名真正的屠夫，在鲜血中找到了无可比拟的欣狂快意的故事。",
+        "favour_text": "若不剖开累赘的肉身，如何触摸蕴纳其中的灵魂呢。",
+        "upgrade_point": 1,
+        "pre": 3200021,
+        "target": [
+            {
+                "text": "累计折断50张杀戮卡",
+                "show_counter": "global_counter.7210003",
+                "condition": {
+                    "global_counter.7210003>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300022": {
+        "id": 3300022,
+        "name": "依稀慰藉",
+        "text": "讲述了一个男人为了保住性命，不得不与人交欢的荒诞故事。",
+        "favour_text": "与爱与欲，都未必有关。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "折断1张纵欲卡",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210004>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300023": {
+        "id": 3300023,
+        "name": "温柔乡",
+        "text": "讲述了一个男人以苏丹卡为借口流连于温柔乡的故事。",
+        "favour_text": "不要相信美丽女人的眼泪，尤其当它们是被你自己的谎言逗出来的时候。",
+        "upgrade_point": 1,
+        "pre": 3200023,
+        "target": [
+            {
+                "text": "累计折断20张纵欲卡",
+                "show_counter": "global_counter.7210004",
+                "condition": {
+                    "global_counter.7210004>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300024": {
+        "id": 3300024,
+        "name": "风流客",
+        "text": "讲述了一名风流客肆意采撷男人和女人的欢心与激情，统治了这座城市的每一个夜晚的故事。",
+        "favour_text": "片刻欢愉，足以抵消那永恒之苦。",
+        "upgrade_point": 1,
+        "pre": 3200024,
+        "target": [
+            {
+                "text": "累计折断50张纵欲卡",
+                "show_counter": "global_counter.7210004",
+                "condition": {
+                    "global_counter.7210004>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300025": {
+        "id": 3300025,
+        "name": "慨然赠予",
+        "text": "讲述了一名大臣为了满足奢靡卡，不得不将自己辛苦攒下的钱财付与毫无意义之事的故事。",
+        "favour_text": "善良是世间最昂贵的东西。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "折断1张奢靡卡",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210005>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300026": {
+        "id": 3300026,
+        "name": "家财尽散",
+        "text": "讲述了一名大臣即使是疯狂敛财却也永远无法摆脱奢靡卡的诅咒的故事。",
+        "favour_text": "因为你知道，你钱袋里的金币最终都不属于你。",
+        "upgrade_point": 1,
+        "pre": 3200026,
+        "target": [
+            {
+                "text": "累计折断20张奢靡卡",
+                "show_counter": "global_counter.7210005",
+                "condition": {
+                    "global_counter.7210005>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300027": {
+        "id": 3300027,
+        "name": "吝啬鬼",
+        "text": "讲述了一名富豪广聚天下财富，却吝啬于施舍哪怕一枚金币的故事。",
+        "favour_text": "不能怪我不愿意施舍给乞丐一顿饭钱，只是因为他头上没有能用奢靡卡的槽位啊！",
+        "upgrade_point": 1,
+        "pre": 3200027,
+        "target": [
+            {
+                "text": "累计折断50张奢靡卡",
+                "show_counter": "global_counter.7210005",
+                "condition": {
+                    "global_counter.7210005>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300028": {
+        "id": 3300028,
+        "name": "遥远乐土",
+        "text": "讲述了一名大臣瞒过君王的眼目，带着心爱之人逃离这个残酷国度的故事。",
+        "favour_text": "“真希望能快些攒够钱，离开这个吃人的地方……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "完成【逃离苏丹的游戏】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200100>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000006"
+    },
+    "3300029": {
+        "id": 3300029,
+        "name": "游戏没有结束",
+        "text": "讲述了一名大臣历经种种磨难，失去种种珍贵之物，终于完成了所有苏丹卡要他做的事的故事。",
+        "favour_text": "“只需要轻轻晃晃这个口袋——看，这些卡片已然恢复如初。”\n“好啊，看来又可以继续玩了！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "通过折断所有苏丹卡获得游戏胜利",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210037>=":1
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300030": {
+        "id": 3300030,
+        "name": "新的旗帜",
+        "text": "讲述了一名大臣推翻不义之王的暴政，建立起一个崭新国度的故事。",
+        "favour_text": "“只有你有希望做成这件事——利用苏丹嫁接给你的权力。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "成功推翻苏丹的统治",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200200>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000312"
+    },
+    "3300031": {
+        "id": 3300031,
+        "name": "真正的解脱",
+        "text": "讲述了一名智者以特殊的手段杀死神秘的女术士，彻底终结了这场游戏的故事。",
+        "favour_text": "“再也不会有下一个玩家了……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "成功杀死神秘术师",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200201>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300032": {
+        "id": 3300032,
+        "name": "诸神降临",
+        "text": "讲述了一名信徒聆听古老神祇的耳语，举行盛大的仪式，召请其降临于世的故事。",
+        "favour_text": "“我们所信奉的……究竟是什么？”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "成功召唤神祇降临",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200202>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300034": {
+        "id": 3300034,
+        "name": "你想怎么死",
+        "text": "讲述了一名大臣没有屈服于从天而降的灾祸，正相反，他想出了很多种终结游戏的途径，并且将之一一实现的故事。",
+        "favour_text": "“这是属于我的游戏！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "遥远乐土",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200100>=":1
+                }
+            },
+            {
+                "text": "游戏没有结束",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210037>=":1
+                }
+            },
+            {
+                "text": "新的旗帜",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200200>=":1
+                }
+            },
+            {
+                "text": "真正的解脱",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200201>=":1
+                }
+            },
+            {
+                "text": "诸神降临",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200202>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300035": {
+        "id": 3300035,
+        "name": "希望尚存",
+        "text": "讲述了一名大臣在处刑日到来的最后关头保住了自己的脑袋的故事，希望并未磨灭。",
+        "favour_text": "这个游戏没有你想象的难，不是吗？",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在一局游戏中撑过7天",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210006>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300036": {
+        "id": 3300036,
+        "name": "熟练应对",
+        "text": "讲述了一名大臣被苏丹卡的任务折磨到麻木，却悲哀的发现自己对这游戏愈发熟练的故事。",
+        "favour_text": "月晦月明，永无止境……",
+        "upgrade_point": 1,
+        "pre": 3200037,
+        "target": [
+            {
+                "text": "在一局游戏中撑过50天",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210007>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300037": {
+        "id": 3300037,
+        "name": "美好幻想",
+        "text": "讲述了一名大臣每日细数剩余的卡片，幻想着摆脱这场游戏后的生活，以此支撑下去的故事。",
+        "favour_text": "可是，怎样才算是好的结局呢？",
+        "upgrade_point": 1,
+        "pre": 3200038,
+        "target": [
+            {
+                "text": "在一局游戏中撑过100天",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210008>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300038": {
+        "id": 3300038,
+        "name": "沙中绿洲",
+        "text": "讲述了一对眷侣于困境中相互依偎，即使面临种种压力和，依然不肯彼此背叛的故事。",
+        "favour_text": "“有你在我身畔欢歌\n荒原啊，便是天堂”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在一局游戏中连续30天不曾得到妻子的不满",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210022>=":1
+                }
+            }
+        ],
+        "icon":"cards/01_06"
+    },
+    "3300039": {
+        "id": 3300039,
+        "name": "沉入梦中",
+        "text": "讲述了一个妻子不满于丈夫诸般荒淫行径，最终将他毒杀的故事。",
+        "favour_text": "“相信男人已是不智之举，更何况，您还相信着爱情呐？”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "死于忍无可忍的妻子之手",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200002>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000006"
+    },
+    "3300040": {
+        "id": 3300040,
+        "name": "处刑日",
+        "text": "讲述了一名大臣因无法及时完成苏丹卡而被处死的故事。",
+        "favour_text": "“无聊透顶的家伙，下一个该选谁来玩呢？”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "死于未能及时折断苏丹卡",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210023>=":1
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300041": {
+        "id": 3300041,
+        "name": "蔷薇花下死",
+        "text": "讲述了一名色胆包天的大臣竟敢在宫廷向苏丹索要王妃共度一夜欢愉，又因其无能而付出惨痛代价的故事。",
+        "favour_text": "“陛下！我请求您立刻处死这个胆敢垂涎您所有之物的家伙，最少最少，也得挖了他那双四处乱看、活泛过头的眼珠！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "死于向苏丹索要王妃，却未能完成他提出的任务",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200108>=":1
+                }
+            }
+        ],
+        "icon":"cards/24_09"
+    },
+    "3300042": {
+        "id": 3300042,
+        "name": "冤冤相报",
+        "text": "讲述了一个作恶多端的大臣，最终以生命偿还罪孽的故事。",
+        "favour_text": "“狗贼！你的死期到了！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "死于刺杀",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200204>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300043": {
+        "id": 3300043,
+        "name": "不自量力",
+        "text": "讲述了一名不自量力的大臣主动挑起宫廷决斗，却战败身陨的故事。",
+        "favour_text": "“哼，不过如此。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "死于主动发起的宫廷决斗",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200110>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300044": {
+        "id": 3300044,
+        "name": "小有所得",
+        "text": "讲述了一名大臣通过勤勉努力，小有所得的故事。",
+        "favour_text": "没有钱是万万不能的。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "持有20枚金币",
+                "show_counter": "counter.7000105",
+                "condition": {
+                    "global_counter.7210009>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300045": {
+        "id": 3300045,
+        "name": "积蓄殷实",
+        "text": "讲述了一名大臣凭借聪明才智，积蓄了丰厚家底的故事。",
+        "favour_text": "金币会互相呼唤，知道怎么赚一枚，就知道怎么赚十枚。",
+        "upgrade_point": 1,
+        "pre": 3200048,
+        "target": [
+            {
+                "text": "持有50枚金币",
+                "show_counter": "counter.7000105",
+                "condition": {
+                    "global_counter.7210010>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300046": {
+        "id": 3300046,
+        "name": "富可敌国",
+        "text": "讲述了一名大臣以其权势和手腕，收获了无可比拟的财富的故事。",
+        "favour_text": "一百，两百？这都不过是数字而已……",
+        "upgrade_point": 1,
+        "pre": 3200049,
+        "target": [
+            {
+                "text": "持有100枚金币",
+                "show_counter": "counter.7000105",
+                "condition": {
+                    "global_counter.7210011>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300047": {
+        "id": 3300047,
+        "name": "暴君的末日",
+        "text": "讲述了如蝼蚁般的人们凝聚出雄狮般的怒吼的故事。",
+        "favour_text": "“唯有解决灾难的源头……方能解此痼疾。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "持有思潮【弑君的计划】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200111>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300048": {
+        "id": 3300048,
+        "name": "新世界",
+        "text": "讲述了一名异教徒获得黑暗的启示，筹划着迎接新世界降临的故事。",
+        "favour_text": "“让所有一切重归黑暗的混沌，让我们重新融为一体……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "持有思潮【新世界】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200112>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300049": {
+        "id": 3300049,
+        "name": "完美世界",
+        "text": "讲述了一名信徒获得神的启示，筹划着修正所有错误，令世界重归于完美的故事。",
+        "favour_text": "“净化……修正…………\n…………………………”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "持有思潮【完美世界】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200205>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300050": {
+        "id": 3300050,
+        "name": "无所不知",
+        "text": "讲述了一名大臣构筑起强大的情报网络，掌控了这座城市方方面面的隐秘传闻的故事。",
+        "favour_text": "“听我说，你老婆没出轨，她跟那个小白脸彻夜长谈的时候什么别的都没干，一直在聊诗词、数学和哲学……你要不要考虑多读点书？”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "金色秘密",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200114>=":1
+                }
+            },
+            {
+                "text": "金色洞察",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200115>=":1
+                }
+            },
+            {
+                "text": "金色机遇",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200116>=":1
+                }
+            },
+            {
+                "text": "金色内幕",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200117>=":1
+                }
+            },
+            {
+                "text": "金色预兆",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200118>=":1
+                }
+            },
+            {
+                "text": "金色战术",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200119>=":1
+                }
+            },
+            {
+                "text": "金色秘氛",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200120>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300051": {
+        "id": 3300051,
+        "name": "善人",
+        "text": "讲述了一个男人因其善良而美名远扬的故事。",
+        "favour_text": "世界上最无聊的家伙。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内善名达到5点",
+                "show_counter": "global_counter.7210012",
+                "condition": {
+                    "global_counter.7210012>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300052": {
+        "id": 3300052,
+        "name": "信者",
+        "text": "讲述了一个男人因其善良而美名远扬、乃至追随者甚广的故事。",
+        "favour_text": "竟然还能更无聊？",
+        "upgrade_point": 1,
+        "pre": 3200054,
+        "target": [
+            {
+                "text": "一局游戏内善名达到10点",
+                "show_counter": "global_counter.7210038",
+                "condition": {
+                    "global_counter.7210038>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300053": {
+        "id": 3300053,
+        "name": "圣徒再世",
+        "text": "讲述了一个男人因其善良而美名远扬，被人们赞为圣徒再世的故事。",
+        "favour_text": "笑话。",
+        "upgrade_point": 1,
+        "pre": 3200055,
+        "target": [
+            {
+                "text": "一局游戏内善名达到20点",
+                "show_counter": "global_counter.7210039",
+                "condition": {
+                    "global_counter.7210039>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300054": {
+        "id": 3300054,
+        "name": "恶人",
+        "text": "讲述了一个男人因其恶行而臭名昭著的故事。",
+        "favour_text": "血和背叛……多么甘美的气息。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内恶名达到5点",
+                "show_counter": "global_counter.7210013",
+                "condition": {
+                    "global_counter.7210013>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300055": {
+        "id": 3300055,
+        "name": "暴徒",
+        "text": "讲述了一个男人因其恶行而臭名昭著的故事。",
+        "favour_text": "再多来一些……你还可以更坏！",
+        "upgrade_point": 1,
+        "pre": 3200057,
+        "target": [
+            {
+                "text": "一局游戏内恶名达到10点",
+                "show_counter": "global_counter.7210040",
+                "condition": {
+                    "global_counter.7210040>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300056": {
+        "id": 3300056,
+        "name": "凶神恶煞",
+        "text": "讲述了一个男人因其恶行而臭名昭著，被人们斥作魔鬼的故事。",
+        "favour_text": "摆脱那些无谓的束缚，看呀，你终于成为了你自己。",
+        "upgrade_point": 1,
+        "pre": 3200058,
+        "target": [
+            {
+                "text": "一局游戏内恶名达到20点",
+                "show_counter": "global_counter.7210041",
+                "condition": {
+                    "global_counter.7210041>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300057": {
+        "id": 3300057,
+        "name": "名流",
+        "text": "讲述了一名大臣因其政治头脑而跻身名流的故事。",
+        "favour_text": "一旦得到，便永远不会想失去的东西。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内权势达到5点",
+                "show_counter": "global_counter.7210014",
+                "condition": {
+                    "global_counter.7210014>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300058": {
+        "id": 3300058,
+        "name": "权贵",
+        "text": "讲述了一名大臣因其政治头脑而跻身权贵的故事。",
+        "favour_text": "真好，再也没有人敢当面说你坏话了。",
+        "upgrade_point": 1,
+        "pre": 3200060,
+        "target": [
+            {
+                "text": "一局游戏内权势达到10点",
+                "show_counter": "global_counter.7210042",
+                "condition": {
+                    "global_counter.7210042>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300059": {
+        "id": 3300059,
+        "name": "重臣",
+        "text": "讲述了一名大臣因其政治头脑，成为国家重臣的故事。",
+        "favour_text": "你成了苏丹的左膀右臂……或者，你想成为下一位苏丹？",
+        "upgrade_point": 1,
+        "pre": 3200061,
+        "target": [
+            {
+                "text": "一局游戏内权势达到20点",
+                "show_counter": "global_counter.7210043",
+                "condition": {
+                    "global_counter.7210043>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300060": {
+        "id": 3300060,
+        "name": "贼子",
+        "text": "讲述了一个男人因其不受拘束的行事方式而毁誉参半的故事。",
+        "favour_text": "蔑视规则之人……呵，可惜，这场游戏的规则是无法打破的。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内侠名达到5点",
+                "show_counter": "global_counter.7210015",
+                "condition": {
+                    "global_counter.7210015>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300061": {
+        "id": 3300061,
+        "name": "大盗",
+        "text": "讲述了一个男人因为鲁莽行事的习惯而到处结缘的故事。",
+        "favour_text": "不够坏也不够好的人通常没有好下场。",
+        "upgrade_point": 1,
+        "pre": 3200063,
+        "target": [
+            {
+                "text": "一局游戏内侠名达到10点",
+                "show_counter": "global_counter.7210044",
+                "condition": {
+                    "global_counter.7210044>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300062": {
+        "id": 3300062,
+        "name": "豪侠",
+        "text": "讲述了一个男人因为不计后果的冲动做派而成为一方豪侠的故事。",
+        "favour_text": "城市另一面的统治者和救世主，一些人有多爱你，另一些人就有多恨你。",
+        "upgrade_point": 1,
+        "pre": 3200064,
+        "target": [
+            {
+                "text": "一局游戏内侠名达到20点",
+                "show_counter": "global_counter.7210045",
+                "condition": {
+                    "global_counter.7210045>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300063": {
+        "id": 3300063,
+        "name": "先知",
+        "text": "讲述了一个男人宣称自己可以窥视灵魂深处的故事。",
+        "favour_text": "我们一般称之为疯子。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内灵视达到5点",
+                "show_counter": "global_counter.7210016",
+                "condition": {
+                    "global_counter.7210016>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300064": {
+        "id": 3300064,
+        "name": "引路人",
+        "text": "讲述了一个男人被信仰所惑，日渐疯狂的故事。",
+        "favour_text": "你看到了什么？你要将世人引去何处？",
+        "upgrade_point": 1,
+        "pre": 3200066,
+        "target": [
+            {
+                "text": "一局游戏内灵视达到10点",
+                "show_counter": "global_counter.7210046",
+                "condition": {
+                    "global_counter.7210046>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300065": {
+        "id": 3300065,
+        "name": "神的眷顾",
+        "text": "讲述了一名信徒因其无可比拟的虔诚，终于被神所眷顾的故事。",
+        "favour_text": "在那伟大的存在面前，你我唯有噤声默言。",
+        "upgrade_point": 1,
+        "pre": 3200067,
+        "target": [
+            {
+                "text": "一局游戏内灵视达到20点",
+                "show_counter": "global_counter.7210047",
+                "condition": {
+                    "global_counter.7210047>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300066": {
+        "id": 3300066,
+        "name": "在你的屋檐下·一",
+        "text": "讲述了一个男人因其强大的人格魅力，吸引着人们聚集到他的屋檐之下，供起差遣的故事。",
+        "favour_text": "一场伟大的游戏要进行下去，总得有几个牺牲品。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内拥有5位追随者",
+                "show_counter": "counter.7000104",
+                "condition": {
+                    "global_counter.7210017>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300067": {
+        "id": 3300067,
+        "name": "在你的屋檐下·二",
+        "text": "讲述了一个男人因其强大的人格魅力，吸引着人们聚集到他的屋檐之下，供起差遣的故事。",
+        "favour_text": "一场伟大的游戏要进行下去，总得有几个牺牲品。",
+        "upgrade_point": 1,
+        "pre": 3200069,
+        "target": [
+            {
+                "text": "一局游戏内拥有15位追随者",
+                "show_counter": "counter.7000104",
+                "condition": {
+                    "global_counter.7210018>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300068": {
+        "id": 3300068,
+        "name": "在你的屋檐下·三",
+        "text": "讲述了一个男人因其强大的人格魅力，吸引着人们聚集到他的屋檐之下，供起差遣的故事。",
+        "favour_text": "一场伟大的游戏要进行下去，总得有几个牺牲品。",
+        "upgrade_point": 1,
+        "pre": 3200070,
+        "target": [
+            {
+                "text": "一局游戏内拥有30位追随者",
+                "show_counter": "counter.7000104",
+                "condition": {
+                    "global_counter.7210019>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300069": {
+        "id": 3300069,
+        "name": "稍加修整",
+        "text": "讲述了一名大臣为完成奢靡卡，毫无必要地重新整饬家中布局的故事。",
+        "favour_text": "把瓶瓶罐罐从这里挪到那里，就是所谓的整理。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在自宅进行一次岩石品质的装修",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200121>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300070": {
+        "id": 3300070,
+        "name": "全面修整",
+        "text": "讲述了一名大臣为完成奢靡卡，将本就华丽的住宅全面翻修一遍的故事。",
+        "favour_text": "喜新厌旧也是人之常情。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在自宅进行一次青铜品质的装修",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200122>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300071": {
+        "id": 3300071,
+        "name": "扩建的居所",
+        "text": "讲述了一名大臣为完成奢靡卡，将自己的居所扩建得犹如宫殿的故事。",
+        "favour_text": "别让苏丹知道。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在自宅进行一次白银品质的装修",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200123>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300072": {
+        "id": 3300072,
+        "name": "华丽的居所",
+        "text": "讲述了一名大臣为完成奢靡卡，将自己的居所布置得无比奢华，堪比王宫的故事。",
+        "favour_text": "住在这里会因为担忧小偷、盗匪、苏丹的迁怒而整夜整夜睡不着觉。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在自宅进行一次黄金品质的装修",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200124>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300073": {
+        "id": 3300073,
+        "name": "买书如山倒",
+        "text": "讲述了一名大臣爱书如狂，搜罗了市面上流通的所有书籍的故事。",
+        "favour_text": "真正的知识，并未写在书中。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内买空书店里所有的书籍",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200125>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300074": {
+        "id": 3300074,
+        "name": "精神股东·一",
+        "text": "讲述了一名大臣爱书如狂，大肆搜罗那些未置于书店货架上的书籍的故事。",
+        "favour_text": "“这可是绝密的进货渠道……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计淘书10次",
+                "show_counter": "global_counter.7200206",
+                "condition": {
+                    "global_counter.7200206>=":10
+                }
+            }
+        ],
+        "icon":"cards/2000199"
+    },
+    "3300075": {
+        "id": 3300075,
+        "name": "精神股东·二",
+        "text": "讲述了一名大臣爱书如狂，大肆搜罗那些未置于书店货架上的书籍的故事。",
+        "favour_text": "“这可是绝密的进货渠道……”",
+        "upgrade_point": 1,
+        "pre": 3300074,
+        "target": [
+            {
+                "text": "累计淘书20次",
+                "show_counter": "global_counter.7200206",
+                "condition": {
+                    "global_counter.7200206>=":20
+                }
+            }
+        ],
+        "icon":"cards/2000199"
+    },
+    "3300076": {
+        "id": 3300076,
+        "name": "精神股东·三",
+        "text": "讲述了一名大臣爱书如狂，大肆搜罗那些未置于书店货架上的书籍的故事。",
+        "favour_text": "“这可是绝密的进货渠道……”",
+        "upgrade_point": 1,
+        "pre": 3300075,
+        "target": [
+            {
+                "text": "累计淘书50次",
+                "show_counter": "global_counter.7200206",
+                "condition": {
+                    "global_counter.7200206>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000199"
+    },
+    "3300077": {
+        "id": 3300077,
+        "name": "美味佳肴·一",
+        "text": "讲述了一个美食家为了满足口腹之欲，四处搜寻珍惜食材和灵感的故事。",
+        "favour_text": "“让每一只野兽死得其所，是厨师应尽的职责。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计制作1次大餐",
+                "show_counter": "global_counter.7200207",
+                "condition": {
+                    "global_counter.7200207>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000014"
+    },
+    "3300078": {
+        "id": 3300078,
+        "name": "美味佳肴·二",
+        "text": "讲述了一个美食家为了满足口腹之欲，四处搜寻珍惜食材和灵感的故事。",
+        "favour_text": "“让每一只野兽死得其所，是厨师应尽的职责。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计制作10次大餐",
+                "show_counter": "global_counter.7200207",
+                "condition": {
+                    "global_counter.7200207>=":10
+                }
+            }
+        ],
+        "icon":"cards/2000014"
+    },
+    "3300079": {
+        "id": 3300079,
+        "name": "美味佳肴·三",
+        "text": "讲述了一个美食家为了满足口腹之欲，四处搜寻珍惜食材和灵感的故事。",
+        "favour_text": "“让每一只野兽死得其所，是厨师应尽的职责。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计制作50次大餐",
+                "show_counter": "global_counter.7200207",
+                "condition": {
+                    "global_counter.7200207>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000014"
+    },
+    "3300080": {
+        "id": 3300080,
+        "name": "奇珍之家·一",
+        "text": "讲述了一名大臣一掷千金，为其偶得的奇珍修建了专门的展厅以供炫耀的故事。",
+        "favour_text": "第一次来时，人们为之惊叹；第二次来时，人们装出惊叹的样子。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "获得1件奇珍，并为它修建展厅",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210025>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300081": {
+        "id": 3300081,
+        "name": "奇珍之家·二",
+        "text": "讲述了一名大臣一掷千金，为其偶得的奇珍修建了专门的展厅以供炫耀的故事。",
+        "favour_text": "第一次来时，人们为之惊叹；第二次来时，人们装出惊叹的样子。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计获得5件奇珍，并为它们一一修建展厅",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210025>=":5
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300082": {
+        "id": 3300082,
+        "name": "奇珍之家·三",
+        "text": "讲述了一名大臣一掷千金，为其偶得的奇珍修建了专门的展厅以供炫耀的故事。",
+        "favour_text": "第一次来时，人们为之惊叹；第二次来时，人们装出惊叹的样子。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计获得10件奇珍，并为它们一一修建展厅",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210025>=":10
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300083": {
+        "id": 3300083,
+        "name": "治理家业·一",
+        "text": "讲述了一名大臣兢兢业业，广宴群友的故事。",
+        "favour_text": "贵族无需劳作，他们只要负责装腔作势就行了。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计治理家业10次",
+                "show_counter": "global_counter.7200131",
+                "condition": {
+                    "global_counter.7200131>=":10
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300084": {
+        "id": 3300084,
+        "name": "治理家业·二",
+        "text": "讲述了一名大臣兢兢业业，广宴群友的故事。",
+        "favour_text": "贵族无需劳作，他们只要负责装腔作势就行了。",
+        "upgrade_point": 1,
+        "pre": 3200085,
+        "target": [
+            {
+                "text": "累计治理家业50次",
+                "show_counter": "global_counter.7200131",
+                "condition": {
+                    "global_counter.7200131>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300085": {
+        "id": 3300085,
+        "name": "治理家业·三",
+        "text": "讲述了一名大臣兢兢业业，广宴群友的故事。",
+        "favour_text": "贵族无需劳作，他们只要负责装腔作势就行了。",
+        "upgrade_point": 1,
+        "pre": 3200086,
+        "target": [
+            {
+                "text": "累计治理家业100次",
+                "show_counter": "global_counter.7200131",
+                "condition": {
+                    "global_counter.7200131>=":100
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300086": {
+        "id": 3300086,
+        "name": "浴场常客·一",
+        "text": "讲述了浴场常客们在蒸腾的水雾中交换消息，也交换别的东西的故事。",
+        "favour_text": "男人出门在外也要保护好自己。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计去浴场10次",
+                "show_counter": "global_counter.7200133",
+                "condition": {
+                    "global_counter.7200133>=":10
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300087": {
+        "id": 3300087,
+        "name": "浴场常客·二",
+        "text": "讲述了浴场常客们在蒸腾的水雾中交换消息，也交换别的东西的故事。",
+        "favour_text": "男人出门在外也要保护好自己。",
+        "upgrade_point": 1,
+        "pre": 3200089,
+        "target": [
+            {
+                "text": "累计去浴场50次",
+                "show_counter": "global_counter.7200133",
+                "condition": {
+                    "global_counter.7200133>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300088": {
+        "id": 3300088,
+        "name": "浴场常客·三",
+        "text": "讲述了浴场常客们在蒸腾的水雾中交换消息，也交换别的东西的故事。",
+        "favour_text": "男人出门在外也要保护好自己。",
+        "upgrade_point": 1,
+        "pre": 3200090,
+        "target": [
+            {
+                "text": "累计去浴场100次",
+                "show_counter": "global_counter.7200133",
+                "condition": {
+                    "global_counter.7200133>=":100
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300089": {
+        "id": 3300089,
+        "name": "珍珠泪",
+        "text": "讲述了一个卑贱的妓女爱上不该爱的男人，两人在窒息中寻找疯狂与快乐， 最后走向死亡的故事。",
+        "favour_text": "“不用害怕，亲爱的。死亡与极乐的距离，正如我和你。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "用苏丹卡杀死朱娜，或者在其激情事件里窒息而死",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200135>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000080"
+    },
+    "3300090": {
+        "id": 3300090,
+        "name": "甜蜜皮鞭",
+        "text": "讲述了一个被称作女王的妓女，用她甜蜜的鞭子征服男人们的故事。",
+        "favour_text": "花钱买来的皮肉之苦，有着蜂蜜般的味道。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "撑过贾丽拉的皮鞭仪式",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200136>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000081"
+    },
+    "3300091": {
+        "id": 3300091,
+        "name": "双重快乐",
+        "text": "讲述了一名交际花赢得男人们欢心的迷人秘密。",
+        "favour_text": "“它让我失去了什么？不，它让我得到了双倍的自由和快乐。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "与夏玛纵欲",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200137>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000082"
+    },
+    "3300092": {
+        "id": 3300092,
+        "name": "眠花宿柳",
+        "text": "讲述了一个男人被美色诱惑，犯下全天下所有男人都会犯的错误的故事",
+        "favour_text": "“整日闲游浪荡的男人，终究是靠不住的。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "与所有妓女交欢",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200208>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000792"
+    },
+    "3300093": {
+        "id": 3300093,
+        "name": "例行公事·一",
+        "text": "讲述了一名大臣为免同僚无中生有，纵使无事可议，也坚持上朝的故事。",
+        "favour_text": "看来，支持你的人还不够多。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计参加【权力的游戏】10次",
+                "show_counter": "global_counter.7200138",
+                "condition": {
+                    "global_counter.7200138>=":10
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300094": {
+        "id": 3300094,
+        "name": "例行公事·二",
+        "text": "讲述了一名大臣为免同僚无中生有，纵使无事可议，也坚持上朝的故事。",
+        "favour_text": "看来，支持你的人还不够多。",
+        "upgrade_point": 1,
+        "pre": 3200100,
+        "target": [
+            {
+                "text": "累计参加【权力的游戏】50次",
+                "show_counter": "global_counter.7200138",
+                "condition": {
+                    "global_counter.7200138>=":50
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300095": {
+        "id": 3300095,
+        "name": "例行公事·三",
+        "text": "讲述了一名大臣为免同僚无中生有，纵使无事可议，也坚持上朝的故事。",
+        "favour_text": "看来，支持你的人还不够多。",
+        "upgrade_point": 1,
+        "pre": 3200101,
+        "target": [
+            {
+                "text": "累计参加【权力的游戏】100次",
+                "show_counter": "global_counter.7200138",
+                "condition": {
+                    "global_counter.7200138>=":100
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300096": {
+        "id": 3300096,
+        "name": "权力的游戏",
+        "text": "讲述了一代名臣在宫廷的权力漩涡中游刃有余，长袖善舞的故事。",
+        "favour_text": "“再没有人比他更忠诚了，陛下。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在一局游戏中保证仪式【权力的游戏】7天没有谗言产出",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210029>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300097": {
+        "id": 3300097,
+        "name": "不想上朝",
+        "text": "讲述了一名大臣出于怠惰或者叛逆，宁可迎接君王的怒火，也拒绝出席朝会的故事。",
+        "favour_text": "“真是个适合睡觉的好天气……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在一局游戏中连续7天不参与仪式【权力的游戏】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210030>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300098": {
+        "id": 3300098,
+        "name": "异界魅惑",
+        "text": "讲述了一名大臣通过残忍的献祭召请异界美人，并将之进献给荒淫君主的故事。",
+        "favour_text": "“这样真能让他精尽人亡？”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在【权力的游戏】中向苏丹进献魅魔",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200142>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000500"
+    },
+    "3300099": {
+        "id": 3300099,
+        "name": "苏丹的妃子",
+        "text": "讲述了一名色胆包天的大臣竟敢在宫廷向苏丹索要王妃，期待与之共度春宵的故事。",
+        "favour_text": "极大的恩赐，通常伴随着极大的风险。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在【权力的游戏】中向苏丹索要任意其身边的女人",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210031>=":1
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300100": {
+        "id": 3300100,
+        "name": "苏丹的后花园",
+        "text": "讲述了一名色胆包天的大臣竟然享用了苏丹的全部妃子的故事。",
+        "favour_text": "花园这么大，多一个人进来游玩，也没什么关系吧？",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在【权力的游戏】中向苏丹索要过每一位王妃",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210032>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300101": {
+        "id": 3300101,
+        "name": "君王的戏弄·一",
+        "text": "讲述了一名臣子因同僚的频频挑唆，屡遭君王戏弄的故事。",
+        "favour_text": "“您听我解释……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计触发3次【苏丹的戏弄】",
+                "show_counter": "global_counter.7200213",
+                "condition": {
+                    "global_counter.7200213>=":3
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300102": {
+        "id": 3300102,
+        "name": "君王的戏弄·二",
+        "text": "讲述了一名臣子因同僚的频频挑唆，屡遭君王戏弄的故事。",
+        "favour_text": "“您听我解释……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计触发10次【苏丹的戏弄】",
+                "show_counter": "global_counter.7200213",
+                "condition": {
+                    "global_counter.7200213>=":10
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300103": {
+        "id": 3300103,
+        "name": "君王的戏弄·三",
+        "text": "讲述了一名臣子因同僚的频频挑唆，屡遭君王戏弄的故事。",
+        "favour_text": "“您听我解释……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计触发50次【苏丹的戏弄】",
+                "show_counter": "global_counter.7200213",
+                "condition": {
+                    "global_counter.7200213>=":50
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300104": {
+        "id": 3300104,
+        "name": "没有人比我更懂你",
+        "text": "讲述了一名大臣使出浑身解数，只为消解君主的不满的故事。",
+        "favour_text": "“别担心，我有数。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "秃头",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200214>=":1
+                }
+            },
+            {
+                "text": "不举",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200215>=":1
+                }
+            },
+            {
+                "text": "暴行",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200216>=":1
+                }
+            },
+            {
+                "text": "请责",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200217>=":1
+                }
+            },
+            {
+                "text": "谄媚",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200218>=":1
+                }
+            },
+            {
+                "text": "背叛",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200219>=":1
+                }
+            },
+            {
+                "text": "疯狂",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200220>=":1
+                }
+            },
+            {
+                "text": "替罪",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200221>=":1
+                }
+            },
+            {
+                "text": "枕边风",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200222>=":1
+                }
+            },
+            {
+                "text": "旧恩怨",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200223>=":1
+                }
+            },
+            {
+                "text": "河东狮",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200224>=":1
+                }
+            },
+            {
+                "text": "盛宴",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200225>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300105": {
+        "id": 3300105,
+        "name": "马屁的艺术",
+        "text": "讲述了一名大臣真正投其所好地得到君王的喜爱和嘉奖的故事。",
+        "favour_text": "“当赏！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在权力的游戏中进贡一个真正让苏丹感到高兴的东西",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200228>=":1
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300106": {
+        "id": 3300106,
+        "name": "罪恶归所",
+        "text": "讲述了一名大臣突然兴起了到监狱游览的兴致的故事。",
+        "favour_text": "然而真正的至恶之人，现今仍高坐于黄金王座之上。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "开启监狱",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200143>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300107": {
+        "id": 3300107,
+        "name": "心灵之战·一",
+        "text": "讲述了一名大臣受困于繁杂的思绪，无数次拷问自己心灵的故事。",
+        "favour_text": "一切大战都是心灵之战。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "累计完成1次思辨",
+                "show_counter": "global_counter.7200229",
+                "condition": {
+                    "global_counter.7200229>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300108": {
+        "id": 3300108,
+        "name": "心灵之战·二",
+        "text": "讲述了一名大臣受困于繁杂的思绪，无数次拷问自己心灵的故事。",
+        "favour_text": "一切大战都是心灵之战。",
+        "upgrade_point": 1,
+        "pre": 3300107,
+        "target": [
+            {
+                "text": "累计完成10次思辨",
+                "show_counter": "global_counter.7200229",
+                "condition": {
+                    "global_counter.7200229>=":10
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300109": {
+        "id": 3300109,
+        "name": "心灵之战·三",
+        "text": "讲述了一名大臣受困于繁杂的思绪，无数次拷问自己心灵的故事。",
+        "favour_text": "一切大战都是心灵之战。",
+        "upgrade_point": 1,
+        "pre": 3300108,
+        "target": [
+            {
+                "text": "累计完成30次思辨",
+                "show_counter": "global_counter.7200229",
+                "condition": {
+                    "global_counter.7200229>=":30
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300112": {
+        "id": 3300112,
+        "name": "希望的苗圃",
+        "text": "讲述了一名大臣将孩子们聚集起来，承托起他们的未来的故事。",
+        "favour_text": "“我想试着播下一些种子，但能收获些什么？我也不知道。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "修建苗圃",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200231>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300113": {
+        "id": 3300113,
+        "name": "希望的园丁",
+        "text": "讲述了一名大臣将所有的孤儿们庇护于羽翼之下，悉心栽培的故事。",
+        "favour_text": "贤者将知识散播给孩子们，孩子们将知识散播于四海。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在苗圃中收容所有孤儿",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200232>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300114": {
+        "id": 3300114,
+        "name": "熟悉的星星",
+        "text": "讲述了一名爱读书的少女在古卷中得到启示，被星星所呼唤的故事。",
+        "favour_text": "无穷无尽的星海之中，我在看你。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "使鲁梅拉飞升为星灵",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200233>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000545"
+    },
+    "3300115": {
+        "id": 3300115,
+        "name": "故国的旗帜下",
+        "text": "讲述了一名大臣召唤故国的遗族，凝聚起复国力量的故事。",
+        "favour_text": "是这张废纸本就具有魔力，还是无数人的血手印赋予了它沉甸甸的分量？",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "得到黄金品级的誓言之证",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200234>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000013"
+    },
+    "3300116": {
+        "id": 3300116,
+        "name": "新月升起",
+        "text": "讲述了一名大臣和他爱狗的朋友历经失望和悲伤后，共同养大一只小小狗的故事。",
+        "favour_text": "“新月……你这个小杂种、小土狗、小破烂，你的名字叫新月。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "完成【新月升起】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200235>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000989"
+    },
+    "3300117": {
+        "id": 3300117,
+        "name": "反押别墅靠海",
+        "text": "讲述了一名大臣不盲从他人统计的胜率，最终赢得赌局的故事。",
+        "favour_text": "“你以为你很聪明吗？！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在【黑街赛狗】中不押月牙并赢得胜利",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200236>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000065"
+    },
+    "3300118": {
+        "id": 3300118,
+        "name": "苏丹的近臣",
+        "text": "讲述了一名大臣出于种种目的，和苏丹的近卫们结下牢固友谊的故事。",
+        "favour_text": "“哈哈，你们都在啊？”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内使得奈布哈尼、赛里曼、哲巴尔、法里斯成为追随者",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200237>=":1
+                }
+            }
+        ],
+        "icon":"cards/12_64"
+    },
+    "3300119": {
+        "id": 3300119,
+        "name": "黄金品级的虚荣",
+        "text": "讲述了一名大臣以无与伦比的奢华迎娶一位贵妇，彻底满足其虚荣心的故事。",
+        "favour_text": "“镜子镜子告诉我，谁才是这个国家最幸福、最叫人羡慕的女人？”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "迎娶娜依拉，并彻底满足她的虚荣心",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200238>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000055"
+    },
+    "3300120": {
+        "id": 3300120,
+        "name": "我的姐妹永不为奴",
+        "text": "讲述了一名蛮族女战士干翻猎奴团的老巢，救出无数受困的姐妹的故事。",
+        "favour_text": "“你是世界上最了不起的城市民！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "成功解救猎魂众",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200239>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000771"
+    },
+    "3300121": {
+        "id": 3300121,
+        "name": "正义不应沦落",
+        "text": "讲述了一名臣子救出因正直，或者说，莽撞而获罪的同僚，并以其高风亮节征服了对方的故事。",
+        "favour_text": "“他很幸运——他大放厥词的时候，苏丹没有抽到一张匹配的杀戮卡。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "使盖斯成为追随者",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200152>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000056"
+    },
+    "3300122": {
+        "id": 3300122,
+        "name": "恩将仇报",
+        "text": "讲述了一名贪婪的大臣被人救出后反而恩将仇报，最终失去所有财富的故事。",
+        "favour_text": "“什么，我明明……万无一失……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "杀死某位恩将仇报的大臣",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200153>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000057"
+    },
+    "3300123": {
+        "id": 3300123,
+        "name": "屠龙之梦",
+        "text": "讲述了一个因幻想着屠龙被世人嘲笑的战士，最后真的和朋友一起杀死火龙的故事。",
+        "favour_text": "“总有一天，我会证明我自己！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "和阿迪莱一起击败火龙",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200154>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000061"
+    },
+    "3300124": {
+        "id": 3300124,
+        "name": "激情重燃",
+        "text": "讲述了一个男人因其英俊、善良、勇敢和种种品质，让一名可怜的未亡人重新燃起激情的故事。",
+        "favour_text": "“谢谢二字，我已经说过太多次了。今夜，我想说些别的……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "让法图娜重新焕发激情",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7210033>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000062"
+    },
+    "3300125": {
+        "id": 3300125,
+        "name": "三人成行",
+        "text": "讲述了一段在浴池水汽遮蔽下发生的香艳故事。",
+        "favour_text": "“如果…他能庇护我的孩子……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "完成【我们也许不该这样】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200240>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300126": {
+        "id": 3300126,
+        "name": "寻欢作乐的高手",
+        "text": "讲述了一名风流客和自己的朋友们聚在一起，纵情声色、享受欢愉的故事。",
+        "favour_text": "“嘿，别把那位招惹过来，他只会毁了这场有趣的游戏。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "不邀请苏丹，完成一次【你的游戏】",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200241>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300127": {
+        "id": 3300127,
+        "name": "三头龙",
+        "text": "在这个故事里，主角虽然死了，但他的下体被切掉三次之多！一般人根本无法想象这件事是怎么实现的。",
+        "favour_text": "“一次为了力量，一次为了安宁，一次为了欲望。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "切掉！",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200243>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300128": {
+        "id": 3300128,
+        "name": "洗去掌心污浊",
+        "text": "讲述了一个为诅咒所苦的男人在密教徒的帮助下洗去掌心墨渍的故事。",
+        "favour_text": "“那个梦，不会再来。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在【自由之花】中成功切断与神的连接",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200244>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000022"
+    },
+    "3300129": {
+        "id": 3300129,
+        "name": "炎日天平",
+        "text": "讲述了一名净化者因玷污自己的身体与灵魂而被审判的故事。",
+        "favour_text": "“神啊，请你净化此间的污秽……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "撑过【炎日天平】的审判",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200245>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000021"
+    },
+    "3300130": {
+        "id": 3300130,
+        "name": "生命权杖",
+        "text": "讲述了一名暴君被无休止的电光和旋转侵犯凌虐的故事。",
+        "favour_text": "伟大的、至高无上的苏丹，有向你求饶吗？",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "用生命权杖凌辱苏丹",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200246>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000556"
+    },
+    "3300131": {
+        "id": 3300131,
+        "name": "风云际会",
+        "text": "讲述了一名暴君在世界毁灭之际和他的大臣并肩作战，击退强敌的传说。",
+        "favour_text": "“爱卿，拿稳你手里的剑！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "与苏丹并肩作战",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200247>=":1
+                }
+            }
+        ],
+        "icon":"cards/sudan"
+    },
+    "3300132": {
+        "id": 3300132,
+        "name": "远方国度",
+        "text": "描绘了一条遥远而坎坷的路途，通往一个繁荣美丽、充满珍宝、最重要的是，在苏丹的统治之外的国度……",
+        "favour_text": "“如果没有你，我不敢想象自己该如何抵达此方彼岸。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "找到中国",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200161>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000069"
+    },
+    "3300133": {
+        "id": 3300133,
+        "name": "爱的寄托",
+        "text": "描绘了一名卑贱的妓女，将自己的欲望和灵魂寄托在一个男人的身上，期望他能令她脱离苦海的故事。",
+        "favour_text": "“带我离开这里吧，我的爱。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "为朱娜赎身",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200162>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000080"
+    },
+    "3300134": {
+        "id": 3300134,
+        "name": "最最尊贵的肥羊",
+        "text": "讲述了一名欢愉女王用鞭子调教某位出乎意料的贵客的故事。",
+        "favour_text": "“等苏丹下台了，我非得找人把它写成话本不可……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "让贾丽拉调教苏丹",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200248>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000081"
+    },
+    "3300135": {
+        "id": 3300135,
+        "name": "升华",
+        "text": "描绘了一代名妓在其爱慕者的推波助澜下当上广袤领土的主人的传奇故事。",
+        "favour_text": "“哈！还有比这更荒唐的事吗？！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "帮助夏玛赢得继承权",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200164>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000082"
+    },
+    "3300136": {
+        "id": 3300136,
+        "name": "爱书如狂·一",
+        "text": "讲述了一个爱书的少女如痴如醉地在书海中徜徉的故事。",
+        "favour_text": "“那个好命的书呆子！以前跟我们一起讨过饭呢！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "一局游戏内让鲁梅拉读3本书",
+                "show_counter": "counter.7000100",
+                "condition": {
+                    "global_counter.7200181>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000123"
+    },
+    "3300137": {
+        "id": 3300137,
+        "name": "爱书如狂·二",
+        "text": "讲述了一个爱书的少女如痴如醉地在书海中徜徉的故事。",
+        "favour_text": "“那个埋在纸堆里的家伙，天啊，墨水让她一点女人味儿都没有！”",
+        "upgrade_point": 1,
+        "pre": 3200142,
+        "target": [
+            {
+                "text": "一局游戏内让鲁梅拉读10本书",
+                "show_counter": "counter.7000100",
+                "condition": {
+                    "global_counter.7200182>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000123"
+    },
+    "3300138": {
+        "id": 3300138,
+        "name": "爱书如狂·三",
+        "text": "讲述了一个爱书的少女如痴如醉地在书海中徜徉的故事。",
+        "favour_text": "“博学的女士……求您为我解惑吧。”",
+        "upgrade_point": 1,
+        "pre": 3200143,
+        "target": [
+            {
+                "text": "一局游戏内让鲁梅拉读遍所有能读的书。",
+                "show_counter": "counter.7000100",
+                "condition": {
+                    "global_counter.7200183>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000123"
+    },
+    "3300139": {
+        "id": 3300139,
+        "name": "苏丹的戒指",
+        "text": "讲述了一名王者在极致的欢愉中懈怠心神，丢失了他护身的魔法戒指的故事。",
+        "favour_text": "“接下来的事，就交给您了。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "成功窃取苏丹的魔法戒指",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200249>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000281"
+    },
+    "3300140": {
+        "id": 3300140,
+        "name": "一尸两命",
+        "text": "讲述了一名大臣意外杀死了王妃和未出世的王子，却奇迹般地逃脱了惩戒的故事。",
+        "favour_text": "“好一出一波三折的戏码，可惜，还以为今天肯定能见到血呢。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在仪式【欢愉的代价】中用金色的杀戮卡脱罪",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200171>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000009"
+    },
+    "3300141": {
+        "id": 3300141,
+        "name": "女苏丹",
+        "text": "讲述了一个女人筹谋多时、不择手段，终于得到梦寐以求的权力的故事。",
+        "favour_text": "“我喜欢金子，金拖鞋、金耳环、金腰带，还有，金王座！”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "推翻苏丹的统治后，让莎姬成为新的苏丹",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200250>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000010"
+    },
+    "3300142": {
+        "id": 3300142,
+        "name": "亦敌亦友",
+        "text": "讲述了一名大臣和自己的敌人携手共图谋反大计的故事。",
+        "favour_text": "“……你已经有了很多很多追随者，我不想做其中之一。正相反，你需要一个反对你的人，用来提醒你，为你修正你的道路，直到你不需要我，直到你宁愿杀死我为止。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "在仪式【密会】中取得奈费勒的信任",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200172>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000312"
+    },
+    "3300143": {
+        "id": 3300143,
+        "name": "功过孰论？",
+        "text": "讲述了一名大臣协助处理了多方领土上的难题，声名远播的故事。",
+        "favour_text": "“人民有自己的选择，正如河流自有其方向。”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "完成税务官的全部请托",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200173>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300144": {
+        "id": 3300144,
+        "name": "像老鼠一样",
+        "text": "讲述了一名身不由己的质子在王都像老鼠一样蛰伏着等待时机，最终成功逃回故土的故事。",
+        "favour_text": "“那条险峻的小径，遍布着狮子、羚羊……还有老鼠的足迹……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "帮助法尔达克逃回自己的领地",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200251>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000350"
+    },
+    "3300145": {
+        "id": 3300145,
+        "name": "情非得已",
+        "text": "讲述了一名臣子为了一线生机，在家中杀死自己妻子的故事。",
+        "favour_text": "“来吧，亲爱的。不要说对不起……”",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "使用杀戮卡谋杀妻子",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200165>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000006"
+    },
+    "3300146": {
+        "id": 3300146,
+        "name": "漂泊之人",
+        "text": "讲述了一名大臣修建舍馆，广结四海之友的故事。",
+        "favour_text": "这些只吃你一顿饭的人，可能比所谓的朋友更可靠。",
+        "upgrade_point": 1,
+        "pre": 0,
+        "target": [
+            {
+                "text": "修建舍馆",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200242>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    },
+    "3300147": {
+        "id": 3300147,
+        "name": "四海漂泊之人",
+        "text": "讲述了一名大臣修建舍馆，广结四海之友的故事。",
+        "favour_text": "这些只吃你一顿饭的人，可能比所谓的朋友更可靠。",
+        "upgrade_point": 1,
+        "pre": 3300146,
+        "target": [
+            {
+                "text": "将舍馆扩建至顶级",
+                "show_counter": "",
+                "condition": {
+                    "global_counter.7200230>=":1
+                }
+            }
+        ],
+        "icon":"cards/2000001"
+    }
+}

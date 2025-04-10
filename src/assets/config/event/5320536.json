@@ -1,0 +1,28 @@
+{
+    "id": 5320536,
+    "text": "唯一的人选？幕后",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "table_have.妻子": 1,
+        "table_have.2000061":1, //阿迪莱存活
+        "counter.7000171<":1 //战士不需要的东西还未触发
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5320537, //开启唯一的人选幕后
+                "success":{
+                    "event_off":5320536
+                }
+            }   
+        }
+
+    ]
+}

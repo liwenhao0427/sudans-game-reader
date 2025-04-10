@@ -1,0 +1,27 @@
+{
+    "id": 5320081,
+    "text": "安全屋的俺寻思提示",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "hand_have.空屋":1, //手上有空屋
+        "hand_have.罪证":1, //手上有罪证
+        "counter.7100004>=":5 //侠名大于等于5     
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "hand_pop.5320081_01.罪证": "随着自己侠名的增长，你想到一个更安全的遮掩自己罪证的办法。放入<color=white><size=172%>俺寻思</size></color>。",
+                "counter+7000165":1, //激活俺寻思内的专属分支
+                "table.罪证+事件提示":1
+            }
+        }
+
+    ]
+}

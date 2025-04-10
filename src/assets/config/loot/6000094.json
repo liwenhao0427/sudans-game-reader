@@ -1,0 +1,38 @@
+{
+    "id": 6000094,
+    "name": "恶名-屠杀",
+    "repeat": 1,
+    "type": 3,  //必新
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5006550",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006551",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006552",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006553",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006554",
+            "type" : "rite",
+            "weight" : 5
+        }
+    ]
+}

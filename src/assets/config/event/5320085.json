@@ -1,0 +1,25 @@
+{
+    "id": 5320085,
+    "text": "权势2的事件--公文处理-重复刷新",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [3,5]
+    },
+    "condition":{  //条件
+        "!have.2000312.宰相":1,//宰相不是奈费勒
+        "counter.7100003>=":10 //权势大于等于5     
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000096,
+                "event_off":5320085
+            }
+        }
+
+    ]
+}

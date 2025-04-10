@@ -1,0 +1,40 @@
+{
+    "id": 5321148,
+    "text": "第三次帮助",     
+    "is_replay": 0, //是否可以重复触发
+     "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":2000100,   //给一个一阶谋反理念
+                "prompt":{
+                    "id":"5321148_prompt_01",
+                    "text":"法德耶和某位大臣最宠爱的女奴是朋友……通过这种关系网，她开始帮你传播对苏丹不满的情绪。",
+                    "icon":"cards/2000173"
+                },
+                "delay": {  //延迟1回合执行
+                    "id":53211481,
+                    "round":1,
+                    "counter+7000553":1 //标志法德耶线妥善完结+1
+                },
+                "delay": {  //延迟3回合执行
+                    "id":53211482,
+                    "round":3,
+                    "event_on":5321149
+                },
+                "success":{
+                    "event_off":5321148
+                }
+            }
+        }
+
+    ]
+}

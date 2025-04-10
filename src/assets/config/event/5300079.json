@@ -1,0 +1,29 @@
+{
+    "id": 5300079,
+    "text": "狼穴恶战",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "!rite":5002508,             //场上无狼穴的踪迹
+        "!rite":5002509,  //场上无狼穴恶战
+        "counter.7000034>=":1,     //找到狼穴
+        "counter.7000035<":1   //狼王还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5002509, //开启狼穴恶战
+                "success":{
+                    "event_off":5300079 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

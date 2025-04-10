@@ -1,0 +1,16 @@
+{
+    "dialog_tree_id" : "DT2",
+    "first_word_id" : "S1",
+    "description" : "魔法师交谈1-什么是苏丹的游戏",
+    "Item" : [
+        {
+            "word_id" : "S1",
+            "word" : "啊，可怜的家伙。杀死我也无法终结这个游戏，还无法看清么，这一切的根源。",
+            "jump_type" : "3",
+            "direct_id" : "",
+            "Option" : [
+            ],
+            "action" : {}
+        }
+        ]
+    }

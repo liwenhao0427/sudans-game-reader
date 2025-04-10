@@ -1,0 +1,30 @@
+{
+    "id": 5320250,
+    "text": "奈费勒声望事件-最后的愿望",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "counter.7000421>=":3,  //完成3次教育
+        "counter.7000299>=":1,  //完成了火焰大王线
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "card":2000899,
+                "rite":5006678,
+                "prompt":{
+                    "id":"5320250_prompt_01",
+                    "text":"在你的教育事业蒸蒸日上的时候，一个坏消息传了过来，一个孩子病了。",
+                    "icon":"cards/2000001"
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "id": 5300265,
+    "text": "不认识异国商人",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "counter.7000038<":1  //异国商人出场了
+    },
+    "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "prompt":{
+                    "id":"5300265_prompt_1",
+                    "text":"你没有找到合适的商人帮助你处理这件凶煞的商品，也许时机未到。",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5300264, //关闭自检
+                    "event_off":5300265 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

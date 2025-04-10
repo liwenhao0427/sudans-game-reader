@@ -1,0 +1,1580 @@
+﻿{
+    "2000029": [
+        "item_coin"
+    ],
+    "2000137": [
+        "item_paper"
+    ],
+    "2000160": [
+        "item_small"
+    ],
+    "2000174": [
+        "item_paper"
+    ],
+    "2000177": [
+        "item_small"
+    ],
+    "2000184": [
+        "item_metal"
+    ],
+    "2000186": [
+        "item_small"
+    ],
+    "2000187": [
+        "item_small"
+    ],
+    "2000188": [
+        "animal_monster_2"
+    ],
+    "2000189": [
+        "item_small"
+    ],
+    "2000193": [
+        "item_book"
+    ],
+    "2000201": [
+        "animal_horse_2",
+        "animal_horse_1"
+    ],
+    "2000202": [
+        "animal_beast_low_growl",
+        "animal_beast_growl"
+    ],
+    "2000203": [
+        "item_book"
+    ],
+    "2000204": [
+        "item_book"
+    ],
+    "2000205": [
+        "item_book"
+    ],
+    "2000206": [
+        "item_book"
+    ],
+    "2000207": [
+        "item_book"
+    ],
+    "2000208": [
+        "item_book"
+    ],
+    "2000209": [
+        "item_book"
+    ],
+    "2000210": [
+        "item_book"
+    ],
+    "2000211": [
+        "item_book"
+    ],
+    "2000212": [
+        "item_book"
+    ],
+    "2000213": [
+        "item_book"
+    ],
+    "2000214": [
+        "item_book"
+    ],
+    "2000215": [
+        "item_book"
+    ],
+    "2000216": [
+        "item_book"
+    ],
+    "2000217": [
+        "item_book"
+    ],
+    "2000218": [
+        "item_book"
+    ],
+    "2000219": [
+        "item_book"
+    ],
+    "2000220": [
+        "item_book"
+    ],
+    "2000221": [
+        "item_book"
+    ],
+    "2000222": [
+        "item_book"
+    ],
+    "2000223": [
+        "item_book"
+    ],
+    "2000224": [
+        "item_book"
+    ],
+    "2000225": [
+        "item_book"
+    ],
+    "2000226": [
+        "item_book"
+    ],
+    "2000227": [
+        "item_book"
+    ],
+    "2000228": [
+        "item_book"
+    ],
+    "2000229": [
+        "item_book"
+    ],
+    "2000230": [
+        "item_book"
+    ],
+    "2000231": [
+        "item_small"
+    ],
+    "2000232": [
+        "item_scroll"
+    ],
+    "2000233": [
+        "item_book"
+    ],
+    "2000234": [
+        "item_book"
+    ],
+    "2000235": [
+        "item_scroll"
+    ],
+    "2000236": [
+        "item_book"
+    ],
+    "2000237": [
+        "item_small"
+    ],
+    "2000238": [
+        "item_scroll"
+    ],
+    "2000239": [
+        "item_book"
+    ],
+    "2000240": [
+        "item_scroll"
+    ],
+    "2000241": [
+        "item_scroll"
+    ],
+    "2000242": [
+        "item_book"
+    ],
+    "2000243": [
+        "animal_monster_2"
+    ],
+    "2000244": [
+        "item_scroll"
+    ],
+    "2000245": [
+        "item_scroll"
+    ],
+    "2000246": [
+        "weapon_edge"
+    ],
+    "2000247": [
+        "item_metal"
+    ],
+    "2000248": [
+        "item_weight"
+    ],
+    "2000249": [
+        "item_small"
+    ],
+    "2000250": [
+        "item_small"
+    ],
+    "2000251": [
+        "item_weight"
+    ],
+    "2000252": [
+        "weapon_edge"
+    ],
+    "2000253": [
+        "weapon_edge"
+    ],
+    "2000254": [
+        "item_small"
+    ],
+    "2000255": [
+        "weapon_edge"
+    ],
+    "2000256": [
+        "weapon_edge"
+    ],
+    "2000257": [
+        "weapon_armor"
+    ],
+    "2000258": [
+        "item_weight"
+    ],
+    "2000259": [
+        "weapon_armor"
+    ],
+    "2000260": [
+        "item_small"
+    ],
+    "2000261": [
+        "weapon_rare"
+    ],
+    "2000262": [
+        "item_metal"
+    ],
+    "2000263": [
+        "item_metal"
+    ],
+    "2000264": [
+        "item_metal"
+    ],
+    "2000265": [
+        "item_clothing"
+    ],
+    "2000266": [
+        "item_small"
+    ],
+    "2000267": [
+        "item_small"
+    ],
+    "2000268": [
+        "item_clothing"
+    ],
+    "2000269": [
+        "item_metal"
+    ],
+    "2000270": [
+        "item_metal"
+    ],
+    "2000271": [
+        "item_small"
+    ],
+    "2000272": [
+        "item_clothing"
+    ],
+    "2000274": [
+        "item_small"
+    ],
+    "2000275": [
+        "item_small"
+    ],
+    "2000279": [
+        "animal_dog_low_growl",
+        "animal_dog_growl"
+    ],
+    "2000280": [
+        "item_weight"
+    ],
+    "2000281": [
+        "item_powerful_magical"
+    ],
+    "2000283": [
+        "item_paper"
+    ],
+    "2000285": [
+        "item_paper"
+    ],
+    "2000289": [
+        "item_clothing"
+    ],
+    "2000290": [
+        "item_weight"
+    ],
+    "2000293": [
+        "item_paper"
+    ],
+    "2000296": [
+        "item_clothing"
+    ],
+    "2000297": [
+        "item_metal"
+    ],
+    "2000298": [
+        "item_metal"
+    ],
+    "2000299": [
+        "item_weight"
+    ],
+    "2000300": [
+        "item_small"
+    ],
+    "2000301": [
+        "weapon_rare"
+    ],
+    "2000302": [
+        "item_clothing"
+    ],
+    "2000304": [
+        "animal_zombie_2"
+    ],
+    "2000305": [
+        "item_potion"
+    ],
+    "2000306": [
+        "item_small"
+    ],
+    "2000316": [
+        "item_potion"
+    ],
+    "2000318": [
+        "item_powerful_magical"
+    ],
+    "2000319": [
+        "item_powerful_magical"
+    ],
+    "2000320": [
+        "item_powerful_magical"
+    ],
+    "2000321": [
+        "item_paper"
+    ],
+    "2000322": [
+        "item_paper"
+    ],
+    "2000323": [
+        "item_paper"
+    ],
+    "2000324": [
+        "item_paper"
+    ],
+    "2000330": [
+        "weapon_rare"
+    ],
+    "2000331": [
+        "weapon_rare"
+    ],
+    "2000337": [
+        "animal_horse_2",
+        "animal_horse_1"
+    ],
+    "2000345": [
+        "item_weight"
+    ],
+    "2000359": [
+        "item_paper"
+    ],
+    "2000363": [
+        "item_paper"
+    ],
+    "2000368": [
+        "weapon_armor"
+    ],
+    "2000373": [
+        "item_paper"
+    ],
+    "2000374": [
+        "item_small"
+    ],
+    "2000375": [
+        "item_paper"
+    ],
+    "2000376": [
+        "item_army"
+    ],
+    "2000377": [
+        "item_army"
+    ],
+    "2000378": [
+        "item_weight"
+    ],
+    "2000380": [
+        "item_weight"
+    ],
+    "2000381": [
+        "item_small"
+    ],
+    "2000382": [
+        "item_potion"
+    ],
+    "2000383": [
+        "item_potion"
+    ],
+    "2000384": [
+        "item_small"
+    ],
+    "2000385": [
+        "item_weight"
+    ],
+    "2000386": [
+        "item_weight"
+    ],
+    "2000387": [
+        "item_weight"
+    ],
+    "2000388": [
+        "item_weight"
+    ],
+    "2000389": [
+        "item_weight"
+    ],
+    "2000390": [
+        "item_weight"
+    ],
+    "2000391": [
+        "item_potion"
+    ],
+    "2000392": [
+        "item_weight"
+    ],
+    "2000393": [
+        "item_small"
+    ],
+    "2000394": [
+        "item_small"
+    ],
+    "2000398": [
+        "item_army"
+    ],
+    "2000399": [
+        "animal_horse_1",
+        "animal_horse_2"
+    ],
+    "2000400": [
+        "weapon_rare"
+    ],
+    "2000401": [
+        "item_metal"
+    ],
+    "2000402": [
+        "item_weight"
+    ],
+    "2000423": [
+        "animal_cat_1",
+        "animal_cat_2"
+    ],
+    "2000424": [
+        "animal_dog_low_growl",
+        "animal_dog_growl"
+    ],
+    "2000426": [
+        "animal_beast_low_growl",
+        "animal_beast_growl"
+    ],
+    "2000428": [
+        "item_tornado_1",
+        "item_tornado_2"
+    ],
+    "2000429": [
+        "item_tornado_1",
+        "item_tornado_2"
+    ],
+    "2000430": [
+        "item_tornado_1",
+        "item_tornado_2"
+    ],
+    "2000431": [
+        "item_tornado_1",
+        "item_tornado_2"
+    ],
+    "2000435": [
+        "item_metal"
+    ],
+    "2000436": [
+        "item_metal"
+    ],
+    "2000437": [
+        "item_metal"
+    ],
+    "2000438": [
+        "item_metal"
+    ],
+    "2000439": [
+        "item_metal"
+    ],
+    "2000440": [
+        "item_metal"
+    ],
+    "2000441": [
+        "item_metal"
+    ],
+    "2000442": [
+        "item_metal"
+    ],
+    "2000443": [
+        "item_small"
+    ],
+    "2000444": [
+        "item_metal"
+    ],
+    "2000445": [
+        "item_metal"
+    ],
+    "2000446": [
+        "item_metal"
+    ],
+    "2000462": [
+        "item_paper"
+    ],
+    "2000464": [
+        "item_book"
+    ],
+    "2000465": [
+        "item_book"
+    ],
+    "2000467": [
+        "item_paper"
+    ],
+    "2000468": [
+        "item_paper"
+    ],
+    "2000469": [
+        "item_paper"
+    ],
+    "2000470": [
+        "item_paper"
+    ],
+    "2000471": [
+        "item_paper"
+    ],
+    "2000472": [
+        "item_paper"
+    ],
+    "2000473": [
+        "item_paper"
+    ],
+    "2000474": [
+        "item_paper"
+    ],
+    "2000475": [
+        "item_paper"
+    ],
+    "2000476": [
+        "item_paper"
+    ],
+    "2000477": [
+        "item_paper"
+    ],
+    "2000478": [
+        "item_paper"
+    ],
+    "2000479": [
+        "item_paper"
+    ],
+    "2000480": [
+        "item_paper"
+    ],
+    "2000481": [
+        "item_paper"
+    ],
+    "2000482": [
+        "item_paper"
+    ],
+    "2000483": [
+        "item_paper"
+    ],
+    "2000484": [
+        "item_paper"
+    ],
+    "2000485": [
+        "item_paper"
+    ],
+    "2000486": [
+        "item_paper"
+    ],
+    "2000487": [
+        "item_paper"
+    ],
+    "2000488": [
+        "item_paper"
+    ],
+    "2000489": [
+        "item_paper"
+    ],
+    "2000490": [
+        "item_paper"
+    ],
+    "2000491": [
+        "item_paper"
+    ],
+    "2000492": [
+        "item_paper"
+    ],
+    "2000493": [
+        "animal_monster_2"
+    ],
+    "2000494": [
+        "animal_monster_2"
+    ],
+    "2000495": [
+        "animal_monster_2"
+    ],
+    "2000496": [
+        "animal_skeleton_move"
+    ],
+    "2000497": [
+        "animal_beast_low_growl",
+        "animal_beast_growl"
+    ],
+    "2000498": [
+        "animal_monster_2"
+    ],
+    "2000499": [
+        "animal_monster_2"
+    ],
+    "2000500": [
+        "animal_monster_2"
+    ],
+    "2000501": [
+        "animal_monster_2"
+    ],
+    "2000502": [
+        "weapon_rare"
+    ],
+    "2000517": [
+        "item_army"
+    ],
+    "2000519": [
+        "item_small"
+    ],
+    "2000520": [
+        "item_small"
+    ],
+    "2000521": [
+        "item_small"
+    ],
+    "2000524": [
+        "item_small"
+    ],
+    "2000525": [
+        "item_small"
+    ],
+    "2000526": [
+        "weapon_armor"
+    ],
+    "2000527": [
+        "weapon_armor"
+    ],
+    "2000538": [
+        "item_book"
+    ],
+    "2000539": [
+        "item_paper"
+    ],
+    "2000540": [
+        "item_metal"
+    ],
+    "2000542": [
+        "item_small"
+    ],
+    "2000543": [
+        "item_small"
+    ],
+    "2000544": [
+        "item_scroll"
+    ],
+    "2000547": [
+        "item_book"
+    ],
+    "2000548": [
+        "item_book"
+    ],
+    "2000549": [
+        "item_book"
+    ],
+    "2000550": [
+        "item_book"
+    ],
+    "2000551": [
+        "item_book"
+    ],
+    "2000552": [
+        "item_book"
+    ],
+    "2000553": [
+        "item_metal"
+    ],
+    "2000554": [
+        "animal_skeleton_move",
+        "animal_zombie_2"
+    ],
+    "2000555": [
+        "item_paper"
+    ],
+    "2000556": [
+        "item_powerful_magical"
+    ],
+    "2000558": [
+        "item_paper"
+    ],
+    "2000567": [
+        "item_army"
+    ],
+    "2000571": [
+        "item_clothing"
+    ],
+    "2000572": [
+        "item_metal"
+    ],
+    "2000573": [
+        "item_army"
+    ],
+    "2000576": [
+        "item_book"
+    ],
+    "2000577": [
+        "item_metal"
+    ],
+    "2000594": [
+        "item_metal"
+    ],
+    "2000600": [
+        "animal_horse_1",
+        "animal_horse_2"
+    ],
+    "2000601": [
+        "item_weight"
+    ],
+    "2000602": [
+        "item_metal"
+    ],
+    "2000603": [
+        "item_weight"
+    ],
+    "2000604": [
+        "weapon_armor"
+    ],
+    "2000605": [
+        "item_army"
+    ],
+    "2000606": [
+        "item_metal"
+    ],
+    "2000607": [
+        "weapon_edge"
+    ],
+    "2000608": [
+        "item_metal"
+    ],
+    "2000657": [
+        "item_army"
+    ],
+    "2000658": [
+        "item_army"
+    ],
+    "2000659": [
+        "item_army"
+    ],
+    "2000660": [
+        "item_army"
+    ],
+    "2000663": [
+        "weapon_edge"
+    ],
+    "2000664": [
+        "item_paper"
+    ],
+    "2000665": [
+        "weapon_rare"
+    ],
+    "2000666": [
+        "weapon_armor"
+    ],
+    "2000667": [
+        "item_weight"
+    ],
+    "2000668": [
+        "item_powerful_magical"
+    ],
+    "2000669": [
+        "weapon_armor"
+    ],
+    "2000670": [
+        "item_small"
+    ],
+    "2000671": [
+        "item_book"
+    ],
+    "2000689": [], //"先留着等新素材，这个和梅姬配同一个声音"
+    "2000690": [
+        "item_paper"
+    ],
+    "2000691": [
+        "item_paper"
+    ],
+    "2000692": [
+        "item_paper"
+    ],
+    "2000693": [
+        "item_metal"
+    ],
+    "2000694": [
+        "item_metal"
+    ],
+    "2000695": [
+        "item_small"
+    ],
+    "2000696": [
+        "item_metal"
+    ],
+    "2000697": [
+        "item_clothing"
+    ],
+    "2000701": [
+        "item_metal"
+    ],
+    "2000702": [
+        "item_paper"
+    ],
+    "2000703": [
+        "item_small"
+    ],
+    "2000704": [
+        "item_paper"
+    ],
+    "2000705": [
+        "item_paper"
+    ],
+    "2000706": [
+        "item_paper"
+    ],
+    "2000707": [
+        "item_book"
+    ],
+    "2000708": [
+        "item_book"
+    ],
+    "2000709": [
+        "item_book"
+    ],
+    "2000710": [
+        "item_book"
+    ],
+    "2000711": [
+        "item_weight"
+    ],
+    "2000712": [
+        "animal_beast_low_growl",
+        "animal_beast_growl"
+    ],
+    "2000713": [
+        "item_powerful_magical"
+    ],
+    "2000714": [
+        "item_powerful_magical"
+    ],
+    "2000715": [
+        "item_powerful_magical"
+    ],
+    "2000716": [
+        "item_powerful_magical"
+    ],
+    "2000717": [
+        "item_powerful_magical"
+    ],
+    "2000718": [
+        "item_powerful_magical"
+    ],
+    "2000719": [
+        "item_powerful_magical"
+    ],
+    "2000720": [
+        "item_powerful_magical"
+    ],
+    "2000721": [
+        "item_powerful_magical"
+    ],
+    "2000722": [
+        "item_powerful_magical"
+    ],
+    "2000729": [
+        "item_clothing"
+    ],
+    "2000731": [
+        "item_small"
+    ],
+    "2000732": [
+        "item_small"
+    ],
+    "2000733": [
+        "weapon_rare"
+    ],
+    "2000734": [
+        "item_small"
+    ],
+    "2000737": [
+        "item_army"
+    ],
+    "2000739": [
+        "weapon_rare"
+    ],
+    "2000740": [
+        "item_paper"
+    ],
+    "2000741": [
+        "item_paper"
+    ],
+    "2000742": [
+        "item_metal"
+    ],
+    "2000744": [
+        "item_army"
+    ],
+    "2000745": [
+        "item_army"
+    ],
+    "2000746": [
+        "item_army"
+    ],
+    "2000747": [
+        "item_metal"
+    ],
+    "2000749": [
+        "item_clothing"
+    ],
+    "2000750": [
+        "weapon_rare"
+    ],
+    "2000752": [
+        "weapon_rare"
+    ],
+    "2000753": [
+        "item_paper"
+    ],
+    "2000756": [
+        "item_scroll"
+    ],
+    "2000757": [
+        "item_paper"
+    ],
+    "2000758": [
+        "item_paper"
+    ],
+    "2000759": [
+        "item_paper"
+    ],
+    "2000761": [
+        "item_small"
+    ],
+    "2000762": [
+        "item_weight"
+    ],
+    "2000763": [
+        "item_army"
+    ],
+    "2000767": [
+        "item_small"
+    ],
+    "2000768": [
+        "item_small"
+    ],
+    "2000769": [
+        "item_small"
+    ],
+    "2000775": [
+        "item_small"
+    ],
+    "2000776": [
+        "item_clothing"
+    ],
+    "2000778": [
+        "item_clothing"
+    ],
+    "2000779": [
+        "item_clothing"
+    ],
+    "2000780": [
+        "item_army"
+    ],
+    "2000790": [
+        "item_metal"
+    ],
+    "2000793": [
+        "weapon_rare"
+    ],
+    "2000797": [
+        "item_book"
+    ],
+    "2000798": [
+        "item_book"
+    ],
+    "2000799": [
+        "item_book"
+    ],
+    "2000800": [
+        "item_book"
+    ],
+    "2000801": [
+        "item_book"
+    ],
+    "2000802": [
+        "item_book"
+    ],
+    "2000803": [
+        "item_book"
+    ],
+    "2000804": [
+        "item_book"
+    ],
+    "2000805": [
+        "item_book"
+    ],
+    "2000806": [
+        "item_book"
+    ],
+    "2000807": [
+        "item_scroll"
+    ],
+    "2000808": [
+        "item_book"
+    ],
+    "2000814": [
+        "item_small"
+    ],
+    "2000815": [
+        "item_small"
+    ],
+    "2000816": [
+        "item_metal"
+    ],
+    "2000817": [
+        "item_clothing"
+    ],
+    "2000818": [
+        "item_metal"
+    ],
+    "2000819": [
+        "item_small"
+    ],
+    "2000820": [
+        "item_small"
+    ],
+    "2000821": [
+        "item_small"
+    ],
+    "2000822": [
+        "item_metal"
+    ],
+    "2000823": [
+        "item_metal"
+    ],
+    "2000824": [
+        "item_metal"
+    ],
+    "2000825": [
+        "item_metal"
+    ],
+    "2000826": [
+        "item_metal"
+    ],
+    "2000827": [
+        "weapon_rare"
+    ],
+    "2000828": [
+        "weapon_edge"
+    ],
+    "2000829": [
+        "weapon_edge"
+    ],
+    "2000830": [
+        "weapon_edge"
+    ],
+    "2000831": [
+        "weapon_rare"
+    ],
+    "2000832": [
+        "weapon_armor"
+    ],
+    "2000833": [
+        "weapon_armor"
+    ],
+    "2000834": [
+        "weapon_armor"
+    ],
+    "2000835": [
+        "item_weight"
+    ],
+    "2000836": [
+        "weapon_armor"
+    ],
+    "2000837": [
+        "weapon_rare"
+    ],
+    "2000838": [
+        "weapon_armor"
+    ],
+    "2000839": [
+        "item_metal"
+    ],
+    "2000854": [
+        "weapon_edge"
+    ],
+    "2000855": [
+        "item_book"
+    ],
+    "2000856": [
+        "item_book"
+    ],
+    "2000857": [
+        "item_book"
+    ],
+    "2000858": [
+        "item_metal"
+    ],
+    "2000859": [
+        "item_army"
+    ],
+    "2000883": [
+        "item_army"
+    ],
+    "2000888": [
+        "item_army"
+    ],
+    "2000890": [
+        "item_army"
+    ],
+    "2000891": [
+        "item_army"
+    ],
+    "2000893": [
+        "item_small"
+    ],
+    "2000895": [
+        "item_small"
+    ],
+    "2000896": [
+        "item_weight"
+    ],
+    "2000901": [
+        "item_army"
+    ],
+    "2000902": [
+        "item_army"
+    ],
+    "2000903": [
+        "item_army"
+    ],
+    "2000904": [
+        "item_army"
+    ],
+    "2000905": [
+        "item_army"
+    ],
+    "2000906": [
+        "item_army"
+    ],
+    "2000907": [
+        "item_army"
+    ],
+    "2000908": [
+        "item_army"
+    ],
+    "2000909": [
+        "item_army"
+    ],
+    "2000916": [
+        "weapon_rare"
+    ],
+    "2000917": [
+        "weapon_armor"
+    ],
+    "2000918": [
+        "weapon_rare"
+    ],
+    "2000919": [
+        "weapon_rare"
+    ],
+    "2000920": [
+        "weapon_rare"
+    ],
+    "2000921": [
+        "weapon_rare"
+    ],
+    "2000922": [
+        "weapon_rare"
+    ],
+    "2000927": [
+        "item_army"
+    ],
+    "2000928": [
+        "item_metal"
+    ],
+    "2000929": [
+        "item_army"
+    ],
+    "2000930": [
+        "item_army"
+    ],
+    "2000938": [
+        "animal_monster_2"
+    ],
+    "2000939": [
+        "item_small"
+    ],
+    "2000940": [
+        "item_small"
+    ],
+    "2000941": [
+        "item_small"
+    ],
+    "2000942": [
+        "item_small"
+    ],
+    "2000943": [
+        "item_paper"
+    ],
+    "2000944": [
+        "item_paper"
+    ],
+    "2000945": [
+        "item_book"
+    ],
+    "2000949": [
+        "item_weight"
+    ],
+    "2000950": [
+        "item_weight"
+    ],
+    "2000951": [
+        "item_weight"
+    ],
+    "2000952": [
+        "weapon_armor"
+    ],
+    "2000953": [
+        "weapon_rare"
+    ],
+    "2000954": [
+        "item_weight"
+    ],
+    "2000955": [
+        "item_weight"
+    ],
+    "2000959": [
+        "weapon_rare"
+    ],
+    "2000964": [
+        "item_army"
+    ],
+    "2000965": [
+        "item_army"
+    ],
+    "2000966": [
+        "item_army"
+    ],
+    "2000967": [
+        "item_army"
+    ],
+    "2000968": [
+        "item_army"
+    ],
+    "2000969": [
+        "item_army"
+    ],
+    "2000970": [
+        "item_army"
+    ],
+    "2000972": [
+        "item_army"
+    ],
+    "2000973": [
+        "item_paper"
+    ],
+    "2000974": [
+        "item_paper"
+    ],
+    "2000975": [
+        "item_paper"
+    ],
+    "2000977": [
+        "item_paper"
+    ],
+    "2000978": [
+        "item_army"
+    ],
+    "2000979": [
+        "item_army"
+    ],
+    "2000980": [
+        "item_army"
+    ],
+    "2000981": [
+        "item_army"
+    ],
+    "2000982": [
+        "item_small"
+    ],
+    "2000983": [
+        "item_weight"
+    ],
+    "2000986": [
+        "item_powerful_magical"
+    ],
+    "2000987": [
+        "item_weight"
+    ],
+    "2000988": [
+        "weapon_rare"
+    ],
+    "2000989": [
+        "animal_cute_dog_1",
+        "animal_cute_dog_2"
+    ],
+    "2000990": [
+        "animal_dog_low_growl",
+        "animal_dog_growl"
+    ],
+    "2000995": [
+        "weapon_rare"
+    ],
+    "2000996": [
+        "weapon_rare"
+    ],
+    "2000997": [
+        "weapon_rare"
+    ],
+    "2000998": [
+        "item_book"
+    ],
+    "2000999": [
+        "item_book"
+    ],
+    "2001000": [
+        "item_book"
+    ],
+    "2001001": [
+        "item_clothing"
+    ],
+    "2001006": [
+        "item_small"
+    ],
+    "2001007": [
+        "item_small"
+    ],
+    "2001008": [
+        "item_small"
+    ],
+    "2001009": [
+        "item_small"
+    ],
+    "2001010": [
+        "item_small"
+    ],
+    "2001011": [
+        "item_small"
+    ],
+    "2001012": [
+        "item_small"
+    ],
+    "2001013": [
+        "item_small"
+    ],
+    "2001014": [
+        "item_small"
+    ],
+    "2001015": [
+        "item_small"
+    ],
+    "2001016": [
+        "item_small"
+    ],
+    "2001017": [
+        "item_small"
+    ],
+    "2001019": [
+        "item_paper"
+    ],
+    "2001021": [
+        "item_potion"
+    ],
+    "2001022": [
+        "item_potion"
+    ],
+    "2001023": [
+        "item_powerful_magical"
+    ],
+    "2001024": [
+        "item_powerful_magical"
+    ],
+    "2001027": [
+        "animal_dog_low_growl",
+        "animal_dog_growl"
+    ],
+    "2001028": [
+        "animal_dog_low_growl",
+        "animal_dog_growl"
+    ],
+    "2001029": [
+        "animal_dog_low_growl",
+        "animal_dog_growl"
+    ],
+    "2001031": [
+        "item_powerful_magical"
+    ],
+    "2001032": [
+        "item_small"
+    ],
+    "2001033": [
+        "item_paper"
+    ],
+    "2001034": [
+        "item_powerful_magical"
+    ],
+    "2001043": [
+        "item_paper"
+    ],
+    "2001044": [
+        "item_paper"
+    ],
+    "2001045": [
+        "item_paper"
+    ],
+    "2001046": [
+        "item_paper"
+    ],
+    "2001047": [
+        "item_army"
+    ],
+    "2001048": [
+        "item_army"
+    ],
+    "2001049": [
+        "item_small"
+    ],
+    "2001050": [
+        "item_small"
+    ],
+    "2001054": [
+        "item_paper"
+    ],
+    "2001055": [
+        "animal_monster_2"
+    ],
+    "2001056": [
+        "item_potion"
+    ],
+    "2001057": [
+        "item_army"
+    ],
+    "2001060": [
+        "item_book"
+    ],
+    "2001061": [
+        "item_small"
+    ],
+    "2001062": [
+        "item_small"
+    ],
+    "2001063": [
+        "item_small"
+    ],
+    "2001064": [
+        "item_small"
+    ],
+    "2001065": [
+        "item_small"
+    ],
+    "2001066": [
+        "item_book"
+    ],
+    "2001067": [
+        "animal_monster_2"
+    ],
+    "2001068": [
+        "weapon_rare"
+    ],
+    "2001069": [
+        "weapon_rare"
+    ],
+    "2001070": [
+        "animal_monster_2"
+    ],
+    "2001072": [
+        "animal_zombie_2"
+    ],
+    "2001073": [
+        "animal_zombie_2"
+    ],
+    "2001074": [
+        "animal_zombie_2"
+    ],
+    "2001075": [
+        "animal_zombie_2"
+    ],
+    "2001081": [
+        "weapon_rare"
+    ],
+    "2001082": [
+        "animal_zombie_1"
+    ],
+    "2001083": [
+        "animal_zombie_1"
+    ],
+    "2001084": [
+        "animal_zombie_1"
+    ],
+    "2001085": [
+        "animal_zombie_1"
+    ],
+    "2001090": [
+        "item_powerful_magical"
+    ],
+    "2001092": [
+        "item_army"
+    ],
+    "2001094": [
+        "item_army"
+    ],
+    "2001095": [
+        "item_powerful_magical"
+    ],
+    "2001102": [
+        "item_army"
+    ],
+    "2001103": [
+        "weapon_rare"
+    ],
+    "2001104": [
+        "item_army"
+    ],
+    "2001107": [
+        "weapon_rare"
+    ],
+    "2001109": [
+        "item_army"
+    ],
+    "2001110": [
+        "animal_skeleton_move"
+    ],
+    "2001111": [
+        "animal_monster_2"
+    ],
+    "2001112": [
+        "animal_zombie_1"
+    ],
+    "2001113": [
+        "item_small"
+    ],
+    "2001114": [
+        "item_small"
+    ],
+    "2001119": [
+        "animal_dog_low_growl",
+        "animal_dog_growl"
+    ],
+    "2001120": [
+        "animal_beast_low_growl",
+        "animal_zombie_1"
+    ],
+    "2001123": [
+        "animal_monster_2"
+    ],
+    "2001124": [
+        "animal_monster_2"
+    ],
+    "2001132": [
+        "item_clothing"
+    ],
+    "2001133": [
+        "animal_monster_2"
+    ],
+    "2001134": [
+        "item_clothing"
+    ],
+    "2001135": [
+        "animal_monster_2"
+    ],
+    "2001136": [
+        "item_weight"
+    ],
+    "2001137": [
+        "item_powerful_magical"
+    ]
+}

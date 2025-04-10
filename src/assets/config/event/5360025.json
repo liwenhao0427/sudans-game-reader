@@ -1,0 +1,22 @@
+{
+    "id": 5360025,
+    "text": "获得妻子的不满时计数",
+    "is_replay": 0, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "card_born":2000083 
+    },
+    "condition":{
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "counter+7000093": 1,
+            "debug": "妻子不满计数"
+        }
+    }
+    ]
+}

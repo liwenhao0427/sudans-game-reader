@@ -1,0 +1,26 @@
+{
+    "id": 5320186,
+    "text": "小圆声望事件--悲伤的铁头",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "counter.7000243<":1, //笛子线本体没有触发过
+        "table_have.2000369.追随者":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.clean.2000738": 1,
+                "counter+7000243":1,  //激活铁头的笛子线
+                "rite": 5006638 //悲伤的铁头
+            }
+        }
+
+    ]
+}

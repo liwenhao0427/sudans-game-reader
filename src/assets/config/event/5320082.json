@@ -1,0 +1,28 @@
+{
+    "id": 5320082,
+    "text": "侠名2的事件--罪犯的投奔",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "counter.7100004>=":5 //侠名大于等于5     
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot.罪犯投奔+1":6000095,
+                "rite":5006571, //激活罪犯的投奔           
+                "prompt":{
+                    "id":"5320082_prompt_01",
+                    "text":"你的名声召来了一些危险分子。\n<size=+10><font=\"Title SDF\"><b>在这一阶段，定期会有人一些罪犯来寻求你的庇护，请谨慎选择。</b></font></size>"
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,23 @@
+{
+        "id": 5310528,
+        "text": "结局-伯劳的森林",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000448>=":1, //传统
+            "have.2000312.宰相":1,           
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":256
+            }
+        }
+    ]
+} 

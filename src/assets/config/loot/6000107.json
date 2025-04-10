@@ -1,0 +1,26 @@
+{
+    "id": 6000107,
+    "name": "猎奴队线索loot",
+    "repeat": 1,
+    "type": 3, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000973",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000974",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000975",
+            "type" : "card",
+            "weight" : 60
+        }
+    ]
+}

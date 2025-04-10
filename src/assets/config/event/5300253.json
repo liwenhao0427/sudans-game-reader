@@ -1,0 +1,25 @@
+{
+    "id": 5300253,
+    "text": "7天后再开启不可靠的盟友",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 7 //第7回合开始
+    },
+    "condition":{  //条件
+        "have.2000064":1 //花花公子活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000713, //开启不可靠的盟友
+                "success":{
+                    "event_off":5300253 //关闭自检
+                }
+            }
+        }
+    ]
+}

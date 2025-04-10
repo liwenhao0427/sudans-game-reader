@@ -1,0 +1,27 @@
+{
+    "id": 5300081,
+    "text": "毒蛇山谷",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "!rite":5002511,             //场上无毒蛇山谷
+        "counter.7000037<":1   //毒蛇山谷没有踏破
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5002511, //开启毒蛇山谷
+                "success":{
+                    "event_off":5300081 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

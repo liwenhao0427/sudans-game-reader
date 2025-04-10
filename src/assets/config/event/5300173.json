@@ -1,0 +1,35 @@
+{
+    "id": 5300173,
+    "text": "刺杀",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":2
+    },
+    "condition":{  //条件
+        "!rite":5000608,
+        "table_have.2000062":1, //有寡妇
+        "table_have.2000063":1, //年轻望族
+        "table_have.主角":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.clean.2000063":1,
+                "table.clean.2000062":1,
+                "rite":5000608,
+                "prompt":{
+                    "id":"5300173_prompt_1",
+                    "text":"有一天，你听说法图娜带着扎齐伊悄悄离开了这座城市，不知去往何方。她只留下一张信笺，上面写着简短的感谢。也许……你想，也许那个聪明的女人知道了什么，而现在，她已经摆脱那些盘旋头顶的贪婪兀鹫。你衷心地祈祷她能平安。\n不过，有的人恐怕因此要气得要发疯了……",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5300173
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "id": 5300078,
+    "text": "狼王的踪迹",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "!rite":5002508,             //场上无狼穴的踪迹
+        "!rite":5002509,  //场上无狼穴恶战
+        "counter.7000034<":1,      //这个仪式还没完成
+        "counter.7000035<":1    //狼王还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5002508, //重开狼王踪迹
+                "success":{
+                    "event_off":5300078 //关闭自检
+                }
+            }
+        }
+
+    ]
+}

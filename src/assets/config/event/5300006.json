@@ -1,0 +1,24 @@
+ {
+        "id": 5300006,
+        "text": "一桩无法追溯的罪行",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": true, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba": 1 //每回合开始时
+        },
+        "condition":{  //条件
+            "!have.2000164":1, //法官已经无了
+            "counter.7000010<":1  //法官非正常死亡
+        },
+        "settlement": [    //效果
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5000511
+                }
+            }
+
+        ]
+    } 

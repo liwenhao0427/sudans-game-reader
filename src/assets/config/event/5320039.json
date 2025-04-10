@@ -1,0 +1,27 @@
+{
+    "id": 5320039,
+    "text": "复仇的滋味3",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "have.2000123":1 //鲁梅拉存活
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":2000551, //复仇的滋味3
+                "prompt":{
+                    "id":"5320039_prompt_01",
+                    "text":"不知是谁把一册抄本放在了你的卧室门口。"
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "id": 5320517,
+    "text": "白嫖的快乐",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "counter.7000150<":7,
+        "any":{
+            "all":{
+                "table_have.2000080": 1, //三人有2人活着
+                "table_have.2000080.妓女": 1,
+                "table_have.2000081": 1,
+                "table_have.2000081.妓女": 1
+            },
+            "all":{
+                "table_have.2000081": 1, 
+                "table_have.2000081.妓女": 1,
+                "table_have.2000082": 1,
+                "table_have.2000082.妓女": 1
+            },
+            "all":{
+                "table_have.2000080": 1, 
+                "table_have.2000080.妓女": 1,
+                "table_have.2000082": 1,
+                "table_have.2000082.妓女": 1
+            }
+        }
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006026, //启动仪式快乐使我旋转
+                "prompt":{
+                        "id":"5320517_prompt_01",
+                        "text":"这件事已经传遍了全城，现在，妓院的欢愉之女们渴望见识一下你的英姿——对不起，是生命权杖的英姿。完全免费，但只能在姐姐们有空的时候。",
+                        "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5320517
+                }
+            }
+        }
+
+    ]
+}

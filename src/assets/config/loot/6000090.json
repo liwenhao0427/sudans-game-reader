@@ -1,0 +1,32 @@
+{
+    "id": 6000090,
+    "name": "奈费勒大敌事件",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5007002",
+            "type" : "rite",
+            "weight" : 40
+        },
+        {
+            "num" : "1",
+            "id" : "5007003",
+            "type" : "rite",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "5007005",
+            "type" : "rite",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "5007006",
+            "type" : "rite",
+            "weight" : 20
+        }
+    ]
+}

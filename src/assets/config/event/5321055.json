@@ -1,0 +1,32 @@
+{
+    "id": 5321055,
+    "text": "赎买的请求幕后",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "counter.7100001>=":14, //善良lv3
+        "hand_have.2000370":1,   //快脚活着
+        "table_have.2000057": 1, //哲瓦德闲置
+        "table_have.2000774": 1, //阿鲁米娜闲置
+        "counter.7000333>=":1 //触发了不会开花的花园
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":[2000813,"数量+20"],
+                "rite":5008050, //赎买的请求
+                "success":{
+                    "event_off":5321055
+                }
+            }
+        }
+
+    ]
+}

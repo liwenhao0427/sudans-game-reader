@@ -1,0 +1,29 @@
+{
+    "id": 5321049,
+    "text": "对阿鲁米娜纵欲",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false, 
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on": { //时机
+         "round_begin_ba": 1
+    },
+    "condition": { //条件
+    "all":{
+        "have.2000057": 1, //哲瓦德还活着
+        "table_have.2000774": 1 //阿鲁米娜还活着
+    }
+    },
+    "settlement": [ //效果 
+    {
+        "tips_resource": "",
+        "tips_text": "",
+        "action": {
+            "rite":5008033,    //对阿鲁米娜纵欲
+            "success": {
+                "event_off": 5321049
+            }
+        }
+    }
+
+]
+}

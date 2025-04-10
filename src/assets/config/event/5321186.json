@@ -1,0 +1,26 @@
+{
+    "id": 5321186,
+    "text": "密神的诅咒再次降临",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "counter.7000637<": 1, //还未完成自由之花（阻断密神的诅咒
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "delay": { //延迟5回合执行
+                    "id": 53211861,
+                    "round": 5,
+                    "rite": 5008188 //重新开启
+                }
+            }
+        }
+    ]
+}

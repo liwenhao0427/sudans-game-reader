@@ -1,0 +1,23 @@
+{
+        "id": 5310513,
+        "text": "结局-流浪欲",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000448>=":1, //传统
+            "have.2000771.宰相":1, //芮尔是宰相
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":241
+            }
+        }
+    ]
+} 

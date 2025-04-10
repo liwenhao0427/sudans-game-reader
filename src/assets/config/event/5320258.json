@@ -1,0 +1,27 @@
+{
+    "id": 5320258,
+    "text": "宫廷-索要妃子-莎姬的催促",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "have.2001019.lifetime=10.count":1, //还剩10天寿命的时候，只会出现1次
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "prompt":{
+                    "id":"5320258_prompt_01",
+                    "text":"莎姬派人送来了一张字条，催促你赶紧想想办法……现在那些恶犬已经能把爪子伸进来了！",
+                    "icon":"cards/2000010"
+                }
+            }
+        }
+
+    ]
+}

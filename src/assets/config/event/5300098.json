@@ -1,0 +1,31 @@
+{
+    "id": 5300098,
+    "text": "第5天生成商人",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 //每回合刷一次
+    },
+    "condition":{  //条件
+        "counter.7000060>=":5
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5300035, //激活武器商人
+                "rite": 5000129, //装备引导
+                "success":{
+                    "prompt":{
+                        "id": "5300098_prompt_01",
+                        "text":"开市消息：商业街盛大开市,货品种类繁多,物优价廉。\n<size=+10><font=\"Title SDF\"><b>购买装备，为未来的挑战做好准备吧！</b></font></size>",
+                        "icon":"common/position_shangye_1"
+                    }
+                }
+            }
+        }
+
+    ]
+}

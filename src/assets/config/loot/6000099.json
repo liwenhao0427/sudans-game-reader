@@ -1,0 +1,24 @@
+{
+    "id": 6000099,
+    "name": "娜依拉声望事件-花嫁不满意",
+    "repeat": 1,
+    "type": 2, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5006600",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5006601",
+            "type" : "rite",
+            "weight" : 60
+        }
+    ]
+}

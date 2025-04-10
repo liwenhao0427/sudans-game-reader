@@ -1,0 +1,27 @@
+{
+    "id": 5300257,
+    "text": "论罪与辩护",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每1回合开始
+    },
+    "condition":{  //条件
+        "hand_have.2000558":1, //手上有罪证
+        "counter.7000160<":1, //艾迪勒没有被袭击
+        "counter.7000161<":1  //施加压力失败
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5001026,
+                "success":{
+                    "event_off":5300257
+                }
+            }
+        }
+    ]
+}

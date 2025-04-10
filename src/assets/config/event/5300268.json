@@ -1,0 +1,33 @@
+{
+    "id": 5300268,
+    "text": "再一次拳斗",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":[3,5] // 仪式开始时
+    },
+    "condition":{  //条件
+        "counter.7000228>=":1,  //将军夜猎已完成
+        "counter.7100004>=":6,  //侠名大于等于6
+        "have.2000054":1  //哲巴尔还活着
+    },
+    "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000760,
+                "prompt":{
+                    "id":"5300268_prompt_1",
+                    "text":"地下拳斗比赛再次开始了。如果你想搞明白那个斗士的身份，就不能错过这个机会。",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5300268 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

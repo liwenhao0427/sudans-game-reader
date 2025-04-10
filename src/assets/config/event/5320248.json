@@ -1,0 +1,52 @@
+{
+    "id": 5320248,
+    "text": "奈费勒声望事件-为希望而战",     
+    "is_replay": 0, 
+    "auto_start": false,  //在合适的结局位置激活它
+    "start_trigger": true,
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //五德齐聚
+        "any":{
+            "counter.7000381":1, 
+            "counter.7000382":1,
+            "counter.7000383":1,
+        },
+        "any":{
+            "counter.7000384":1,
+            "counter.7000385":1,
+            "counter.7000386":1,
+        },
+        "any":{
+            "counter.7000387":1,
+            "counter.7000388":1,
+            "counter.7000389":1,
+        },
+        "any":{
+            "counter.7000390":1,
+            "counter.7000391":1,
+            "counter.7000392":1,
+        },
+        "any":{
+            "counter.7000393":1,
+            "counter.7000394":1,
+            "counter.7000395":1,
+        },
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "loot":6000104, //根据收容的孤儿
+                "prompt":{
+                    "id":"5320248_prompt_01",
+                    "text":"一支军队加入了进来",
+                    "icon":"cards/1_char_0"
+                }
+            }
+        }
+
+    ]
+}

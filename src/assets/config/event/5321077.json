@@ -1,0 +1,31 @@
+{
+    "id": 5321077,
+    "text": "夜盗",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "counter.7000407>=":1, //选择把赫米尔留着销卡
+        "counter.7000408>=":1 //阿里木在盲盒兜售仪式中，未获得赫米尔
+    },
+    "settlement": [    //效果 
+        {
+            "action":{
+                "counter+7000412": 1,  //触发了夜盗
+                "rite":5008071,  //夜盗
+                "prompt":{
+                    "id":"5321077_prompt_01",
+                    "text":"阿里木来你家了，他准备拿走一些东西。",
+                    "icon":"cards/2000113"
+                },
+                "success":{
+                    "event_off":5321077 
+                }//关闭自检
+            }
+        }
+
+    ]
+}

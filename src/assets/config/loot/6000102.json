@@ -1,0 +1,67 @@
+{
+    "id": 6000102,
+    "name": "妓女的游戏loot",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "condition":{
+                "table_have.2000080":1,
+                "table_have.2000080.妓女":1  //朱娜还是妓女
+            },
+            "num" : "1",
+            "id" : "5000801",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+           "condition":{
+               "table_have.2000081": 1,
+               "table_have.2000081.妓女":1  //贾丽拉还是妓女
+           },
+           "num" : "1",
+           "id" : "5000802",
+           "type" : "rite",
+           "weight" : 60
+        },
+        {
+            "condition":{
+                "table_have.2000082": 1,
+                "table_have.2000082.妓女":1  //夏玛还是妓女
+            },
+            "num" : "1",
+            "id" : "5000803",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "all":{
+                    "!table_have.2000080":1, //三人全死
+                    "!table_have.2000081":1,
+                    "!table_have.2000082":1,
+                    "counter.7000417<":1,  //三人没赎身，进入皆杀
+                    "counter.7000418<":1,
+                    "counter.7000419<":1
+                }
+            },
+            "num" : "1",
+            "id" : "5300533",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "all":{
+                    "counter.7000417>=":1,  //三人全赎身
+                    "counter.7000418>=":1,
+                    "counter.7000419>=":1
+                }
+            },
+            "num" : "1",
+            "id" : "5300534",
+            "type" : "event",
+            "weight" : 60
+        }
+    ]
+}

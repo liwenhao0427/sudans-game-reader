@@ -1,0 +1,23 @@
+{
+    "id": 5320067,
+    "text": "恶名3阶段事件-重复刷的时期",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [2,3]
+    },
+    "condition":{  //条件
+        "counter.7100002>=":10 // 恶名大于等于3
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000093 //掉落仪式
+            }
+        }
+
+    ]
+}

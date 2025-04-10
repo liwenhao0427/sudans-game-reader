@@ -1,0 +1,29 @@
+{
+    "id": 5300568,
+    "text": "消除一个苏丹的猜忌",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+       "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "hand_have.2000680":1  //手牌中有一个苏丹的猜忌
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.clean.2000680":1,  //移除一个苏丹的猜忌
+                "prompt":{
+                    "id":"5300568_prompt_01",
+                    "text":"鉴于你献上前朝遗物的功绩，苏丹对你的猜忌消失了一些。",
+                    "icon":"cards/sudan"
+                },  
+                "event_off":5300568, //关闭自检
+                "global_counter=7200223":1, //成就-没有人比我更懂你
+            }
+        }
+    ]
+}

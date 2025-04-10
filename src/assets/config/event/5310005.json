@@ -1,0 +1,70 @@
+{
+        "id": 5310005,
+        "text": "仪式结束选择测试",
+        "is_replay": 1, 
+        "auto_start": false, 
+        "start_trigger": false, 
+        "on":{   
+            "rite_end": 5001001
+        },
+        "condition":{  
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "choose":{ //随机动作1
+                    "all":{
+                        "option": {
+                            "id":"5310005_option_1",
+                            "text": "从宫廷里出来的时候，你遇到了一个衣衫褴褛的女性向你乞讨。",
+                            "icon": "cards/2000006",
+                            "items": [
+                                {
+                                    "text": "给她钱",
+                                    "tag": "op1"
+                                },
+                                {
+                                    "text": "无视她",
+                                    "tag": "op2"
+                                }
+                            ]
+                        },
+                        "case:1": {
+                           "table.clean.2000029": 1
+                        },
+                        "case:op2": {
+                           "card": 2000050
+                        }
+                    },
+                    "all":{
+                        "option": {
+                            "id":"5310005_option_2",
+                            "text": "宫廷的权力旋涡让你感到疲累",
+                            "icon": "cards/2000006",
+                            "items": [
+                                {
+                                    "text": "回去睡一觉",
+                                    "tag": "op1"
+                                },
+                                {
+                                    "text": "继续加班",
+                                    "tag": "op2"
+                                }
+                            ]
+                        },
+                        "case:1": {
+                           "card": 2000029
+                        },
+                        "case:op2": {
+                           "card": 2000050
+                        }
+                    }
+               }
+            }
+            
+        }
+
+        ]
+    } 

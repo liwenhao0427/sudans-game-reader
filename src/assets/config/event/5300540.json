@@ -1,0 +1,37 @@
+{
+    "id": 5300540,
+    "text": "追击豺狼帮",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [2,3]//每回合检测
+    },
+    "condition":{  //条件
+        "table_have.2000771":1 , //芮尔在卡池
+        "counter.7000380>=":1,  //舍馆激活了
+        "counter.7000466>=":1   //芮尔匪帮成立了
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "no_prompt":{
+                    "clean.rite":5000812,  //释放仪式里的芮尔部队
+                    "counter+7000465":1,  //芮尔部队调动counter
+                    "rite":5000812  //重启芮尔匪帮仪式
+                },
+                "rite":5000813,  //开启追击豺狼帮
+                "prompt":{
+                    "id":"5300540_prompt_1",
+                    "text":"芮尔找到了豺狼帮余党的藏身之地，她出动自己所有的人手，决心将他们一举剿灭，一个不留！",
+                    "icon":"cards/2000771"
+                },
+                "success":{
+                    "event_off":5300540 //关闭自检
+                }
+            }
+        }
+    ]
+}

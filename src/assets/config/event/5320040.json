@@ -1,0 +1,27 @@
+{
+    "id": 5320040,
+    "text": "血墙",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 3
+    },
+    "condition":{  //条件
+        "have.2000123":1 //鲁梅拉存活
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000145":1, //被涂墙了
+                "prompt":{
+                    "id":"5320040_prompt_01",
+                    "text":"由于你和鲁梅拉婉拒了现场观看，不久后，暗娼馆的老板派人来告诉你，表演已经完美地结束了，客人们都非常满意，也许，您可以去监狱亲眼看看，那面墙是真正的艺术品。"
+                }
+            }
+        }
+
+    ]
+}

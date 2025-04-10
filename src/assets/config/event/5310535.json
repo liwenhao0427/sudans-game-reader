@@ -1,0 +1,24 @@
+{
+        "id": 5310535,
+        "text": "结局-加个冻结的保险",
+        "is_replay": 1, 
+        "auto_start": false, 
+        "start_trigger": false,  //立即触发
+        "on":{   
+            "round_begin_ba": 1 //每回合开始时
+        },
+        "condition":{
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "total.2001019+冻结":1, //冻结莎姬的信物
+                "total.sudan+冻结":1, //冻结苏丹卡
+                "total.2000680+冻结":1, //冻结猜忌
+                "sudan_pool.sudan+冻结":1, //冻结池子里的苏丹卡
+            }
+        }
+    ]
+} 

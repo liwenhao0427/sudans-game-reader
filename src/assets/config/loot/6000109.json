@@ -1,0 +1,38 @@
+{
+    "id": 6000109,
+    "name": "哀叹之剑loot",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "condition":{
+                "counter.7000524<":1,  //没升级草薙之剑
+                "counter.7000525<":1   //没升级灰烬之剑
+            },
+            "num" : "1",
+            "id" : "2000995",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "counter.7000524>=":1,  //升级草薙之剑
+                "counter.7000525<":1   //没升级灰烬之剑
+            },
+            "num" : "1",
+            "id" : "2000996",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "counter.7000524<":1,  //没升级草薙之剑
+                "counter.7000525>=":1   //升级灰烬之剑
+            },
+            "num" : "1",
+            "id" : "2000997",
+            "type" : "card",
+            "weight" : 60
+        },
+    ]
+}

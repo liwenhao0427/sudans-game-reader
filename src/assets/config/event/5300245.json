@@ -1,0 +1,29 @@
+{
+    "id": 5300245,
+    "text": "获得附魔仪式的幕后",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "table_have.2000352":1  //玛希尔存活
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":[2000490,"已拥有+1"], //获得武器附魔图纸
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300245_01",
+                        "text": "你现在也是一个渎神的人了。一起偷过教会的珍宝之后，玛希尔嘲笑着你，将一本不祥的书册扔到了你的手中：这是我的某一个祖先发明的东西，很邪恶，很危险——但也很强大。"
+                    },
+                    "event_off":5300245
+                }
+            }
+        }
+    ]
+}

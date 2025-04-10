@@ -1,0 +1,29 @@
+{
+    "id": 5320141,
+    "text": "娜依拉声望事件--唯一裂隙",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "table_have.2000055":1,
+        "!table_have.2000055.大敌":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.2000055+命运的羁绊":1,
+                "prompt":{
+                    "id":"5320141_prompt_01",
+                    "text":"娜依拉如常地来找你饮茶，好像没什么特别的。你们度过了和往常没什么两样的一天，但是，你窥视着她平静的面容，确信在卡雅死去之后，这颗永远尖锐如蛇牙的心中，有什么东西悄然发生了变化。",
+                    "icon":"cards/2000055"
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "id": 5300168,
+    "text": "善行计数结算",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end": [5000676,5000677]
+    },
+    "condition":{  //条件
+        "counter.7000070<":3
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+            "card":2000377, //暴乱的部队
+            "rite":5000679,
+                "prompt": {
+                    "id": "5300168_prompt_01",
+                    "text": "你的仆人匆忙来报，一支军队——姑且称之为军队——正挥师向你的农庄逼近，来者不善。",
+                    "icon": "cards/2000001"
+                    }
+            }
+        }
+    ]
+}

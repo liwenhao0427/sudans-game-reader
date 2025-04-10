@@ -1,0 +1,26 @@
+{
+    "id": 5300357,
+    "text": "群龙无首和权力游戏的保险机制",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":2
+    },
+    "condition":{  //条件
+        "!rite":5001004, //场上没有群龙无首
+        "!rite":5001001, //场上没有权力的游戏
+        "table_have.2000024":1, //苏丹闲置
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.2000024=上朝":0,
+                "rite":5001004, //群龙无首
+            }
+        }
+
+    ]
+}

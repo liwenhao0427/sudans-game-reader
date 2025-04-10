@@ -1,0 +1,38 @@
+{
+    "id": 5321013,
+    "text": "法拉杰声望刺杀事件邪恶lv2",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+         "round_begin_ba": 1 //第1回合开始后
+    },
+    "condition": { //条件
+    "all":{
+        "counter.7000238<":1,   //本体没有触发过
+        "counter.7000253<":1,   //法拉杰没有堕落过
+        "counter.7100002>=":14, //恶名lv2
+        "hand_have.法拉杰":1 ,//法拉杰存活
+        "!hand_have.法拉杰.密教徒":1  //法拉杰不是密教徒
+    }
+    },
+    "settlement": [ //效果 
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "rite":5008009,  //开启刺杀事件
+            "counter+7000238":1,  //本体计数器
+            "prompt":{
+                "id":"5321013_prompt_01",
+                "text":"你罪恶的行径让法拉杰忍无可忍，法拉杰决定对你奋起反抗……\n<size=+10><font=\"Title SDF\"><b>法拉杰将对你痛下杀手，需要小心应对</b></font></size>\n",
+                "icon": "cards/2000372"
+            },
+            "success": {
+                "event_off": 5321013  //关闭幕后
+        }
+    }
+    }
+
+    ]
+}

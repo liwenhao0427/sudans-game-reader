@@ -1,0 +1,41 @@
+{
+    "id": 5300157,
+    "text": "开启弑君计划",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end":5001100,
+        "rite_end":5000521,
+        "rite_end":5000526,
+        "rite_end":5000641, 
+        "rite_end":5000842,
+        "rite_end":5000002,          
+    },
+    "condition":{  //条件
+        //"counter.7000066>=":1,
+        "!rite":5001023,
+        "counter.7000577<":1,
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                //"rite":5000532 旧弑君计划
+                "counter+7000577":1,//标识已经被激活过
+                "card":2000901, //苏丹的军队
+                "card":2000902,
+                "card":2000903,
+                "card":2000904,
+                "card":2000905,
+                "card":2000906,
+                "card":2000907,
+                "card":2000908,
+                "card":2000909,
+                "rite":5001023, //新弑君计划
+                //"focus.5001023":[600,1]
+            }
+        }
+    ]
+}

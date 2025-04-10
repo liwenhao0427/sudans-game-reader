@@ -1,0 +1,33 @@
+{
+    "id": 5321119,
+    "text": "陌生的妓女来访",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        
+        "counter.7000491>=":2   //阁楼合伙生意共触发2次
+        
+        
+    },
+    "settlement": [    //效果 
+    {
+        "action":{
+            "card":2000937,
+            "rite":5008113, //腐败的玫瑰
+            "prompt":{
+                "id":"5321119_prompt_01",
+                "text":"最近，一个陌生的妓女来到了你的阁楼找生意。",
+                "icon":"cards/2000937"
+            },
+            "success":{
+                "event_off":5321119
+            }
+        }
+    }
+
+    ]
+}

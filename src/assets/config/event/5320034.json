@@ -1,0 +1,28 @@
+{
+    "id": 5320034,
+    "text": "意外的赏赐",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 3
+    },
+    "condition":{  //条件
+        "have.2000123":1 //鲁梅拉存活
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite": 5006525, //受赏仪式
+                "prompt":{
+                    "id":"5320034_prompt_01",
+                    "text":"从宫廷中来了一份意外的赏赐，包括几件华丽的布匹，以及一只漂亮的金臂环。随着赏赐而来的信里，点名要把它们送给“帮助少女完成复仇的勇士”……当然，这是属于你的，你也可以决定让谁来接受这份赏赐。",
+                    "icon":"cards/1_char_0"
+                }
+            }
+        }
+
+    ]
+}

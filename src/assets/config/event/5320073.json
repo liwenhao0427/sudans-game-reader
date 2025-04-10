@@ -1,0 +1,24 @@
+{
+    "id": 5320073,
+    "text": "善名1阶段事件-重复刷",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [10,20]
+    },
+    "condition":{  //条件
+        "counter.7100001>=":3, // 善名大于等于3
+        "counter.7100002<":3  //恶名小于3
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006557 //神秘人的援助    
+            }
+        }
+
+    ]
+}

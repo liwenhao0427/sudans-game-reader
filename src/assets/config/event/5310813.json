@@ -1,0 +1,36 @@
+{
+        "id": 5310813,
+        "text": "心灵之战-1",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": 1
+        },
+        "condition":{
+            //"global_counter.7230002>=":1, //商店解锁
+            "counter.7000658>=":1, //商店解锁
+            "counter.7100005>=":1,
+            "any":{
+                "table_have.2000841":1, //邪神的面容
+                "table_have.2000842":1,
+                "table_have.2000843":1,
+                "table_have.2000844":1,
+            }, 
+            "any":{
+                "table_have.2000845":1, //正神的面容
+                "table_have.2000846":1,
+                "table_have.2000847":1,
+                "table_have.2000848":1,
+            }, 
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "rite":5004818//为何是我遇到这种命运？
+            }
+        }
+    ]
+} 

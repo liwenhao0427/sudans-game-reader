@@ -1,0 +1,32 @@
+{
+    "id": 5321176,
+    "text": "辩经：拜铃耶",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [
+        1
+    ],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "counter.7000605>=": 1, //清洗异端中，1帮助了密教，2只劝说正教，没劝说密教，3劝说了两边
+        "hand_have.2000022": 1, //拜铃耶在手牌
+        "any": {
+            "have.2000022.纵欲的痕迹": 1, //和拜铃耶纵欲过
+            "have.主角.刺青=": 1, //刺青过
+        }
+    },
+    "settlement": [
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "rite": 5008181,
+                "success": {
+                    "event_off": 5321176
+                }
+            }
+        }
+    ]
+}

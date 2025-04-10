@@ -1,0 +1,26 @@
+ {
+        "id": 5300005,
+        "text": "法务官之死",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba": 1 //每回合开始时
+        },
+        "condition":{  //条件
+            "table_have.2000164":1  //桌面有法官空闲
+        },
+        "settlement": [    //效果
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5000505,
+                    "success":{
+                        "event_off":5300005
+                    }
+                }
+            }
+
+        ]
+    } 

@@ -1,0 +1,31 @@
+{
+    "id": 5300091,
+    "text": "权力的游戏开启提示",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "counter.7000055>=":1,
+        "rite":5001001
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter=7000055":0,
+                "success":{
+                    "prompt":{
+                        "id": "5300091_prompt_01",
+                        "text":"苏丹回到了他忠诚的宫廷。",
+                        "icon":["","cards/sudan",""]
+                    }
+                }
+            }
+        }
+
+    ]
+}

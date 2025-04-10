@@ -1,0 +1,27 @@
+ {
+        "id": 5300025,
+        "text": "死于睡梦中(源自妻子出轨的累积)",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start_init": [1],
+        "start_trigger": true, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":1 // 仪式开始时
+        },
+        "condition":{  //条件
+            "hand_have.主角":1,
+            "hand_have.妻子":1,   //妻子在手牌中
+            "!rite":5003007,  //场上不存在私奔仪式
+            "!rite":5003006,  //场上不存在死于睡梦中
+            "counter.7000402>=":3 //记录出轨次数至少3次 
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5003006
+                }
+            }
+
+        ]
+    } 

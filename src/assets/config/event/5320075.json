@@ -1,0 +1,28 @@
+{
+    "id": 5320075,
+    "text": "善名3阶段事件",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "counter.5000570>=":1,  //善线计数器开启
+        "counter.7100001>=":20 // 善名大于等于20
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006559, //神庙祈祷            
+                "prompt":{
+                    "id":"5320075_prompt_01",
+                    "text":"你的善行获得了正教的善意。\n<size=+10><font=\"Title SDF\"><b>去祈祷吧，会有奇迹发生。</b></font></size>"
+                }
+            }
+        }
+
+    ]
+}

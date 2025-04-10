@@ -1,0 +1,29 @@
+{
+    "id": 5360057,
+    "text": "成就-苏丹的近臣",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "have.2000064.追随者":1,
+        "have.2000054.追随者":1,
+        "have.2000065.追随者":1,
+        "any":{
+            "have.2000012.追随者":1, 
+            "have.2000292.追随者":1, 
+        }
+
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7200237": 1, //成就-苏丹的近臣
+        }
+    }
+    ]
+}

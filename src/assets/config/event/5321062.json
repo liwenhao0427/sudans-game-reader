@@ -1,0 +1,31 @@
+{
+    "id": 5321062,
+    "text": "一次逃亡",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+       "all":{
+        "have.2000853":1, //险峻小径存在
+        "counter.7100003>=":7,    //权势2
+        "counter.7000353>=":1, //触发质子逃亡准备
+        "!rite":5001001, //场上没有权力的游戏
+        "rite":5001004  //场上有群龙无首
+        }
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5008059,   //一次逃亡
+                "success":{
+                    "event_off":5321062
+                }
+            }
+        }
+    ]
+}

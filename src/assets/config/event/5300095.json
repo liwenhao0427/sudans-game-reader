@@ -1,0 +1,24 @@
+{
+    "id": 5300095,
+    "text": "激活约会相关的仪式",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 //每回合刷一次
+    },
+    "condition":{  //条件
+        "have.妻子.激情":1 //妻子存在激情
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5300010,
+                "event_on":5300026                
+            }
+        }
+
+    ]
+}

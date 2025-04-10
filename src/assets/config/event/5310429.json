@@ -1,0 +1,28 @@
+{
+        "id": 5310429,
+        "text": "结局-造反-法里斯死亡时补员",
+        "is_replay": 0, 
+        "auto_start_init": [1],  
+        "start_trigger": false,
+        "on":{   
+            "card_clean": 2000065 //法里斯
+        },
+        "condition":{
+            "counter.7000435<":1, //集结部队之前
+            "counter.7000659<":1, //出发前
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "card":2000926,
+                "prompt":{
+                    "id":"5310429_prompt_01",
+                    "text":"苏丹补充了一名铁卫。",
+                    "icon":"cards/2000926"
+                }
+            }
+        }
+    ]
+} 

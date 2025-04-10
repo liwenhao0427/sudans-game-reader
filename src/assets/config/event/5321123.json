@@ -1,0 +1,32 @@
+{
+    "id": 5321123,
+    "text": "过于尊贵的客人",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        
+        "counter.7000082<":1,   //标识已开启偷戒指的相关仪式
+        "counter.7000493>=":3   //丝绒暗室运行次数
+        
+    },
+    "settlement": [    //效果 
+    {
+        "action":{
+            "card":2001005,
+            "rite":5008117, //过于尊贵的客人
+            "prompt":{
+                "id":"5321123_prompt_01",
+                "text":"某次朝会结束后，一位官员满头大汗地拦住你，说有重要的事情与你商谈。"
+            },
+            "success":{
+                "event_off":5321123
+            }
+        }
+    }
+
+    ]
+}

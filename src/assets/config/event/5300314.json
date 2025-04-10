@@ -1,0 +1,25 @@
+{
+        "id": 5300314,
+        "text": "纳妾",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false, //默认本局开始时即启动
+        "start_trigger": true, 
+        "on":{   //时机
+            "round_begin_ba":1
+        },
+        "condition":{      
+            "table_have.2000082":1  
+        },
+        "settlement": [
+        {
+            "tips_resource":"",
+            "tips_text":"",
+            "action":{
+                "rite":5002030,
+                "success":{
+                    "event_off":5300314
+                }
+            }
+        }
+    ]
+} 

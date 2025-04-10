@@ -1,0 +1,25 @@
+{
+    "id": 5360056,
+    "text": "成就-希望的园丁",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "have.2000867.已收容":1,
+        "have.2000887.已收容":1,
+        "have.2000889.已收容":1,
+        "have.2001115.已收容":1,
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7200232": 1, //成就-希望的园丁
+        }
+    }
+    ]
+}

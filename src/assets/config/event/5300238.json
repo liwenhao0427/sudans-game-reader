@@ -1,0 +1,22 @@
+{
+    "id": 5300238,
+    "text": "逃离",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean":[2010001,2010002,2010003,2010004] //使用任意一张杀戮卡
+    },
+    "condition":{  //条件
+        "have.妻子":1 //妻子还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000089":1      
+            }
+        }
+    ]
+} 

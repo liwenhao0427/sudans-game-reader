@@ -1,0 +1,23 @@
+{
+        "id": 5310458,
+        "text": "结局-逃跑-荒野",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010001
+        },
+        "condition":{
+            "table_have.2000984.目的地":1 //目的地是荒野
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":15
+                //"over":100 
+            }
+        }
+    ]
+} 

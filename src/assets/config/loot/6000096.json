@@ -1,0 +1,86 @@
+{
+    "id": 6000096,
+    "name": "政事公文",
+    "repeat": 1,
+    "type": 3,  
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5006572",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006573",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006574",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006575",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006576",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006577",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006578",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006579",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006580",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006581",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006582",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006583",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006584",
+            "type" : "rite",
+            "weight" : 50
+        }
+    ]
+}

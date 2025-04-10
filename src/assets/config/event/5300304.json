@@ -1,0 +1,32 @@
+{
+        "id": 5300304,
+        "text": "石妓女赎身",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false, //默认本局开始时即启动
+        "start_trigger": false, 
+        "on":{   //时机
+            "round_begin_ba":[3,5]
+        },
+        "condition":{
+            "have.2000080.激情":1,
+            "counter.7100004>=":3, //侠名大于等于3
+            "table_have.2000080":1           
+        },
+        "settlement": [
+        {
+            "tips_resource":"",
+            "tips_text":"",
+            "action":{
+                "rite":5002022,
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300304_01",
+                        "text": "一位信使来到了你的家门口，是朱娜的来信，她在等你。"
+                    },
+                    "event_off":5300304
+                }
+            }
+        }
+
+        ]
+    } 

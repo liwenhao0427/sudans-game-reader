@@ -1,0 +1,25 @@
+{
+        "id": 5310481,
+        "text": "结局-游戏之国",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000447>=":1, //变革
+            "!have.2000012":1, //赛里曼
+            "!have.2000292":1, //蒙面战士
+            "have.主角.邪恶化身":1, //主角是邪恶化身
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":215
+            }
+        }
+    ]
+} 

@@ -1,0 +1,50 @@
+{
+    "id": 6000089,
+    "name": "恶名挑战者loot",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000559",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000560",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000561",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000562",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000563",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000564",
+            "type" : "card",
+            "weight" : 9
+        },
+        {
+            "num" : "1",
+            "id" : "2000565",
+            "type" : "card",
+            "weight" : 1
+        }
+    ]
+}

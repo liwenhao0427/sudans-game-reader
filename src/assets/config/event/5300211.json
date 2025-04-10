@@ -1,0 +1,27 @@
+{
+    "id": 5300211,
+    "text": "不可靠的盟友",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end": 5000713 //不可靠的盟友仪式结束时
+    },
+    "condition":{  //条件
+        "have.2000064":1, //花花公子活着
+        "have.2000064.追随者":1 //花花公子有追随者标签
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000713, //开启不可靠的盟友
+                "success":{
+                    "event_off":5300211 //关闭自检
+                }
+            }
+        }
+
+    ]
+}

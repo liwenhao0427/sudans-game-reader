@@ -1,0 +1,60 @@
+{
+    "id": 8000508,
+    "name": "",
+    "tips": "",
+    "bg": "ts_11_bg",
+    "fg": null,
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 210
+    },
+    "title_pos": {
+        "x": 1399,
+        "y": -184
+    },
+    "slots": {
+        "s1": {
+            "is_hide_bg": true,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 1283,
+                "y": 697
+            },
+            "scale": {
+                "x": 1.2,
+                "y": 1.2
+            },
+            "rotation_z": 0
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 1283,
+                "y": 1152
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 335,
+                "y": 1411
+            },
+            "scale": {
+                "x": 1.2,
+                "y": 1.2
+            },
+            "rotation_z": 0
+        }
+    }
+}

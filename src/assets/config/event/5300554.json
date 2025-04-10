@@ -1,0 +1,29 @@
+{
+    "id": 5300554,
+    "text": "我叫小薇",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "hand_have.2000432":1  //小薇在手牌
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "prompt":{
+                    "id":"5300554_prompt_01",
+                    "text":"你好！因为我打赌输了，所以我留下来陪您玩！你可以叫我小薇！\n在你面前的妖精格外的娇小，她能躲在人的袖子里，也可以如同落叶一般拂过面颊而不被人注意！应该会很有用……嘿！你手里那枚金币是从哪来的！",
+                    "icon":"cards/2000432"
+                },
+                "event_off":5300554, 
+                "event_off":5300555,
+                "event_off":5300556  //关闭三个妖精介绍弹窗
+            }
+        }
+    ]
+}

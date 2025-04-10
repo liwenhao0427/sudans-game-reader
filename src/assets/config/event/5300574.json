@@ -1,0 +1,35 @@
+{
+    "id": 5300574,
+    "text": "无可回收的金血之证",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+       "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "any":{
+            "all":{
+                "table_have.2000013":1,  //有剑客
+                "!table_have.金血之证":1  //无金血之证在场
+            },
+            "all":{
+                "table_have.2000013.金血之证":1 //剑客有金血之证tag
+            }
+        }
+       
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+
+                "event_on":5300566, // 开启暗杀的检测
+                "event_on":5300567, //  开启暗杀的检测
+                "event_off":5300573, 
+                "event_off":5300574 //关闭两个金血之证幕后
+            }
+        }
+    ]
+}

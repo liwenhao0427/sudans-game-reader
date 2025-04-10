@@ -1,0 +1,36 @@
+{
+    "id": 5300533,
+    "text": "想开妓女的游戏但大伙都不在了",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1  
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000270":1, //表明奈布哈尼线中断
+                "table.2000064-追随者":1,
+                "table.2000064+反对": 1 ,//反对置为1
+                "table.2000064=支持": 0, //支持置为0
+                "prompt":{
+                    "id":"5300533_prompt_1",
+                    "text":"这里是妓女已经全死才进入的分支弹窗，奈布哈尼离队",
+                    "icon":"cards/2000064"
+                },
+                "clean.rite":5000713,  //关闭不可靠的盟友,
+                "clean.rite":5000712,  //关闭仅仅只是有趣
+                "event_off":5300211, //关闭不可靠的盟友自检
+                "event_off":5300212, //关闭不可靠的盟友自检
+                "event_off":5300219, //关闭不可靠的盟友自检
+                "event_off":5300253
+            }
+        }
+    ]
+}

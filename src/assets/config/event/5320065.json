@@ -1,0 +1,27 @@
+{
+    "id": 5320065,
+    "text": "恶名3阶段事件-刺杀",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "table_have.主角":1 // 主角闲置
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":2000360, //生成刺客
+                "rite":5006549, //掉落仪式
+                "success":{
+                    "event_off":5320065
+                }
+            }
+        }
+
+    ]
+}

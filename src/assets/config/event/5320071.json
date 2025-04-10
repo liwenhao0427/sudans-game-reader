@@ -1,0 +1,29 @@
+{
+    "id": 5320071,
+    "text": "背叛的黎明",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [1,7]
+    },
+    "condition":{  //条件
+        "table_have.追随者>=":3,
+        "counter.7100002>=":20 //恶名大于等于20    
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite": 5006556,
+                "prompt":{
+                    "id":"5320071_prompt_01",
+                    "text":"这是一个晴朗无云的清晨，天光已亮，太阳却徘徊不前……直到邪恶或者背叛被清算为止。"
+                },
+                "event_off": 5320071
+            }
+        }
+
+    ]
+}

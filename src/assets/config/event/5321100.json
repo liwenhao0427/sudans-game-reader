@@ -1,0 +1,23 @@
+{
+    "id": 5321100,
+    "text": "舍馆关门",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件     
+ 
+        
+    },
+    "settlement": [    //效果 
+        {
+            "action":{
+                "counter=7000445":0,
+                "event_off":5321100
+            }
+        }
+
+    ]
+}

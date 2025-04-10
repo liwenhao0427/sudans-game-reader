@@ -1,0 +1,28 @@
+{
+    "id": 5321187,
+    "text": "清洗异端前置幕后",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "hand_have.2000022": 1
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "card": 2001092,
+                "card": 2001093,
+                "card": 2001094, //密教和正教徒
+                "rite": 5008179, //清洗异端
+                "success": {
+                    "event_off": 5321187
+                }
+            }
+        }
+    ]
+}

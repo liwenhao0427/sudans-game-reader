@@ -1,0 +1,34 @@
+{
+    "id": 5300299,
+    "text": "妓女的游戏前置",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合开始
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "clean.rite":5000713,  //关闭不可靠的盟友,
+                "clean.rite":5000712,  //关闭仅仅只是有趣
+                "event_off":5300211, //关闭不可靠的盟友自检
+                "event_off":5300212, //关闭不可靠的盟友自检
+                "event_off":5300219, //关闭不可靠的盟友自检
+                "clean.rite":5002003,
+                "clean.rite":5002004,
+                "clean.rite":5002005,
+                "clean.rite":5002035, //关闭妓院
+                "event_off":5300012 ,  //关闭妓院自动开启
+                "loot":[6000102,6000105],  //开启妓女的游戏 loot里抽一个
+                "event_off":5300299 //关闭自己
+
+            }
+        }
+    ]
+}

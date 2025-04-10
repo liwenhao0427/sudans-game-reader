@@ -1,0 +1,28 @@
+{
+        "id": 5310420,
+        "text": "结局-造反-与苏丹决战",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5010014  //立即触发
+        },
+        "condition":{
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "no_prompt":{
+                    "card":2000927 //近卫兵
+                },
+                "rite":5010017, //光之舞
+                "prompt":{
+                    "id":"5310420_prompt_01",
+                    "text":"你们意识到，与苏丹比起来，之前的战争不过是小儿科……但现在也别无退路——你们是被苏丹选中的光荣敌人，用生命去战斗吧！"
+                }
+            }
+        }
+    ]
+} 

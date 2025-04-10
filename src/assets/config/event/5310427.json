@@ -1,0 +1,27 @@
+{
+        "id": 5310427,
+        "text": "结局-造反-赛里曼死亡时的说明",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "card_clean": 2000012 //赛里曼
+        },
+        "condition":{
+            "counter.7000435<":1, //集结部队之前
+            "counter.7000659<":1, //出发前
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "prompt":{
+                    "id":"5310427_prompt_01",
+                    "text":"苏丹补充了一名铁卫。",
+                    "icon":"cards/sudan"
+                }
+            }
+        }
+    ]
+} 

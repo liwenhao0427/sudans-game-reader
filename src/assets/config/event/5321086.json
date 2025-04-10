@@ -1,0 +1,22 @@
+{
+    "id": 5321086,
+    "text": "孩子们的胃口-循环",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":3
+    },
+    "condition":{  //条件
+        "counter.7000416>=":1, //选择了喂养孩子们
+        "hand_have.2000887":1  //手牌有孩子们
+    },
+    "settlement": [    //效果 
+        {
+            "action":{
+                "rite":5008078  //孩子们的胃口
+            }
+        }
+
+    ]
+}

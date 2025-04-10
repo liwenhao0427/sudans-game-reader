@@ -1,0 +1,25 @@
+{
+        "id": 5310503,
+        "text": "结局-逃跑-牺牲结局妻子死亡弹框",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5006069
+        },
+        "condition":{
+            "!table_have.妻子":1 //妻子死亡
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{    
+                "steam_achievement": "ACHIEVEMENT_005", //steam结局
+                "global_counter=7200201":1, //成就-真正的解脱
+                "counter+7000552":1, //计数用于后日谈检定 
+                "over":303
+            }
+        }
+    ]
+} 

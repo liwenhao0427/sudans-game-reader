@@ -1,0 +1,35 @@
+{
+    "id": 5321147,
+    "text": "第二次帮助",     
+    "is_replay": 0, //是否可以重复触发
+     "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7100003":2, //权势+2
+                "prompt":{
+                    "id":"5321147_prompt_01",
+                    "text":"法德耶大着胆子篡改了觐见时的次序列表，让你和其他几个人提前进入了宫廷，这使得你在宫中的权势提升了。",
+                    "icon":"cards/2000173"
+                },
+                "delay": {  //延迟3回合执行
+                "id":53211471,
+                "round":3,
+                "event_on":5321148
+            },
+                "success":{
+                    "event_off":5321147
+                }
+            }
+        }
+
+    ]
+}

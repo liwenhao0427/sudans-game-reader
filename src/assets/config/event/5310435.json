@@ -1,0 +1,27 @@
+{
+        "id": 5310435,
+        "text": "结局-造反-铁卫的职责",
+        "is_replay": 0, 
+        "auto_start": false,  
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5010025
+        },
+        "condition":{
+            "any":{
+                "have.2000064.追随者":1,
+                "have.2000065.追随者":1,
+                "have.2000054.追随者":1,
+                "have.2000292.追随者":1,
+            }
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "rite":5010010, //铁卫的职责
+            }
+        }
+    ]
+} 

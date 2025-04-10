@@ -1,0 +1,28 @@
+{
+    "id": 5321122,
+    "text": "丝绒暗室的掉落",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger":true,  // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7100003":1, //权势+1
+                "prompt": {
+                    "id": "prompt_5321122_01",
+                    "text": "这间丝绒暗室成为达官贵人们最时髦的聚会地，你的名字也随之越传越远。"
+                }
+      
+            }
+        }
+
+    ]
+}

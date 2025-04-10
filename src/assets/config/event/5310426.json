@@ -1,0 +1,29 @@
+{
+        "id": 5310426,
+        "text": "结局-造反-奈布哈尼死亡时补员",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "card_clean": 2000064 //奈布哈尼
+        },
+        "condition":{
+            "counter.7000435<":1, //集结部队之前
+            "counter.7000659<":1, //出发前
+
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "card":2000923,
+                "prompt":{
+                    "id":"5310426_prompt_01",
+                    "text":"苏丹补充了一名铁卫。",
+                    "icon":"cards/2000923"
+                }
+            }
+        }
+    ]
+} 

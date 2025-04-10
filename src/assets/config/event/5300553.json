@@ -1,0 +1,34 @@
+{
+    "id": 5300553,
+    "text": "芮尔的匪帮助阵",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "table_have.2000771":1 , //芮尔在卡池
+        "counter.7000466>=":1   //芮尔匪帮成立了
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "no_prompt":{
+                    "clean.rite":5000812, //关闭芮尔匪帮
+                    "total.芮尔-芮尔":1  //芮尔移除吸附指定
+                },
+                "total.2000771+追随者":1,
+                "total.芮尔手下+已拥有":1,
+                "prompt":{
+                    "id":"5300553_prompt_01",
+                    "text":"芮尔来助阵了！",
+                    "icon":"cards/2000771"
+                },
+                "event_off":5300553
+            }
+        }
+    ]
+}

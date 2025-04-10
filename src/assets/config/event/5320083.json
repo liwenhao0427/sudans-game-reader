@@ -1,0 +1,24 @@
+{
+    "id": 5320083,
+    "text": "侠名2的事件--罪犯的投奔--重复刷",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [5,10]
+    },
+    "condition":{  //条件
+        "counter.7100004>=":5 //侠名大于等于5     
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot.罪犯投奔+1":6000095,
+                "rite":5006571
+            }
+        }
+
+    ]
+}

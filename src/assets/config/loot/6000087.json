@@ -1,0 +1,47 @@
+{
+    "id": 6000087,
+    "name": "银稀有度商店货",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000256",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000257",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000258",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000268",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000269",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000270",
+            "type" : "card",
+            "weight" : 10
+        }
+    ]
+
+
+
+}

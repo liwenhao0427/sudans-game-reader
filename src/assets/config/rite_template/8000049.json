@@ -1,0 +1,102 @@
+{
+    "id": 8000049,
+    "name": "",
+    "tips": "",
+    "bg": "ts_04_bg",
+    "fg": null,
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 210
+    },
+    "title_pos": {
+        "x": 1331,
+        "y": -229
+    },
+    "slots": {
+        "s6": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 670,
+                "y": 1112
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 911,
+                "y": 1306
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1508,
+                "y": 904
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1748,
+                "y": 1152
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1751,
+                "y": 715
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 667,
+                "y": 1557
+            },
+            "scale": {
+                "x": 0.8,
+                "y": 0.8
+            },
+            "rotation_z": 0
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+        "id": 5310509,
+        "text": "结局-低垂的果实",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000448>=":1, //传统
+            "have.妻子.宰相":1, //妻子是宰相
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":237
+            }
+        }
+    ]
+} 

@@ -1,0 +1,30 @@
+{
+    "id": 5300548,
+    "text": "微妙的感谢",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 10 //每回合检测
+    },
+    "condition":{  //条件
+        "table_have.2000971":1 //奴隶贩子还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "coin":5,  //5金币
+                "prompt":{
+                    "id":"5300548_prompt_1",
+                    "text":"有匿名人士偷偷给你送来一袋金子……没有说是因为什么。",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5300548 //关闭自检
+                }
+            }
+        }
+    ]
+}

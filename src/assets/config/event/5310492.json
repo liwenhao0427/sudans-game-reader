@@ -1,0 +1,22 @@
+{
+        "id": 5310492,
+        "text": "结局-星剑之国",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000446>=":1 //平衡
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":226
+            }
+        }
+    ]
+} 

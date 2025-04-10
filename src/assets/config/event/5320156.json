@@ -1,0 +1,23 @@
+{
+    "id": 5320156,
+    "text": "铁头-善1-救济日重复触发",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 14
+    },
+    "condition":{
+        "counter.7100001>=":3 //善名
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006616
+            }
+        }
+
+    ]
+}

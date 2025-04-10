@@ -1,0 +1,28 @@
+{
+    "id": 5321096,
+    "text": "疗愈的食物",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":[3,5]
+    },
+    "condition":{  //条件
+         "hand_have.妻子":1,  //妻子在手牌
+         "counter.7000441>=":1,  //厨子和妻子的奸情计数器（完成过妻子的偏好
+         "counter.7000442>=":1  //需要建立2级舍馆
+        
+    },
+    "settlement": [    //效果 
+        {
+            "action":{
+                "rite": 5008094,  //疗愈的食物
+                "success":{
+                    "event_off":5321096 //关闭自检
+                }
+         
+            }
+        }
+
+    ]
+}

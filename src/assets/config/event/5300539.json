@@ -1,0 +1,35 @@
+{
+    "id": 5300539,
+    "text": "帮派斗争",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "table_have.2000771":1 , //芮尔在卡池
+        "any":{
+            "counter.7000306>=":1, //解救了芮尔 或
+            "counter.7000463>=":1  //帮派斗争可触发
+        },
+        "counter.7100004>=":6  //侠名大于等于6
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "no_prompt":{
+                    "card":2000965,  //生成烂泥众
+                    "card":2001057,  //生成豺狼众
+                    "table.clean.2000770":1  //移除芮尔没名字版
+                },
+                "rite":5000810,  //开启帮派斗争
+               "success":{
+                    "event_off":5300539 //关闭自检
+                }
+            }
+        }
+    ]
+}

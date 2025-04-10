@@ -1,0 +1,172 @@
+{
+    "id": 8000018,
+    "name": "",
+    "tips": "",
+    "bg": "end_02_bg",
+    "fg": "end_02_fg",
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 235
+    },
+    "title_pos": {
+        "x": 1556,
+        "y": -260
+    },
+    "slots": {
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1082,
+                "y": 1130
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1256,
+                "y": 1091
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1437,
+                "y": 1045
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1622,
+                "y": 1091
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1806,
+                "y": 1130
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s6": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1082,
+                "y": 543
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s7": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1256,
+                "y": 605
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s8": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1437,
+                "y": 668
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s9": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1622,
+                "y": 605
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s10": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1806,
+                "y": 543
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        },
+        "s11": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 2127,
+                "y": 822
+            },
+            "scale": {
+                "x": 0.6,
+                "y": 0.6
+            },
+            "rotation_z": 0
+        }
+    }
+}

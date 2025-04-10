@@ -1,0 +1,172 @@
+{
+    "id": 8000058,
+    "name": "",
+    "tips": "",
+    "bg": "mj_03_bg",
+    "fg": null,
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 210
+    },
+    "title_pos": {
+        "x": 1692,
+        "y": -233
+    },
+    "slots": {
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 1345,
+                "y": 1534
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 9.999999
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 1725,
+                "y": 1531
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 350
+        },
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 1532,
+                "y": 1623
+            },
+            "scale": {
+                "x": 1.2,
+                "y": 1.2
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 2096,
+                "y": 1342
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 1515,
+                "y": 582
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s6": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 911,
+                "y": 606
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s7": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 1861,
+                "y": 684
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s8": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 2222,
+                "y": 754
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s9": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 912,
+                "y": 1372
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s10": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 1207,
+                "y": 737
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s11": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "sp_2",
+            "pos": {
+                "x": 597,
+                "y": 898
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        }
+    }
+}

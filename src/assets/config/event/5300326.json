@@ -1,0 +1,34 @@
+{
+    "id": 5300326,
+    "text": "和舞姬密会",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":15
+    },
+    "condition":{  //条件
+        "counter.7000080>=":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5001100,
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300326_01",
+                        "text": "舞姬从宫里送来一份密信，她希望你能和她见一面。"
+                    },
+                    "event_off":5300326
+                },
+                "failed":{
+                    "event_off":5300326,
+                    "event_on":5300329 //重试
+                }
+            }
+        }
+
+    ]
+}

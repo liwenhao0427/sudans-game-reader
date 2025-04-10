@@ -1,0 +1,27 @@
+{
+    "id": 5320259,
+    "text": "宫廷-索要妃子-莎姬的催促",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "have.2001019.lifetime=5.count":1, //还剩5天寿命的时候，只会出现1次
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "prompt":{
+                    "id":"5320259_prompt_01",
+                    "text":"莎姬送来了一张字条，但你已经看不明白上面写的是什么了——那就像是疯人的鬼画符，她的精神状态确实堪忧。",
+                    "icon":"cards/2000010"
+                }
+            }
+        }
+
+    ]
+}

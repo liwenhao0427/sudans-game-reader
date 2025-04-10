@@ -1,0 +1,29 @@
+{
+    "id": 5300060,
+    "text": "暗杀4",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "table_have.2000012":1, //禁卫队长在牌池中
+        "!rite":5000557,            //场上没有暗杀4
+        "counter.7000031>":3        //妃子B通过御医给钱大于3次
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000557,
+                "success":{
+                    "event_off":5300060, //关闭自检
+                    "event_off":5300059  //关闭真正的报偿的幕后
+                }
+            }
+        }
+
+    ]
+} 

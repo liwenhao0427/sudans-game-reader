@@ -1,0 +1,46 @@
+{
+    "id": 5300529,
+    "text": "友情提示（废弃）",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end": 5000795 
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "option": {
+                    "id":"5300529_option_1",
+                    "text": "你要劝劝奈布哈尼吗",
+                    "icon": "cards/2000001",
+                    "items": [
+                        {
+                            "text": "由他去吧",
+                            "tag": "op1"
+                        }
+                    ]
+                },
+                "case:op1": {
+                    "prompt":{
+                        "id":"5300529_prompt_1",
+                        "text":"",
+                        "icon":"cards/2000001"
+                    },
+                    "counter+7000337":1,  //开启第一次妓女的游戏就团灭的计数器
+                    "delay":{
+                        "id":53005291,
+                        "round":2, 
+                        "event_on":5300530  //2回合后开启出让钥匙
+                    },
+                    "event_off":5300529  //关闭自己
+                }
+            }
+        }
+    ]
+}

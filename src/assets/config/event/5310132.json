@@ -1,0 +1,30 @@
+{
+        "id": 5310132,
+        "text": "苏丹引导-强制6（废弃）",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false, 
+        "on":{   
+            "close_begin_guide":"CHANGE_SUDAN_CARD" //引导可以换牌之后
+        },
+        "condition":{  
+            "global_counter.7230010<":1,
+        },
+        "settlement": [    //醒目告知玩家此时可以再来一张
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "global_counter+7230010":1,
+                "begin_guide":{
+                    "type": "ADD_SUDAN_CARD",
+                    "anim_type":"MouseLeftClick",
+                    "pos": [-752, 495],
+                    "is_show_ring": true,
+                    "ring_pos": [690, 2],
+                    "ring_rect": [0.5, 0.5]
+                }
+            }
+        }
+        ]
+    } 

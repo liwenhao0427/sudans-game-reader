@@ -1,0 +1,25 @@
+{
+    "id": 5320547,
+    "text": "启动婚礼献歌的幕后",     
+    "is_replay": 0, //是否可以重复触发 
+    "auto_start": false,    //开局不自动启动
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":2
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on":5320548, //启动婚礼献歌的每回合判定幕后
+                "success":{
+                    "event_off":5320547
+                }
+            }   
+        }
+
+    ]
+}

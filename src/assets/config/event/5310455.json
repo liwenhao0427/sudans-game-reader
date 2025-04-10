@@ -1,0 +1,30 @@
+{
+        "id": 5310455,
+        "text": "结局-消除苏丹卡",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,
+        "on":{   
+            "round_begin_ba": 1, //回合结算开始时
+        },
+        "condition":{
+            "round<=":14, //小于等于14回合
+        },
+        "settlement": [    
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5010031, //女术士的邀请
+                    "prompt":{
+                        "id":"prompt_5310455_01",
+                        "text":"不过这时候女术士也悄悄送来了低语：她赞美你的邪恶与意志，邀请你进入一个新的职业生涯……"
+                    },
+                }
+            }
+    ]
+} 
+
+
+
+

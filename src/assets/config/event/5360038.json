@@ -1,0 +1,23 @@
+{
+    "id": 5360038,
+    "text": "天才少女看书",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "counter.7000100>=":3
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7200181": 1,
+            "debug": "天才少女看书"
+        }
+    }
+    ]
+}

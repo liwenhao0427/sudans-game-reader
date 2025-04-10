@@ -1,0 +1,30 @@
+{
+    "id": 5320508,
+    "text": "咬了苏丹一口",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":[2,3] // 仪式在2-3回合后开始
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006019,
+                "prompt":{
+                        "id":"5320508_prompt_01",
+                        "text":"<size=+10><font=\"Title SDF\"><b>行尸咬伤了苏丹</b></font></size>\n 据宫中传言，在苏丹命令这个玩具参加他的某些后宫游戏的时候……被它咬了一口，在震怒中，苏丹命令卫兵粉碎了这具行尸。",
+                        "icon":"cards/sudan"
+                },
+                "success":{
+                        "event_off":5320508
+                }
+            }
+        }
+
+    ]
+}

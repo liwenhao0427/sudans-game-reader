@@ -1,0 +1,23 @@
+{
+    "id": 5320267,
+    "text": "宫廷-索要妃子-急迫的欢愉（废弃）",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{ 
+        "have.2001019":1, //信物还在
+        "counter.7000530<":1, //莎姬的噩梦还没解决  
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+            }
+        }
+
+    ]
+}

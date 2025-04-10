@@ -1,0 +1,62 @@
+{
+    "id": 6000085,
+    "name": "邪物",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000493",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000494",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000495",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000496",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000497",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000498",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000499",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000500",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000501",
+            "type" : "card",
+            "weight" : 60
+        }
+    ]
+}

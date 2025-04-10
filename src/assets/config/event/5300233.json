@@ -1,0 +1,27 @@
+{
+    "id": 5300233,
+    "text": "散尽家财",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end":5000728
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000729, //开启散尽家财
+                "success":{
+                    "event_off":5300233 //关闭本幕后
+                },
+                "failed":{
+                    "event_on":5300234 //如果寡妇吸不到下一回合开启的幕后
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "id": 5320114,
+    "text": "娜依拉声望事件--拜铃耶死亡的回应1",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean": 2000022 //拜铃耶被移除时
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_on": 5320115 //拜铃耶死亡的反馈
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "id": 5320271,
+    "text": "宫廷-索要妃子-苏丹奴隶的提示",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 3
+    },
+    "condition":{
+        "have.2001019":1, //信物还在
+        "counter.7000530<":1, //圣像还在  
+        "!have.2001021":1, //还没种子
+        "counter.7000599<":1, //标识苏丹奴隶还没获救
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "table.clean.2001020":1,
+                "prompt":{
+                    "id":"5320271_prompt_1",
+                    "text":"一个夹在诗集中的字条：您还有四天时间去调动至高苏丹的情欲，他最亲密的大臣阁下。否则，我将失去舌头，您也将失去您所谋划的一切。",
+                    "icon":"cards/2001023"
+                }
+                
+            }
+        }
+
+    ]
+}

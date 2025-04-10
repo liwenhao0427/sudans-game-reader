@@ -1,0 +1,38 @@
+{
+    "id": 6000091,
+    "name": "铁头大敌事件",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5007009",
+            "type" : "rite",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "5007011",
+            "type" : "rite",
+            "weight" : 40
+        },
+        {
+            "num" : "1",
+            "id" : "5007012",
+            "type" : "rite",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "5007014",
+            "type" : "rite",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "5007015",
+            "type" : "rite",
+            "weight" : 5
+        }
+    ]
+}

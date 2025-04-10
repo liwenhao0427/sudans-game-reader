@@ -1,0 +1,31 @@
+{
+    "id": 5320162,
+    "text": "小圆声望事件-让我尝尝",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end":5000002
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "no_prompt":{
+                        "table.2000371-事件提示":1
+                    },
+                "counter+7000247":1,  //让我尝尝计数器
+                "rite": 5006619, //让我尝尝
+                "prompt":{
+                    "id":"5320162_prompt_01",
+                    "text":"加了冰酪和蜂蜜的莓果会是什么味道？你在考虑要不要再买些莓果，让小圆做几碗来尝尝。",
+                    "icon":["cards/2000371","cards/2000001",null]
+                }
+            }
+        }
+
+    ]
+}

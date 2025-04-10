@@ -1,0 +1,23 @@
+{
+    "id": 5360032,
+    "text": "一局游戏内达成连续七天都去上朝",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "counter.7000155>=":7
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210029": 1,
+            "debug": "一局游戏内达成连续七天都去上朝"
+        }
+    }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+        "id": 5310801,
+        "text": "神的面容",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": 1
+        },
+        "condition":{
+            //"global_counter.7230002>=":1, //商店解锁
+            "counter.7000658>=":1, //商店解锁
+            "counter.7100005>=":1, //灵视
+            "table_have.主角":1, //主角空闲
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "rite":5004801  //神的面容开启
+            }
+        }
+    ]
+} 

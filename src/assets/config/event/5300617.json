@@ -1,0 +1,30 @@
+{
+        "id": 5300617,
+        "text": "苏丹引导-强制7",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false, 
+        "on":{   
+            "sudan_redraw_start":1 //当玩家选择换牌选项
+        },
+        "condition":{  
+            "global_counter.7230011<":1,
+        },
+        "settlement": [    //当玩家选择换牌，引导玩家拖动卡牌
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "global_counter+7230011":1,
+                "begin_guide":{
+                    "type": "REDRAW_SUDAN_CARD",
+                    "anim_type":"MouseDrag",
+                    "pos": [1210, -366],
+                    "is_show_ring": true,
+                    "ring_pos": [-967, 152],
+                    "ring_rect": [0.5, 0.5]
+                }
+            }
+        }
+        ]
+    } 

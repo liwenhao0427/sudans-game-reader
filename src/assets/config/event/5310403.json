@@ -1,0 +1,27 @@
+{
+        "id": 5310403,
+        "text": "结局-逃跑-最后的苏丹卡",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "round_begin_ba":1 //每回合刷一次
+        },
+        "condition":{
+            "table_have.sudan>":1 //持有多张苏丹卡
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "rite":5010002, //最后的苏丹卡（苏丹卡不止一张的情况）       
+                "prompt":{
+                    "id":"5310403_prompt_01",
+                    "text":"一行人眼看就要离开这个国家，你看到了远处一个女子站在了路中央，是那个女术士。",
+                    "icon":"cards/1_char_0"
+                }
+            }
+        }
+        ]
+    } 

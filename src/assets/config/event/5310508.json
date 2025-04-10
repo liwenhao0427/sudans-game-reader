@@ -1,0 +1,24 @@
+{
+        "id": 5310508,
+        "text": "结局-命运的报偿",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000447>=":1, //改革
+            "have.妻子.宰相":1, //妻子是宰相
+            "counter.7100001>=":30, //善名
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":236
+            }
+        }
+    ]
+} 

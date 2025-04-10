@@ -1,0 +1,23 @@
+{
+    "id": 5360030,
+    "text": "一局游戏内触发完洗澡的所有随机事件",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "counter":7000094
+    },
+    "condition":{
+        "counter.7000094>=":10
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210027": 1,
+            "debug": "一局游戏内触发完洗澡的所有随机事件"
+        }
+    }
+    ]
+}

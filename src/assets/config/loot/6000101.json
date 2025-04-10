@@ -1,0 +1,32 @@
+{
+    "id": 6000101,
+    "name": "淘书仪式",
+    "repeat": 1,
+    "type": 2, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5002036",
+            "type" : "rite",
+            "weight" : 20
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5002037",
+            "type" : "rite",
+            "weight" : 10
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5002038",
+            "type" : "rite",
+            "weight" : 20
+        }
+    ]
+}

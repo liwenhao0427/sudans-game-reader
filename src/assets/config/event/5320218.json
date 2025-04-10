@@ -1,0 +1,24 @@
+{
+    "id": 5320218,
+    "text": "奈费勒声望事件--稀疏的队伍",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "have.2000312":1,  //奈费勒闲置
+        "!have.2000312.大敌":1 //奈费勒还不是大敌  
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite": 5006651, //生成稀疏的队伍
+            }
+        }
+
+    ]
+}

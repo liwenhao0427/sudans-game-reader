@@ -1,0 +1,29 @@
+{
+    "id": 5320171,
+    "text": "铁头声望事件--铁头死了军队会跑",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "!have.2000369.追随者":1,
+        "table_have.2000734":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.2000734-已拥有":1,
+                "prompt":{
+                    "id":"5320171_prompt_01",
+                    "text":"某日你走入营房，似乎因为铁头的消失，这支蛮人军队也悄无声息地离开了你。",
+                    "icon":"common/position_yewai_1"
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "id": 5320188,
+    "text": "小圆声望事件--激活这是我的主意",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "have.妻子":1,
+        "table_have.2000371.追随者":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.clean.2000371": 1,
+                "coin":8,
+                "prompt":{
+                    "id":"5320188_prompt_01",
+                    "text":"临睡前，梅姬找到你，塞给你一大袋钱：“让小圆成为自由民是我的主意。”她瞪了你一眼，“我只是希望能稍微保护一下她，让她开心点，因为这对你我来说又不是什么难事。”\n见梅姬如此坚持，你也只好接受了她的提议。小圆就这样离开了。",
+                    "icon":"cards/2000006"
+                }
+            }
+        }
+
+    ]
+}

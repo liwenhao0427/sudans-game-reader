@@ -1,0 +1,31 @@
+{
+        "id": 5310136,
+        "text": "苏丹引导-强制10",
+        "is_replay": 0, 
+        "auto_start_init": [1],
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   
+            "round_begin_ba": 1
+        },
+        "condition":{  
+            "global_counter.7230014<":1,
+            "have.sudan.lifetime<4.count": 1, //存在剩余时间小于等于3天的苏丹卡
+        },
+        "settlement": [    //当玩家处刑日不足时，醒目提示玩家
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "global_counter+7230014":1,
+                "begin_guide":{
+                    "type": "TIME_OUT",
+                    "anim_type":"ArrowUp",
+                    "pos": [-611, -226],
+                    "is_show_ring": true,
+                    "ring_pos": [838, 65],
+                    "ring_rect": [1, 1]
+                }
+            }
+        }
+        ]
+    } 

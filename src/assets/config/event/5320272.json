@@ -1,0 +1,32 @@
+{
+    "id": 5320272,
+    "text": "宫廷-索要妃子-苏丹奴隶的提示",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 7
+    },
+    "condition":{
+        "have.2001019":1, //信物还在
+        "counter.7000530<":1, //莎姬的噩梦还没解决  
+        "counter.7000599<":1, //标识苏丹奴隶还没获救
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "table.clean.2001020":1,
+                "counter=7000534":0, //无法再触发兴致了
+                "prompt":{
+                    "id":"5320272_prompt_1",
+                    "text":"你听说了一件怪事：一个苏丹的阉奴在行刑人按照惯例切掉他们的舌头时，自己主动撞向刀刃寻死……一切都已命中注定，而希望实乃腐蚀人心的流毒。",
+                    "icon":"cards/2001023"
+                }
+                
+            }
+        }
+
+    ]
+}

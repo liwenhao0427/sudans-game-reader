@@ -1,0 +1,35 @@
+{
+    "id": 6000104,
+    "name": "为希望而战--苗圃",
+    "repeat": 1,
+    "type": 99, 
+    "item": [
+        {
+            "condition":{
+                "counter.7000398>=":1
+            },
+            "num" : "1",
+            "id" : "2000867",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "counter.7000399>=":1
+            },
+            "num" : "1",
+            "id" : "2000887",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "counter.7000400>=":1
+            },
+            "num" : "1",
+            "id" : "2000889",
+            "type" : "card",
+            "weight" : 60
+        }
+    ]
+}

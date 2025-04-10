@@ -1,0 +1,1009 @@
+{    
+    "GAME_TITLE": {
+        "zhCN": "苏丹的游戏",
+        "comment": "游戏名称"
+    },
+    "CARD_RARE_1": {
+        "zhCN": "石",
+        "comment": "卡牌品级, 1(最低"
+    },
+    "CARD_RARE_2": {
+        "zhCN": "铜",
+        "comment": "卡牌品级, 2"
+    },
+    "CARD_RARE_3": {
+        "zhCN": "银",
+        "comment": "卡牌品级, 3"
+    },
+    "CARD_RARE_4": {
+        "zhCN": "金",
+        "comment": "卡牌品级, 4(最高"
+    },
+    "NOTICE": {
+        "zhCN": "尊敬的玩家： \n\n为了避免黑魔法的危害，我们混淆了不同文化的符号和艺术，运用假名与隐喻将这个故事封印在远离现实世界的时间线上，希望得到您的理解。 感谢您对《苏丹的游戏》的关注！\n\n游戏已经正式发布，我们也将持续根据大家的反馈对游戏进行修正与内容更新，如果有BUG或者建议，您可以在<u><link=qq_channel>QQ频道</link></u>和<u><link=discord>discord</link></u>（链接见上方图标）中向我们反馈。\n\n希望您能享受《苏丹的游戏》！",
+        "comment": "游戏开始公告内容"
+    },
+    "RITE_SETTLEMENT_NOTHING_HAPPEND": {
+        "zhCN": "什么也没有发生",
+        "comment": "仪式结算无任何结算操作结果的提示内容"
+    },
+    "RITE_SETTLEMENT_REDRAW_DICE": {
+        "zhCN": "再试一次?",
+        "comment": "仪式结算界面, 骰子展示时的 重掷骰子 图片文字"
+    },
+    "RITE_SETTLEMENT_DICE_PROMPT_CURRENT_DICE_NUMBER": {
+        "zhCN": "可用骰子",
+        "comment": "仪式结算界面, 骰子展示时的 可用骰子 图片文字"
+    },
+    "RITE_SETTLEMENT_DICE_PROMPT_CHECK_TAGS": {
+        "zhCN": "检定属性",
+        "comment": "仪式结算界面, 骰子展示时的 检定属性 图片文字"
+    },
+    "RITE_SETTLEMENT_GOLD_DICE": {
+        "zhCN": "金骰子",
+        "comment": "仪式结算界面, 骰子展示时的 金骰子 按钮文字"
+    },
+    "RITE_SETTLEMENT_DICE_REROLL": {
+        "zhCN": "重投",
+        "comment": "仪式结算界面, 骰子展示时的 重掷骰子 按钮文字"
+    },
+    "RITE_SETTLEMENT_CONFIRM_DICE": {
+        "zhCN": "点击{0}确定骰子结果",
+        "comment": "仪式结算界面, 骰子展示时的 点击{0}确定骰子结果 手柄提示文字"
+    },
+    "GAME_OVER_REASON_SUCCESS": {
+        "zhCN": "成功",
+        "comment": "游戏结束, 成功提示"
+    },
+    "GAME_OVER_REASON_FAILED": {
+        "zhCN": "失败",
+        "comment": "游戏结束, 失败提示"
+    },
+    "RITE_FIGHT_EVENT": {
+        "zhCN": "对抗事件",
+        "comment": "标注仪式是一个对抗事件"
+    },
+    "RITE_FIGHT_EVENT_TIPS": {
+        "zhCN": "对抗事件说明(待补充",
+        "comment": "说明对抗仪式的作用的提示, 鼠标悬停到对抗事件上时显示"
+    },
+    "RITE_NEED_RUN_ROUND_NUMBER": {
+        "zhCN": "<sprite={0}>",// 用时{0}天
+        "comment": "仪式运行需要持续的回合数, {0}是具体的回合数量"
+    },
+    "RITE_NEED_RUN_ROUND_NUMBER_PLURAL": {
+        "zhCN": "<sprite={0}>",// 用时{0}天
+        "comment": "仪式运行需要持续的回合数, {0}是具体的回合数量, 复数形式"
+    },
+    "RITE_AUTO_SETTLEMENT_TIPS": {
+        "zhCN": "开启后当前仪式的结算将不进行显示",
+        "comment": "仪式自动结算提示"
+    },
+    "RITE_STARTED_NOTICE": {
+        "zhCN": "事件进行中  <size=20%><sprite anim=\"26,31,5\"></size>",
+        "comment": "仪式界面, 事件开启后提示"
+    },
+    "RITE_STARTED_TIPS": {
+        "zhCN": "你无法更改进行中的卡牌",
+        "comment": "仪式界面, 事件开启后提示"
+    },
+    "REMOVE_RITE_CARD": {
+        "zhCN": "移除仪式卡牌[{0}]",
+        "comment": "移除卡牌操作的结算文本, {0} 是卡牌名称"
+    },
+    "COPY_RITE_CARD": {
+        "zhCN": "复制卡牌[{0}]",
+        "comment": "复制卡牌操作的结算文本, {0} 是卡牌名称"
+    },
+    "REMOVE_DESKTOP_CARD": {
+        "zhCN": "移除桌面卡牌[{0}]",
+        "comment": "移除卡牌操作的结算文本, {0} 是卡牌名称"
+    },
+    "DESKTOP_CARD_ADD_EQUIP": {
+        "zhCN": "桌面卡牌[{0}]添加装备[{1}]",
+        "comment": "给桌面卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称"
+    },
+    "DESKTOP_CARD_REMOVE_EQUIP": {
+        "zhCN": "桌面卡牌[{0}]移除装备[{1}]",
+        "comment": "给桌面卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称"
+    },
+    "DESKTOP_CARD_ADD_TAG": {
+        "zhCN": "桌面卡牌[{0}]添加标签[{1}]x{2}",
+        "comment": "给桌面卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称, {2}是操作数"
+    },
+    "DESKTOP_CARD_REMOVE_TAG": {
+        "zhCN": "桌面卡牌[{0}]移除标签[{1}]x{2}",
+        "comment": "给桌面卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称, {2}是操作数"
+    },
+    "GAIN_CARD": {
+        "zhCN": "获得卡牌[{0}]",
+        "comment": "获得卡牌提示, {0}是卡牌名称"
+    },
+    "GAIN_CARD_WITH_NUM": {
+        "zhCN": "获得卡牌[{0}]x{1}",
+        "comment": "获得卡牌提示, {0}是卡牌名称, {1}是卡牌数量"
+    },
+    "GAIN_COIN": {
+        "zhCN": "获得金币x{0}",
+        "comment": "获得金币提示, {0}是金币数量"
+    },
+    "GAIN_SUDAN_CARD": {
+        "zhCN": "获得苏丹卡[{0}]",
+        "comment": "获得卡牌提示, {0}是卡牌名称"
+    },
+    "START_RITE": {
+        "zhCN": "开启仪式[{0}]",
+        "comment": "开启仪式提示, {0}是仪式名称"
+    },
+    "NEW_CARD": {
+        "zhCN": "新出现！",
+        "comment": "仪式结算时, 新获得卡牌上的标识提示"
+    },
+    "MODIFY_CARD_RARE": {
+        "zhCN": "卡牌[{0}]品级{1}{2}",
+        "comment": "卡牌品级操作提示, {0}是卡牌名称, {1}是加+减-符号, {2}是操作数"
+    },
+    "RITE_CARD_ADD_EQUIP": {
+        "zhCN": "仪式卡牌[{0}]添加装备[{1}]",
+        "comment": "给仪式卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称"
+    },
+    "RITE_CARD_REMOVE_EQUIP": {
+        "zhCN": "仪式卡牌[{0}]移除装备[{1}]",
+        "comment": "给仪式卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称"
+    },
+    "RITE_CARD_ADD_TAG": {
+        "zhCN": "仪式卡牌[{0}]添加标签[{1}]x{2}",
+        "comment": "给仪式卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称, {2}是操作数"
+    },
+    "RITE_CARD_REMOVE_TAG": {
+        "zhCN": "仪式卡牌[{0}]移除标签[{1}]x{2}",
+        "comment": "给仪式卡牌添加装备, {0}是桌面卡牌名称, {1}是装备卡牌名称, {2}是操作数"
+    },
+    "UNKNOWN_GAME_OVER_REASON": {
+        "zhCN": "未知的结束: {0}",
+        "comment": "over.json中未配置的结束原因提示"
+    },
+    "SUDAN_BOX_TIPS_TITLE": {
+        "zhCN": "<size=40>剩余苏丹卡数量\n\n</size>",
+        "comment": "苏丹牌盒提示信息标题"
+    } ,
+    "SUDAN_BOX_TIPS_SUFFIX": {
+        "zhCN": "\n拖拽苏丹卡至牌盒可以重抽苏丹卡, 每回合{0}次。\n当前回合剩余{1}次",
+        "comment": "苏丹牌盒提示信息结束内容"
+    },
+    "SUDAN_BOX_CARD_EXISTS_FORMAT": {
+        "zhCN": "<color=green>{0} ({1}) {2}</color>",
+        "comment": "苏丹牌盒提示信息, 苏丹牌存在格式, {0} 卡牌名称, {1} 品级, {2} 数量"
+    },
+    "SUDAN_BOX_CARD_NOT_EXISTS_FORMAT": {
+        "zhCN": "<color=#808080>{0} ({1})  </color>",
+        "comment": "苏丹牌盒提示信息, 苏丹牌不存在格式, {0} 卡牌名称, {1} 品级"
+    },
+    "RITE_RESULT_NULL_CARD_PROMPT": {
+        "zhCN": "<color=red>空</color>",
+        "comment": "仪式结算操作结果, 对应槽位卡牌不存在的提示信息"
+    },
+    "RITE_SETTLEMENT_DICE_ROLL_PROMPT": {
+        "zhCN": "将检定 {0} 属性",
+        "comment": "仪式结算阶段, 骰子投掷前提示参与结算的tag的文本"
+    },
+    "RITE_SETTLEMENT_DICE_ROLL_PROMPT_SINGLE_TAG_FORMAT": {
+        "zhCN": "「{0}」",
+        "comment": "仪式结算阶段, 骰子投掷前提示参与结算的单个标签的格式化文本"
+    },
+    "CONFIRM_DEFAULT_CONFIRM": {
+        "zhCN": "确定",
+        "comment": "确认对话框 确认 按钮默认文本"
+    },
+    "CONFIRM_DEFAULT_CANCEL": {
+        "zhCN": "取消",
+        "comment": "确认对话框 取消 按钮默认文本"
+    },
+    "NEXT_DAY": {
+        "zhCN": "下一天",
+        "comment": "主界面, 下一天 按钮文本"
+    },
+    "GAME_MAIN_HEAD_TITLE": {
+        "zhCN": "处刑日",//距处刑日仅剩{0}天
+        "comment": "主游戏界面, 顶栏提示图片文本"
+    },
+    "GAME_MAIN_HEAD_TITLE_NORMAL": {
+        "zhCN": " {0}<voffset=-0.2em>/</voffset>{1}",//距处刑日仅剩{0}天
+        "comment": "主游戏界面, 顶栏提示图片文本"
+    },
+    "GAME_MAIN_HEAD_TITLE_PLURAL": {
+        "zhCN": " {0}<voffset=-0.2em>/</voffset>{1}",//距处刑日仅剩{0}天
+        "comment": "主游戏界面, 顶栏提示图片文本"
+    },
+    "NEW_GAME": {
+        "zhCN": "新游戏",
+        "comment": "开始界面, 新游戏按钮文本"
+    },
+    "LOAD_GAME": {
+        "zhCN": "继续游戏",
+        "comment": "开始界面, 继续游戏按钮文本"
+    },
+    "SETTINGS": {
+        "zhCN": "设置",
+        "comment": "开始界面, 设置按钮文本"
+    },
+    "QUIT_GAME": {
+        "zhCN": "退出游戏",
+        "comment": "开始界面, 退出游戏按钮文本"
+    },
+    "CREDITS": {
+        "zhCN": "制作组",
+        "comment": "开始界面, 制作组按钮文本"
+    },
+    "START_NEW_GAME": {
+        "zhCN": "开始新游戏",
+        "comment": "esc菜单, 新游戏按钮文本"
+    },
+    "END_GAME": {
+        "zhCN": "结算本局游戏",
+        "comment": "esc菜单, 结束游戏按钮文本"
+    },
+    "RESTART_GAME": {
+        "zhCN": "重新开始游戏",
+        "comment": "结束界面, 重新开始游戏按钮文本"
+    },
+    "MAIN_MENU": {
+        "zhCN": "返回主菜单",
+        "comment": "esc菜单, 主菜单按钮文本"
+    },
+    "SAVE_EXIT": {
+        "zhCN": "保存并退出",
+        "comment": "esc菜单, 保存并退出按钮文本"
+    },
+    "RETURN": {
+        "zhCN": "返回",
+        "comment": "esc菜单, 返回按钮文本"
+    },
+    "CARD_INFO_STATE_TITLE": {
+        "zhCN": "属性",
+        "comment": "卡牌详情界面, 状态标题"
+    },
+    "CARD_INFO_ATTRIBUTE_TITLE": {
+        "zhCN": "标签",
+        "comment": "卡牌详情界面, 标签标题"
+    },
+    "SUDAN_CARD_BREAKER_STEP1_NOTICE": {
+        "zhCN": "点击屏幕，折断已经完成的苏丹卡",
+        "comment": "苏丹卡折断演出第一阶段提示"
+    },
+    "SUDAN_CARD_BREAKER_STEP1_NOTICE_Gamepad": {
+        "zhCN": "长按L2+R2掰断苏丹卡",
+        "comment": "苏丹卡折断演出第一阶段提示"
+    },
+    "SUDAN_CARD_BREAKER_STEP2_NOTICE": {
+        "zhCN": "点击屏幕，折断已经完成的苏丹卡",
+        "comment": "苏丹卡折断演出第一阶段提示"
+    },
+    "SUDAN_CARD_BREAKER_STEP3_NOTICE": {
+        "zhCN": "点击屏幕，折断已经完成的苏丹卡",
+        "comment": "苏丹卡折断演出第一阶段提示"
+    },
+    "START_GAME_HAS_OLD_SAVE": {
+        "zhCN": "当前有正在进行的游戏存档, 开启新游戏将覆盖当前记录, 是否继续?",
+        "comment": "新游戏有存档的提示"
+    },
+    "START_GAME_PROMPT_JUMP_TUTORIAL": {
+        "zhCN": "你已完成新手剧情, 是否跳过新手剧情?",
+        "comment": "新手教程提示"
+    },
+    "TAG_TIPS_FORMAT": {
+        "zhCN": "{0}: {1}",
+        "comment": "tag标签的说明格式, {0} 为tag的名称, {1} 为tag的说明文本"
+    },
+    "SCREEN_MODE_0": {
+        "zhCN": "全屏模式",
+        "comment": "显示模式选项"
+    },
+    "SCREEN_MODE_1": {
+        "zhCN": "窗口模式",
+        "comment": "显示模式选项"
+    },
+    "WIZARD_SHOW_LEFT_SUDAN_CARD": {
+        "zhCN": "你已消解了 {0} 张苏丹卡，剩余 {1} 张苏丹卡。它们分别是 {2} ",
+        "comment": "苏丹牌盒提示信息, {0} 为已消解的苏丹卡数量, {1} 为剩余苏丹卡数量, {2} 为剩余苏丹卡名称列表, {0} 为单数形式, {1} 为复数形式"
+    },
+    "WIZARD_SHOW_LEFT_SUDAN_CARD_DESTROY_CARD_PLURAL": {
+        "zhCN": "你已消解了 {0} 张苏丹卡，剩余 {1} 张苏丹卡。它们分别是 {2} ",
+        "comment": "苏丹牌盒提示信息, {0} 为已消解的苏丹卡数量, {1} 为剩余苏丹卡数量, {2} 为剩余苏丹卡名称列表, {0} 为复数形式, {1} 为复数形式"
+    },
+    "WIZARD_SHOW_LEFT_SUDAN_CARD_PLURAL": {
+        "zhCN": "你已消解了 {0} 张苏丹卡，剩余 {1} 张苏丹卡。它们分别是 {2} ",
+        "comment": "苏丹牌盒提示信息, {0} 为已消解的苏丹卡数量, {1} 为剩余苏丹卡数量, {2} 为剩余苏丹卡名称列表, {0} 为复数形式, {1} 为单数形式"
+    },
+    "WIZARD_SHOW_LEFT_SUDAN_CARD_CARD_FORMAT": {
+        "zhCN": "{1}{0}x{2}",
+        "comment": "苏丹卡显示格式, {0} 为卡牌名称, {1} 为品级, {2} 为数量"
+    },
+    "WIZARD_SHOW_LEFT_SUDAN_CARD_CARD_SEPERATOR": {
+        "zhCN": "、",
+        "comment": "苏丹卡显示分隔符"
+    },
+    "WIZARD_SHOW_LEFT_SUDAN_CARD_AND_ALL": {
+        "zhCN": "<color=white>{0}</color>/{1}",
+        "comment": "苏丹牌盒提示信息, {0} 为已消解的苏丹卡数量, {1} 为所有苏丹卡数量"
+    },
+    "WIZARD_SHOW_HOW_LONG_ALIVE": {
+        "zhCN": "已存活 {0} 天", // 已经存活了 {0} 天
+        "comment": "魔法师显示当前已存活天数的格式化文本"
+    },
+    "WIZARD_SHOW_HOW_LONG_ALIVE_PLURAL": {
+        "zhCN": "已存活 {0} 天", // 已经存活了 {0} 天
+        "comment": "魔法师显示当前已存活天数的格式化文本, 复数形式"
+    },
+    "WIZARD_REDARW_NO_MORE_TIMES": {
+        "zhCN": "你的机会已经用完。需要再等{0}天的时间。",
+        "comment": "重抽提示, 无重抽机会, {0} 为剩余天数, 单数形式"
+    },
+    "WIZARD_REDARW_NO_MORE_TIMES_PLURAL": {
+        "zhCN": "你的机会已经用完。需要再等{0}天的时间。",
+        "comment": "重抽提示, 无重抽机会, {0} 为剩余天数, 复数形式"
+    },
+    "WIZARD_REDRAW_NO_MORE_CARDS": {
+        "zhCN": "你没有剩余的苏丹卡了。",
+        "comment": "重抽提示, 无剩余苏丹卡"
+    },
+    "BACK_TO_ROUND_BEGIN_TIPS": {
+        "zhCN": "回到回合开始",
+        "comment": "回到本回合开始按钮提示文本"
+    },
+    "BACK_TO_LAST_ROUND_BEGIN_TIPS": {
+        "zhCN": "回到上一回合结束",
+        "comment": "回到上一回合开始按钮提示文本"
+    },
+    "SORT_HAND_CARD_TIPS": {
+        "zhCN": "点击手牌进行排序",
+        "comment": "手牌排序提示文本"
+    },
+    "GAME_OVER_PROMPT": {
+        "zhCN": "是否接受此次失败？",
+        "comment": "游戏结束, 提示文本"
+    },
+    "GAME_OVER_BACK_TO_ROUND_BEGIN": {
+        "zhCN": "回到本回合开始",
+        "comment": "游戏结束, 回到回合开始按钮文本"
+    },
+    "GAME_OVER_EXIT": {
+        "zhCN": "放弃本局游戏",
+        "comment": "游戏结束, 结束游戏按钮文本"
+    },
+    "SETTING_PANEL": {
+        "zhCN": "系统设置",
+        "comment": "设置界面-标题"
+    },
+    "SCREEN_MODE_SETTING": {
+        "zhCN": "显示模式：",
+        "comment": "设置界面-显示模式设置标题"
+    },
+    "LANGUAGE_SETTING": {
+        "zhCN": "语言：",
+        "comment": "设置界面-语言设置标题"
+    },
+    "RESOLUTION_SETTING": {
+        "zhCN": "分辨率：",
+        "comment": "设置界面-分辨率设置标题"
+    },
+    "FONT_SIZE_SETTING": {
+        "zhCN": "字体大小：",
+        "comment": "设置界面-字体大小设置标题"
+    },
+    "MUSIC_VALUE_SLIDER": {
+        "zhCN": "游戏音乐音量：",
+        "comment": "设置界面-音乐音量设置标题"
+    },
+    "SOUND_VALUE_SLIDER": {
+        "zhCN": "游戏音效音量：",
+        "comment": "设置界面-音效音量设置标题"
+    },
+    "DATA_COLLECT_TOGGLE": {
+        "zhCN": "数据收集 <link=data_collect><sprite=36></link>：",
+        "comment": "设置界面-数据收集设置标题"
+    },
+    "HARMONIOUS_TOGGLE": {
+        "zhCN": "主播辅助 <link=harmonious><sprite=36></link>：",
+        "comment": "设置界面-和谐设置标题"
+    },
+    "DATA_COLLECT_TIPS": {
+        "zhCN": "我们只会记录玩家对事件的选择，不会储存任何玩家姓名等任何个人信息。",
+        "comment": "设置界面-数据收集提示文本"
+    },
+    "HARMONIOUS_TIPS": {
+        "zhCN": "对某些画面进行了修改，以确保各个地区的游戏主播都能够顺利地直播游戏内容。",
+        "comment": "设置界面-和谐提示文本"
+    },
+    "FONT_SIZE_XS": {
+        "zhCN": "极小",
+        "comment": "设置界面-字体大小-极小"
+    },
+    "FONT_SIZE_SM": {
+        "zhCN": "小",
+        "comment": "设置界面-字体大小-小"
+    },
+    "FONT_SIZE_MD": {
+        "zhCN": "普通",
+        "comment": "设置界面-字体大小-普通"
+    },
+    "FONT_SIZE_LG": {
+        "zhCN": "大",
+        "comment": "设置界面-字体大小-大"
+    },
+    "FONT_SIZE_XL": {
+        "zhCN": "极大",
+        "comment": "设置界面-字体大小-极大"
+    },
+    "POINT_SHOP": {
+        "zhCN": "命运商店",
+        "comment": "开始界面-积分商店按钮文本"
+    },
+    "POINT_SHOP_TITLE": {
+        "zhCN": "命运商店",
+        "comment": "积分商城界面-标题"
+    },
+    "POINT_SHOP_DESC": {
+        "zhCN": "在游戏中，请积极探索各种事件。不论好坏，丰富的经历都会给你带来额外的财富，【命运点】\n\n<align=center><size=160><sprite=13></size></align>\n\n你可以使用【命运点】在这里做一些交换，也许这样做可以帮助你发掘这个故事里更多的秘密。\n\n<sprite=0><indent=10%>在游戏中销毁苏丹卡，或者完成故事书中的任务可以获得【命运点】。</indent>\n<sprite=0><indent=10%>你需要先【激活】后才能在世界中使用，购买时将自动激活。</indent>\n<sprite=0><indent=10%>只能在新开局的时候决定激活或者取消激活。游戏过程中是不能更改的，不然世界就乱套了。</indent>",
+        "comment": "积分商城界面-描述"
+    },
+    "POINT_SHOP_TOGGLE_ONLY_BUY": {
+        "zhCN": "只看已购买",
+        "comment": "积分商城界面-只看已购买按钮"
+    },
+    "POINT_SHOP_TOGGLE_ONLY_UNBUY": {
+        "zhCN": "只看未购买",
+        "comment": "积分商城界面-只看未购买按钮"
+    },
+    "POINT_SHOP_ITEM_ACTIVATE": {
+        "zhCN": "激活",
+        "comment": "积分商城界面-激活按钮"
+    },
+    "POINT_SHOP_ITEM_DEACTIVATE": {
+        "zhCN": "关闭",
+        "comment": "积分商城界面-停用按钮"
+    },
+    "POINT_SHOP_ITEM_TYPE_GAIN": {
+        "zhCN": "获得",
+        "comment": "积分商城界面-获得物品类型"
+    },
+    "POINT_SHOP_ITEM_TYPE_BUFF": {
+        "zhCN": "增益",
+        "comment": "积分商城界面-增益物品类型"
+    },
+    "OVER_EXTRA_TEXT": {
+        "zhCN": "本轮你成功摧毁了{0}张苏丹卡, 命运发生了一些变化",
+        "comment": "结束界面-额外文字"
+    },
+    "OVER_EXTRA_TEXT_FOR_ZERO": {
+        "zhCN": "你一张苏丹卡也没有摧毁，什么都没有改变。",
+        "comment": "结束界面-额外文字, 实际消耗苏丹卡为0张时的内容"
+    },
+    "OVER_ADD_POINT_FORMAT": {
+        "zhCN": "+{0}",
+        "comment": "结束界面-获得命运点格式"
+    },
+    "STORY": {
+        "zhCN": "一千零一夜",
+        "comment": "开始界面-剧情按钮文本"
+    },
+    "STORY_TITLE": {
+        "zhCN": "一千零一夜",
+        "comment": "剧情界面-标题"
+    },
+    "STORY_DESC": {
+        "zhCN": "根据提示完成一千零一夜的故事，可以获得命运点。",
+        "comment": "剧情界面-描述"
+    },
+    "STORY_REWARD_ALL": {
+        "zhCN": "全部领取",
+        "comment": "剧情界面-全部领取按钮"
+    },
+    "STORY_ONLY_FINISH": {
+        "zhCN": "只看已完成",
+        "comment": "剧情界面-只看已完成按钮"
+    },
+    "STORY_ONLY_UNFINISH": {
+        "zhCN": "只看未完成",
+        "comment": "剧情界面-只看未完成按钮"
+    },
+    "STORY_COMPLETE": {
+        "zhCN": "-已完成-",
+        "comment": "剧情界面-已完成"
+    },
+    "STORY_REWARD_TITLE": {
+        "zhCN": "奖励",
+        "comment": "剧情界面-奖励标题"
+    },
+    "STORY_REWARD": {
+        "zhCN": "领取",
+        "comment": "剧情界面-奖励领取按钮"
+    },
+    "STORY_REWARD_RECEIVED": {
+        "zhCN": "已领取",
+        "comment": "剧情界面-奖励已领取"
+    },
+    "CARD_EQUIP_TYPE_weapon": {
+        "zhCN": "武器",
+        "comment": "卡片详情界面, 装备槽类型-武器tips提示信息"
+    },
+    "CARD_EQUIP_TYPE_cloth": {
+        "zhCN": "服装",
+        "comment": "卡片详情界面, 装备槽类型-服装tips提示信息"
+    },
+    "CARD_EQUIP_TYPE_accessory": {
+        "zhCN": "饰品",
+        "comment": "卡片详情界面, 装备槽类型-饰品tips提示信息"
+    },
+    "CARD_EQUIP_TYPE_animal": {
+        "zhCN": "动物",
+        "comment": "卡片详情界面, 装备槽类型-动物tips提示信息"
+    },
+    "CARD_EQUIP_TYPE_animal_handling": {
+        "zhCN": "驯兽",
+        "comment": "卡片详情界面, 装备槽类型-动物tips提示信息"
+    },
+    "PROMPT_CHANGE_NAME_TITLE": {
+        "zhCN": "修改名字",
+        "comment": "修改名字提示框-标题"
+    },
+    "PROMPT_CHANGE_NAME_INPUT_PLACEHOLDER": {
+        "zhCN": "请输入名字",
+        "comment": "修改名字提示框-输入框提示信息"
+    },
+    "MAIN_UI_LEAVE": {
+        "zhCN": "系统",
+        "comment": "主界面-系统按钮文本(未使用"
+    },
+    "MAIN_GAME_START_NEW_GAME_PROMPT": {
+        "zhCN": "当前进度将丢失, 是否开始新的游戏？"
+    },
+    "MAIN_HELP_SUDAN_BOX_PROMPT": {
+        "zhCN": "点击可以叫出<b><color=white><size=86>女术士</size></color></b>，她会为你排疑解难。\n每7天你有一次机会可以通过这里<b><color=white><size=86>更换苏丹卡</size></color></b>。",
+        "comment": "主界面帮助, 苏丹卡盒说明"
+    },
+    "MAIN_HELP_STORY_PROMPT": {
+        "zhCN": "<b><color=white><size=86>俺寻思</size></color></b>，将卡牌拖入其中，可以触发对这张卡牌的思考。",
+        "comment": "主界面帮助, 俺寻思的说明"
+    },
+    "MAIN_HELP_DEADLINE_PROMPT": {
+        "zhCN": "你的<b><color=white><size=86>声望</size></color></b>，会影响事件的触发。",
+        "comment": "主界面帮助, 处刑日说明"
+    },
+    "MAIN_HELP_HANDCARD_PROMPT": {
+        "zhCN": "你可以支配的卡牌都会显示在这里。",
+        "comment": "主界面帮助, 手牌区说明"
+    },
+    "MAIN_HELP_MENU_PROMPT": {
+        "zhCN": "如果处刑倒计时<b><color=white><size=86>归0</size></color></b>，你的手牌区还持有苏丹卡的话，你就会被苏丹<b><color=white><size=86>处决</size></color></b>，游戏就会结束！",
+        "comment": "主界面帮助, 退出菜单说明"
+    },
+    "MAIN_HELP_NEXT_DAY_PROMPT": {
+        "zhCN": "点击下一天推进游戏的时间。",
+        "comment": "主界面帮助, 下一天说明"
+    },
+    "MAIN_HELP_INFO_PROMPT": {
+        "zhCN": "今日所发生的事件通知。",
+        "comment": "主界面帮助, 信息栏说明"
+    },
+    "MAIN_HELP_ONE_T_PROMPT": {
+        "zhCN": "整理收集你的成就。",
+        "comment": "主界面帮助, 一千零一夜"
+    },
+    "MAIN_HELP_BAG_PROMPT": {
+        "zhCN": "切换和使用卡牌栏位",
+        "comment": "主界面帮助, 背包"
+    },
+    "MAIN_HELP_GOLD_PROMPT": {
+        "zhCN": "在检定时消耗一枚金骰子可以增加一点成功。",
+        "comment": "主界面帮助, 金骰子"
+    },
+    "MAIN_HELP_BACK_PROMPT": {
+        "zhCN": "次数足够时你可以随时选择回到<b><color=white><size=86>上一天</size></color></b>。",
+        "comment": "主界面帮助, 回到上一天"
+    },
+    "CARD_INFO_HELP_RARE_PROMPT": {
+        "zhCN": "标识这张卡牌的品级。黄金>白银>绿铜>岩石。",
+        "comment": "卡牌详情帮助, 品级说明"
+    },
+    "CARD_INFO_HELP_MAIN_PROMPT": {
+        "zhCN": "标识这张卡牌的状态，属性和标签，这些都将直接影响这张卡牌在仪式中的作用。",
+        "comment": "卡牌详情帮助, 主内容说明"
+    },
+    "CARD_INFO_HELP_EQUIP_PROMPT": {
+        "zhCN": "如果当前卡牌类型为<b><color=white><size=86>角色</size></color></b>且是追随者，您可以直接拖动带有<b><color=white><size=86>装备</size></color></b>标签的卡牌拖动到角色卡牌上进行装配。",
+        "comment": "卡牌详情帮助, 装备区说明"
+    },
+    "CARD_INFO_HELP_EQUIP_SLOT_PROMPT": {
+        "zhCN": "如果当前卡牌是角色，此处会显示当前角色可以装备的<b><color=white><size=86>装备类型</size></color></b>。每种类型只能装备1件，目前有【武器】【服装】【饰品】。",
+        "comment": "卡牌详情帮助, 装备槽说明"
+    },
+    "RITE_HELP_MAIN_PROMPT": {
+        "zhCN": "按槽位要求放入对应的卡牌可以进行当前仪式。\n红色的槽位内必须放置对应的卡牌，否则仪式将无法进行.",
+        "comment": "仪式界面说明, 卡槽说明"
+    },
+    "RITE_HELP_DESC_PROMPT": {
+        "zhCN": "大多数仪式会有仪式如何进行以及仪式可能产生的结果的提示。",
+        "comment": "仪式界面说明, 描述说明"
+    },
+    "RITE_HELP_TIME_PROMPT": {
+        "zhCN": "说明当前仪式需要进行多少天才会完成。",
+        "comment": "仪式界面说明, 周期说明"
+    },
+    "BEGIN_GUIDE_RIGHT_CLICK_SLOT_PROMPT": {
+        "zhCN": "可以点击卡槽，筛选出可以放置的卡牌。",
+        "comment": "点击卡槽新手引导"
+    },
+    "BEGIN_GUIDE_RIGHT_CLICK_CARD_PROMPT": {
+        "zhCN": "可以右键点击卡牌，将其快速放入卡槽中。",
+        "comment": "右键置入卡牌新手引导"
+    },
+    "BEGIN_GUIDE_FILL_COIN_PROMPT": {
+        "zhCN": "右键点击金币卡两次，可以自动填充奢靡卡要求的金币数量。",
+        "comment": "欢愉之馆奢靡卡金币放置新手引导, 右键快捷放置卡牌说明"
+    },
+    "BEGIN_GUIDE_REDRAW_SUDAN_CARD_PROMPT": {
+        "zhCN": "将苏丹卡拖拽到牌盒中。",
+        "comment": "抽卡界面新手引导, 更换苏丹卡方法说明"
+    },
+    "BEGIN_GUIDE_RITE_LAST_STATE_PROMPT": {
+        "zhCN": "可以点击按钮自动填充上一次搭配的卡牌。",
+        "comment": "仪式界面新手引导, 自动填充按钮说明"
+    },
+    "BEGIN_GUIDE_RITE_CONFIRM_PROMPT": {
+        "zhCN": "可以点击按钮开启事件。",
+        "comment": "仪式界面新手引导, 开启事件按钮说明"
+    },
+    "BEGIN_GUIDE_RITE_STOP_PROMPT": {
+        "zhCN": "放错卡牌？可以点击按钮停止事件。",
+        "comment": "仪式界面新手引导, 停止事件按钮说明"
+    },
+    "BEGIN_GUIDE_CARD_INFO_PROMPT": {
+        "zhCN": "可以点击查看卡牌说明。",
+        "comment": "卡牌详情新手引导, 说明按钮说明"
+    },
+    "BEGIN_GUIDE_READ_BOOK_PROMPT": {
+        "zhCN": "你获得了一本书，把他拖进俺寻思试试吧。",
+        "comment": "获得书籍新手引导, 拖进俺寻思说明"
+    },
+    "BEGIN_GUIDE_TIME_OUT_PROMPT": {
+        "zhCN": "你的时间不够了！",
+        "comment": "倒计时即将结束新手引导，倒计时说明"
+    },
+    "BEGIN_GUIDE_BACK_ROUND_PROMPT": {
+        "zhCN": "如果需要，可以回到上一天。",
+        "comment": "返回上一回合新手引导, 返回上一回合按钮说明"
+    },
+    "BEGIN_GUIDE_MAIN_HELP_PROMPT": {
+        "zhCN": "可以点击按钮查看功能说明。",
+        "comment": "主界面新手引导, 说明按钮"
+    },
+    "BEGIN_GUIDE_NEXT_DAY_PROMPT": {
+        "zhCN": "可以点击下一天按钮推进剧情。",
+        "comment": "主界面新手引导, 下一天按钮说明"
+    },
+    "BEGIN_GUIDE_CHANGE_SUDAN_CARD_PROMPT": {
+        "zhCN": "对抽取的苏丹卡不满意？可以更换一张苏丹卡。\n如果足够自信，可以再来一张苏丹卡。",
+        "comment": "抽卡界面新手引导"
+    },
+    "RITE_HELP_TAG_PROMPT": {
+        "zhCN": "当前仪式考验的卡牌<b><color=white><size=86>属性</size></color></b>。",
+        "comment": "仪式界面说明, tag说明"
+    },
+    "RITE_LOCATION_自宅": {
+        "zhCN": "自宅",
+        "comment": "仪式地点, 自宅的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_宫廷": {
+        "zhCN": "宫廷",
+        "comment": "仪式地点, 宫廷的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_后宫": {
+        "zhCN": "后宫",
+        "comment": "仪式地点, 后宫的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_上城区": {
+        "zhCN": "上城区",
+        "comment": "仪式地点, 上城区的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_黑街": {
+        "zhCN": "黑街",
+        "comment": "仪式地点, 黑街的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_商业区": {
+        "zhCN": "商业区",
+        "comment": "仪式地点, 商业区的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_神殿区": {
+        "zhCN": "神殿区",
+        "comment": "仪式地点, 神殿区的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_野外": {
+        "zhCN": "野外",
+        "comment": "仪式地点, 野外的中文, 用于显示在信息栏中, 编辑器中直接填写的是中文, 所以字典key就直接用中文了"
+    },
+    "RITE_LOCATION_奇珍": {
+        "zhCN": "地图",
+        "comment": "仪式地点, 直接用奇珍不太合适，这里就用地图来代替了，用于显示在信息栏中"
+    },
+    "RITE_LOCATION_结局": {
+        "zhCN": "地图",
+        "comment": "仪式地点, 直接用奇珍不太合适，这里就用地图来代替了，用于显示在信息栏中"
+    },
+    "RITE_LOCATION_大敌": {
+        "zhCN": "地图",
+        "comment": "仪式地点, 直接用奇珍不太合适，这里就用地图来代替了，用于显示在信息栏中"
+    },
+    "NOTE_RITE_START": {
+        "zhCN": "事件[rite.icon]<b><color=white>[rite.name]</color></b>在[rite.location]中出现了.",
+        "comment": "信息栏条目, 仪式开启, 与仪式上的感叹号同时出现"
+    },
+    "NOTE_RITE_DEAD": {
+        "zhCN": "因为没有及时处理, 事件[rite.icon]<b><color=white>[rite.name]</color></b>被移除了.",
+        "comment": "信息栏条目, 仪式未开启, 到期结束"
+    },
+    "NOTE_RITE_DONE": {
+        "zhCN": "事件[rite.icon]<b><color=white>[rite.name]</color></b>完成了",
+        "comment": "信息栏条目, 仪式完成结算"
+    },
+    "NOTE_RITE_ADSORB_CARD": {
+        "zhCN": "[card.head]<b><color=white>[card.name]</color></b>被卷入到事件 <b><color=white>[rite.name]</color></b>中了，快去瞧瞧吧。",
+        "comment": "信息栏条目, 卡牌被仪式吸附"
+    },
+    "NOTE_CARD_BE_FOLLWER": {
+        "zhCN": "[card.head]<b><color=white>[card.name]</color></b>成为了你的追随者。",
+        "comment": "信息栏条目, 设置为盟友"
+    },
+    "NOTE_CARD_BE_REWARD": {
+        "zhCN": "获得了[card.head]<b><color=white>[card.name]</color></b>*[num]",
+        "comment": "信息栏条目, 获得卡牌"
+    },
+    "NOTE_DAY_TEXT": {
+        "zhCN": "第{0}天",
+        "comment": "信息栏标题, 提示第几天"
+    },
+    "GENDER_MALE": {
+        "zhCN": "他",
+        "comment": "仪式结算文本默认男性第三人称"
+    },
+    "GENDER_FEMALE": {
+        "zhCN": "她",
+        "comment": "仪式结算文本默认女性第三人称"
+    },
+    "COUNTER_7100001": {
+        "zhCN": "善名",
+        "comment": "声望, 善名"
+    },
+    "COUNTER_7100002": {
+        "zhCN": "恶名",
+        "comment": "声望, 恶名"
+    },
+    "COUNTER_7100003": {
+        "zhCN": "权势",
+        "comment": "声望, 权势"
+    },
+    "COUNTER_7100004": {
+        "zhCN": "侠名",
+        "comment": "声望, 侠名"
+    },
+    "COUNTER_7100005": {
+        "zhCN": "灵视",
+        "comment": "声望, 灵视"
+    },
+    "COUNTER_7100006": {
+        "zhCN": "金骰子",
+        "comment": "特殊物品, 金骰子"
+    },
+    "COUNTER_7100007": {
+        "zhCN": "回到前一天次数",
+        "comment": "特殊物品, 回到前一天次数"
+    },
+    "COUNTER_7100008": {
+        "zhCN": "重抽次数",
+        "comment": "特殊物品, 重抽次数"
+    },
+    "PRESTIGE_TIPS_7100001": {
+        "zhCN": "善名：你因为行善而积累的名声。在这个游戏中，也反映出不使用苏丹卡作恶的努力。",
+        "comment": "声望, 善名Tips"
+    },
+    "PRESTIGE_TIPS_7100002": {
+        "zhCN": "恶名：你因为恶行而积累的名声，大多数时候都来自对苏丹卡的滥用。",
+        "comment": "声望, 恶名Tips"
+    },
+    "PRESTIGE_TIPS_7100003": {
+        "zhCN": "权势：你在宫廷中的地位。",
+        "comment": "声望, 权势Tips"
+    },
+    "PRESTIGE_TIPS_7100004": {
+        "zhCN": "侠名：你在自由民，冒险者，以及三教九流的帮派分子甚至罪犯中的名声。",
+        "comment": "声望, 侠名Tips"
+    },
+    "PRESTIGE_TIPS_7100005": {
+        "zhCN": "灵视：你对各种神秘事物，神灵，精魂甚至邪魔的敏感程度。灵视越高，越容易看到不应当看见的东西。",
+        "comment": "声望, 灵视Tips"
+    },
+    "PRESTIGE_TIPS_7100006": {
+        "zhCN": "1颗金骰子可以在检定中直接增加1点成功。",
+        "comment": "金骰子说明"
+    },
+    "RITE_SETTLEMENT_PRESTIGE_RESULT": {
+        "zhCN": "<sprite=1><indent=60><sprite name=\"{0}\"> {1} {2}<b>{3}</b></indent>",
+        "comment": "仪式结算文本, 获得声望文本提示. {0}为声望id, {1}为声望名称, {2}为声望变化类型(+或-), {3}为声望变化值"
+    },
+    "PROMPT_PRESTIGE_RESULT": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{1} {2}<b>{3}</b></align></size></font>", // <sprite name=\"{0}\"> 
+        "comment": "幕后机制额外结果, 获得声望文本提示. {0}为声望id, {1}为声望名称, {2}为声望变化类型(+或-), {3}为声望变化值"
+    },
+    "PROMPT_CARD_RESULT": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>获得卡牌 {0}</align></size></font>",
+        "comment": "幕后机制额外结果, 获得卡牌文本提示, {0} 为卡牌名称, {1} 为卡牌稀有度, {2} 为卡牌数量"
+    },
+    "PROMPT_CARD_RESULT_PLURAL": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>获得卡牌 {0}x {2}</align></size></font>",
+        "comment": "幕后机制额外结果, 获得卡牌文本提示, {0} 为卡牌名称, {1} 为卡牌稀有度, {2} 为卡牌数量"
+    },
+    "PROMPT_RITE_START_RESULT": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>事件 {0} 出现了</align></size></font>",
+        "comment": "幕后机制额外结果, 仪式开启, 与仪式上的感叹号同时出现, {0} 仪式名称, {1} 仪式地点"
+    },
+    "PROMPT_CARD_ADD_BUFF": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}的{1}+{2}</align></size></font>",
+        "comment": "幕后机制额外结果, 获得buff文本提示, {0} 为卡牌名称, {1} 为标签类型, {2} 为buff值"
+    },
+    "PROMPT_CARD_SUB_BUFF": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}的{1}-{2}</align></size></font>",
+        "comment": "幕后机制额外结果, 获得buff文本提示, {0} 为卡牌名称, {1} 为标签类型, {2} 为buff值"
+    },
+    "PROMPT_CARD_ADD_ATTR": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}成为了 {1}</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, {0} 为卡牌名称, {1} 为标签类型"
+    },
+    "PROMPT_CARD_SUB_ATTR": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}移除了 {1}</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, {0} 为卡牌名称, {1} 为标签类型"
+    },
+    "PROMPT_CARD_UPRARE": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}的品级提升了</align></size></font>",
+        "comment": "幕后机制额外结果, 卡牌品级提升提示, {0} 为卡牌名称, {1} 为标签类型"
+    },
+    "PROMPT_CARD_ADD_lock_friendship": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}与你形成了 {1}</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, {0} 筛选卡片名称, {1} 为lock_friendship这个tag的中文"
+    },
+    "PROMPT_CARD_ADD_kill_god": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}站到了最前面，他将和你一起面对这个神明</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, {0} 筛选卡片名称, {1} 为lock_friendship这个tag的中文"
+    },
+    "PROMPT_CARD_ADD_minister": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}成为了帝国的宰相</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, {0} 筛选卡片名称, {1} 为lock_friendship这个tag的中文"
+    },
+    "PROMPT_CARD_EQUIP_2000345": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}被关进了监狱</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, {0} 筛选卡片名称, {1} id对应的卡片名称"
+    },
+    "PROMPT_CARD_UNEQUIP_2000345": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>{0}被释放了</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, {0} 筛选卡片名称, {1} id对应的卡片名称"
+    },
+    "PROMPT_CARD_2000168": {
+        "zhCN": "<font=\"Title SDF\">· <size=125%><align=left>宫廷里针对你的谗言变多了</align></size></font>",
+        "comment": "幕后机制额外结果, 获得属性文本提示, 生成指定ID的卡牌是显示"
+    },
+    "PROMPT_RESULT_SEPERATOR": {
+        "zhCN": "\n",
+        "comment": "幕后机制额外结果, 结果分隔符"
+    },
+    "ITHINK_TIPS": {
+        "zhCN": "俺寻思：将卡牌移至这里，可以触发思考",
+        "comment": "提示, 鼠标放在手牌上, 提示文本"
+    },
+    "EXECUTION_DAY_TIPS": {
+        "zhCN": "请在处刑日前完成苏丹卡的任务",
+        "comment": "提示, 鼠标放在处刑按钮上, 提示文本"
+    },
+    "OPEN_ON_OCT_NEXT_FEST": {
+        "zhCN": "计划在10月新品节期间更新，敬请期待！",
+        "comment": "命运商店开启tips说明"
+    },
+    "ADD_TO_WISHLIST": {
+        "zhCN": "加入愿望单",
+        "comment": "开始界面, 添加到愿望单按钮"
+    },
+    "DIFFICULTY_DICE_RATE": {
+        "zhCN": "",
+        "comment": "难度选择, 骰子成功率提示"
+    },
+    "DIFFICULTY_BACK_TO_PREV_ROUND": {
+        "zhCN": "",
+        "comment": "难度选择, 可回退上一回合次数, {0}为具体次数, 或者无限"
+    },
+    "DIFFICULTY_BACK_TO_PREV_ROUND_UNLIMIT_TIMES": {
+        "zhCN": "",
+        "comment": "难度选择, 可回退上一回合次数, 无限"
+    },
+    "DIFFICULTY_REDRAW_SUDAN_CARD_TIMES": {
+        "zhCN": "",
+        "comment": "难度选择, 重抽数, {0}为具体次数, 或者无限"
+    },
+    "DIFFICULTY_SUDAN_CARD_LIFE": {
+        "zhCN": "",
+        "comment": "难度选择, 苏丹卡处决时间, {0}为具体天数"
+    },
+    "DIFFICULTY_GOLD_DICE_COUNT": {
+        "zhCN": "",
+        "comment": "难度选择, 金色骰子默认数量, {0}为具体数量"
+    },
+    "DIFFICULTY_CHOOSE_TITLE": {
+        "zhCN": "游戏难度",
+        "comment": "难度选择, 游戏难度标题"
+    },
+    "DIFFICULTY_CHOOSE_DESC": {
+        "zhCN": "选择一名叙事者来讲述这个故事。不同的叙事者对应的游戏难度不同，但能够体验到的剧情是完全一样的。",
+        "comment": "难度选择, 游戏难度说明"
+    },
+    "RITE_STOP_TIPS": {
+        "zhCN": "回退当前事件",
+        "comment": "仪式停止提示"
+    },
+    "RITE_AUTO_FILL_TIPS": {
+        "zhCN": "根据玩家上一次的选择一键自动填充",
+        "comment": "仪式自动填充提示"
+    },
+    "BAG_EXPANSION_TIPS": {
+        "zhCN": "展开背包",
+        "comment": "背包展开提示"
+    },
+    "BAG_POS_1_TIPS": {
+        "zhCN": "按1选中",
+        "comment": "背包位置1提示"
+    },
+    "BAG_POS_2_TIPS": {
+        "zhCN": "按2选中",
+        "comment": "背包位置1提示"
+    },
+    "BAG_POS_3_TIPS": {
+        "zhCN": "按3选中",
+        "comment": "背包位置1提示"
+    },
+    "BAG_POS_4_TIPS": {
+        "zhCN": "按4选中",
+        "comment": "背包位置1提示"
+    },
+    "RITE_AUTO_RESULT_TIPS":{
+        "zhCN": "自动播放",
+        "comment": "仪式自动结算按钮提示"
+    },
+    "PREV_ROUND_CONFIRM_PROMPT": {
+        "zhCN": "返回上一回合将丢失当前回合进度, 是否继续?",
+        "comment": "返回上一回合提示"
+    },
+    "SUDAN_BOX_DRAW_CLICK_PROMPT": {
+        "zhCN": "点击{0}抽卡",
+        "comment": "魔法师苏丹卡抽取提示"
+    },
+    "SUDAN_BOX_DRAW_RESULT_CLICK_PROMPT": {
+        "zhCN": "点击{0}领取",
+        "comment": "魔法师苏丹卡抽取结束提示"
+    },
+    "SUDAN_BOX_REDRAW_CLICK_PROMPT": {
+        "zhCN": "点击{0}选中当前苏丹卡重抽",
+        "comment": "魔法师苏丹卡重抽提示"
+    },
+    "DEVELOPERS": {
+        "zhCN": "开发组",
+        "comment": "制作组开发人员名单标题"
+    },
+    "DATA_AGREEMENTS": {
+        "zhCN": "我们将收集部分您在游戏中的选择数据，以用于优化游戏体验，但我们不会记录任何您的个人信息，您也可以在设置中随时关闭或者开启本功能。",
+        "comment": "数据收集许可协议说明"
+    },
+    "OVER_CONFIRM": {
+        "zhCN": "确定",
+        "comment": "结束界面,主结束文本确定按钮文本"
+    },
+    "OVER_END": {
+        "zhCN": "结束",
+        "comment": "结束界面后日谈结束按钮文本"
+    }
+}

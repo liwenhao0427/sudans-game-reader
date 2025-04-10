@@ -1,0 +1,27 @@
+{
+    "id": 5300073,
+    "text": "激活医院",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1  //时机
+    },
+    "condition":{  //条件
+        "any":{
+            "hand_have.受伤":1,
+            "hand_have.生病":1
+        },
+        "!rite":5002001
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5002001,
+                "event_off":5300073
+            }
+        }
+    ]
+} 

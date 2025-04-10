@@ -1,0 +1,74 @@
+{
+    "id": 8000131,
+    "name": "",
+    "tips": "",
+    "bg": "gt_03_bg",
+    "fg": "gt_03_fg",
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 210
+    },
+    "title_pos": {
+        "x": 1490,
+        "y": -158
+    },
+    "slots": {
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1293,
+                "y": 770
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 2012,
+                "y": 770
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1651,
+                "y": 770
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "palace_nomal_slot",
+            "pos": {
+                "x": 1651,
+                "y": 1368
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        }
+    }
+}

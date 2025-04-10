@@ -1,0 +1,29 @@
+{
+    "id": 5321154,
+    "text": "新月长大了",     
+    "is_replay":0, //是否可以重复触发
+      "auto_start_init": [1],
+    "start_trigger":true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+    "round_begin_ba":3
+    },
+    "condition":{  //条件
+
+        "hand_have.2000989":1, //小狗在手牌
+        "have.2000065.追随者":1, //法里斯是追随者
+        "counter.7000556>=":5  //陪玩5次
+    },
+    "settlement": [  
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5008163,
+                "success":{
+                    "event_off":5321154
+                }
+            }
+        }
+
+    ]
+}

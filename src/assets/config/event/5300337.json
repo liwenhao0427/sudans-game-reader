@@ -1,0 +1,26 @@
+ {
+        "id": 5300337,
+        "text": "书店不营业了",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start_init": [1],
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":1 // 仪式开始时
+        },
+        "condition":{  //条件
+            "counter.7000017>":42
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "prompt":{
+                        "id":"5300337_prompt_01",
+                        "text":"阿萨尔打算专心辅佐你，书店不再开门了。"
+                    }
+                }
+            }
+
+        ]
+    } 

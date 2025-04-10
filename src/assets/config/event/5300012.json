@@ -1,0 +1,38 @@
+ {
+        "id": 5300012,
+        "text": "普通妓院",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": true, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":[1,2] // 仪式开始时
+        },
+        "condition":{  //条件
+            "!rite":5002003, //场上普通妓院
+            "!rite":5002004, 
+            "!rite":5002005,
+            "!rite":5002035,
+            "any":{
+                "table_have.2000080": 1, //三人有一人活着
+                "table_have.2000081": 1, 
+                "table_have.2000082": 1,
+                "all":{
+                    "table_have.2000772":1,
+                    "table_have.2000772.妓女>=": 1,
+                    "counter.7000313>=":1
+                }
+            },
+            "counter.7000471<":1  //欢愉之馆没有关闭
+            
+        },
+        "settlement": [    //效果
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "loot":6000019
+                }
+            }
+
+        ]
+    } 

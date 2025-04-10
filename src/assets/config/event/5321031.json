@@ -1,0 +1,24 @@
+{
+    "id": 5321031,
+    "text": "《被遗忘的仪式》事件激活提示",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "hand_have.2000056":1 //盖斯在手牌区
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "hand_pop.5321031.2000756": "这本书有一股神秘的力量在涌动，将其放入<color=white><size=172%>俺寻思</size></color>。",
+                "table.2000756+事件提示":1
+            }
+        }
+
+    ]
+}

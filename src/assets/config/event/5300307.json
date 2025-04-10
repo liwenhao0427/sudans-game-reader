@@ -1,0 +1,26 @@
+{
+        "id": 5300307,
+        "text": "决斗",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start": false, //默认本局开始时即启动
+        "start_trigger": false, 
+        "on":{   //时机
+            "rite_end":5002024
+        },
+        "condition":{         
+        },
+        "settlement": [
+        {
+            "tips_resource":"",
+            "tips_text":"",
+            "action":{
+                "card":2000379,
+                "rite":5002025,
+                "prompt": {
+                    "id": "prompt_5300307_01",
+                    "text": "因为贾丽拉的事故，那个贵族的亲属向你发出了决斗的要求。"
+                }
+            }
+        }
+        ]
+    } 

@@ -1,0 +1,29 @@
+{
+    "id": 5320210,
+    "text": "奈费勒声望事件--奶与蛋",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+            "round_begin_ba": [3,5]
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "coin":3,
+                "counter+7100001":3,
+                "prompt":{
+                    "id":"5320210_prompt_01",
+                    "text":"领地上领受了家畜的女人们给你送来了税款和礼物，是新鲜的羊奶和鸡蛋。她们和她们的丈夫、孩子都会更加努力的工作，因为她们现在拥有了希望。",
+                    "icon":["common/position_guizu_2","",""]
+                },
+                "event_on": 5320211 //激活奈费勒的后续
+            }
+        }
+
+    ]
+}

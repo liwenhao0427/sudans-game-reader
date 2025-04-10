@@ -1,0 +1,24 @@
+{
+    "id": 5320096,
+    "text": "苏丹猜忌正常消解卡牌会重置计数器",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "counter.7000196>=":1  //标识着时间到了
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_off":5320095,
+                "counter=7000196":0
+            }
+        }
+
+    ]
+}

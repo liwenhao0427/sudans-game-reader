@@ -1,0 +1,30 @@
+{
+    "id": 5300579,
+    "text": "神的秘密",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+       "round_begin_ba": 3 //每回合检测
+    },
+    "condition":{  //条件
+        "table_have.2000113":1,  //阿里木还活着
+        "any":{
+            "hand_have.2000843":1,
+            "hand_have.2000844":1,
+        } //手上有3级或4级邪神面容
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5004907,  //启动仪式神的秘密
+                "success":{
+                    "event_off":5300579  //关闭自检
+                }
+                
+            }
+        }
+    ]
+}

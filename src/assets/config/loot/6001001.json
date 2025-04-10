@@ -1,0 +1,258 @@
+{
+    "id": 6001001,
+    "name": "小事件",
+    "repeat": 1,
+    "type": 3, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5300602",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300603",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300604",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300605",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300606",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300607",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300608",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300609",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300610",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300501",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300502",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300503",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "have.2000371.追随者":1,
+                "have.2000370.追随者":1
+            },
+            "num" : "1",
+            "id" : "5300504",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300505",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300506",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300507",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300508",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300509",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300510",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300511",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300512",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300513",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300514",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300515",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300516",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300518",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300519",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300520",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300521",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300522",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300523",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300524",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300525",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5300526",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5300611",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5300612",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "table_have.正神的面容":1,
+                "table_have.邪神的面容":1
+            },
+            "num" : "1",
+            "id" : "5300613",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5300614",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "5300615",
+            "type" : "event",
+            "weight" : 60
+        }
+    ]
+}

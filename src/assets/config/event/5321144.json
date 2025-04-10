@@ -1,0 +1,38 @@
+{
+    "id": 5321144,
+    "text": "关闭拼凑真相",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [
+        1
+    ],
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "all": {
+            "table_have.2000065":1,  //法里斯需要空闲
+            "hand_have.2001046": 1,
+            "hand_have.2001045": 1,
+            "hand_have.2001044": 1,
+            "hand_have.2001043": 1
+        }
+    },
+    "settlement": [ //效果 
+        {
+            "action": {
+                "counter+7000603": 1, //获得全部线索，拼凑真相关闭计数器
+                "prompt": {
+                    "id": "5321144_prompt_01",
+                    "text": "你已经获得了全部线索，真相就在眼前了，是时候和法里斯谈谈了。",
+                    "icon": "cards/2000065"
+                },
+                "clean.rite": 5008150, //关闭拼凑真相
+                "rite": 5008151, //开启法里斯的恳谈
+                "success": {
+                    "event_off": 5321144
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "id": 5300263,
+    "text": "苏丹奔赴猎场",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "table_have.2000024":1 //苏丹在牌池中
+    },
+    "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.2000024+倦怠":6, //给苏丹卡加6点倦怠
+                "prompt":{
+                        "id":"5300263_prompt_1",
+                        "text":"野兽的血已经没法给苏丹带来任何新鲜感了。但他突发奇想地想知道，巨狼能不能当狗养？\n当然，他根本不在意任何人的回答。他的心思已经飞到猎场里，打算亲自去试试了。",
+                        "icon":"cards/sudan"
+                    },
+                "success":{
+                    "event_off":5300263 //关闭自检
+                }
+
+            }
+        }
+
+    ]
+} 

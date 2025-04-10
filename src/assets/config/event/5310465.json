@@ -1,0 +1,26 @@
+{
+        "id": 5310465,
+        "text": "结局-直面苏丹的暗道",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010009
+        },
+        "condition":{
+            "table_have.2001033":1, //有暗道
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "rite":5010033, //触发直面苏丹
+                "prompt":{
+                    "id":"5310465_prompt_01",
+                    "text":"你想起了你之前掌握的直通宫殿内部的暗道信息，也许在此时可以拿来使用了。"
+                }
+            }
+        }
+    ]
+} 

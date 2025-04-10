@@ -1,0 +1,35 @@
+{
+    "id": 5321157,
+    "text": "密教的援助故事线",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [
+        1
+    ],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "counter.7000575>=": 1, //拜玲耶在主角纵容下顺利完成泼大粪
+        "table_have.2000022": 1, //拜铃耶闲置
+        "!have.2000022.追随者": 1, //拜铃耶不是盟友
+        "counter.7100005>=": 5 //灵视lv2
+    },
+    "settlement": [
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "rite": 5008166, //不洁的代言人
+                "prompt": {
+                    "id": "5321157_prompt_1",
+                    "text": "仆人一脸犹豫地告诉你，门口有一位密教的“哭号人”宣称有要事求见。",
+                    "icon": "cards/2000022"
+                },
+                "success": {
+                    "event_off": 5321157
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+        "id": 5310506,
+        "text": "结局-千廊之国",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000446>=":1, //平衡
+            "have.妻子.宰相":1, //妻子是宰相
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":234
+            }
+        }
+    ]
+} 

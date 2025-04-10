@@ -1,0 +1,34 @@
+{
+    "id": 5300229,
+    "text": "生成宰相的召见-初次",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 //每回合刷一次
+    },
+    "condition":{  //条件
+        "table_have.2000349":1, //宰相存在卡池或手牌
+        "!rite":5000720, //场上没有仪式
+        "counter.7000073>=":1,  //执行过权力的游戏
+        "counter.7100003>=":4  //权势1阶段
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000720,
+                "success":{
+                    "event_off":5300229, //关闭本幕后
+                    "prompt":{
+                        "id": "5300229_prompt_01",
+                        "text":"宰相阿卜德派仆人来，召你到府上一叙。",
+                        "icon":"cards/2000349"
+                    }
+                }
+            }
+        }
+
+    ]
+}

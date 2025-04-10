@@ -1,0 +1,30 @@
+{
+        "id": 5310413,
+        "text": "结局-造反-攻打王都城墙",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5010011  //立即触发
+        },
+        "condition":{
+            "counter.7000431>=":2 //胜利
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "rite":5010012, //触发巷战
+                "prompt":{
+                    "id":"5310413_prompt_01",
+                    "text":"当你的军队突破了多处城墙之后，苏丹的部队放弃了在城墙外围的抵抗……现在，还有一整座城市挡在你面前……"
+                },
+                "event_on":5310423,//苗圃守卫者
+                "event_on":5310424,//铁头
+                "event_on":5310436,//蓝巾军    
+                "event_off":5310414
+            }
+        }
+    ]
+} 

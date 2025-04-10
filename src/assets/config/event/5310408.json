@@ -1,0 +1,25 @@
+{
+        "id": 5310408,
+        "text": "结局-逃跑-最后的苏丹卡",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "round_begin_ba":1 //每回合刷一次
+        },
+        "condition":{
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "event_on":5310403,
+                "event_on":5310404,
+                "event_on":5310405,
+                "event_on":5310406,
+                "event_on":5310407
+            }
+            }
+        ]
+    } 

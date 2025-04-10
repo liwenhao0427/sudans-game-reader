@@ -1,0 +1,48 @@
+{
+    "id": 5300146,
+    "text": "年轻望族的请求3",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end": 5000618
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "option": {
+                    "id":"5300146_option_1",
+                    "text": "扎齐伊想要知道，如果你心中有所困惑，一般会去哪里寻求答案？",
+                    "icon": "cards/2000001",
+                    "items": [
+                        {
+                            "text": "去书店",
+                            "tag": "op1"
+                        },
+                        {
+                            "text": "去监狱",
+                            "tag": "op2"
+                        },
+                        {
+                            "text": "去黑街",
+                            "tag": "op3"
+                        }
+                    ]
+                },
+                "case:op1": {
+                    "rite":5000619
+                },
+                "case:op2": {
+                    "rite":5000620
+                },
+                "case:op3": {
+                    "rite":5000621
+                }
+            }
+        }
+    ]
+}

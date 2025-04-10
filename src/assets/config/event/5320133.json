@@ -1,0 +1,27 @@
+{
+    "id": 5320133,
+    "text": "娜依拉声望事件--世界不止属于男人",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000057, //随机金情报
+                "prompt":{
+                    "id":"5320133_prompt_01",
+                    "text":"睡前，娜依拉向你分享最近发生的一些趣闻，很多你听都没听说过。看到你吃惊的表情，她靠在你身边咯咯笑了起来，男人们总是忘记，世界上有一半的人是女人。",
+                    "icon":"cards/2000055"
+                }
+            }
+        }
+
+    ]
+}

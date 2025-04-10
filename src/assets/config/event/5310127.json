@@ -1,0 +1,30 @@
+{
+        "id": 5310127,
+        "text": "苏丹引导-强制1",
+        "is_replay": 0, 
+        "auto_start_init": [0], 
+        "start_trigger": false, 
+        "on":{   
+            "open_rite_end":5005101
+        },
+        "condition":{  
+            "global_counter.7230005<":1,
+        },
+        "settlement": [    //开场演出 引导单击槽位，筛选可以放置的卡牌
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "global_counter+7230005":1,
+                "begin_guide":{
+                    "type": "RIGHT_CLICK_SLOT",
+                    "anim_type":"MouseRightClick",
+                    "pos": [767, 103],
+                    "is_show_ring": true,
+                    "ring_pos": [-847, 61],
+                    "ring_rect": [0.5, 0.5]
+                }
+            }
+        }
+        ]
+    } 

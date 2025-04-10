@@ -1,0 +1,30 @@
+{
+    "id": 5320184,
+    "text": "小圆声望事件--微小的波澜2",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 3
+    },
+    "condition":{
+        "table_have.2000738":1,
+        "table_have.2000369.大敌":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.clean.2000738": 1,
+                "card":2000575, //铁头的优势
+                "prompt":{
+                    "id":"5320184_prompt_01",
+                    "text":"你听说城里发生了一件大事。一群胆大包天的流民袭击了某位贵族的欢宴，他们打伤了很多护卫，找到宴会的主人，朝他要一名会读书、会做饭的女奴，得知她已被折磨而死，他们的首领狂怒之下，以无比残忍的手法杀死那名贵族，带走了那里所有伤痕累累的奴隶。\n你大概也能猜到那是谁做的。",
+                    "icon":["common/position_guizu_1",null,null]
+                }
+            }
+        }
+
+    ]
+}

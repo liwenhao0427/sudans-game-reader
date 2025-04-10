@@ -1,0 +1,25 @@
+{
+    "id": 5321008,
+    "text": "妻子的茶会",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+         "round_begin_ba": 7
+    },
+    "condition": { //条件
+        "hand_have.妻子": 1, //妻子还活着
+        "counter.7100003>=":10, //权势lv2
+        "counter.7000233<":1  //没有在妻子的茶会使用纵欲卡
+
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "rite":5008005
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+        "id": 5310486,
+        "text": "结局-游戏之国",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000447>=":1, //变革
+            "have.主角.邪恶化身":1, //主角是邪恶化身
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":220
+            }
+        }
+    ]
+} 

@@ -1,0 +1,101 @@
+{
+        "id": 5300000,
+        "text": "开场介绍", //策划看的备注      
+        "is_replay": 0, //是否可以重复触发
+        "auto_start": false, //默认本局开始时即启动
+        "start_trigger": true, 
+        "on":{   //时机
+            "round_begin_ba": 1
+        },
+        "condition":{  //条件
+        },
+        "settlement": [    //效果
+        {
+            "tips_resource":"", //提示资源配置为空，就不弹提示框
+            "tips_text":"",
+            "action":{
+                //  只有文本的提示可以简化写法
+                //"prompt": "PROMPT_5300000",
+                //  提示只有成功, 直接执行后续动作即可
+                //"event_off":5300000,
+                "confirm":{
+                    "id":"5300000_confirm_1",
+                    "text":"是否开启新手教学？\n（在测试期间，玩家可以无限制的点击左下角的【回到本回合开始】以及【回到上一回合开始】按钮进行重试。）",
+                    "icon":["","common/introduction",""],
+                    "confirm_text":"<size=50>确定</size>",
+                    "cancel_text":"<size=50>取消</size>"
+                },
+                "success":{
+                    "event_on": [5300300,5300301,5300302,5300303],
+                    "event_on": 5300066
+                },
+                "failed":{
+                    "event_on": 5300066
+                }
+                //  确认提示框, 简化写法
+                // "confirm": "测试确定取消",
+
+                // //  确认提示框, 完整写法
+                // "confirm": {
+                //     "text": "测试确定取消",
+                //     "icon":"cards/2000006",
+                //     "confirm_text": "<size=50>确定</size>",
+                //     "cancel_text": "<size=50>取消</size>",
+                //     "confirm_icon": "cards/1_char_6",
+                //     "cancel_icon": "cards/2000001"
+                // },
+                // //  确认对话框后可以跟一组成功失败的判定, 分别执行对应的动作
+                // "success": {
+                //     "prompt": "点击了确定"
+                // },
+                // "failed": {
+                //     "prompt": "点击了取消"
+                // }
+                
+                // //  选项提示宽, 完整写法
+                // "option": {
+                //     "text": "选项测试文本",
+                //     "icon": "cards/2000006",
+                //     "items": [
+                //         {
+                //             "text": "选项1",
+                //             "icon": "cards/1_char_6",
+                //             "tag": "op1"
+                //         },
+                //         {
+                //             "text": "选项2",
+                //             "tag": "op2"
+                //         },
+                //         {
+                //             "text": "选项3",
+                //             "tag": "op3"
+                //         },
+                //         {
+                //             "text": "选项4",
+                //             "tag": "op4"
+                //         }
+                //     ]
+                // },
+                // //  选项对话框后可以跟一组case
+                // //  可以用选项的编号(1,2,3,...)
+                // //  也可以用选项的tag来匹配选项
+                // //  一次只能匹配一个(暂不支持多个匹配)
+                // //  默认匹配操作可以使用 case:def 
+                // "case:1": {
+                //     "prompt": "点击了选项1"
+                // },
+                // "case:op2": {
+                //     "prompt": "点击了选项2"
+                // },
+                // "case:def": {
+                //     "prompt": "点击了其他选项"
+                // }
+                
+                // //  幻灯片的单图及多图配置范例
+                // "slide": "cards/2000055",
+                // "slide": ["cards/1_char_2", "cards/1_char_3", "cards/1_char_4"]
+            }
+        }
+
+        ]
+    } 

@@ -1,0 +1,23 @@
+{
+    "id": 5300201,
+    "text": "监听使用征服卡（再利用）",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean":[2010013,2010014,2010015,2010016] //使用任意一张征服卡
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000342":1
+            }
+        }
+
+    ]
+}

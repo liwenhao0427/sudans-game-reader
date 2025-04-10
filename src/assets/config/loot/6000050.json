@@ -1,0 +1,29 @@
+{
+    "id": 6000050,
+    "name": "随机金情报（一部分）",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+       {
+            "num" : "1",
+            "id" : "2000416",
+            "type" : "card",
+            "weight" : 10
+        },{
+            "num" : "1",
+            "id" : "2000417",
+            "type" : "card",
+            "weight" : 10
+        },{
+            "num" : "1",
+            "id" : "2000418",
+            "type" : "card",
+            "weight" : 10
+        },{
+            "num" : "1",
+            "id" : "2000414",
+            "type" : "card",
+            "weight" : 10
+        }
+    ]
+}

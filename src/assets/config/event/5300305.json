@@ -1,0 +1,31 @@
+{
+        "id": 5300305,
+        "text": "畸恋",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false, //默认本局开始时即启动
+        "start_trigger": false, 
+        "on":{   //时机
+            "round_begin_ba":[5,10]
+        },
+        "condition":{
+            "table_have.主角":1,
+            "table_have.2000080":1           
+        },
+        "settlement": [
+        {
+            "tips_resource":"",
+            "tips_text":"",
+            "action":{
+                "rite":5002023,
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300305_01",
+                        "text": "朱娜来找你了，你明知道这很蠢，但就像着了魔一般，无法拒绝。"
+                    },
+                    "event_off":5300305
+                }
+            }
+        }
+
+        ]
+    } 

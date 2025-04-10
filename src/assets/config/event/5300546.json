@@ -1,0 +1,28 @@
+{
+    "id": 5300546,
+    "text": "审问猎奴人",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "table_have.2000771":1 , //芮尔在卡池
+        "counter.7000466>=":1,   //芮尔匪帮成立了
+        "table_have.2000971":1,  //奴隶贩子还活着
+        "counter.7000475>=":1   //抓捕奴隶贩子成功
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000820,  //开启审问猎奴人
+                "success":{
+                    "event_off":5300546 //关闭自检
+                }
+            }
+        }
+    ]
+}

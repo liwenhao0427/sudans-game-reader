@@ -1,0 +1,32 @@
+{
+    "id": 5320066,
+    "text": "恶名3阶段事件",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "counter.7100002>=":10 // 恶名大于等于5
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000093, //掉落刺杀的阴影仪式（每2~3回合掉落）              
+                "prompt":{
+                    "id":"5320066_prompt_01",
+                    "text":"你已是恶贯满盈。\n<size=+10><font=\"Title SDF\"><b>在这一阶段，定期会有人请求你“帮忙”，也会有人来找你麻烦，请谨慎应对</b></font></size>"
+                },
+                "delay": {  //延迟1回合执行
+                    "id":53200661,
+                    "round": 1,
+                    "loot":6000094  //掉落屠杀仪式（每7~10回合掉落）    
+                }
+            }
+        }
+
+    ]
+}

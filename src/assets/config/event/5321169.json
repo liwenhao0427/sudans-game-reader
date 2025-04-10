@@ -1,0 +1,29 @@
+{
+    "id": 5321169,
+    "text": "拜铃耶营业收益提示",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger":true,  // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{                
+                "counter+7100002":1, //恶名+1
+                "prompt": {
+                    "id": "prompt_5321169_01",
+                    "text": "一个刁钻的客人找到拜铃耶，他提出一大堆奇葩的要求，又对拜铃耶的手艺百般挑刺，最终两人大打出手，不欢而散。这件事传出去稍微影响了你的名声……",
+                    "icon":"cards/2000022"
+                }
+      
+            }
+        }
+
+    ]
+}

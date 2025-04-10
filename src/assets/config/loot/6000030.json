@@ -1,0 +1,32 @@
+{
+    "id": 6000030,
+    "name": "赌马随机",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5002512",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002513",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002514",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002515",
+            "type" : "rite",
+            "weight" : 60
+        }
+    ]
+}

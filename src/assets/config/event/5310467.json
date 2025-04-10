@@ -1,0 +1,21 @@
+{
+        "id": 5310467,
+        "text": "审判烈焰",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false, 
+        "on":{   
+            "rite_end": 5010039
+        },
+        "condition":{
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "rite":5010040, //审判烈焰
+            }
+        }
+    ]
+} 

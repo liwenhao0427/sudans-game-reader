@@ -1,0 +1,24 @@
+{
+        "id": 5310433,
+        "text": "结局-逃跑-冻结苏丹卡和猜忌卡",
+        "is_replay": 1, 
+        "auto_start_init": [1],  
+        "start_trigger": false,
+        "on":{   
+            "rite_cancel": 5010007 //运行出发时
+        },
+        "condition":{
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "total.sudan-冻结":1, //冻结苏丹卡
+                "total.2000680-冻结":1, //冻结猜忌
+                "sudan_pool.sudan-冻结":1, //冻结池子里的苏丹卡
+                "enable_auto_gen_sudan_card": true, //禁用自动生成抽卡
+            }
+        }
+    ]
+} 

@@ -1,0 +1,41 @@
+{
+        "id": 5310421,
+        "text": "结局-造反-与苏丹决战",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5010007  //立即触发
+        },
+        "condition":{
+            "have.2000369.大敌":1
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "no_prompt":{
+                    "clean.rite": 5007008,
+                    "clean.rite": 5007009,
+                    "clean.rite": 5007010, 
+                    "clean.rite": 5007011, 
+                    "clean.rite": 5007012, 
+                    "clean.rite": 5007013,  
+                    "clean.rite": 5007014, 
+                    "clean.rite": 5007015,
+                    "clean.rite": 5007016, 
+                    "event_off":5320057,
+                    "event_off":5320058,
+                    "event_off":5320062,
+                },
+                "counter+7000434":1, //会在巷战助阵
+                "prompt":{
+                    "id":"5310421_prompt_01",
+                    "text":"听说你准备谋反的消息后，铁头和他的帮派消失了。",
+                    "icon":"cards/2000369"
+                }
+            }
+        }
+    ]
+} 

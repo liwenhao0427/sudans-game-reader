@@ -1,0 +1,22 @@
+{
+        "id": 5310501,
+        "text": "结局-逃跑-激活结局弹框",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5006069
+        },
+        "condition":{
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "event_on":5310502, //妻子活着
+                "event_on":5310503 //妻子死去
+            }
+            }
+        ]
+    } 

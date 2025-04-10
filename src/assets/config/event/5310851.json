@@ -1,0 +1,23 @@
+{
+        "id": 5310851,
+        "text": "消解疯狂-检定玩家的体魄",
+        "is_replay": 1, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5004817
+        },
+        "condition":{
+            "table_have.主角.体魄>":0,
+            "counter.7000640>=":1,
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "counter=7000640":0,
+            }
+        }
+    ]
+} 

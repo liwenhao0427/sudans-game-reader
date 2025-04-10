@@ -1,0 +1,23 @@
+{
+        "id": 5310412,
+        "text": "结局-逃跑-激活结局弹框",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010001
+        },
+        "condition":{
+            "table_have.2000317.目的地":1 //目的地是绿洲
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "steam_achievement": "ACHIEVEMENT_010", //steam结局
+                "over":101
+            }
+        }
+    ]
+} 

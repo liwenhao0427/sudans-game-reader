@@ -1,0 +1,26 @@
+{
+    "id": 5300256,
+    "text": "艾迪勒受伤养伤",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 5 //每5回合开始
+    },
+    "condition":{  //条件
+        "have.2000067":1, //艾迪勒捉贼人还活着
+        "counter.7000160>=":1  //艾迪勒的受伤计数器为0
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter-7000160":1, //艾迪勒受伤计数器归零
+                "success":{
+                    "event_off":5300256
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "id": 5300247,
+    "text": "获得神秘的锅的幕后（废弃）",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "counter.7000023>":9 //购买过装备的次数
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":[2000466,"已拥有+1"], //获得神秘的锅
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300247_01",
+                        "text": "商店老板看在你多次购买装备的面子上，打包附赠给了你一口神秘的锅。"
+                    },
+                    "event_off":5300247
+                }
+            }
+        }
+    ]
+}

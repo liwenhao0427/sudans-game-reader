@@ -1,0 +1,44 @@
+{
+    "id": 6000098,
+    "name": "娜依拉声望事件-花嫁满意",
+    "repeat": 1,
+    "type": 2, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "condition":{
+                "have.2000055":1 //娜依拉存活
+            },
+            "num" : "1",
+            "id" : "5320130",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "have.2000055":1 //娜依拉存活
+            },
+            "num" : "1",
+            "id" : "5320131",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "have.2000055":1 //娜依拉存活
+            },
+            "num" : "1",
+            "id" : "5320132",
+            "type" : "event",
+            "weight" : 60
+        },
+        {
+            "condition":{
+                "have.2000055":1 //娜依拉存活
+            },
+            "num" : "1",
+            "id" : "5320133",
+            "type" : "event",
+            "weight" : 60
+        }
+    ]
+}

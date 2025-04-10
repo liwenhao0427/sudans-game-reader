@@ -1,0 +1,25 @@
+ {
+        "id": 5300340,
+        "text": "首次抽到苏丹卡的提示",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start_init": [1],
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":1 // 仪式开始时
+        },
+        "condition":{  //条件
+            "hand_have.金币>=":2           
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "hand_pop.5300340_01.金币": "将两张同名的卡牌叠在一起可以<color=white><size=172%>合并</size></color>，点卡面下方的数字可以<color=white><size=172%>拆分</size></color>。",
+                    "event_off":5300340,
+                    "event_on":5310134, //引导
+                }
+            }
+
+        ]
+    } 

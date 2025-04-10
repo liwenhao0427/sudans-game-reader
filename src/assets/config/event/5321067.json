@@ -1,0 +1,33 @@
+{
+    "id": 5321067,
+    "text": "送别",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "counter.7000372>=":1, //触发过夫妻向苏丹请求恩准回国
+        "hand_have.2000350": 1, //质子在手牌
+        "hand_have.2000123": 1 //爱读书的少女在手牌
+        
+    },
+    "settlement": [    //效果 
+        {
+
+            "action":{
+                "rite":5008064,   //质子回国
+                "prompt":{
+                    "id":"5321067_prompt_01",
+                    "text":"质子和爱读书的少女将要回质子的家乡，也许他们会回来，也许不会。",
+                    "icon":["cards/2000350","cards/2000123",null]
+                },
+                "success":{
+                    "event_off":5321067 
+                }//关闭自检
+            }
+        }
+
+    ]
+}

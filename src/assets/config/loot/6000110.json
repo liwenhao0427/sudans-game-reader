@@ -1,0 +1,38 @@
+{
+    "id": 6000110,
+    "name": "誓言之证五个任务",
+    "repeat": 1,
+    "type": 3,   //必新
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5000844",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5000845",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5000846",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5000847",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5000848",
+            "type" : "rite",
+            "weight" : 60
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+    "id": 6000033,
+    "name": "盖斯家为你提供了帮助。",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000044",
+            "type" : "card",
+            "weight" : 80
+        },
+        {
+            "num" : "1",
+            "id" : "2000045",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000046",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000047",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000048",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "num" : "1",
+            "id" : "2000049",
+            "type" : "card",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "2000421",
+            "type" : "card",
+            "weight" : 60
+        }
+    ]
+}

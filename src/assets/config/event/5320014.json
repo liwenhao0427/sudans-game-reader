@@ -1,0 +1,31 @@
+{
+    "id": 5320014,
+    "text": "轻易获得快乐",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end":5000002
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000123":1, //触发计数
+                "no_prompt":{
+                    "table.2000063-事件提示":1
+                    },
+                "rite": 5006510,
+                "prompt":{
+                    "id":"5320014_prompt_01",
+                    "text":"扎齐伊如往常一样前来寻求你的教诲……",
+                    "icon":"cards/2000063"
+                }
+            }
+        }
+
+    ]
+}

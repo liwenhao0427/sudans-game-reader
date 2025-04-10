@@ -1,0 +1,32 @@
+{
+    "id": 5320009,
+    "text": "与法图娜的婚礼",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+            "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "table_have.妻子":1,
+        "table_have.主角":1,
+        "table_have.2000062":1,
+        "table_have.2000063":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite": 5006506,
+                "success":{
+                    "prompt":{
+                        "id":"5320009_prompt_01",
+                        "text":"你把喜讯告知了法图娜，她喜极而泣。闯过了梅姬这个最大的难关，你们迅速地敲定了婚期，接下来，就是紧张地筹备你们的婚礼。"
+                    },
+                    "event_off":5320009
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "id": 5300260,
+    "text": "监听妻子死亡的幕后",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean":[2000006,2000457,2000458] //妻子卡被clean的时候触发
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000199":1, //妻子死亡计数器+1
+                "success":{
+                    "event_off":5300260
+                }
+            }
+        }
+    ]
+}

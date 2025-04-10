@@ -1,0 +1,30 @@
+{
+    "id": 5320278,
+    "text": "宫廷-索要妃子-苏丹的奴隶事后感谢",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 5
+    },
+    "condition":{
+        "counter.7000036<":1, //下水道鳄鱼被处理过了
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "event_off":5320277,
+                "counter+7000547":1, //标识奴隶其实已经被小鳄鱼吃掉了
+                "prompt":{
+                    "id":"5320278_prompt_1",
+                    "text":"那个被假装打死的阉奴再也没有出现……难道下水道里真的有鳄鱼吃人么？管他呢，反正你已经达到了自己的目的。",
+                    "icon":"cards/1_char_0"
+                }
+                
+            }
+        }
+
+    ]
+}

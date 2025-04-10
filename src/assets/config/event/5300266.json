@@ -1,0 +1,26 @@
+{
+    "id": 5300266,
+    "text": "意料之中的买家",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "table_have.2000054":1  //哲巴尔在场
+    },
+    "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000759,
+                "success":{
+                    "event_off":5300266 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

@@ -1,0 +1,30 @@
+{
+    "id": 5300090,
+    "text": "浴场移除提示",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "counter.7000056>=":1,
+        "!rite":5001501
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "event_off":5300090,
+                "success":{
+                    "prompt":{
+                        "id": "5300090_prompt_01",
+                        "text":"民众需要一些时间去淡忘浴场里发生的事，浴场暂时关闭了。",
+                        "icon":"cards/1_item_8"
+                    }
+                }
+            }
+        }
+    ]
+}

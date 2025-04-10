@@ -1,0 +1,44 @@
+{
+    "id": 5320506,
+    "text": "对行尸的处理",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1  //时机
+    },
+    "condition":{  //条件
+        "have.2000352":1,//玛希尔活着
+        "have.2000554":1 //行尸活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "option": {
+                    "id":"5320506_option_1", //事件触发计数
+                    "text": "玛希尔来问：对这个行尸有什么意见么？",
+                    "icon": "cards/2000001",
+                    "items": [
+                        {
+                            "text": "想用它赚钱",
+                            "tag": "op1"
+                        },
+                        {
+                            "text": "想给它升级",
+                            "tag": "op2"
+                        }
+                    ]
+                },
+                "case:op1": {
+                    "rite":5006017 //开启行尸动力工坊                 
+                },
+                "case:op2": {
+                    "rite":5006016 //开启行尸升级仪式
+                }
+            }
+        }
+
+    ]
+}

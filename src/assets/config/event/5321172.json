@@ -1,0 +1,36 @@
+{
+    "id": 5321172,
+    "text": "清洗异端",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [
+        1
+    ],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "counter.7000598>=": 1, //标识完成了密教援助线
+        "have.2000022.追随者": 1, //拜铃耶是盟友且存活 
+        "any": {
+            "have.2000411": 1, //3级密教思潮
+            "have.2000727": 1, //3级正教思潮
+        }
+    },
+    "settlement": [
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "delay": { //延迟2回合执行
+                    "id": 53211721,
+                    "round": 2,
+                    "event_on": 5321187 //清洗异端幕后  
+                },
+                "success": {
+                    "event_off": 5321172
+                }
+            }
+        }
+    ]
+}

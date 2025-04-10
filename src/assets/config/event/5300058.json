@@ -1,0 +1,29 @@
+{
+    "id": 5300058,
+    "text": "暗杀3",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+    "table_have.2000012":1, //禁卫队长在牌池中
+        "!rite":5000556,             //场上无暗杀3
+        "counter.7000030>=":3      //讹诈了3次
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000556,
+                "success":{
+                    "event_off":5300058  //关闭自检
+                }
+                
+            }
+        }
+
+    ]
+} 

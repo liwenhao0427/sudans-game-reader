@@ -1,0 +1,29 @@
+{
+    "id": 5300213,
+    "text": "花花公子的收服（废弃）",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //第回合开始时
+    },
+    "condition":{  //条件
+        "table_have.2000064":1, //花花公子活着
+        "!rite":5000714,       //场上无本仪式
+        "counter.7000049>=":3 //友谊计数大于等于3
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "clean.rite":5000713,  //关闭不可靠的盟友
+                "event_off":5300211, //关闭不可靠的盟友自检
+                "event_off":5300212, //关闭不可靠的盟友自检
+                "rite":5000714, //开启花花公子的收服
+                "event_off":5300213 //关闭自检
+            }
+        }
+
+    ]
+}

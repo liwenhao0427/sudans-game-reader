@@ -1,0 +1,59 @@
+{
+        "id": 5310635,
+        "text": "大敌的讨伐",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,  //立即触发
+        "on":{   
+            "rite_end": 5010057, //1回合
+        },
+        "condition":{
+            "have.大敌":1   //如果场上有大敌
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "no_prompt":{
+                    "clean.rite":5007001,
+                    "clean.rite":5007002,
+                    "clean.rite":5007003,
+                    "clean.rite":5007004,
+                    "clean.rite":5007005,
+                    "clean.rite":5007006,
+                    "clean.rite":5007007,
+                    "clean.rite":5007008,
+                    "clean.rite":5007009,
+                    "clean.rite":5007010,
+                    "clean.rite":5007011,
+                    "clean.rite":5007012,
+                    "clean.rite":5007013,
+                    "clean.rite":5007014,
+                    "clean.rite":5007015,
+                    "clean.rite":5007016,
+                    "clean.rite":5008034,
+                    "clean.rite":5008035,
+                    "clean.rite":5008036,
+                    "clean.rite":5008037,
+                    "clean.rite":5008038,
+                    "clean.rite":5008039,
+                    "clean.rite":5008040,
+                    "clean.rite":5008041,
+                    "clean.rite":5008042,
+                    "clean.rite":5008043,
+                    "clean.rite":5008044,
+                    "clean.rite":5008045
+                },
+                "prompt":{
+                    "id":"5310635_prompt_01",
+                    "text":"你的敌人们集结了起来！",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5310635  //关闭自己
+                }
+            }
+        }
+    ]
+} 

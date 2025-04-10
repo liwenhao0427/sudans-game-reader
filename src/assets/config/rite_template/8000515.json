@@ -1,0 +1,88 @@
+{
+    "id": 8000515,
+    "name": "",
+    "tips": "",
+    "bg": "sd_02_bg",
+    "fg": "sd_02_fg",
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 210
+    },
+    "title_pos": {
+        "x": 1547,
+        "y": -170
+    },
+    "slots": {
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_4",
+            "pos": {
+                "x": 1401,
+                "y": 1606
+            },
+            "scale": {
+                "x": 0.7,
+                "y": 0.7
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_4",
+            "pos": {
+                "x": 1196,
+                "y": 644
+            },
+            "scale": {
+                "x": 0.7,
+                "y": 0.7
+            },
+            "rotation_z": 0
+        },
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_4",
+            "pos": {
+                "x": 1401,
+                "y": 1089
+            },
+            "scale": {
+                "x": 0.7,
+                "y": 0.7
+            },
+            "rotation_z": 0
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_4",
+            "pos": {
+                "x": 1600,
+                "y": 644
+            },
+            "scale": {
+                "x": 0.7,
+                "y": 0.7
+            },
+            "rotation_z": 0
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_4",
+            "pos": {
+                "x": 1399,
+                "y": 644
+            },
+            "scale": {
+                "x": 0.7,
+                "y": 0.7
+            },
+            "rotation_z": 0
+        }
+    }
+}

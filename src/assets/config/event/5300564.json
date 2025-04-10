@@ -1,0 +1,24 @@
+{
+    "id": 5300564,
+    "text": "你最重要的……",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+       "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "hand_have.2000013":1,  //流浪剑客在手牌
+        "hand_have.主角":1  //主角也在手牌
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000839, //触发仪式 
+                "event_off":5300564 //关闭自检
+            }
+        }
+    ]
+}

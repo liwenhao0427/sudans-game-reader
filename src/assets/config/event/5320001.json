@@ -1,0 +1,31 @@
+{
+    "id": 5320001,
+    "text": "领路者",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end":5000002
+    },
+    "condition":{  //条件
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "coin":3,
+                "no_prompt":{
+                    "table.2000062-事件提示":1,
+                },
+                "counter+7000118":1, //触发计数
+                "prompt":{
+                    "id":"5320001_prompt_01",
+                    "text":"<size=+10><font=\"Title SDF\"><b>你的善良成为了年轻人的榜样</b></font></size>\n 法图娜和她的儿子扎齐伊一起拜访你，为你送上了一份礼物。这是为了感激你为她的儿子树立起了道德的楷模，“他现在会体恤家中老年仆人的生活，还会主动过问领地的税收……我真的太高兴、太感动了，这都多亏了您。”",
+                    "icon":["cards/2000062","cards/2000063",null]
+                }
+            }
+        }
+
+    ]
+}

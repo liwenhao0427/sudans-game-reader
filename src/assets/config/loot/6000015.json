@@ -1,0 +1,62 @@
+{
+    "id": 6000015,
+    "name": "浴场里的消息--仪式",
+    "repeat": 1,
+    "type": 3, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5000501",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002501",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002502",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002503",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002504",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002505",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002508",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002510",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5002511",
+            "type" : "rite",
+            "weight" : 60
+        }
+    ]
+}

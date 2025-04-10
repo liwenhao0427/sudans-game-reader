@@ -1,0 +1,37 @@
+{
+    "id": 5300210,
+    "text": "仅仅只是有趣而已",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "table_have.2000064":1, //花花公子活着
+        "counter.7000270<":1,//奈布哈尼线未中断
+        "!rite":5000712,             //场上无本仪式
+        "counter.7000048<":1, //护花使者决斗没出现过
+        "counter.7000272<":1  //本仪式还未触发过
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000272":1,//表示该仪式已触发过的计数器
+                "rite":5000712,
+                "success":{
+                    "prompt":{
+                        "id":"5300210_prompt_01",
+                        "text":"一位终日浪迹于欢愉之馆的花花公子从他的相好那了解到了你的遭遇，基于排解无聊的目的，他来找你了。",
+                        "icon":"cards/2000064"
+                    },
+                    "event_off":5300210 //关闭自检
+                }
+
+            }
+        }
+
+    ]
+}

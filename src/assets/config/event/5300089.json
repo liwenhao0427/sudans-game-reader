@@ -1,0 +1,28 @@
+{
+    "id": 5300089,
+    "text": "权力的游戏",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end":5001004
+    },
+    "condition":{  //条件
+        "table_have.2000024":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.2000024=上朝":1,
+                "rite":5001001,
+                "success":{
+                    "event_off":5300089,
+                    "event_off":5300356
+                }
+            }
+        }
+
+    ]
+}

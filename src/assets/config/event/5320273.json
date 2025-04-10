@@ -1,0 +1,28 @@
+{
+    "id": 5320273,
+    "text": "宫廷-索要妃子-报复来临",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 2
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "rite":5000578,
+                "prompt":{
+                    "id":"5320273_prompt_1",
+                    "text":"圣主可不会就这么离去……祂回来了，渴望着人类的灵魂——特别是你们这种得罪过祂的灵魂。",
+                    "icon":"cards/2001023"
+                }
+                
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "id": 5321058,
+    "text": "回到上一回合结束触发事件的测试",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "back_to_prev_round_end":1
+    },
+    "condition":{  //条件        
+        "global_counter.7230003<":1
+    },
+    "settlement": [    //效果 
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "counter+7100005":1,
+            "global_counter=7230003":1,
+            "prompt":{
+                "id":"5321058_prompt_1",
+                "text":"在穿越时间的那么一瞬间你似乎看到两个扭曲的暗影在注视着你。",
+                "icon":["cards/1_char_0","cards/1_char_0",""]
+            },
+        }
+    }
+    ]
+}

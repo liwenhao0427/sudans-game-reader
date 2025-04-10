@@ -1,0 +1,225 @@
+{
+    "id": 6000503,
+    "name": "食客",
+    "repeat": 6,
+    "type": 2, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000609",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000610",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000611",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000612",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000613",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000614",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000615",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000616",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000617",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000618",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000619",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000620",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000621",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000622",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000623",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000624",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000625",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000626",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000627",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000628",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000629",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000630",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000631",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000632",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000633",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000634",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000635",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000636",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000637",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000638",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000639",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000640",
+            "type" : "card",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "2000641",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000642",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "num" : "1",
+            "id" : "2000643",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000644",
+            "type" : "card",
+            "weight" : 5
+        }
+        
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "id": 5310619,
+    "text": "决裂伊曼死亡",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "all":{
+            "!rite":5004517,  //炎日天平没有在执行
+            "!rite":5004518,  //伊曼的羁绊没有在执行
+            "counter.7000572>=":1,  //没有和正教决裂
+            "!have.2000021":1  //伊曼存活
+        },
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "clean.rite":5004513,  //关闭伊曼的祈祷
+                "clean.rite":5004514,  //关闭伊曼的辩经
+                "clean.rite":5004515,  //关闭伊曼的密室
+                "clean.rite":5004516,  //关闭伊曼的幽会
+                "rite":5004522,  //开启接管教会
+                "success":{
+                    "event_off":5310616,
+                    "event_off":5310617,
+                    "event_off":5310618,
+                    "event_off":5310619
+                }
+            }
+        }
+    ]
+}

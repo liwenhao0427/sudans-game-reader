@@ -1,0 +1,22 @@
+{
+    "id": 5320198,
+    "text": "奈费勒声望事件--宫门募捐",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "have.2000312":1  //奈费勒存活
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006644
+            }
+        }
+    ]
+}

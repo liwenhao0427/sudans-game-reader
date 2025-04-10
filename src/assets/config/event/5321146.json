@@ -1,0 +1,36 @@
+{
+    "id": 5321146,
+    "text": "第一次帮助",     
+    "is_replay": 0, //是否可以重复触发
+     "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000057, //随机金情报
+                "loot":6000057, //随机金情报
+                "prompt":{
+                    "id":"5321146_prompt_01",
+                    "text":"法德耶靠着在宫廷女仆和阉奴中的人脉，替你打探到了不少情报。",
+                    "icon":"cards/2000173"
+                },
+                "delay": {  //延迟3回合执行
+                "id":53211461,
+                "round":3,
+                "event_on":5321147
+            },
+                "success":{
+                    "event_off":5321146
+                }
+            }
+        }
+
+    ]
+}

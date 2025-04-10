@@ -1,0 +1,36 @@
+{
+        "id": 5310640,
+        "text": "打密神苏丹入队",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010060
+        },
+        "condition":{
+            
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "table.2000024+equip":2000916,
+                "table.2000024+equip":2000917,
+                "table.2000024+equip":2000918, 
+                "table.2000024+equip":2000915, //霸气 
+                "table.2000024+弑神战士":1, //会有特殊播报【苏丹站到了最前面，他将和你一起面对这个神明】（文本需要文案润色）
+                "no_prompt":{
+                    "table.2000024+追随者":1, //苏丹加入了你的队伍，这段不会播报
+                },
+                "prompt":{
+                    "id":"5310640_prompt_01",
+                    "text":"这就是你给朕准备的大惊喜么？[player.name]卿？苏丹用利刃拍打了几下你的面颊，看着被光柱映照出来的，腐化之神巨大而丑陋的身躯……\n开路，他命令道：否则就砍掉你们所有人的头。",
+                    "icon":"cards/sudan"
+                },
+                "global_counter=7200247":1, //成就-风云际会
+                "event_off":5310640,
+            }
+        }
+    ]
+} 

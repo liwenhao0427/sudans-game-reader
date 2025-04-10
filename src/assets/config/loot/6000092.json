@@ -1,0 +1,50 @@
+{
+    "id": 6000092,
+    "name": "恶名-引诱谋杀",
+    "repeat": 1,
+    "type": 3,  //必新
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5006537",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006538",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006539",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006540",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006541",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006542",
+            "type" : "rite",
+            "weight" : 5
+        },
+        {
+            "num" : "1",
+            "id" : "5006543",
+            "type" : "rite",
+            "weight" : 5
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "dialog_tree_id" : "DT1",
+    "first_word_id" : "S1",
+    "description" : "魔法师交谈1-什么是苏丹的游戏",
+    "Item" : [
+        {
+            "word_id" : "S1",
+            "word" : "这是一个只有王者才能玩的游戏——当然，在苏丹的允许下，您也可以享受到这个游戏的乐趣。",
+            "jump_type" : "0",
+            "direct_id" : "S2",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S2",
+            "word" : "当然，想成功消除这些卡牌的前提还得是需要得到苏丹的认可。如果太过无趣，可是会惹恼苏丹的哦。",
+            "jump_type" : "1",
+            "direct_id" : "",
+            "Option" : [
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "什么是苏丹的游戏",
+                    "option_Jump_id" : "S3",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "什么是苏丹卡",
+                    "option_Jump_id" : "S4",
+                    "action" : {}
+                }
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S3",
+            "word" : "这是一个只有王者才能玩的游戏——因为只有王者才能如同拥有一张卡片一般拥有所有人。现在，需要由你来玩这个王者的游戏。苏丹提前赦免了你为了这个游戏将会犯下的所有罪行——通奸，偷盗，谋杀，无论什么都好，他就是要看着你成为另一个怪物。",
+            "jump_type" : "3",
+            "direct_id" : "",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S4",
+            "word" : "总共26张魔法卡牌，你需要在处刑日结束前消除你手上的苏丹卡，否则会被苏丹处死。",
+            "jump_type" : "3",
+            "direct_id" : "",
+            "Option" : [
+            ],
+            "action" : {}
+        }
+        ]
+    }

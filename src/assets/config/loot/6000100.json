@@ -1,0 +1,89 @@
+{
+    "id": 6000100,
+    "name": "奇珍-天象",
+    "repeat": 1,
+    "type": 2, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000713",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000714",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000715",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000716",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000717",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000718",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000719",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000720",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000721",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "condition":{
+            },
+            "num" : "1",
+            "id" : "2000722",
+            "type" : "card",
+            "weight" : 10
+        }
+
+    ]
+}

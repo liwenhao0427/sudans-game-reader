@@ -1,0 +1,31 @@
+{
+    "id": 5321039,
+    "text": "哲瓦德声望事件激活提示",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "hand_have.2000057":1, //哲瓦德在手牌区
+        "any":{
+            "all":{
+                "counter.7000319<":1,   //本体没有触发过
+                //"counter.7000318>=":1,   //触发过质子线：证婚人
+                "counter.7100003>=":13  //权势2
+            }
+        }
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "hand_pop.5321039.2000057": "哲瓦德似乎有话想对你说，将其放入<color=white><size=172%>俺寻思</size></color>。",
+                "table.2000057+事件提示":1
+            }
+        }
+
+    ]
+}

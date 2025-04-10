@@ -1,0 +1,65 @@
+{
+    "id": 6000088,
+    "name": "铜稀有度商店货",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000251",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000252",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000253",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000254",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000255",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000265",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000266",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000267",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000272",
+            "type" : "card",
+            "weight" : 10
+        }
+    ]
+
+
+
+}

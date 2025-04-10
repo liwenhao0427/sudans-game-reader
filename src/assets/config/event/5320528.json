@@ -1,0 +1,31 @@
+{
+    "id": 5320528,
+    "text": "处置龙眼宝石",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1  //时机
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006040, //启动仪式举世无双的赠礼
+                "prompt":{
+                    "id":"5320528_prompt_01",
+                    "text":"这颗举世无双的宝石，这份举世无双的荣耀，你打算把它赠给什么人呢？或者，把它留下？",
+                    "icon":"cards/2000668"
+                },
+                "success":{
+                    "event_off":5320528
+                }
+            }
+        }
+
+    ]
+}

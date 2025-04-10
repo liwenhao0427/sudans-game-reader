@@ -1,0 +1,30 @@
+ {
+        "id": 5300184,
+        "text": "浴场小鳄鱼事件2",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "rite_end":5001501
+        },
+        "condition":{  //条件
+            "!hand_have.杀戮.rare<=":3  //没有白银品级以下的杀戮卡
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "card":[2000558,"已拥有+1"],
+                    "card":[2000558,"已拥有+1"], //罪证
+                    "counter+7100002":1, //恶名+1
+                    "prompt":{
+                        "id":"5300184_prompt_01",
+                        "text":"关于你的罪行，人们还在激烈的争吵，但苏丹显然被故事的细节吸引了——某些宫廷侍卫一脸大难临头的样子",
+                        "icon":"cards/2000001"
+                    }
+                }
+            }
+
+        ]
+    } 

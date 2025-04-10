@@ -1,0 +1,27 @@
+{
+        "id": 5310422,
+        "text": "结局-造反-与苏丹决战",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5010007  //立即触发
+        },
+        "condition":{
+            "have.2000055.大敌":1 //娜依拉大敌
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "rite":5010021,
+                "prompt":{
+                    "id":"5310422_prompt_01",
+                    "text":"娜依拉此时找上了门，准没好事",
+                    "icon":"cards/2000055"
+                }
+            }
+        }
+    ]
+} 

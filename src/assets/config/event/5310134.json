@@ -1,0 +1,30 @@
+{
+        "id": 5310134,
+        "text": "苏丹引导-强制8",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true, 
+        "on":{   
+            "sudan_redraw_start":1 //当玩家选择换牌选项
+        },
+        "condition":{  
+            "global_counter.7230012<":1,
+        },
+        "settlement": [    //醒目告知玩家可以点击查看游戏功能按钮说明
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "global_counter+7230012":1,
+                "begin_guide":{
+                    "type": "MAIN_HELP",
+                    "anim_type":"ArrowUp",
+                    "pos": [-463, -212],
+                    "is_show_ring": true,
+                    "ring_pos": [945, -23.5],
+                    "ring_rect": [1, 1]
+                }
+            }
+        }
+        ]
+    } 

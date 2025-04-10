@@ -1,0 +1,25 @@
+{
+        "id": 5310434,
+        "text": "结局-造反-集结提示",
+        "is_replay": 0, 
+        "auto_start": false,  
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5010007
+        },
+        "condition":{
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "prompt":{
+                    "id":"5310434_prompt_01",
+                    "text":"在这最后5天，快去集结所有可用的军队吧，否则就没有机会了！",
+                    "icon":"cards/2000001"
+                }
+            }
+        }
+    ]
+} 

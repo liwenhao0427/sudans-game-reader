@@ -1,0 +1,50 @@
+{
+    "id": 6000034,
+    "name": "常规数值仪式随机组A",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5003022",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5003025",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5003026",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5003020",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5003023",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5003021",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "num" : "1",
+            "id" : "5003024",
+            "type" : "rite",
+            "weight" : 60
+        }
+    ]
+}

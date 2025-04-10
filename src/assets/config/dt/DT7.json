@@ -1,0 +1,154 @@
+{
+    "dialog_tree_id" : "DT7",
+    "first_word_id" : "S1",
+    "description" : "魔法师交谈1-说说这些卡牌",
+    "Item" : [
+        {
+            "word_id" : "S1",
+            "word" : "苏丹的游戏有四种卡牌，每一种都有四个品级……它们代表了您抽到之后需要完成的挑战——魔法保证了，您绝对无法作弊。",
+            "jump_type" : "1",
+            "direct_id" : "",
+            "Option" : [
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "不同卡的品级",
+                    "option_Jump_id" : "S2",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "苏丹卡的类别",
+                    "option_Jump_id" : "S3",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "我知道了",
+                    "option_Jump_id" : "S11",
+                    "action" : {}
+                }
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S2",
+            "word" : "您注意到了！这个的游戏赐给了您一种力量，可以区分万物的品级。\n黄金，白银，青铜与岩石，包括苏丹卡在内，一切都可以用这四个品级来概括。\n一般来说，为了消除苏丹卡，你会需要用到对应品级的其他角色，物品才可以。\n为了游戏不要显得太不近人情，您可以向下兼容的消除苏丹卡。例如，您在大部分时候都可以杀死一个银色人物来满足青铜杀戮卡。",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S3",
+            "word" : "苏丹卡一共有四种，每一种都有不同的消除方式……您想听哪种呢？",
+            "jump_type" : "1",
+            "direct_id" : "",
+            "Option" : [
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "纵欲",
+                    "option_Jump_id" : "S4",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "杀戮",
+                    "option_Jump_id" : "S5",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "征服",
+                    "option_Jump_id" : "S6",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "奢靡",
+                    "option_Jump_id" : "S7",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "返回",
+                    "option_Jump_id" : "S1",
+                    "action" : {}
+                }
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S4",
+            "word" : "男欢女爱，男男欢爱，或者其他任意组合都可以满足纵欲卡。非常简单不是么？只要发挥您的创意……\n需要注意的是，不能反复用同一个人来消除纵欲卡，除非您让它提升了品级，或者发明了其他特别的方式……",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S5",
+            "word" : "杀死一个符合品级的人类，嗯……也许某些智慧生灵也算，都可以满足杀戮卡。这是最简单，限制最少的玩法。",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S6",
+            "word" : "军事上的胜利，或者某些足够困难的冒险，都可以视作成功的征服。",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S7",
+            "word" : "奢靡苏丹卡往往需要消耗金钱才能完成。您可以尝试大兴土木修建家园，花天酒地，做一些没用的事情……这是一个需要格调的游戏。",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S8",
+            "word" : "放心，苏丹已经预先免除了您因为游戏将会犯下的任何罪行——无论是杀人，强奸还是劫掠。\n不过，理所当然的，那些受害者会忌恨您，给您找麻烦……更别说烧杀掳掠的过程总伴随着风险……\n无论如何，活用这份特权，享受这个游戏吧。",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S9",
+            "word" : "如果只是为了生存，您可以尽量推迟消除一张苏丹卡的时机，这样您就有更多的天数去积累资源。\n但需要注意的是，有些消除苏丹卡的时机稍纵即逝，需要注意把握，不能一味拖延。",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S10",
+            "word" : "理论上您的一切都可以照旧。\n我建议您做好【治理家业】相关的工作，这样才有钱支持您玩这个游戏。\n但同样的，您仍然是苏丹的臣子，别忘了经常上朝讨好他……毕竟，【权力的游戏】和也是苏丹的游戏的一部分。",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S11",
+            "word" : "（她的笑容带着一种危险的气息，但也增加了别样的诱惑）",
+            "jump_type" : "3",
+            "direct_id" : "",
+            "Option" : [
+            ],
+            "action" : {}
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "id": 6000058,
+    "name": "诗兴大发随机",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5000105",
+            "type" : "rite",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "5000106",
+            "type" : "rite",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "5000107",
+            "type" : "rite",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "5000108",
+            "type" : "rite",
+            "weight" : 10
+        }
+    ]
+}

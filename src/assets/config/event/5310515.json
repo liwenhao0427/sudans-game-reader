@@ -1,0 +1,27 @@
+{
+        "id": 5310515,
+        "text": "结局-有罪的石头",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000447>=":1, //改革
+            "have.2000113.宰相":1, //阿里木是宰相
+            "any":{
+                "f:counter.7100003+counter.7100004+counter.7100001<":80, 
+                "counter.7100002>=":10
+            },
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":243
+            }
+        }
+    ]
+} 

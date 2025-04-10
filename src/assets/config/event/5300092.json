@@ -1,0 +1,27 @@
+{
+    "id": 5300092,
+    "text": "赌马",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":5 //每5回合刷一次
+    },
+    "condition":{  //条件
+        "hand_have.坐骑":1 //手牌有待坐骑tag的卡
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                //"rite":5002512
+                "loot":6000030, //随机赌马的仪式
+                "success":{
+                    "event_off":5300092
+                }
+            }
+        }
+
+    ]
+}

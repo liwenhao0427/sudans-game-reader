@@ -1,0 +1,35 @@
+{
+    "id": 5321158,
+    "text": "拜铃耶声望激活提示",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+
+        "have.2000022.追随者":1, //拜铃耶是盟友
+        "hand_have.2000022":1, //拜铃耶在手牌区
+
+        "counter.7000576<":1,   //本体没有触发过
+        "counter.7100005>=":5,   //灵视lv2
+
+        "counter.7000575>=":1, //拜玲耶在主角纵容下顺利完成泼大粪
+       
+                
+            
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "hand_pop.5321158.2000022": "拜铃耶似乎有话想对你说，将其放入<color=white><size=172%>俺寻思</size></color>。",
+                "table.2000022+事件提示":1
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,24 @@
+{
+        "id": 5300301,
+        "text": "PPT式新手引导测试2",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start": false, //默认本局开始时即启动
+        "start_trigger": false, 
+        "on":{   //时机
+            "open_rite": 1
+        },
+        "condition":{
+        },
+        "settlement": [
+        {
+            "tips_resource":"",
+            "tips_text":"",
+            "action":{
+                // //  幻灯片的单图及多图配置范例
+                 //"slide": "cards/2000055",
+                 "slide": "slide/1-3"
+            }
+        }
+
+        ]
+    } 

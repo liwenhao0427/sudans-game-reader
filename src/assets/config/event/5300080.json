@@ -1,0 +1,27 @@
+{
+    "id": 5300080,
+    "text": "下水道的鳄鱼",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "!rite":5002510,             //场上无下水道的鳄鱼
+        "counter.7000036<":1   //鳄鱼还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5002510, //开启下水道的鳄鱼
+                "success":{
+                    "event_off":5300080 //关闭自检
+                }
+            }
+        }
+
+    ]
+} 

@@ -1,0 +1,26 @@
+{
+    "id": 5320548,
+    "text": "启动婚礼献歌的幕后",     
+    "is_replay": 0, //是否可以重复触发 
+    "auto_start": false,    //开局不自动启动
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+        "table_have.2000054": 1, //哲巴尔还活着
+        "table_have.2000061": 1 //阿迪莱还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006056, //启动婚礼献歌仪式
+                "success":{
+                    "event_off":5320548
+                }
+            }   
+        }
+    ]
+}

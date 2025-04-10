@@ -1,0 +1,26 @@
+{
+    "id": 5300544,
+    "text": "我白嫖前置",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "counter.7000466>=":1,   //芮尔匪帮成立了
+        "table_have.2000792":1  //布缇娜在卡池
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000817,  //开启我白嫖
+                "success":{
+                    "event_off":5300544  //关闭自检
+                }
+            }
+        }
+    ]
+}

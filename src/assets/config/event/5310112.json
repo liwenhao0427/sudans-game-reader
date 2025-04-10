@@ -1,0 +1,26 @@
+{
+        "id": 5310112,
+        "text": "苏丹引导-day3-弹框8",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false, 
+        "on":{   
+            "rite_end": 5005102
+        },
+        "condition":{  
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "prompt":{
+                    "id":"5310112_prompt_01",
+                    "text": "被血污弄脏的地毯与帷幔被连夜替换，今天，苏丹再次上朝，容光焕发。",
+                    "icon": ["common/introduction","",""]
+                },
+                "event_on":5310113
+            }
+        }
+        ]
+    } 

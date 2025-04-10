@@ -1,0 +1,30 @@
+{
+    "id": 5300235,
+    "text": "资助研究·一",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":[3,5]
+    },
+    "condition":{  //条件
+        "hand_have.金币>=":10
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000731,
+                "success":{
+                    "prompt": {
+                        "id": "prompt_5300235_01",
+                        "text": "有人来到你的门前，期待能和你见上一面。",
+                        "icon":"cards/2000352"
+                    },
+                    "event_off":5300235
+                }
+            }
+        }
+    ]
+}

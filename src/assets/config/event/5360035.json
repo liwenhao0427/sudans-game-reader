@@ -1,0 +1,25 @@
+{
+    "id": 5360035,
+    "text": "向苏丹索要过他所有的妃子",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "global_counter.7210034>=":1,
+        "global_counter.7210035>=":1,
+        "global_counter.7210036>=":1
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210032": 1,
+            "debug": "向苏丹索要过他所有的妃子"
+        }
+    }
+    ]
+}

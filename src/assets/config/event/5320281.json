@@ -1,0 +1,24 @@
+{
+    "id": 5320281,
+    "text": "莎姬的邀约",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "counter.7000644<":1, //标识触发了黄金体验
+        "table_have.2000010":1, //莎姬闲置
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "rite":5000584, //莎姬的邀约
+            }
+        }
+
+    ]
+}

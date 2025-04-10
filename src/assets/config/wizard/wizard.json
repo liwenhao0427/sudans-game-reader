@@ -1,0 +1,101 @@
+{
+    "id": "WIZARD",
+    "prompt_draw_sudan_start": "<size=85%><i>（她将那只木匣捧到了你的面前。）</i></size>\n请点击牌盒，抽取您的下一张卡牌吧，阁下。",
+    "prompt_draw_sudan_start_first": "阁下，您对苏丹卡应该不陌生吧，如果需要的话，我可以单独为您讲解。那么现在......\n\n<size=85%><i>（她将那只木匣捧到了你的面前。）</i></size>\n抽取你的第一张苏丹卡吧。",
+    "prompt_draw_sudan_end_with_times": "{0}如果你感到不满意的话，今天你还有{1}次更换的机会。",
+    "prompt_draw_sudan_end_without_times": "{0}",
+    "name": "女术士",
+    "text": "尊贵的玩家……有什么我可以效劳的吗？",
+    "options": [
+        {
+            "name": "交换手上的苏丹卡",
+            "text": "这7日你有[sudan_redraw_total_left_times]次机会可以把手上的一张苏丹卡还给我，重新再抽一张随机的苏丹卡，但，苏丹的倒计时不会改变哦，请千万注意嘻嘻嘻……请将苏丹卡放回这个宝盒吧。",
+            "op": "redraw",
+            "options": [
+                {
+                    "name":"返回",
+                    "op":"back"
+                }
+            ]
+        },
+        {
+            "name": "疯狂到底, 再来一张苏丹卡",
+            "text": "请点击牌盒，抽取您的卡牌吧，阁下。",
+            "op": "draw",
+            "options": [
+                {
+                    "name":"返回",
+                    "op":"back"
+                }
+            ]
+        },
+        {
+            "name": "和她聊聊",
+            "text": "尊贵的玩家……有什么我可以效劳的吗？",
+            "options": [
+                {
+                    "condition":{  //条件
+                    },
+                    "name":"你是谁",               //次级选项名称
+                    "dt":"DT5",
+                    "action":{               //点击对应选项执行的动作
+                    }
+                },
+                {
+                    "condition":{  //条件
+                    },
+                    "name":"游戏的诀窍",               //次级选项名称
+                    "dt":"DT6",
+                    "action":{               //点击对应选项执行的动作
+                    }
+                },
+                {
+                    "name":"没什么想问的",
+                    "op":"back"
+                }
+            ]
+        },
+        {
+            "name":"进度显示",
+            "text":"我的时间永远充裕，你有什么想问的么",
+            "op": "show_left_sudan_card",
+            "options": [
+                // {
+                //     "is_replay": 1, 
+                //     "condition":{
+                //     },
+                //     "name":"我还剩下几张苏丹卡",
+                //     "op": "show_left_sudan_card",
+                //     "options": [
+                        {
+                            "name":"返回",
+                            "op":"back"
+                        }
+                //     ]
+                // },
+                // {
+                //     "is_replay": 1,
+                //     "condition":{
+                //     },
+                //     "name":"我已经存活了多少天",
+                //     "op": "how_long_alive",
+                //     "options": [
+                //         {
+                //             "name":"返回",
+                //             "op":"back"
+                //         }
+                //     ]
+                // },
+                // {
+                //     "name":"没什么想问的",
+                //     "op":"back"
+                // }
+            ]
+        },
+        {
+            "name":"离开",
+            "text":"谢谢阁下，再见。",
+            "op":"close"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "id": 5300309,
+    "text": "贾丽拉被处死的消息",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false, //默认本局开始时即启动
+    "start_trigger": false, 
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{         
+    },
+    "settlement": [
+        {
+            "tips_resource":"",
+            "tips_text":"",
+            "action":{
+                "prompt": {
+                    "id": "prompt_5300309_01",
+                    "text": "你听说贾丽拉因为误杀了一位贵族被判处了死刑。"
+                }
+            }
+        }
+    ]
+}

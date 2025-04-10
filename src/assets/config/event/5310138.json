@@ -1,0 +1,30 @@
+{
+        "id": 5310138,
+        "text": "苏丹引导-强制12",
+        "is_replay": 0, 
+        "auto_start_init": [1],
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   
+            "open_card_info_end": 1 // 任意卡牌详情打开完毕
+        },
+        "condition":{  
+            "global_counter.7230016<":1,
+        },
+        "settlement": [    //当玩家打开卡牌详情时，醒目提示玩家点击查看详情说明
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "global_counter+7230016":1,
+                "begin_guide":{
+                    "type": "CARD_INFO",
+                    "anim_type":"Arrow",
+                    "pos": [345, -69],
+                    "is_show_ring": true,
+                    "ring_pos": [889, -169],
+                    "ring_rect": [0.5, 0.5]
+                }
+            }
+        }
+        ]
+    } 

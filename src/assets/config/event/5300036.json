@@ -1,0 +1,26 @@
+{
+    "id": 5300036,
+    "text": "服装商人",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":7 // 仪式开始时
+    },
+    "condition":{  //条件 
+        "counter.7000024<":7 //服装库存数量
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "clean.rite":5002012,
+                "clean.rite":5002013,                
+                "rite":5002012,
+                "table.服装存货-服装存货":1
+            }
+        }
+
+    ]
+} 

@@ -1,0 +1,29 @@
+ {
+        "id": 5300346,
+        "text": "收服正直的官员",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba": 2 // 仪式开始时
+        },
+        "condition":{  //条件     
+            "table_have.2000056":1      
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5000688,
+                    "prompt":{
+                        "id":"5300346_prompt_1",
+                        "text":"盖斯找到了你，向你“汇报”之前案件的结果。",
+                        "icon":"cards/2000001"
+                    },
+                    "event_off":5300346
+                }
+            }
+
+        ]
+    } 

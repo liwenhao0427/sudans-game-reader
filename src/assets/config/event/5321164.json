@@ -1,0 +1,25 @@
+{
+    "id": 5321164,
+    "text": "拜铃耶刺青",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+    
+        
+    },
+    "settlement": [    //效果 
+        {
+            "action":{
+                "rite":5008178, //刺青
+                "success":{
+                    "event_off":5321164
+                }
+            }
+        }
+
+    ]
+}

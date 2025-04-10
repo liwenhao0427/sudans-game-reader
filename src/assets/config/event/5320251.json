@@ -1,0 +1,22 @@
+{
+    "id": 5320251,
+    "text": "苏丹猜忌的检定",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean": 2000680
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "counter=7000196":1, //移除苏丹猜忌的计数，避免因为卡牌移除而结束游戏
+            }
+        }
+
+    ]
+}

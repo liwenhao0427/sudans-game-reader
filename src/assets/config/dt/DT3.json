@@ -1,0 +1,25 @@
+{
+    "dialog_tree_id" : "DT2",
+    "first_word_id" : "S1",
+    "description" : "魔法师交谈1-什么是苏丹的游戏",
+    "Item" : [
+        {
+            "word_id" : "S1",
+            "word" : "耐心，仔细观察一切出现在眼前的事情，这些都有可能出现消解苏丹卡的契机。",
+            "jump_type" : "0",
+            "direct_id" : "S2",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S2",
+            "word" : "然后，变成“怪物”吧，啊哈哈哈哈",
+            "jump_type" : "3",
+            "direct_id" : "",
+            "Option" : [
+            ],
+            "action" : {}
+        }
+        ]
+    }

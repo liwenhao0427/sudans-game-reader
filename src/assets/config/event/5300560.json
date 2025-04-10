@@ -1,0 +1,36 @@
+{
+    "id": 5300560,
+    "text": "烂纸头启动",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+        "table_have.2000013.追随者":1,  //剑客有追随者tag
+        "table_have.2000123.追随者":1,  //鲁梅拉有追随者tag
+        "table_have.2000113.追随者":1  //阿里木有追随者tag
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "no_prompt":{ 
+                    "card":2000998,  //生成三本书
+                    "card":2000999,
+                    "card":2001000
+                },
+                "rite":5000831,  //生成烂纸头
+                "prompt":{
+                    "id":"5300560_prompt_01",
+                    "text":"阿里木那家伙，又来占便宜了……他找到了一些旧书，几乎就是破烂，但还想当成古董卖给你。",
+                    "icon":"cards/2000113"
+                },  
+                "event_off":5300560 //关闭自检
+
+            }
+        }
+    ]
+}

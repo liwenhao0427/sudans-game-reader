@@ -1,0 +1,93 @@
+{
+    "id": 6000505,
+    "name": "疯狂的惩罚",
+    "repeat": 1,
+    "type": 2, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "condition":{
+                "counter.7000562<":1, 
+            },
+            "num" : "1",
+            "id" : "5004809",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "counter.7000563<":1, 
+            },
+            "num" : "1",
+            "id" : "5004810",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "counter.7000564<":1,  
+            },
+            "num" : "1",
+            "id" : "5004811",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "counter.7000565<":1, 
+            },
+            "num" : "1",
+            "id" : "5004812",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "counter.7000566<":1, 
+                "any":{
+                    "all":{
+                        "!table_have.2000021":1,
+                        "table_have.2000022":1,
+                        "table_have.追随者>=":3,
+                    },
+                    "all":{
+                        "!table_have.2000021":1,
+                        "!table_have.2000022":1,
+                        "table_have.追随者>=":2,
+                    },
+                    "all":{
+                        "table_have.2000021":1,
+                        "!table_have.2000022":1,
+                        "table_have.追随者>=":3,
+                    },
+                    "all":{
+                        "table_have.2000021":1,
+                        "table_have.2000022":1,
+                        "table_have.追随者>=":4,
+                    }
+                }
+            },
+            "num" : "1",
+            "id" : "5004813",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "counter.7000568<":1, 
+            },
+            "num" : "1",
+            "id" : "5004814",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "counter.7000569>=":1,  //解锁
+            },
+            "num" : "1",
+            "id" : "5004815",
+            "type" : "rite",
+            "weight" : 50
+        }
+    ]
+}

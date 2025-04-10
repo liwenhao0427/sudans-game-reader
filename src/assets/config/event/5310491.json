@@ -1,0 +1,24 @@
+{
+        "id": 5310491,
+        "text": "结局-丛林之国",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,  //立即触发
+        "on":{   
+            "rite_end": 5010024
+        },
+        "condition":{
+            "counter.7000447>=":1, //改革
+            "counter.7100004>=":30, //侠名大
+            "have.2000013.晋升":1, //流浪剑客在阶梯中晋升过
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "over":225
+            }
+        }
+    ]
+} 

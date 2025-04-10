@@ -1,0 +1,26 @@
+{
+    "id": 6000117,
+    "name": "密教徒loot",
+    "repeat": 1,
+    "type": 2,   
+    "item": [
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "2001116",
+            "type" : "card",
+            "weight" : 40
+        },
+        {
+            "condition":{   
+                
+            },
+            "num" : "1",
+            "id" : "2001117",
+            "type" : "card",
+            "weight" : 30
+        }
+    ]
+}

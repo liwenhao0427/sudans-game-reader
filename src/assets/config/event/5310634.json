@@ -1,0 +1,31 @@
+{
+        "id": 5310634,
+        "text": "正教的讨伐",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,  //立即触发
+        "on":{   
+            "rite_end": 5010057, //1回合
+        },
+        "condition":{
+           
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "card":2001092,  //生成正教部队
+                "card":2001094,
+                "prompt":{
+                    "id":"5310634_prompt_01",
+                    "text":"正教的部队集结了起来",
+                    "icon":"cards/2000001"
+                },
+                "success":{
+                    "event_off":5310634  //关闭自己
+                }
+            }
+        }
+    ]
+} 

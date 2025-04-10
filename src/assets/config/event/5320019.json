@@ -1,0 +1,28 @@
+{
+    "id": 5320019,
+    "text": "一桩丑闻",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [2,3]
+    },
+    "condition":{  //条件
+        "table_have.2000062":1,
+        "table_have.2000063":1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite": 5006515,
+                "prompt":{
+                    "id":"5320019_prompt_01",
+                    "text":"最近，街头巷尾都流传着你和扎齐伊的桃色丑闻……每一个人，每一个人都在谈论这件事。"
+                }
+            }
+        }
+
+    ]
+}

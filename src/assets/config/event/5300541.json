@@ -1,0 +1,45 @@
+{
+    "id": 5300541,
+    "text": "吃掉他的肝脏",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合检测
+    },
+    "condition":{  //条件
+       
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "option": {
+                    "id":"5300541_option_1",
+                    "text": "芮尔一举擒获了把豺狼众余部召集起来的新任老大，当着所有人的面切开了他的肚子，从里面掏出一块血淋淋的东西……\n她刚想把这玩意儿塞进嘴里，忽然抬起头来，冲你笑笑：“嘿，城市民，一起吃吗？”",
+                    "icon": "cards/2000771",
+                    "items": [
+                        {
+                            "text": "让我尝尝！",
+                            "tag": "op1"
+                        },
+                        {
+                            "text": "还是算了……",
+                            "tag": "op2"
+                        }
+                    ]
+                },
+                "case:op1": {
+                    "rite":5000814,
+                    "event_off":5300541
+                },
+                "case:op2": {
+                    "counter+7000467":1, //芮尔事件1完成的计数器
+                    "counter=7000465":0, //芮尔部队调动计数归零
+                    "event_off":5300541
+                }
+            }
+        }
+    ]
+}

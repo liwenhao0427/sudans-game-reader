@@ -1,0 +1,31 @@
+{
+    "id": 5321142,
+    "text": "幽怨的法里斯",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.2000065+反对": 3 ,//反对置为3
+                "table.2000065=支持": 0, //支持置为0
+                "prompt":{
+                    "id":"5321142_prompt_01",
+                    "text":"痛失爱犬的法里斯再也不想听你在人群中得意洋洋地炫耀自己的智慧和胜利了。",
+                    "icon":"cards/2000065"
+                },
+                "success":{
+                    "event_off":5321142
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "id": 5320080,
+    "text": "黄金舍馆",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":7 // 仪式开始时
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "clean.rite":5006567,
+                "clean.rite":5006568,
+                "table.clean.无主":99,
+                "loot.无主+1":6000503,                
+                "rite":5006567,
+                "global_counter=7200230":1, //成就-四海漂泊之人
+            }
+        }
+
+    ]
+} 

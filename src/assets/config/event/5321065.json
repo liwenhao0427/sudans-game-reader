@@ -1,0 +1,34 @@
+{
+    "id": 5321065,
+    "text": "证婚人再起",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 3
+    },
+    "condition":{  //条件
+
+    "counter.7000369<":3,    //限制相亲次数。3次失败以后无法继续相亲
+    "counter.7000423<": 1  //触发过给质子介绍了爱读书的少女 
+
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "prompt":{
+                    "id": "5321065_prompt_01",
+                    "text":"这个人你们彼此不喜欢，那换个人不就好了！你重振旗鼓，准备另外给法尔达克找一个！",
+                    "icon":"cards/2000350"
+                },
+                "rite":5008060,   //证婚人
+                "success":{
+                    "event_off":5321065  //关闭幕后机制
+                }
+            }
+        }
+
+    ]
+}

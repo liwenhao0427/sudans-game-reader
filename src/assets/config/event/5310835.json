@@ -1,0 +1,34 @@
+{
+        "id": 5310835,
+        "text": "心灵之战-12",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": [2,3]
+        },
+        "condition":{
+            "counter.7100005>=":22,
+            "any":{
+                "table_have.2000841":1, //邪神的面容
+                "table_have.2000842":1,
+                "table_have.2000843":1,
+                "table_have.2000844":1,
+            }, 
+            "any":{
+                "table_have.2000845":1, //正神的面容
+                "table_have.2000846":1,
+                "table_have.2000847":1,
+                "table_have.2000848":1,
+            }, 
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "rite":5004829, //心灵之影
+            }
+        }
+    ]
+} 

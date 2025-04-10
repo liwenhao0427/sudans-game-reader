@@ -1,0 +1,22 @@
+{
+        "id": 5310805,
+        "text": "光之训诫",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false,
+        "on":{   
+            "round_begin_ba": 1
+        },
+        "condition":{
+            "table_have.2000845.正神的连接>=":3,
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{   
+                "rite":5004805  //光之训诫
+            }
+        }
+    ]
+} 

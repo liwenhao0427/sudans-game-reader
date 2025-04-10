@@ -1,0 +1,43 @@
+{
+    "id": 5300274,
+    "text": "燃烧的奴隶市场",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 30 //20回合后
+    },
+    "condition":{  //条件
+        //"table_have.2000771":1 , //芮尔在卡池
+        //"counter.7000306>=":1, //解救了芮尔   
+        //"counter.7100001>=":13,  //善名2阶
+        //"counter.7100004>=":4    //侠名1阶
+        //其它条件待芮尔线完成添加
+        "!rite":5000767,  //肉体展览仪式不在开启中
+        "counter.7000306<":1  //没有救芮尔
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000464":1,  //奴隶市场燃烧计数器
+                "event_on":5300538,  //开启深夜访客幕后
+                //"rite":5000770,
+                "no_prompt":{
+                    "table.clean.2000770":1,  //移除没名字的三个女奴，一般也不会生成
+                    "table.clean.2000851":1,  
+                    "table.clean.2000852":1
+                },
+                "prompt":{
+                    "id":"5300274_prompt_1",
+                    "text":"你听说了一则无关紧要的传闻，据说这天在奴隶市场，有一名奴隶在交易过程中挣脱了绳索，不仅杀了自己的主人，还放火烧了大半条街区……",
+                    "icon":["","common/position_pingming_2",""]
+                },
+               "success":{
+                    "event_off":5300274 //关闭自检
+                }
+            }
+        }
+    ]
+}

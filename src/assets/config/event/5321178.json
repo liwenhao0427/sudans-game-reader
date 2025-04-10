@@ -1,0 +1,25 @@
+{
+    "id": 5321178,
+    "text": "拜铃耶的诅咒",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "any": {
+            "counter.7000607>=": 1, //纵欲计数器
+            "have.主角.刺青=": 1, //文身（需要玩家纹过身  或  和拜铃耶纵欲
+        }
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "rite": 5008184
+            }
+        }
+    ]
+}

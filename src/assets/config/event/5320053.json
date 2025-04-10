@@ -1,0 +1,29 @@
+{
+    "id": 5320053,
+    "text": "恶名一阶段事件",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "counter.7100002>=":3 // 恶名大于等于3
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000089, //掉落挑战者
+                "rite":5006536, //挑战
+                "prompt":{
+                    "id":"5320053_prompt_01",
+                    "text":"随着你开始借着苏丹卡的威名作恶，一些心怀正义的青年决定挑战你……\n<size=+10><font=\"Title SDF\"><b>在这一阶段，定期会有挑战者来挑战你，需要小心应对</b></font></size>\n",
+                    "icon":"cards/2000001"
+                }
+            }
+        }
+
+    ]
+}

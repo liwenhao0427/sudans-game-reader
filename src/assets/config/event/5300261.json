@@ -1,0 +1,28 @@
+{
+    "id": 5300261,
+    "text": "脱罪",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 // 仪式开始时
+    },
+    "condition":{  //条件
+        "table_have.2000024":1, //苏丹在牌池中
+        "hand_have.主角":1
+    },
+    "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000568, //开启脱罪仪式
+                "success":{
+                    "event_off":5300261 //关闭自检
+                }
+
+            }
+        }
+
+    ]
+} 

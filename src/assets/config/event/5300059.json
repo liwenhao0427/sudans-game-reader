@@ -1,0 +1,30 @@
+{
+    "id": 5300059,
+    "text": "真正的报偿",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":[2,3] // 仪式在2-3回合后开始
+    },
+    "condition":{  //条件
+        "!rite":5000562,            //场上没有真正的报偿
+        "counter.7000031<=":3,        //妃子B通过御医给钱不大于3次
+        "counter.7000032<":1  //表明貌合神离没开启
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5000562,
+                "success":{
+                    "event_off":5300059, //关闭自检
+                    "event_off":5300060  //关闭暗杀4的幕后
+                }
+
+            }
+        }
+
+    ]
+} 

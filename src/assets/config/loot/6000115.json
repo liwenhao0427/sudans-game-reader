@@ -1,0 +1,44 @@
+{
+    "id": 6000115,
+    "name": "妻子的茶会法图娜参与的掉落",
+    "repeat": 1,
+    "type": 2,   
+    "item": [
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "2000420",
+            "type" : "card",
+            "weight" : 40
+        },
+        {
+            "condition":{   
+                
+            },
+            "num" : "1",
+            "id" : "2000421",
+            "type" : "card",
+            "weight" : 30
+        },
+        {
+            "condition":{   
+                
+            },
+            "num" : "1",
+            "id" : "2000422",
+            "type" : "card",
+            "weight" : 20
+        },
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "2001118",
+            "type" : "card",
+            "weight" : 10
+        }
+    ]
+}

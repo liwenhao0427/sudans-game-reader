@@ -1,0 +1,30 @@
+{
+    "id": 5300288,
+    "text": "奈布哈尼的耻笑",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1 //每回合开始
+    },
+    "condition":{  //条件
+        "have.2000064":1  //奈布哈尼还活着
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":[2000775,"已拥有+1"],
+                "prompt":{
+                    "id":"5300288_prompt_1",
+                    "text":"奈布哈尼听说了那些坊间流言，同情地给你送来的某种懂的都懂的药水……看他长吁短叹的样子，还不如直接笑话你呢。",
+                    "icon":"cards/2000064"
+                },
+                "success":{
+                    "event_off":5300288
+                }
+            }
+        }
+    ]
+}

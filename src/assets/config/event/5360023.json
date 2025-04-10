@@ -1,0 +1,29 @@
+{
+    "id": 5360023,
+    "text": "完成所有结局（废弃）",
+    "is_replay": 0, 
+    "auto_start": false, 
+    "start_trigger": false, 
+    "on":{   
+        "game_end":-1 
+    },
+    "condition":{
+        "global_counter.7200100>=":1,
+        "global_counter.7200101>=":1,
+        "global_counter.7200102>=":1,
+        "global_counter.7200103>=":1,
+        "global_counter.7200104>=":1,
+        "global_counter.7200105>=":1,
+        "global_counter.7200106>=":1
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7210021": 1,
+            "debug": "达成所有胜利结局"
+        }
+    }
+    ]
+}

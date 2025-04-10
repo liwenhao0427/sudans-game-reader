@@ -1,0 +1,22 @@
+{
+        "id": 5310009,
+        "text": "困难难度需要维持信誉",
+        "is_replay": 0, 
+        "auto_start_init": [1], 
+        "start_trigger": false, 
+        "on":{   
+            "round_begin_ba": 5
+        },
+        "condition":{  
+            "difficulty":3
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{                
+                "rite":5000154 //维持家业
+            }
+        }
+        ]
+    } 

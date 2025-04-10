@@ -1,0 +1,29 @@
+{
+    "id": 5321054,
+    "text": "快脚的约会",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean": 1
+    },
+    "condition":{  //条件
+        "type":"sudan", //移除任意一张苏丹卡时
+        "counter.7000333>=":1, //触发过不会开花的花园
+        "have.2000057": 1, //哲瓦德还活着
+        "hand_have.2000370":1,   //快脚活着
+        "have.2000774": 1, //阿鲁米娜还活着
+        "counter.7000339<":1 //未触发过赎买请求结束
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5008049    //开启快脚的约会
+            }
+        }
+
+    ]
+}

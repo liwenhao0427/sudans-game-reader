@@ -1,0 +1,27 @@
+ {
+        "id": 5300020,
+        "text": "没头脑和不高兴",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start": false,
+        "start_trigger": true, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":[3,5] // 仪式开始时
+        },
+        "condition":{  //条件
+            "!rite":5002503,             //场上无没头脑和不高兴
+            "counter.7000015<":1      //这个仪式还没完成
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5002503,
+                    "success":{
+                        "event_off":5300020
+                    }
+                }
+            }
+
+        ]
+    } 

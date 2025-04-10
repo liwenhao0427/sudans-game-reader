@@ -1,0 +1,22 @@
+{
+    "id": 5360055,
+    "text": "成就-完美世界",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "have.2000728":1, //拥有新世界
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7200205": 1, //成就-完美世界
+        }
+    }
+    ]
+}

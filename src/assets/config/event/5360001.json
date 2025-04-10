@@ -1,0 +1,25 @@
+{
+    "id": 5360001,
+    "text": "完成X局游戏次数（死亡也计数）",
+    "is_replay": 0, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        //  -1 表明任意结束原因
+        //  -2 表明任意成功结束原因, 但目前也只有消耗完所有苏丹卡是该情况, 如果要区分结束原因, 可以直接填写多个结果id, 参考5360002
+        //  -3 表明任意失败结束原因
+        "game_end": -1
+    },
+    "condition":{  
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter+7220001": 1,
+            // "debug": "任意游戏完成"
+        }
+    }
+    ]
+} 

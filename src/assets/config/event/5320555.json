@@ -1,0 +1,39 @@
+{
+    "id": 5320555,
+    "text": "法尔达克声望事件激活提示",     
+    "is_replay": 1,
+    "auto_start_init": [1],
+    "auto_start": false,    
+    "start_trigger": false,
+    "on":{
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "hand_have.2000350":1, //法尔达克在手牌区
+        "any":{
+            "all":{
+                "counter.7000345<":1,      //善良lv1本体未触发过
+                "counter.7000366<":1,      //没有接受过质子的证婚请求
+                "counter.7000356>=":1,       //资助过一次制图师
+                "counter.7100001>=":5       //善良1
+            },
+            "all":{
+                "counter.7000351<":1,    //没有鼓励法尔达克逃跑
+                "counter.7000069<":1,      //未触发过和质子纵欲
+                "counter.7000346<":1,      //权势lv1本体未触发过
+                "counter.7100003>=":4       //权势1
+            }
+        }
+    },
+    "settlement": [
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "hand_pop.5320555_01.2000350": "法尔达克似乎有事找你，将其放入<color=white><size=172%>俺寻思</size></color>。",
+                "table.2000350+事件提示":1
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "id": 6000095,
+    "name": "罪犯",
+    "repeat": 1,
+    "type": 2,  
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000645",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000646",
+            "type" : "card",
+            "weight" : 35
+        },
+        {
+            "num" : "1",
+            "id" : "2000647",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000649",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000650",
+            "type" : "card",
+            "weight" : 35
+        },
+        {
+            "num" : "1",
+            "id" : "2000651",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000653",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000654",
+            "type" : "card",
+            "weight" : 35
+        },
+        {
+            "num" : "1",
+            "id" : "2000655",
+            "type" : "card",
+            "weight" : 15
+        },
+        {
+            "num" : "1",
+            "id" : "2000657",
+            "type" : "card",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "2000658",
+            "type" : "card",
+            "weight" : 35
+        },
+        {
+            "num" : "1",
+            "id" : "2000659",
+            "type" : "card",
+            "weight" : 15
+        }
+    ]
+}

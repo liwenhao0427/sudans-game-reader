@@ -1,0 +1,37 @@
+{
+    "id": 5321066,
+    "text": "质子婚礼",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":2
+    },
+    "condition":{  //条件
+        "all":{ 
+        "counter.7000367>=":1, //触发过订婚
+        "counter.7000368<":1, //本体没有触发过
+        "table_have.2000350": 1, //质子闲置
+        "table_have.2000123":1   //鲁梅拉闲置
+    }
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "prompt":{
+                    "id":"5321066_prompt_01",
+                    "text":"法尔达克和鲁梅拉已经在你的安排下定下婚约，接下来，你需要为他们准备婚礼。",
+                    "icon":["cards/2000350","cards/2000123",null]
+                },
+                "counter+7000368":1, //本体触发
+                "rite":5008063,    //开启结婚仪式
+                "success":{
+                    "event_off":5321066 
+                }//关闭自检
+            }
+        }
+
+    ]
+}

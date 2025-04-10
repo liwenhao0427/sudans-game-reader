@@ -1,0 +1,31 @@
+{
+    "id": 5300232,
+    "text": "生成宰相的召见-随机",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":4 //每回合刷一次
+    },
+    "condition":{  //条件
+        "table_have.2000349":1, //宰相存在卡池或手牌
+        "counter.7000074>":1, //第二次及之后群龙无首结束时
+        "counter.7000086>=":1 //懦夫线已完结
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000037, //抽取宰相任务，必新，抽完就没了
+                "event_off":5300232, //关闭本仪式
+                "prompt":{
+                    "id": "5300232_prompt_01",
+                    "text":"宰相阿卜德派仆人来，召你到府上一叙。",
+                    "icon":"cards/2000349"
+                }
+            }
+        }
+
+    ]
+}

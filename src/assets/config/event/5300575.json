@@ -1,0 +1,24 @@
+{
+    "id": 5300575,
+    "text": "妻子成为秘教徒后定期消除妻子的不满的仪式",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start":false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 //每1回合刷一次
+    },
+    "condition":{  //条件
+        "table_have.妻子.密教徒":1,   //妻子有密教徒tag
+        "hand_have.2000083":1 //手牌中有妻子的不满
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5004901  //开启仪式吸收妻子的不满
+            }
+        }
+
+    ]
+}

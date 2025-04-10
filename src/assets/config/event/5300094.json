@@ -1,0 +1,30 @@
+{
+    "id": 5300094,
+    "text": "鳄鱼池每回合随机金币",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 //每回合刷一次
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000032, //鳄鱼池每回合随机金币
+                "success":{
+                    "prompt":{
+                        "id":"5300094_prompt_01",
+                        "text":"鳄鱼池今日也提供了一点收益。",
+                        "icon":"cards/2_item_0"
+                    }
+                }
+            }
+        }
+
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "id": 5360002,
+    "text": "活着/胜利X局游戏（死亡不计数）",
+    "is_replay": 0, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "game_end": -3
+        //-1是任意结束么
+        //-2是失败
+        //-3是任意胜利
+        //-4是小胜
+        //-5是大胜
+    },
+    "condition":{  
+
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter+7220002": 1,
+            // "debug": "任意游戏完成"
+        }
+    }
+    ]
+}

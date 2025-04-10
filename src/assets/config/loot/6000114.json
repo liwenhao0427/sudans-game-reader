@@ -1,0 +1,35 @@
+{
+    "id": 6000114,
+    "name": "正教的干扰",
+    "repeat": 1,
+    "type": 2,   
+    "item": [
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "5004510",
+            "type" : "rite",
+            "weight" : 60
+        },
+        {
+            "condition":{   
+                "hand_have.主角":1 
+            },
+            "num" : "1",
+            "id" : "5004511",
+            "type" : "rite",
+            "weight" : 20
+        },
+        {
+            "condition":{
+                
+            },
+            "num" : "1",
+            "id" : "5004512",
+            "type" : "rite",
+            "weight" : 20
+        }
+    ]
+}

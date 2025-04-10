@@ -1,0 +1,28 @@
+ {
+        "id": 5300023,
+        "text": "妻子正在酝酿不满",     
+        "is_replay": 1, //是否可以重复触发
+        "auto_start_init": [1],
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            //"card_clean": 1 // 仪式开始时
+            "round_begin_ba":7
+        },
+        "condition":{  //条件
+            //"type":"sudan",
+            "!rite":5003001  //场上不存在正在酝酿的不满
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "rite":5003001,
+                    //"failed":{
+                      //  "event_on":5300182
+                    //}
+                }
+            }
+
+        ]
+    } 

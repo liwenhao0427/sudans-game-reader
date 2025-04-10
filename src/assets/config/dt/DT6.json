@@ -1,0 +1,172 @@
+{
+    "dialog_tree_id" : "DT6",
+    "first_word_id" : "S1",
+    "description" : "魔法师交谈1-游戏的诀窍",
+    "Item" : [
+        {
+            "word_id" : "S1",
+            "word" : "苏丹的游戏中一共有四种卡牌，对应着四种必须完成的任务。每种任务又都分四种档次，对应着完成的难度。当您得到一张苏丹卡时，无论是被迫还是自愿，您必须在[sudan_life_time]天内完成它要您完成的任务，否则……我希望砍头的时候您不会觉得太疼。",
+            "jump_type" : "1",
+            "direct_id" : "",
+            "Option" : [
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "不同卡的品级",
+                    "option_Jump_id" : "S2",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "苏丹卡的类别",
+                    "option_Jump_id" : "S3",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "游戏的代价",
+                    "option_Jump_id" : "S8",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "游戏时间",
+                    "option_Jump_id" : "S9",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "日常生活",
+                    "option_Jump_id" : "S10",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "我知道了",
+                    "option_Jump_id" : "S11",
+                    "action" : {}
+                }
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S2",
+            "word" : "没错，这世间万物都有档次之分，无论是人，是物，还是苏丹卡。黄金、白银、青铜，以及低贱的岩石；它们可以向下兼容，但不能向上兼容。打个比方，您可以杀掉一个档次为白银的奴隶，来应对一张青铜苏丹卡。而在有些情况下，一张卡的档次也会发生变化……这就有待您自己去发现了。",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S3",
+            "word" : "苏丹卡一共有四种，都是苏丹本人平时最喜欢的“游戏”。您想先听哪种呢？",
+            "jump_type" : "1",
+            "direct_id" : "",
+            "Option" : [
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "纵欲",
+                    "option_Jump_id" : "S4",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "杀戮",
+                    "option_Jump_id" : "S5",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "征服",
+                    "option_Jump_id" : "S6",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "奢靡",
+                    "option_Jump_id" : "S7",
+                    "action" : {}
+                },
+                {
+                    "option_Jump_condition" : {},
+                    "option_Jump_word" : "返回",
+                    "option_Jump_id" : "S1",
+                    "action" : {}
+                }
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S4",
+            "word" : "哦，纵欲，谁不喜欢纵欲呢，除了那些担心“后果”的胆小鬼之外？您可以和任何人欢爱来完成这张卡的任务，男人、女人、男人和女人……又或者是更有创意的选择。唯一需要注意的是，同一个人只能被用来满足“纵欲卡”一次，苏丹玩这个游戏的目的，可不是鼓励您从一而终，哈，哈，哈！",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S5",
+            "word" : "弱者用秩序统治，而我们的苏丹，绝对的强者，他用恐惧来统治。杀戮是苏丹最喜欢的游戏之一，您需要杀死一个合适的人来满足这张卡的要求。把您的视线投向至亲、投向无辜者、投向仇敌——只要考虑一下他们的“档次”是否和您抽到的杀戮卡对应即可。",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S6",
+            "word" : "相比其他苏丹卡，征服没那么有趣，但这也是苏丹日常工作的一部分；想想看，他的国土多么辽阔，他的威名又多么远扬！军事上的胜利或是足够困难的冒险，都可以视作成功的征服。",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S7",
+            "word" : "奢靡卡需要您做的，可不光是花钱而已；重点是“毫无意义地花钱”，还有“轻易挥霍掉别人珍视之物”。越高档的奢靡卡就意味着越疯狂的花销，还好，在苏丹的国度里，有品位地散尽家财并不是什么难事。",
+            "jump_type" : "0",
+            "direct_id" : "S3",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S8",
+            "word" : "请放心，为了让游戏更有趣，仁慈的苏丹已经免除了您因为苏丹卡而犯下的所有罪行；无论是通奸、是杀人，还是抢劫。不过，理所当然的，那些受害者会唾骂您、折磨您，其他想要争夺苏丹宠爱的人会嫉妒您、排挤您；但这，不就是苏丹最喜欢看的活剧吗？",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S9",
+            "word" : "为了活下去，您或许希望尽可能推迟完成一张苏丹卡任务的时机，因为只要它被完成了，您就必须要抽下一张、必须要绞尽脑汁去完成下一个任务。但请注意，也有些时候机会稍纵即逝，需要您研判局势，把握时机。",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S10",
+            "word" : "加入苏丹的游戏并不会影响您平时该做的事，比如说“治理家业”——作为一位贵族，您只要稍微过问几句家族事务，就可以获得丰厚的回报。您也最好别忘记自己的臣子身份，我建议您经常到苏丹的宫廷去觐见他，至少别让整座宫廷都没有您的“自己人”。",
+            "jump_type" : "0",
+            "direct_id" : "S1",
+            "Option" : [
+            ],
+            "action" : {}
+        },
+        {
+            "word_id" : "S11",
+            "word" : "你试图想要看清楚她的脸，却总有神秘的魔法迷雾遮住你的视线；不过，她嘴角嘲讽的微笑却能看的一清二楚。",
+            "jump_type" : "3",
+            "direct_id" : "",
+            "Option" : [
+            ],
+            "action" : {}
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "id": 5321028,
+    "text": "盖斯声望事件-赎回幕后",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false, 
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on": { //时机
+         "round_begin_ba": 1
+    },
+    "condition": { //条件
+    "all":{
+        "hand_have.盖斯": 1 //盖斯还活着
+    }
+    },
+    "settlement": [ //效果 
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "rite":5008020, //启动仪式赎回
+            "prompt":{
+                "id":"5321028_prompt_01",
+                "text":"盖斯凑够了钱，希望能够赎回母亲那枚代代相传的订婚戒指。",
+                "icon": "cards/2000056"
+            },
+            "success":{
+                "event_off":5321028
+            }
+        }
+    }    
+    ]
+}

@@ -1,0 +1,39 @@
+ {
+        "id": 5300338,
+        "text": "首次抽到苏丹卡的提示",     
+        "is_replay": 0, //是否可以重复触发
+        "auto_start_init": [1],
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   //时机
+            "round_begin_ba":1 // 仪式开始时
+        },
+        "condition":{  //条件
+            "counter.7000101>=":1,
+            "any":{
+                "hand_have.2010001":1,
+                "hand_have.2010002":1,
+                "hand_have.2010003":1,
+                "hand_have.2010005":1,
+                "hand_have.2010006":1,
+                "hand_have.2010007":1,
+                "hand_have.2010009":1,
+                "hand_have.2010010":1,
+                "hand_have.2010011":1,
+                "hand_have.2010013":1,
+                "hand_have.2010014":1,
+                "hand_have.2010015":1
+            }
+        },
+        "settlement": [    //效果 
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{
+                    "event_off":5300339,
+                    "sleep":0.3,
+                    "hand_pop.5300338_01.sudan": "只有<color=white><size=172%>[sudan_life_time]天</size></color>的时间，需要尽快找到消除这张苏丹卡的线索。"
+                }
+            }
+
+        ]
+    } 

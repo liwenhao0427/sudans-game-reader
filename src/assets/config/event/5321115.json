@@ -1,0 +1,27 @@
+{
+    "id": 5321115,
+    "text": "拜玲耶的掉落",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1 
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7100006":1, //金骰子+1
+                "prompt": {
+                    "id": "prompt_5321115_01",
+                    "text": "“可要好好珍惜吾主的恩赐呐。”拜玲耶捂着嘴唇咯咯笑着，离开这间阁楼前轻轻在你额上一点。"
+                }
+            }
+        }
+
+    ]
+}

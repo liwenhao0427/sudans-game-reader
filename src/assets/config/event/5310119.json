@@ -1,0 +1,21 @@
+{
+        "id": 5310119,
+        "text": "苏丹引导-day3-仪式运行中提示",
+        "is_replay": 0, 
+        "auto_start_init": [0], 
+        "start_trigger": false, 
+        "on":{   
+            "rite_start": 5005104
+        },
+        "condition":{  
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite_pop.5310119_01.5005104":"您的臣子带着军队出发了，点击<size=86>下一天</size>迎接胜利的消息吧。"
+            }
+        }
+        ]
+    } 

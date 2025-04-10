@@ -1,0 +1,158 @@
+{
+    "id": 8000011,
+    "name": "夏玛的游戏",
+    "tips": "",
+    "bg": "nomal_rite_bg",
+    "fg": null,
+    "nomal_slot_bg": "",
+    "bg_pos": {
+        "x": 0,
+        "y": 0
+    },
+    "title_pos": {
+        "x": 1585,
+        "y": 0
+    },
+    "slots": {
+        "s1": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 643,
+                "y": 1681
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 33
+        },
+        "s2": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 935,
+                "y": 1838
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 24
+        },
+        "s3": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 1273,
+                "y": 1903
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s4": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 1626,
+                "y": 1835
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 336
+        },
+        "s5": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 1891,
+                "y": 1702
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 327
+        },
+        "s6": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 1863,
+                "y": 1169
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 33
+        },
+        "s7": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 1599,
+                "y": 1035
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 24
+        },
+        "s8": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 1273,
+                "y": 982
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s9": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 935,
+                "y": 1042
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 336
+        },
+        "s10": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": null,
+            "pos": {
+                "x": 662,
+                "y": 1169
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 327
+        }
+    }
+}

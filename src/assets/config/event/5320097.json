@@ -1,0 +1,29 @@
+{
+    "id": 5320097,
+    "text": "法图娜离去，扎齐伊也离去",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{  //条件
+        "!have.2000062":1,  //法图娜没有
+        "table_have.2000063":1  //扎齐伊闲置
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "table.clean.2000063":1, //移除扎齐伊
+                "prompt":{
+                    "id":"5320097_prompt_01",
+                    "text":"扎齐伊无法接受母亲的离去，独自离开了这个城市。",
+                    "icon":"cards/2000063"
+                }
+            }
+        }
+
+    ]
+}

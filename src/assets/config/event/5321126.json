@@ -1,0 +1,32 @@
+{
+    "id": 5321126,
+    "text": "御厨",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":1
+    },
+    "condition":{  //条件
+    
+    "all":{
+        "counter.7000498>=":1,   //触发过哈比卜后续进宫事件计数器
+        "hand_have.2000014":1 //厨在手牌
+
+    }
+    },
+    "settlement": [ //效果 
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "rite":5008119, //御厨
+            "success":{
+                "event_off":5321126
+            }
+        }
+
+    }
+
+]
+}

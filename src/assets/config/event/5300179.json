@@ -1,0 +1,23 @@
+{
+    "id": 5300179,
+    "text": "淘书仪式",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba":3
+    },
+    "condition":{  //条件
+        "f:counter.7000017+counter.7000330+counter.7000331+counter.7000332<":59,
+        "table_have.2000199":1 //书店老板闲置
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000101   //随机的淘书仪式
+            }
+        }
+    ]
+}

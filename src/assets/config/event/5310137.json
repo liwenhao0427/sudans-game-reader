@@ -1,0 +1,30 @@
+{
+        "id": 5310137,
+        "text": "苏丹引导-强制11",
+        "is_replay": 0, 
+        "auto_start_init": [1],
+        "start_trigger": false, // 是否启动就立即开始校验条件
+        "on":{   
+            "close_begin_guide":"TIME_OUT" // 关闭处刑日不足引导后
+        },
+        "condition":{  
+            "global_counter.7230015<":1,
+        },
+        "settlement": [    //当玩家处刑日不足时，提示玩家可以回到上一天
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "global_counter+7230015":1,
+                "begin_guide":{
+                    "type": "BACK_ROUND",
+                    "anim_type":"Arrow",
+                    "pos": [-746, 377],
+                    "is_show_ring": true,
+                    "ring_pos": [796, -248.5],
+                    "ring_rect": [1, 0]
+                }
+            }
+        }
+        ]
+    } 

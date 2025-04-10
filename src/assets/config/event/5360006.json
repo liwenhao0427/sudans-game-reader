@@ -1,0 +1,27 @@
+{
+    "id": 5360006,
+    "text": "累计消除X张纵欲卡",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "card_clean": [  //消除纵欲苏丹卡
+            2010005,
+            2010006,
+            2010007,
+            2010008
+        ]
+    },
+    "condition":{  
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter+7210004": 1,
+            "debug": "消除1张纵欲苏丹卡"
+        }
+    }
+    ]
+}

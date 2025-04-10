@@ -1,0 +1,22 @@
+{
+    "id": 5320280,
+    "text": "星之衰",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": [3,7]
+    },
+    "condition":{
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "rite":5000583,
+            }
+        }
+
+    ]
+}

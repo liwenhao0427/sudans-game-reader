@@ -1,0 +1,29 @@
+{
+    "id": 5300528,
+    "text": "痴心妄想",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "rite_end": 5000795 
+    },
+    "condition":{  //条件
+        
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "card":[2000680,"已拥有+1"],   //生成一个苏丹的猜忌
+                "prompt":{
+                    "id":"5300528_prompt_1",
+                    "text":"不知道为什么，苏丹最近看你的眼神十分阴沉、森冷，似乎涌动着某种杀意……虽然你实在想不出自己又做了什么惹他不高兴的事，但接下来该做些什么你应该清楚吧？",
+                    "icon":"cards/sudan"
+                },
+                "event_on":5300295,  //开启游戏的准备
+                "event_off":5300528  //关闭自己
+            }
+        }
+    ]
+}

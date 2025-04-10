@@ -1,0 +1,21 @@
+{
+        "id": 5310401,
+        "text": "结局-逃跑-出发",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false, 
+        "on":{   
+            "rite_end": 5003027
+        },
+        "condition":{  
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{                
+                "rite":5010001 //出发
+            }
+        }
+        ]
+    } 

@@ -1,0 +1,28 @@
+{
+    "id": 5320549,
+    "text": "战士的结合幕后",     
+    "is_replay": 1, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "rite_end": 5000002
+    },
+    "condition":{  //条件
+        "have.2000061": 1
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "counter+7000204":1, //战士的结合触发计数
+                "table.2000061-事件提示":1,
+                "rite":5006057, //启动仪式战士的结合
+                "success":{
+                    "event_off":5320549
+                }
+            }
+        }
+
+    ]
+}

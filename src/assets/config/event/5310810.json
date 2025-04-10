@@ -1,0 +1,28 @@
+{
+        "id": 5310810,
+        "text": "消解疯狂-检定妻子的体魄",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": false,
+        "on":{   
+            "rite_end": 5004817
+        },
+        "condition":{
+            "table_have.妻子.体魄<=":0,
+            "counter.7000638>=":1,
+        },
+        "settlement": [    
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{  
+                "table.clean.妻子":1, 
+                "prompt":{
+                    "id":"5310810_prompt_01",
+                    "text":"梅姬已经承受了太多，当夜，她被你的疯狂所支配，与荒野中徘徊……最后，猎人们只找到她的尸体——连野兽与虫豸都不敢接触其中的黑暗。",
+                    "icon":"cards/2000006"
+                }
+            }
+        }
+    ]
+} 

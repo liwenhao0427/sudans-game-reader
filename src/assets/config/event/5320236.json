@@ -1,0 +1,26 @@
+{
+    "id": 5320236,
+    "text": "奈费勒声望事件--恶意的捉弄",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "have.2000312":1, //奈费勒存活
+        "have.2000349":1,  //宰相存活  
+        "counter.7000302>=":1,   //完成奈费勒的声望2阶的线     
+        "counter.7100003>=":15  //权势
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{     
+                "rite":5006669  //恶意的捉弄
+            }
+        }
+
+    ]
+}

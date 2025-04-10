@@ -1,0 +1,26 @@
+{
+    "id": 6000097,
+    "name": "随机政务",
+    "repeat": 1,
+    "type": 2,  
+    "item": [
+        {
+            "num" : "1",
+            "id" : "5006586",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006587",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "num" : "1",
+            "id" : "5006588",
+            "type" : "rite",
+            "weight" : 50
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "id": 5321185,
+    "text": "消失的回响",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start_init": [
+        1
+    ],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "counter.7000624>=": 1, //自由之花中，触发催促倒计时消失（总之就是对抗神成功了）
+        "any": {
+            "table_have.2000845": 1,
+            "table_have.2000846": 1, //1~2级正神的面容
+            "table_have.2000841": 1,
+            "table_have.2000842": 1, //1~2级邪神的面容
+        }
+    },
+    "settlement": [
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "table.clean.2000845": 1,
+                "table.clean.2000846": 1,
+                "table.clean.2000841": 1,
+                "table.clean.2000842": 1, //清理场上所有1~2级神的面容
+                "prompt": {
+                    "id": "prompt_5321185_01",
+                    "text": "拜铃耶的方法起作用后，那些神灵的絮语再也无法打扰你了。你的世界彻底清净下来，一丝一毫的回响都不复存在。"
+                },
+                "success":{
+                    "event_off":5321185
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "id": 5310611,
+    "text": "秘密幽会",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start":false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+       "round_begin_ba": 3 //每3回合结算开始时
+    },
+    "condition": { //条件
+        "counter.7000572<":1,   //和正教没决裂
+        "any":{
+            "table_have.2000021":1 , //伊曼闲置
+            "rite":5004513  //伊曼的祈祷开启了
+        }
+        
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "clean.rite":5004513, //关闭伊曼的祈祷
+                "counter+7000586":1,  //阻止伊曼的祈祷开启的计数
+                "rite":5004516, //开启仪式  秘密幽会
+                "success":{
+                    "event_off":5310611  //关闭自检
+                }
+            }
+        }
+    ]
+}

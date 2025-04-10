@@ -1,0 +1,28 @@
+{
+    "id": 5321155,
+    "text": "破除洁净",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start_init": [1],
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "round_begin_ba": 1
+    },
+    "condition": { //条件
+        "table_have.2000022": 1, //拜铃耶存活
+        "table_have.2000726": 1 //2级正教理念在手牌
+    },
+    "settlement": [
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "rite": 5008164,
+                "prompt": {
+                    "id": "5321155_prompt_1",
+                    "text": "这天，你路过纯净者教会的时候，突然注意到有一伙鬼鬼祟祟的人绕到圣殿的一侧，抬着一个巨大的，飘散着恶臭的大桶……她们，呃，等等，她们该不会是想把这玩意儿泼到圣殿里去吧？",
+                    "icon": "cards/2000022"
+                }
+            }
+        }
+    ]
+}

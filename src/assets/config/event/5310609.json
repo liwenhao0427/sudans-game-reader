@@ -1,0 +1,31 @@
+{
+    "id": 5310609,
+    "text": "伊曼的祈祷开启的幕后",
+    "is_replay": 1, //是否可以重复触发
+    "auto_start":false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+       "round_begin_ba": 2 //每2回合结算开始时
+    },
+    "condition": { //条件
+        "counter.7000572<":1,   //和正教没决裂
+        "counter.7000586<":1,    //表明伊曼的祈祷可开启
+        "any":{
+            "all":{ 
+                "table_have.2000021":1,  //伊曼闲置
+                "!table_have.2000021.追随者":1 //伊曼没有入队
+            },
+            "table_have.2001071":1  //代班祭司闲置，这个祭司只在伊曼入队后才会刷出
+        }
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "rite":5004513, //开启仪式  伊曼的祈祷
+                
+            }
+        }
+    ]
+}

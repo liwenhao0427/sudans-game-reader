@@ -1,0 +1,26 @@
+{
+    "id": 5320058,
+    "text": "铁头大敌事件再起",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "card_clean": 1
+    },
+    "condition":{  //条件
+        "type":"sudan",
+        "counter.7000191<":1, //没有因为国民的支持而关闭
+        "table_have.2000369":1, //铁头闲置
+        "have.2000369.大敌":1  // 铁头有大敌标签
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "loot":6000091
+            }
+        }
+
+    ]
+}

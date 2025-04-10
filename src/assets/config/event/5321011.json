@@ -1,0 +1,29 @@
+{
+    "id": 5321011,
+    "text": "法拉杰声望事件-激励2",
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": false, // 是否启动就立即开始校验条件
+    "on": { //时机
+        "rite_end": 5000002
+    },
+    "condition": { //条件
+    "all":{
+        "table_have.法拉杰": 1    //法拉杰还活着
+    }
+    },
+    "settlement": [ //效果 
+        {
+            "tips_resource": "",
+            "tips_text": "",
+            "action": {
+                "table.法拉杰-事件提示":1,
+                "counter+7000230":1,   //法拉杰声望事件善良lv2计数器
+                "rite":5008007,
+                "success": {
+                    "event_off": 5321011
+                }
+            }
+        }
+    ]
+}

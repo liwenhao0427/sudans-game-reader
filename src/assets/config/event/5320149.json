@@ -1,0 +1,24 @@
+{
+    "id": 5320149,
+    "text": "娜依拉声望事件--帝国的勇士-重复触发",     
+    "is_replay": 0, //是否可以重复触发
+    "auto_start": false,
+    "start_trigger": true, // 是否启动就立即开始校验条件
+    "on":{   //时机
+        "round_begin_ba": 1
+    },
+    "condition":{
+        "table_have.2000055":1, //娜依拉闲置
+        "!have.2000055.大敌":1  //娜依拉不是大敌
+    },
+    "settlement": [    //效果 
+        {
+            "tips_resource":"", 
+            "tips_text":"",
+            "action":{
+                "rite":5006611
+            }
+        }
+
+    ]
+}

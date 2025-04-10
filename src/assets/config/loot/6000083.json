@@ -1,0 +1,443 @@
+{
+    "id": 6000083,
+    "name": "赃物",
+    "repeat": 1,
+    "type": 2, 
+    "item": [
+        {
+            "num" : "1",
+            "id" : "2000193",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000203",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000204",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000205",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000206",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000207",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000208",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000209",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000210",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000211",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000212",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000213",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000214",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000215",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000216",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000217",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000218",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000219",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000220",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000221",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000222",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000223",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000224",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000225",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000226",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000227",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000228",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000229",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000230",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000231",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000232",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000233",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000234",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000235",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000236",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000237",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000238",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000239",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000240",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000241",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000242",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000243",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000244",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000245",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000246",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000247",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000248",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000249",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000250",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000251",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000252",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000253",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000254",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000255",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000256",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000257",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000258",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000259",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000260",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000261",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000262",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000263",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000264",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000265",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000266",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000267",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000268",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000269",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000270",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000271",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000272",
+            "type" : "card",
+            "weight" : 10
+        },
+        {
+            "num" : "1",
+            "id" : "2000273",
+            "type" : "card",
+            "weight" : 10
+        }
+    ]
+
+
+
+}

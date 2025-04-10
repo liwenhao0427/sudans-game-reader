@@ -1,0 +1,22 @@
+{
+    "id": 5360062,
+    "text": "成就-无所不知-金内幕",
+    "is_replay": 1, 
+    "auto_start_init": [1], 
+    "start_trigger": false, 
+    "on":{   
+        "round_begin_ba":1 
+    },
+    "condition":{
+        "have.2000416":1, //金内幕
+    },
+    "settlement": [    
+    {
+        "tips_resource":"", 
+        "tips_text":"",
+        "action":{
+            "global_counter=7200117": 1, //成就-无所不知-金内幕
+        }
+    }
+    ]
+}

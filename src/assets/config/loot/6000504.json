@@ -1,0 +1,44 @@
+{
+    "id": 6000504,
+    "name": "结局-最后的苏丹卡",
+    "repeat": 1,
+    "type": 99, // 2 普通权重, 3 维新
+    "item": [
+        {
+            "condition":{
+                "have.纵欲":1, 
+            },
+            "num" : "1",
+            "id" : "5010026",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "have.杀戮":1, 
+            },
+            "num" : "1",
+            "id" : "5010027",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "have.奢靡":1, 
+            },
+            "num" : "1",
+            "id" : "5010028",
+            "type" : "rite",
+            "weight" : 50
+        },
+        {
+            "condition":{
+                "have.征服":1, 
+            },
+            "num" : "1",
+            "id" : "5010029",
+            "type" : "rite",
+            "weight" : 50
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+        "id": 5310454,
+        "text": "结局-消除苏丹卡-深渊的邀请（废弃）",
+        "is_replay": 0, 
+        "auto_start": false, 
+        "start_trigger": true,
+        "on":{   
+            "round_begin_ba": 1, //回合结算开始时
+        },
+        "condition":{
+            "have.主角.邪恶化身":1
+        },
+        "settlement": [    
+            {
+                "tips_resource":"", 
+                "tips_text":"",
+                "action":{   
+                    //"rite":5010030 //深渊的邀请
+                }
+            }
+    ]
+} 
+
+
+
+
