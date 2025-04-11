@@ -3,6 +3,7 @@
         "name": "黑街勇士讨伐战",
         "text": "你的宅邸被乌泱泱的人群团团围住，人们叫嚣着喊你是个男人就出来迎战。原来，奈布哈尼在他常玩的那条街上宣称你是他见过最强大的男人，方方面面……这激起了这帮小混混们的胜负心。",       
         "tips": "",
+        "mapping_id":8001061, 
         "once_new":0,
         "round_number": 1, 
         "waiting_round":3, //3回合后自动结算
@@ -28,7 +29,7 @@
         "method_settlement": "",
         "auto_begin": 0,
         "auto_result":0,
-        "location": "黑街:[2,5]", 
+        "location": "自宅:[2,12]",
         "icon": "rite_17",  
         "tag_tips": [
         ],

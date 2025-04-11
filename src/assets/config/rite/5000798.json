@@ -3,6 +3,7 @@
     "name": "你的游戏",
     "text": "这是属于你的游戏，你可以决定客人的名单，肆意欢愉，极尽享受——如果苏丹不在场的话。",       
     "tips": "",
+    "mapping_id":8001280, 
     "once_new":0,
     "round_number": 1, 
     "waiting_round":0,

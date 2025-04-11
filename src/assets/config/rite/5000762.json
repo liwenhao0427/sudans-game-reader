@@ -3,6 +3,7 @@
         "name": "公开的拳斗",
         "text": "如果你还记得你和哲巴尔的约定，就该去地下拳斗场找他，尽管那里乌烟瘴气，充斥着原始的暴力和粗鄙的喧嚣。",       
         "tips": "",
+        "mapping_id":8001131, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":4,

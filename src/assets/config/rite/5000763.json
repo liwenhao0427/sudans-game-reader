@@ -3,6 +3,7 @@
         "name": "黑街扬名",
         "text": "想出名还不简单！你只要声称自己杀死了那个著名的拳斗士就行了！",       
         "tips": "",
+        "mapping_id":8001131, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

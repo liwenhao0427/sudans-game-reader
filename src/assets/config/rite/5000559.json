@@ -3,6 +3,7 @@
         "name": "潜入篡改",
         "text": "你试图潜入宫廷，帮助萨达尔尼妃修正苏丹的起居记录。",       
         "tips": "",
+        "mapping_id":8001283, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":0, 

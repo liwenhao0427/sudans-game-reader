@@ -3,6 +3,7 @@
         "name": "黑暗火锅仪式",
         "text": "探入更深的黑暗，用血肉增幅魔力。",       
         "tips": "",
+        "mapping_id":8001269,
         "once_new":0,
         "round_number": 1, 
         "waiting_round":1, 

@@ -3,6 +3,7 @@
         "name": "传播密教理念",
         "text": "你打算向自己的追随者传播密教的理念。",       
         "tips": "",
+        "mapping_id":8001213, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

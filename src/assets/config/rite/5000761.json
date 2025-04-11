@@ -3,6 +3,7 @@
         "name": "您也不想别人知道吧",
         "text": "你拿着哲巴尔遗留的那张面具，准备和他好好谈谈。",       
         "tips": "",
+        "mapping_id":8001008,
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

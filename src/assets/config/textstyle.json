@@ -255,6 +255,10 @@
         "font": "xiquemuye SDF",
         "size": 36
     },
+    "@OVER_RECORD_SUB_NAME": {
+        "font": "xiquemuye SDF",
+        "size": 40
+    },
     "@CARD_INFO_NAME": {
         "font": "Title SDF",
         "enableAutoSize": true,

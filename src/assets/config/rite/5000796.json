@@ -3,6 +3,7 @@
     "name": "苏丹的游戏",
     "text": "现在，高贵而仁慈的君王，要求你加入这场“苏丹的游戏”。",       
     "tips": "",
+    "mapping_id":8001280, 
     "once_new":0,
     "round_number": 3, 
     "waiting_round":5,

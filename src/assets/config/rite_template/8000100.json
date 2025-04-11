@@ -14,20 +14,6 @@
         "y": -214
     },
     "slots": {
-        "s6": {
-            "is_hide_bg": false,
-            "is_set_card_hide_bg": false,
-            "slot_bg": "normal_7",
-            "pos": {
-                "x": 1822,
-                "y": 1413
-            },
-            "scale": {
-                "x": 1,
-                "y": 1
-            },
-            "rotation_z": 0
-        },
         "s1": {
             "is_hide_bg": false,
             "is_set_card_hide_bg": false,
@@ -91,6 +77,34 @@
             "pos": {
                 "x": 1222,
                 "y": 1413
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s6": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_7",
+            "pos": {
+                "x": 1822,
+                "y": 1413
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "rotation_z": 0
+        },
+        "s7": {
+            "is_hide_bg": false,
+            "is_set_card_hide_bg": false,
+            "slot_bg": "normal_7",
+            "pos": {
+                "x": 591,
+                "y": 754
             },
             "scale": {
                 "x": 1,

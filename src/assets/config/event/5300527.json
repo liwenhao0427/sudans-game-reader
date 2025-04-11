@@ -9,7 +9,7 @@
         "round_begin_ba":1 
     },
     "condition":{  //条件
-        
+        "table_have.2000064":1  //奈布哈尼闲置
     },
     "settlement": [    //效果 
         {

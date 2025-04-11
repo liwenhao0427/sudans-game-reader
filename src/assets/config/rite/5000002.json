@@ -5484,10 +5484,11 @@
                 "result_text": "",
                 "result": 
                 {
+                    "s1+回收":1,
                 },
                 "action":
                 {
-                    "event_on": 5000515, 
+                    "rite": 5000515, 
                     "prompt":{
                         "id":"5000002_prompt_328", 
                         "text":"白蜜琥珀宝珠能用来驱散诅咒",

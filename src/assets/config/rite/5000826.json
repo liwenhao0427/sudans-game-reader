@@ -3,6 +3,7 @@
     "name": "白银马鞍",
     "text": "你可以将白银马鞍赠给你的朋友。",       
     "tips": "",
+    "mapping_id":8001246,
     "once_new":0,
     "round_number": 1, 
     "waiting_round":1,

@@ -3,6 +3,7 @@
         "name": "处置女邪术师",
         "text": "你打算如何处置这名信奉密神的邪术师？",       
         "tips": "",
+        "mapping_id":8001270, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

@@ -3,6 +3,7 @@
         "name": "真正的报偿",
         "text": "你希望能说服萨达尔尼帮助你弑君，而这样的密谋只适合当面说。你决定冒险潜入宫廷，和萨达尔尼见上一面。",       
         "tips": "",
+        "mapping_id":8001283, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":0,

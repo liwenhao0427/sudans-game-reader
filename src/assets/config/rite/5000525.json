@@ -3,6 +3,7 @@
         "name": "静待时机",
         "text": "如果时机成熟，你可以给安苏亚妃传信，她会为你窃走苏丹的戒指，为你的弑君计划制造可乘之机。",       
         "tips": "",
+        "mapping_id":8001283, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":0,

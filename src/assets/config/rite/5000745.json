@@ -3,6 +3,7 @@
         "name": "研究神秘的锅",
         "text": "商店老板附赠的锅，藏着什么秘密呢？",       
         "tips": "",
+        "mapping_id":8001005,
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

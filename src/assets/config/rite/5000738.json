@@ -3,6 +3,7 @@
         "name": "召唤邪物",
         "text": "不同的异界怪物有着完全不一样的生态，来历，传说……但它们都有着相同的渴望，渴望来到这凡人的世界。",       
         "tips": "",
+        "mapping_id":8001266,
         "once_new":0,
         "round_number": 1, 
         "waiting_round":1, 

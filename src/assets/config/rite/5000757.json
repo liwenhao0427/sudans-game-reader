@@ -3,6 +3,7 @@
         "name": "一件残酷的礼物",
         "text": "怎么处理这件战利品呢？",       
         "tips": "",
+        "mapping_id":8001246, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

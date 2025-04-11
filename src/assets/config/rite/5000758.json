@@ -3,6 +3,7 @@
         "name": "一件凶煞的商品",
         "text": "你把租用你家商铺的异国商人叫了过来，准备将这颗狼头脱手。",       
         "tips": "",
+        "mapping_id":8001213, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

@@ -3,6 +3,7 @@
     "name": "蛮野之心",
     "text": "荒野上的蛮族将这件宝物送给了你，而你打算把它送给芮尔。",       
     "tips": "",
+    "mapping_id":8001246,
     "once_new":0,
     "round_number": 1, 
     "waiting_round":1,

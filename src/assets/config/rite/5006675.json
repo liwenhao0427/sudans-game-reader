@@ -7,6 +7,18 @@
         "round_number": 3, //立即执行
         "waiting_round":7,
         "waiting_round_end_action":[
+            {
+                "condition": {
+                },
+                "result_title":"",
+                "result_text": "",
+                "result": 
+                { 
+                },
+                "action": {
+                    "counter=7000379":0, //修苗圃的计数器归0
+                }
+            },
         ],        
         "method_settlement": "",
         "auto_begin": 0,

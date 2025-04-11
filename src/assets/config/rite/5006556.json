@@ -191,7 +191,8 @@
                     "condition": 
                     {
                         "type":"char",
-                        "追随者":1
+                        "追随者":1,
+                        "!怪物":1,
                     },
                     "open_adsorb":1,
                     "is_key":0,
@@ -204,7 +205,8 @@
                 "condition": 
                 {
                     "type":"char",
-                    "追随者":1
+                    "追随者":1,
+                    "!怪物":1,
                 },
                 "open_adsorb":1,
                 "is_key":0,
@@ -217,7 +219,8 @@
                 "condition": 
                 {
                     "type":"char",
-                    "追随者":1
+                    "追随者":1,
+                    "!怪物":1,
                 },
                 "open_adsorb":1,
                 "is_key":0,

@@ -471,6 +471,38 @@
         "zhCN": "增益",
         "comment": "积分商城界面-增益物品类型"
     },
+    "GALLERY_TITLE": {
+    "zhCN": "历史画廊",
+    "comment": "历史画廊界面-标题"
+  },
+  "GALLERY_TEXT": {
+    "zhCN": "在这里可以看到你已经体验过的游戏内容。",
+    "comment": "历史画廊界面-文本说明"
+  },
+  "GALLERY_BTN_OVER": {
+    "zhCN": "结局 ({0}/{1})  <link=over><sprite=36></link>",
+    "comment": "历史画廊界面-结局按钮,{0}是当前结局存档数量，{1}是数量上限"
+  },
+  "OVER_RECORD_TIPS": {
+    "zhCN": "历史画廊仅能显示最近200个结局。您可以手动删除多余的结局。",
+    "comment": "历史画廊界面-结局按钮说明"
+  },
+  "GALLERY_BTN_CARD": {
+    "zhCN": "卡牌",
+    "comment": "历史画廊界面-卡牌收藏按钮"
+  },
+  "GALLERY_BTN_MEMORY": {
+    "zhCN": "回忆",
+    "comment": "历史画廊界面-结局存档查看按钮"
+  },
+  "GALLERY_SUCCESS": {
+    "zhCN": "胜利",
+    "comment": "历史画廊界面-胜利结局"
+  },
+  "GALLERY_DEAD": {
+    "zhCN": "死亡",
+    "comment": "历史画廊界面-死亡结局"
+  },
     "OVER_EXTRA_TEXT": {
         "zhCN": "本轮你成功摧毁了{0}张苏丹卡, 命运发生了一些变化",
         "comment": "结束界面-额外文字"
@@ -1005,5 +1037,85 @@
     "OVER_END": {
         "zhCN": "结束",
         "comment": "结束界面后日谈结束按钮文本"
-    }
+    },
+    "KEYMAP_KEYBOARD": {
+        "zhCN": "键位说明",
+        "comment": "键盘按键说明入口"
+    },
+    "KEYMAP_KEYBOARD_TITLE": {
+        "zhCN": "键位说明",
+        "comment": "键盘按键说明标题"
+    },
+    "KEYMAP_KEYBOARD_DESC": {
+        "zhCN": "",
+        "comment": "具体的按键说明信息"
+    },
+    "KEYMAP_RESET_ALL": {
+        "zhCN": "默认设置",
+        "comment": "恢复所有按键默认设置"
+    },
+    "KEYMAP_Submit_Keyboard&Mouse": {
+        "zhCN": "确定/跳过气泡/下一句文本",
+        "comment": "通用确定/跳过气泡/下一句文本"
+    },
+    "KEYMAP_Cancel_Keyboard&Mouse": {
+        "zhCN": "取消/打开主菜单",
+        "comment": "通用取消/打开游戏主菜单"
+    },
+    "KEYMAP_Sort_Keyboard&Mouse": {
+        "zhCN": "整理手牌",
+        "comment": "整理手牌"
+    },
+    "KEYMAP_IThink_Keyboard&Mouse": {
+        "zhCN": "寻思当前手牌",
+        "comment": "寻思当前手牌"
+    },
+    "KEYMAP_ShowCardInfo_Keyboard&Mouse": {
+        "zhCN": "打开卡牌详情",
+        "comment": "打开卡牌详情"
+    },
+    "KEYMAP_Help_Keyboard&Mouse": {
+        "zhCN": "打开帮助界面",
+        "comment": "打开帮助界面"
+    },
+    "KEYMAP_MapMove_Keyboard&Mouse": {
+        "zhCN": "移动地图",
+        "comment": "移动地图"
+    },
+    "KEYMAP_MapZoom_Keyboard&Mouse": {
+        "zhCN": "缩放地图",
+        "comment": "缩放地图"
+    },
+    "KEYMAP_Bag1_Keyboard&Mouse": {
+        "zhCN": "背包1",
+        "comment": "背包1"
+    },
+    "KEYMAP_Bag2_Keyboard&Mouse": {
+        "zhCN": "背包2",
+        "comment": "背包2"
+    },
+    "KEYMAP_Bag3_Keyboard&Mouse": {
+        "zhCN": "背包3",
+        "comment": "背包3"
+    },
+    "KEYMAP_Bag4_Keyboard&Mouse": {
+        "zhCN": "背包4",
+        "comment": "背包4"
+    },
+    "KEYMAP_BagSwitch_Keyboard&Mouse": {
+        "zhCN": "切换背包",
+        "comment": "切换背包"
+    },
+    "KEYMAP_BagOpen_Keyboard&Mouse": {
+        "zhCN": "打开背包界面",
+        "comment": "打开背包界面"
+    },
+    "KEYMAP_Notes_Keyboard&Mouse": {
+        "zhCN": "打开/关闭通知",
+        "comment": "打开/关闭信息栏"
+    },
+    "KEYMAP_RestoreRite_Keyboard&Mouse": {
+        "zhCN": "填充上一次使用的卡牌",
+        "comment": "填充上一次使用的卡牌"
+    },
 }
