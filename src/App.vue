@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="app-title">游戏分支树展示</h1>
+    <h1 class="app-title">苏丹的游戏剧情阅读器</h1>
     
     <!-- 事件列表和分页 -->
     <div class="event-list-container" v-if="!rootEvent">
@@ -13,6 +13,37 @@
             placeholder="在结果中筛选..." 
             class="filter-input"
           />
+          <!-- 添加类型筛选按钮 -->
+          <div class="type-filter-buttons">
+            <button 
+              @click="filterByType('event')" 
+              class="type-filter-button" 
+              :class="{'active': activeTypeFilter === 'event'}"
+            >
+              事件
+            </button>
+            <button 
+              @click="filterByType('rite')" 
+              class="type-filter-button" 
+              :class="{'active': activeTypeFilter === 'rite'}"
+            >
+              仪式
+            </button>
+            <button 
+              @click="filterByType('loot')" 
+              class="type-filter-button" 
+              :class="{'active': activeTypeFilter === 'loot'}"
+            >
+              战利品
+            </button>
+            <button 
+              @click="filterByType('all')" 
+              class="type-filter-button" 
+              :class="{'active': activeTypeFilter === 'all'}"
+            >
+              全部
+            </button>
+          </div>
         </div>
       </div>
       
@@ -28,9 +59,10 @@
           <div class="event-list-name">{{ event.name || event.text || '未命名事件' }}</div>
         </div>
         <div v-if="currentPageEvents.length === 0" class="no-events">
-          <i class="fas fa-info-circle"></i> 没有找到事件，请尝试其他搜索条件
+          <i class="fas fa-info-circle"></i> 没有找到事件，请尝试其他筛选条件
         </div>
       </div>
+      
       
       <div class="pagination">
         <button 
@@ -108,6 +140,11 @@
         </div>
       </div>
     </div>
+
+        
+    <div class="footer">
+      <p>苏丹的游戏剧情阅读器 &copy; 2025 by <a href="https://github.com/liwenhao0427/sudans-game-reader" target="_blank">liwenhao0427</a></p>
+    </div>
   </div>
 </template>
 
@@ -118,7 +155,6 @@ import { ref, onMounted, reactive, computed, watch } from 'vue';
 import { 
   handleDuplicateKeys, 
   loadEventData, 
-  searchEventsByName, 
   loadGameDataIndex,
   getEventsByType
 } from './services/eventService';
@@ -149,23 +185,21 @@ export default {
     const allEventsCache = ref({}); // 缓存所有类型的数据
     const currentPage = ref(1);
     const jumpToPage = ref(1);
-    const pageSize = 20; // 增加每页显示数量
-    const searchQuery = ref('');
-    const searchType = ref('id');
-    const contentTypes = reactive({
-      event: true,
-      rite: false,
-      loot: false
-    });
+    const pageSize = 20;
     const isLoading = ref(false);
-    const searchResults = ref([]);
     const listFilter = ref(''); // 列表内筛选
+    const activeTypeFilter = ref('all'); // 当前激活的类型筛选
     
     // 根据筛选条件过滤事件
     const filteredEvents = computed(() => {
-      let events = searchQuery.value ? searchResults.value : allEvents.value;
+      let events = allEvents.value;
       
-      // 应用列表内筛选
+      // 应用类型筛选
+      if (activeTypeFilter.value !== 'all') {
+        events = events.filter(event => event.type === activeTypeFilter.value);
+      }
+      
+      // 应用文本筛选
       if (listFilter.value.trim()) {
         const filter = listFilter.value.toLowerCase();
         events = events.filter(event => {
@@ -203,6 +237,13 @@ export default {
       }
     });
     
+    // 按类型筛选
+    const filterByType = (type) => {
+      activeTypeFilter.value = type;
+      currentPage.value = 1;
+      jumpToPage.value = 1;
+    };
+    
     // 跳转到指定页
     const goToPage = () => {
       const page = parseInt(jumpToPage.value);
@@ -238,36 +279,14 @@ export default {
       }
     };
     
-    // 清除所有筛选条件
-    const clearFilters = () => {
-      contentTypes.event = true;
-      contentTypes.rite = true;
-      contentTypes.loot = true;
-      listFilter.value = '';
-      loadAllEvents();
-    };
-    
     // 一次性加载所有事件数据
     const loadAllEvents = async () => {
       if (isLoading.value) return;
       
       isLoading.value = true;
       try {
-        // 获取选中的内容类型
-        const types = [];
-        if (contentTypes.event) types.push('event');
-        if (contentTypes.rite) types.push('rite');
-        if (contentTypes.loot) types.push('loot');
-        
-        // 如果没有选择任何类型，默认使用所有类型
-        if (types.length === 0) {
-          types.push('event', 'rite', 'loot');
-          // 更新UI状态
-          contentTypes.event = true;
-          contentTypes.rite = true;
-          contentTypes.loot = true;
-        }
-        
+        // 加载所有类型的数据
+        const types = ['event', 'rite', 'loot'];
         let combinedEvents = [];
         
         // 对每种类型加载数据（使用缓存）
@@ -291,87 +310,6 @@ export default {
         jumpToPage.value = 1;
       } catch (e) {
         console.error('加载事件数据失败:', e);
-      } finally {
-        isLoading.value = false;
-      }
-    };
-    
-    // 处理搜索
-    const handleSearch = async () => {
-      if (!searchQuery.value.trim()) {
-        searchResults.value = [];
-        // 如果搜索框为空，显示所有数据
-        await loadAllEvents();
-        return;
-      }
-      
-      isLoading.value = true;
-      currentPage.value = 1;
-      jumpToPage.value = 1;
-      searchResults.value = [];
-      
-      try {
-        if (searchType.value === 'id') {
-          // 按ID搜索
-          const id = parseInt(searchQuery.value);
-          if (isNaN(id)) {
-            alert('请输入有效的数字ID');
-            return;
-          }
-          
-          // 获取选中的内容类型
-          const types = [];
-          if (contentTypes.event) types.push('');
-          if (contentTypes.rite) types.push('rite_');
-          if (contentTypes.loot) types.push('loot_');
-          
-          // 如果没有选择任何类型，默认尝试所有类型
-          if (types.length === 0) {
-            types.push('', 'rite_', 'loot_');
-          }
-          
-          let found = false;
-          for (const type of types) {
-            try {
-              const eventData = await loadEventData(type + id);
-              if (eventData) {
-                searchResults.value.push(eventData);
-                found = true;
-                break;
-              }
-            } catch (e) {
-              console.warn(`在 ${type} 类型中未找到ID为 ${id} 的内容`);
-            }
-          }
-          
-          if (!found) {
-            alert(`未找到ID为 ${id} 的内容`);
-          }
-        } else {
-          // 按名称搜索
-          const name = searchQuery.value.trim();
-          
-          // 获取选中的内容类型
-          const types = [];
-          if (contentTypes.event) types.push('event');
-          if (contentTypes.rite) types.push('rite');
-          if (contentTypes.loot) types.push('loot');
-          
-          // 如果没有选择任何类型，默认尝试所有类型
-          if (types.length === 0) {
-            types.push('event', 'rite', 'loot');
-          }
-          
-          const results = await searchEventsByName(name, types);
-          searchResults.value = results;
-          
-          if (results.length === 0) {
-            alert(`未找到名称包含 "${name}" 的内容`);
-          }
-        }
-      } catch (e) {
-        console.error('搜索失败:', e);
-        alert('搜索过程中发生错误，请查看控制台获取详细信息');
       } finally {
         isLoading.value = false;
       }
@@ -450,16 +388,13 @@ export default {
       goToPage,
       goToFirstPage,
       goToLastPage,
-      searchQuery,
-      searchType,
-      contentTypes,
-      handleSearch,
       currentPageEvents,
       loadEventAsRoot,
       backToList,
       listFilter,
       filteredEvents,
-      clearFilters
+      activeTypeFilter,
+      filterByType
     };
   }
 }
@@ -467,6 +402,38 @@ export default {
 
 <style>
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* 添加类型筛选按钮样式 */
+.type-filter-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.type-filter-button {
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.type-filter-button:hover {
+  background-color: #e9ecef;
+}
+
+.type-filter-button.active {
+  background-color: #42b983;
+  color: white;
+  border-color: #42b983;
+}
+
+.list-filter {
+  display: flex;
+  flex-direction: column;
+}
 
 .container {
   max-width: 1500px;
@@ -799,4 +766,23 @@ export default {
     max-width: 100%;
   }
 }
+
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  color: #606266;
+  padding: 20px 0;
+  border-top: 1px solid #eaeaea;
+}
+
+.footer a {
+  color: #409EFF;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
 </style>

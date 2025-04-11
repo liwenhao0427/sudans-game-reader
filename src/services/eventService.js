@@ -469,7 +469,13 @@ export async function loadGameDataIndex() {
 
 
 // 加载事件数据
-export const loadEventData = async (eventId) => {
+export const loadEventData = async (eventId, type) => {
+  if(type == 'rite'){
+    eventId = 'rite_' + eventId; 
+  }
+  if(type == 'loot'){
+    eventId = 'loot_' + eventId; 
+  }
   try {
     // 判断是否是rite或loot类型的ID
     const isRite = typeof eventId === 'string' && eventId.startsWith('rite_');
