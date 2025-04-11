@@ -398,6 +398,76 @@ export const getChildEventIds = (eventData) => {
   return Array.from(childIds);
 };
 
+// 修改按名称搜索事件的函数，使用索引文件
+export async function searchEventsByName(name, types = ['event']) {
+  try {
+    const index = await loadGameDataIndex();
+    
+    // 过滤符合条件的项目
+    return index.filter(item => {
+      // 检查类型是否匹配
+      if (!types.includes(item.type)) {
+        return false;
+      }
+      
+      // 检查名称或文本是否包含搜索词
+      const itemName = item.name || '';
+      const itemText = item.text || '';
+      const searchTerm = name.toLowerCase();
+      
+      return itemName.toLowerCase().includes(searchTerm) || 
+             itemText.toLowerCase().includes(searchTerm);
+    });
+  } catch (e) {
+    console.error('搜索失败:', e);
+    return [];
+  }
+}
+
+// 添加一个函数来获取指定类型的所有事件
+export async function getEventsByType(type, page = 1, pageSize = 10) {
+  try {
+    const index = await loadGameDataIndex();
+    
+    // 过滤指定类型的项目
+    const filteredItems = index.filter(item => item.type === type);
+    console.log(filteredItems);
+    
+    // 计算分页
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    
+    return {
+      items: filteredItems.slice(startIndex, endIndex),
+      total: filteredItems.length,
+      totalPages: Math.ceil(filteredItems.length / pageSize)
+    };
+  } catch (e) {
+    console.error(`获取${type}列表失败:`, e);
+    return { items: [], total: 0, totalPages: 0 };
+  }
+}
+
+// 添加一个函数来加载索引文件
+let gameDataIndex = null;
+
+export async function loadGameDataIndex() {
+  if (gameDataIndex !== null) {
+    return gameDataIndex;
+  }
+  
+  try {
+    // 使用require直接导入JSON文件，而不是通过fetch请求
+    const response = require('@/assets/game_data_index.json');
+    gameDataIndex =  JSON.parse(response);
+    return gameDataIndex;
+  } catch (e) {
+    console.error('加载游戏数据索引失败:', e);
+    throw e;
+  }
+}
+
+
 // 加载事件数据
 export const loadEventData = async (eventId) => {
   try {
