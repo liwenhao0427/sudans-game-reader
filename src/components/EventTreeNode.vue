@@ -8,13 +8,13 @@
       <span class="toggle-icon" v-if="hasChildren" @click.stop="toggleExpanded">
         {{ expanded ? '▼' : '►' }}
       </span>
-      <div class="node-info">
+      <div class="node-info" @click="toggleExpanded">
         <div class="node-title">
           {{ event.name || event.text || '未命名事件' }}
           <span class="node-id">(ID: {{ event.eventId }})</span>
         </div>
         <div class="node-details" v-if="event.tag_tips || event.location">
-          <span class="tag" v-for="tag in event.tag_tips" :key="tag"><span  v-if="event.tag_tips">{{ tag }}</span></span>
+          <span class="tag" v-for="tag in event.tag_tips" :key="tag"><span v-if="event.tag_tips">{{ tag }}</span></span>
           <span v-if="event.location" class="location">{{ event.location }}</span>
         </div>
       </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { loadEventData, getChildEventIds } from '../services/eventService';
 
 export default {
@@ -47,6 +47,10 @@ export default {
       required: true
     },
     selected: {
+      type: Boolean,
+      default: false
+    },
+    autoExpand: {
       type: Boolean,
       default: false
     }
@@ -114,6 +118,20 @@ export default {
       }
     };
     
+    // 监听 autoExpand 属性变化，自动展开节点
+    watch(() => props.autoExpand, (newValue) => {
+      if (newValue && !expanded.value && hasChildren.value) {
+        toggleExpanded();
+      }
+    }, { immediate: true });
+    
+    // 监听 selected 属性变化，自动展开节点
+    watch(() => props.selected, (newValue) => {
+      if (newValue && !expanded.value && hasChildren.value) {
+        toggleExpanded();
+      }
+    });
+    
     return {
       expanded,
       loading,
@@ -164,6 +182,7 @@ export default {
 .node-info {
   flex: 1;
   overflow: hidden;
+  cursor: pointer; /* 添加指针样式，表明可点击 */
 }
 
 .node-title {
@@ -197,23 +216,24 @@ export default {
 }
 
 .location {
-  background-color: #f1f8e9;
-  color: #558b2f;
+  background-color: #f0f4c3;
+  color: #827717;
   padding: 2px 6px;
   border-radius: 12px;
   font-size: 11px;
 }
 
 .children {
-  margin-left: 20px;
+  margin-left: 24px;
+  margin-top: 5px;
+  border-left: 1px dashed #ddd;
   padding-left: 10px;
-  border-left: 1px dashed #ccc;
 }
 
 .loading {
   padding: 8px;
-  color: #888;
+  color: #666;
   font-style: italic;
-  font-size: 12px;
+  font-size: 13px;
 }
 </style>

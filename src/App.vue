@@ -127,6 +127,7 @@
           v-if="rootEvent" 
           :event="rootEvent" 
           :selected="selectedEventId === rootEvent.id"
+          :auto-expand="true"
           @select="selectEvent"
         />
         <div v-else class="loading">
