@@ -28,10 +28,6 @@
                 <span v-for="(tag, index) in event.tag_tips" :key="index" class="tag">{{ tag }}</span>
               </div>
             </div>
-            <div class="info-item" v-if="event.icon">
-              <div class="info-label">图标:</div>
-              <div class="info-value">{{ event.icon }}</div>
-            </div>
             <div class="info-item" v-if="event.is_replay !== undefined">
               <div class="info-label">可重复触发:</div>
               <div class="info-value">{{ event.is_replay ? '是' : '否' }}</div>
@@ -113,33 +109,23 @@
         </div>
         <div class="card-content" v-if="expandedSections.settlementPrior">
           <div v-for="(item, index) in event.settlement_prior" :key="index" class="settlement-item">
-            <div class="settlement-header">
-              <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
-              <div class="settlement-condition" v-if="item.condition">
-                <strong>条件:</strong>
-                <pre>{{ JSON.stringify(item.condition, null, 2) }}</pre>
-              </div>
-            </div>
             
             <div class="settlement-body">
-              <div class="settlement-text" v-if="item.result_text">{{ item.result_text }}</div>
-              
-              <div class="settlement-result" v-if="item.result && Object.keys(item.result).length > 0">
-                <strong>结果:</strong>
-                <div class="result-effects">
-                  <div v-for="(value, key) in item.result" :key="key" class="effect-item">
-                    {{ key }}: {{ value }}
-                  </div>
-                </div>
+              <div class="settlement-text" v-if="item.result_text" @click="toggleSettlementDetails(index, 'settlementPrior')" :class="{'clickable': true}">
+                <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
+                {{ item.result_text }}
+                <div class="toggle-details-hint">{{ isSettlementExpanded('settlementPrior', index) ? '收起详情 ▲' : '查看详情 ▼' }}</div>
               </div>
               
-              <div class="settlement-action" v-if="item.action && Object.keys(item.action).length > 0">
-                <strong>动作:</strong>
-                <div class="action-effects">
-                  <div v-for="(value, key) in item.action" :key="key" class="effect-item">
-                    {{ key }}: {{ Array.isArray(value) ? value.join(', ') : value }}
-                  </div>
-                </div>
+              <div v-if="isSettlementExpanded('settlementPrior', index)">
+                <!-- 使用统一的条件显示组件 -->
+                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
+                
+                <!-- 使用统一的结果显示组件 -->
+                <result-display v-if="item.result" :result="item.result"></result-display>
+                
+                <!-- 使用统一的动作显示组件 -->
+                <action-display v-if="item.action" :action="item.action"></action-display>
               </div>
             </div>
           </div>
@@ -154,35 +140,28 @@
         </div>
         <div class="card-content" v-if="expandedSections.settlement">
           <div v-for="(item, index) in event.settlement" :key="index" class="settlement-item">
-            <div class="settlement-header">
-              <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
-              <div class="settlement-condition" v-if="item.condition">
-                <strong>条件:</strong>
-                <pre>{{ JSON.stringify(item.condition, null, 2) }}</pre>
+
+            <div class="settlement-body">
+              <div class="settlement-text" v-if="item.result_text" @click="toggleSettlementDetails(index, 'settlementPrior')" :class="{'clickable': true}">
+                <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
+                {{ item.result_text }}
+                <div class="toggle-details-hint">{{ isSettlementExpanded('settlementPrior', index) ? '收起详情 ▲' : '查看详情 ▼' }}</div>
+              </div>
+              
+              <div v-if="isSettlementExpanded('settlementPrior', index)">
+                <!-- 使用统一的条件显示组件 -->
+                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
+                
+                <!-- 使用统一的结果显示组件 -->
+                <result-display v-if="item.result" :result="item.result"></result-display>
+                
+                <!-- 使用统一的动作显示组件 -->
+                <action-display v-if="item.action" :action="item.action"></action-display>
               </div>
             </div>
             
-            <div class="settlement-body">
-              <div class="settlement-text" v-if="item.result_text">{{ item.result_text }}</div>
-              
-              <div class="settlement-result" v-if="item.result && Object.keys(item.result).length > 0">
-                <strong>结果:</strong>
-                <div class="result-effects">
-                  <div v-for="(value, key) in item.result" :key="key" class="effect-item">
-                    {{ key }}: {{ value }}
-                  </div>
-                </div>
-              </div>
-              
-              <div class="settlement-action" v-if="item.action && Object.keys(item.action).length > 0">
-                <strong>动作:</strong>
-                <div class="action-effects">
-                  <div v-for="(value, key) in item.action" :key="key" class="effect-item">
-                    {{ key }}: {{ Array.isArray(value) ? value.join(', ') : value }}
-                  </div>
-                </div>
-              </div>
-            </div>
+            
+            
           </div>
         </div>
       </div>
@@ -195,33 +174,22 @@
         </div>
         <div class="card-content" v-if="expandedSections.settlementExtre">
           <div v-for="(item, index) in event.settlement_extre" :key="index" class="settlement-item">
-            <div class="settlement-header">
-              <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
-              <div class="settlement-condition" v-if="item.condition">
-                <strong>条件:</strong>
-                <pre>{{ JSON.stringify(item.condition, null, 2) }}</pre>
-              </div>
-            </div>
-            
             <div class="settlement-body">
-              <div class="settlement-text" v-if="item.result_text">{{ item.result_text }}</div>
-              
-              <div class="settlement-result" v-if="item.result && Object.keys(item.result).length > 0">
-                <strong>结果:</strong>
-                <div class="result-effects">
-                  <div v-for="(value, key) in item.result" :key="key" class="effect-item">
-                    {{ key }}: {{ value }}
-                  </div>
-                </div>
+              <div class="settlement-text" v-if="item.result_text" @click="toggleSettlementDetails(index, 'settlementPrior')" :class="{'clickable': true}">
+                <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
+                {{ item.result_text }}
+                <div class="toggle-details-hint">{{ isSettlementExpanded('settlementPrior', index) ? '收起详情 ▲' : '查看详情 ▼' }}</div>
               </div>
               
-              <div class="settlement-action" v-if="item.action && Object.keys(item.action).length > 0">
-                <strong>动作:</strong>
-                <div class="action-effects">
-                  <div v-for="(value, key) in item.action" :key="key" class="effect-item">
-                    {{ key }}: {{ Array.isArray(value) ? value.join(', ') : value }}
-                  </div>
-                </div>
+              <div v-if="isSettlementExpanded('settlementPrior', index)">
+                <!-- 使用统一的条件显示组件 -->
+                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
+                
+                <!-- 使用统一的结果显示组件 -->
+                <result-display v-if="item.result" :result="item.result"></result-display>
+                
+                <!-- 使用统一的动作显示组件 -->
+                <action-display v-if="item.action" :action="item.action"></action-display>
               </div>
             </div>
           </div>
@@ -235,8 +203,54 @@
           <span class="toggle-icon">{{ expandedSections.cardsSlot ? '▼' : '►' }}</span>
         </div>
         <div class="card-content" v-if="expandedSections.cardsSlot">
-          <div class="cards-slot-container">
-            <pre>{{ JSON.stringify(event.cards_slot, null, 2) }}</pre>
+          <div v-for="(slot, key) in event.cards_slot" :key="key" class="card-slot-item">
+            <div class="card-slot-header">
+              <h4 class="slot-key">{{ key }}</h4>
+              <div class="slot-text">{{ slot.text }}</div>
+            </div>
+            
+            <div class="card-slot-grid">
+              <div class="card-slot-info">
+                <div class="info-badge" :class="{'active': slot.open_adsorb === 1}">
+                  <span class="badge-label">开放吸附</span>
+                  <span class="badge-value">{{ slot.open_adsorb ? '是' : '否' }}</span>
+                </div>
+                <div class="info-badge" :class="{'active': slot.is_key === 1}">
+                  <span class="badge-label">关键</span>
+                  <span class="badge-value">{{ slot.is_key ? '是' : '否' }}</span>
+                </div>
+                <div class="info-badge" :class="{'active': slot.is_empty === 1}">
+                  <span class="badge-label">空</span>
+                  <span class="badge-value">{{ slot.is_empty ? '是' : '否' }}</span>
+                </div>
+                <div class="info-badge" :class="{'active': slot.is_enemy === 1}">
+                  <span class="badge-label">敌人</span>
+                  <span class="badge-value">{{ slot.is_enemy ? '是' : '否' }}</span>
+                </div>
+              </div>
+              
+              <div class="card-slot-condition">
+                <!-- 使用统一的条件显示组件 -->
+                <condition-display v-if="slot.condition" :condition="slot.condition"></condition-display>
+              </div>
+            </div>
+            
+            <div v-if="slot.pops && slot.pops.length > 0" class="card-slot-pops">
+              <div class="pops-header">可能的选择 ({{ slot.pops.length }})</div>
+              <div v-for="(pop, index) in slot.pops" :key="index" class="pop-item">
+                <div class="pop-header">选择 {{ index + 1 }}</div>
+                <div class="pop-content">
+                  <div class="pop-condition">
+                    <!-- 使用统一的条件显示组件 -->
+                    <condition-display v-if="pop.condition" :condition="pop.condition"></condition-display>
+                  </div>
+                  <div class="pop-action">
+                    <!-- 使用统一的动作显示组件 -->
+                    <action-display v-if="pop.action" :action="pop.action"></action-display>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -259,7 +273,8 @@
           <span class="toggle-icon">{{ expandedSections.condition ? '▼' : '►' }}</span>
         </div>
         <div class="card-content" v-if="expandedSections.condition">
-          <pre>{{ JSON.stringify(event.condition, null, 2) }}</pre>
+          <!-- 使用统一的条件显示组件 -->
+          <condition-display v-if="event.condition" :condition="event.condition"></condition-display>
         </div>
       </div>
     </div>
@@ -280,8 +295,17 @@
 </template>
 
 <script>
+// 导入统一的显示组件
+import ConditionDisplay from './displays/ConditionDisplay.vue';
+import ResultDisplay from './displays/ResultDisplay.vue';
+import ActionDisplay from './displays/ActionDisplay.vue';
 export default {
   name: 'EventDetails',
+  components: {
+    ConditionDisplay,
+    ResultDisplay,
+    ActionDisplay
+  },
   props: {
     event: {
       type: Object,
@@ -292,15 +316,20 @@ export default {
     return {
       expandedSections: {
         basicInfo: true,
-        tips: false,
+        tips: true,
         openConditions: false,
-        randomText: false,
+        randomText: true,
         settlementPrior: false,
-        settlement: false,
+        settlement: true,
         settlementExtre: false,
         cardsSlot: false,
         on: false,
         condition: false
+      },
+      expandedSettlements: {
+        settlementPrior: {},
+        settlement: {},
+        settlementExtre: {}
       },
       showJsonModal: false
     }
@@ -308,12 +337,49 @@ export default {
   methods: {
     toggleSection(section) {
       this.expandedSections[section] = !this.expandedSections[section];
+    },
+    toggleSettlementDetails(index, section) {
+      if (!this.expandedSettlements[section]) {
+        this.expandedSettlements[section] = {};
+      }
+      this.expandedSettlements[section][index] = !this.expandedSettlements[section][index];
+    },
+    isSettlementExpanded(section, index) {
+      return this.expandedSettlements[section] && this.expandedSettlements[section][index];
     }
   }
 }
 </script>
 
+
 <style scoped>
+
+.settlement-text {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.clickable {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.clickable:hover {
+  background-color: #f0f0f0;
+}
+
+.toggle-details-hint {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+  text-align: right;
+  font-style: italic;
+}
+
 .event-details-container {
   padding: 15px;
   max-height: 100%;
@@ -615,5 +681,179 @@ pre {
 .modal-body pre {
   margin: 0;
   white-space: pre-wrap;
+}
+
+/* 卡片槽位样式 */
+.card-slot-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-slot-header {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.slot-key {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.slot-text {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.card-slot-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.card-slot-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.info-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  min-width: 80px;
+  border: 1px solid #ddd;
+}
+
+.info-badge.active {
+  background-color: #e8f5e9;
+  border-color: #81c784;
+}
+
+.badge-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.badge-value {
+  font-weight: bold;
+  color: #333;
+}
+
+.condition-header, .pops-header, .pop-header, .action-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  background-color: #eee;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.pops-header {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 8px 12px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.card-slot-pops {
+  margin-top: 20px;
+  border-top: 1px dashed #ccc;
+  padding-top: 15px;
+}
+
+.pop-item {
+  margin-bottom: 15px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.pop-header {
+  background-color: #f5f5f5;
+  margin: -12px -12px 12px -12px;
+  padding: 10px 15px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pop-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pop-condition, .pop-action {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+/* 添加统一的条件和动作显示样式 */
+.condition-container, .result-container, .action-container {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+}
+
+.condition-container {
+  background-color: #f3f8ff;
+  border-color: #b3d8ff;
+}
+
+.result-container {
+  background-color: #f0f9eb;
+  border-color: #c2e7b0;
+}
+
+.action-container {
+  background-color: #fdf6ec;
+  border-color: #f5dab1;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.container-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+@media (max-width: 768px) {
+  .card-slot-grid, .pop-content {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

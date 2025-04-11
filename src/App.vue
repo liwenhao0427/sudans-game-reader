@@ -106,7 +106,7 @@ export default {
 
 <style>
 .container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
