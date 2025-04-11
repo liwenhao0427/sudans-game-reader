@@ -8,7 +8,16 @@
       <span class="toggle-icon" v-if="hasChildren" @click.stop="toggleExpanded">
         {{ expanded ? '▼' : '►' }}
       </span>
-      <span class="node-title">{{ event.name || event.text || '未命名事件' }} (ID: {{ event.eventId }})</span>
+      <div class="node-info">
+        <div class="node-title">
+          {{ event.name || event.text || '未命名事件' }}
+          <span class="node-id">(ID: {{ event.eventId }})</span>
+        </div>
+        <div class="node-details" v-if="event.tag_tips || event.location">
+          <span class="tag" v-for="tag in event.tag_tips" :key="tag"><span  v-if="event.tag_tips">{{ tag }}</span></span>
+          <span v-if="event.location" class="location">{{ event.location }}</span>
+        </div>
+      </div>
     </div>
     
     <div class="children" v-if="expanded && hasChildren">
@@ -80,7 +89,7 @@ export default {
       loading.value = true;
       try {
         const childIds = getChildEventIds(props.event);
-        const loadedChildren = [];
+        let loadedChildren = [];
         
         for (const id of childIds) {
           try {
@@ -93,6 +102,9 @@ export default {
           }
         }
         
+        if(loadedChildren){
+          loadedChildren = loadedChildren.filter(child => child.eventId !== props.event.eventId);
+        }
         children.value = loadedChildren;
         // console.log('子节点加载完成:', children.value); // 添加这一行以查看子节点加载情况
       } catch (e) {
@@ -127,7 +139,7 @@ export default {
   border-radius: 4px;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   transition: background-color 0.2s;
 }
 
@@ -146,6 +158,12 @@ export default {
   width: 16px;
   text-align: center;
   cursor: pointer;
+  padding-top: 2px;
+}
+
+.node-info {
+  flex: 1;
+  overflow: hidden;
 }
 
 .node-title {
@@ -153,6 +171,37 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.node-id {
+  font-size: 12px;
+  color: #666;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+.node-details {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  background-color: #e0f7fa;
+  color: #00838f;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+.location {
+  background-color: #f1f8e9;
+  color: #558b2f;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 11px;
 }
 
 .children {

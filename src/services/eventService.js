@@ -322,59 +322,78 @@ export const getChildEventIds = (eventData) => {
     return Array.from(childIds);
   }
   
-  if (eventData.settlement) {
-    eventData.settlement.forEach(item => {
-      if (item.action) {
-        // 检查直接在action中的event_on
-        if (item.action.event_on) {
-          if (Array.isArray(item.action.event_on)) {
-            item.action.event_on.forEach(id => childIds.add(id));
-          } else {
-            childIds.add(item.action.event_on);
-          }
+  // 递归处理对象，查找所有包含rite或event的属性
+  const processObject = (obj, path = '') => {
+    if (!obj || typeof obj !== 'object') return;
+    
+    // 检查对象是否同时包含id和type属性
+    if (obj.id && obj.type) {
+      const id = obj.id;
+      console.log(obj)
+      const type = obj.type;
+      
+      // 根据type类型添加不同前缀的ID
+      if (type === 'event') {
+        if (typeof id === 'number' || /^\d+$/.test(id)) {
+          childIds.add(parseInt(id));
         }
-        
-        // 检查success中的event_on
-        if (item.action.success && item.action.success.event_on) {
-          if (Array.isArray(item.action.success.event_on)) {
-            item.action.success.event_on.forEach(id => childIds.add(id));
-          } else {
-            childIds.add(item.action.success.event_on);
-          }
-        }
-        
-        // 检查failed中的event_on
-        if (item.action.failed && item.action.failed.event_on) {
-          if (Array.isArray(item.action.failed.event_on)) {
-            item.action.failed.event_on.forEach(id => childIds.add(id));
-          } else {
-            childIds.add(item.action.failed.event_on);
-          }
-        }
-        
-        // 检查action中的rite属性
-        if (item.action.rite) {
-          if (Array.isArray(item.action.rite)) {
-            item.action.rite.forEach(id => {
-              // 添加rite_前缀以区分
-              childIds.add(`rite_${id}`);
-            });
-          } else {
-            childIds.add(`rite_${item.action.rite}`);
-          }
+      } else if (type === 'rite') {
+        childIds.add(`rite_${id}`);
+      } else if (type === 'loot') {
+        childIds.add(`loot_${id}`);
+      }
+    }
+    
+    // 遍历对象的所有属性
+    Object.entries(obj).forEach(([key, value]) => {
+      const currentPath = path ? `${path}.${key}` : key;
+      
+      // 处理rite属性
+      if (key === 'rite') {
+        if (Array.isArray(value)) {
+          value.forEach(id => childIds.add(`rite_${id}`));
+        } else if (value) {
+          childIds.add(`rite_${value}`);
         }
       }
+      // 处理包含event的属性（如event_on）
+      else if (key.includes('event') && key !== 'event_text' && key !== 'event_tips') {
+        if (Array.isArray(value)) {
+          value.forEach(id => {
+            if (id && typeof id === 'number') childIds.add(id);
+          });
+        } else if (value && typeof value === 'number') {
+          childIds.add(value);
+        }
+      }
+      // 处理loot属性
+      else if (key === 'loot') {
+        if (Array.isArray(value)) {
+          value.forEach(id => {
+            if (id && typeof id === 'number') childIds.add(`loot_${id}`);
+          });
+        } else if (value && typeof value === 'number') {
+          childIds.add(`loot_${value}`);
+        }
+      }
+      
+      // 递归处理子对象和数组
+      if (typeof value === 'object') {
+        processObject(value, currentPath);
+      }
     });
-  }
-  
-  // 检查顶层rite属性
-  if (eventData.rite) {
-    if (Array.isArray(eventData.rite)) {
-      eventData.rite.forEach(id => childIds.add(`rite_${id}`));
-    } else {
-      childIds.add(`rite_${eventData.rite}`);
+    
+    // 如果是数组，处理数组中的每个元素
+    if (Array.isArray(obj)) {
+      obj.forEach((item, index) => {
+        if (typeof item === 'object') {
+          processObject(item, `${path}[${index}]`);
+        }
+      });
     }
-  }
+  };
+  // 开始递归处理
+  processObject(eventData);
   
   return Array.from(childIds);
 };
@@ -382,10 +401,20 @@ export const getChildEventIds = (eventData) => {
 // 加载事件数据
 export const loadEventData = async (eventId) => {
   try {
-    // 判断是否是rite类型的ID
+    // 判断是否是rite或loot类型的ID
     const isRite = typeof eventId === 'string' && eventId.startsWith('rite_');
-    const directory = isRite ? 'rite' : 'event';
-    const id = isRite ? eventId.substring(5) : eventId;
+    const isLoot = typeof eventId === 'string' && eventId.startsWith('loot_');
+    
+    let directory = 'event';
+    let id = eventId;
+    
+    if (isRite) {
+      directory = 'rite';
+      id = eventId.substring(5);
+    } else if (isLoot) {
+      directory = 'loot';
+      id = eventId.substring(5);
+    }
     
     // 使用require加载JSON文件
     // console.log("加载的JSON文本", `raw-loader!@/assets/config/${directory}/${id}.json`);
