@@ -431,7 +431,7 @@ export async function getEventsByType(type, page = 1, pageSize = 10) {
     
     // 过滤指定类型的项目
     const filteredItems = index.filter(item => item.type === type);
-    console.log(filteredItems);
+    // console.log(filteredItems);
     
     // 计算分页
     const startIndex = (page - 1) * pageSize;
@@ -636,7 +636,7 @@ export async function loadCardsData() {
 export async function getCardById(cardId) {
   try {
     const cards = await loadCardsData();
-    return cards.find(card => card.id === cardId || card.id === parseInt(cardId));
+    return cards[cardId]
   } catch (e) {
     console.error(`获取卡片 ${cardId} 信息失败:`, e);
     return null;

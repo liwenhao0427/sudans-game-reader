@@ -91,7 +91,12 @@ export default {
       // 检查是否包含特殊键
       const specialKeys = ['is', 'type', 'any'];
       return specialKeys.some(key => key in this.condition) || 
-        Object.keys(this.condition).some(key => key.startsWith('!s') || key.startsWith('s'));
+        Object.keys(this.condition).some(key => 
+          key.startsWith('!s') || 
+          key.startsWith('s') || 
+          key.startsWith('r') || // 添加对r开头的键的检查
+          key === 'round_begin_ba'
+        );
     },
     isComplexCondition() {
       // 判断是否为复杂条件（包含深层嵌套）
@@ -115,7 +120,30 @@ export default {
         return '天数限制';
       } else if (key === '杀戮' || key === '纵欲' || key === '奢靡' || key === '征服') {
         return `需要${key}`;
-      } else if (key.startsWith('f:rare-s') && key.includes('.rare')) {
+      } else if (key.startsWith('r') && /^r\d+:.+[<>=]/.test(key)) {
+        // 处理卡槽角色属性条件，如 "r1:体魄<"
+        const slotMatch = key.match(/r(\d+):(.+?)([<>=]+)$/);
+        if (slotMatch) {
+          const slotNum = slotMatch[1];
+          let attribute = slotMatch[2]; // 体魄、战斗等属性
+          const operator = slotMatch[3]; // <, >, >=, <= 等操作符
+          
+          // 处理复合属性，如 "智慧_PLUS_生存"
+          if (attribute.includes('_PLUS_')) {
+            attribute = attribute.split('_PLUS_').join(' + ');
+          }
+          
+          let operatorText = '';
+          if (operator === '<') operatorText = '小于';
+          else if (operator === '>') operatorText = '大于';
+          else if (operator === '<=') operatorText = '小于等于';
+          else if (operator === '>=') operatorText = '大于等于';
+          else if (operator === '=') operatorText = '等于';
+          
+          return `卡槽 ${slotNum} 的${attribute}${operatorText}`;
+        }
+        return key;
+      }  else if (key.startsWith('f:rare-s') && key.includes('.rare')) {
         // 处理卡位稀有度比较
         const slotMatch = key.match(/s(\d+)/);
         if (slotMatch) {
@@ -158,6 +186,14 @@ export default {
         return this.formatCardType(value);
       } else if (key === 'round_begin_ba' && Array.isArray(value) && value.length === 2) {
         return `第 ${value[0]} 天到第 ${value[1]} 天`;
+      } else if (key.startsWith('r') && /^r\d+:.+[<>=]/.test(key) && Array.isArray(value)) {
+        // 处理卡槽角色属性条件的值
+        if (value.length === 1) {
+          return `${value[0]} 点`;
+        } else if (value.length === 2) {
+          return `${value[0]} 到 ${value[1]} 点`;
+        }
+        return value.join(', ');
       } else if (['杀戮', '纵欲', '奢靡', '征服'].includes(key)) {
         return value === 1 ? '是' : '否';
       } else if (typeof value === 'boolean') {
@@ -174,7 +210,7 @@ export default {
         'event': '事件',
         'enemy': '敌人',
         'npc': 'NPC',
-        'sudan': '苏丹'
+        'sudan': '苏丹卡'
       };
       return typeMap[type] || type;
     },
@@ -207,7 +243,10 @@ export default {
         if (!specialKeys.includes(key) && 
             !key.startsWith('!s') && 
             !key.startsWith('s') && 
-            typeof value !== 'object') {
+            typeof value !== 'object' || 
+            // 特殊处理r开头的属性条件和天数限制
+            key.startsWith('r') || 
+            key === 'round_begin_ba') {
           others[key] = value;
         }
       });

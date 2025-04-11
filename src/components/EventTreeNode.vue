@@ -142,6 +142,23 @@ export default {
       handleChildSelect,
       toggleExpanded
     };
+  },
+  // 添加mounted钩子
+  mounted() {
+    // 如果是根节点且有自动展开属性，则在组件挂载后通知父组件选择第一个仪式节点
+    if (this.autoExpand && this.event && (!this.event.parent || this.event.parent === 0)) {
+      // 使用nextTick确保DOM已更新
+      this.$nextTick(() => {
+        // 检查是否有settlement文本
+        const hasSettlementText = this.event.settlement && 
+          Object.values(this.event.settlement).some(s => s.text && s.text.trim() !== '');
+        
+        // 如果没有settlement文本且有仪式节点，则选择第一个仪式节点
+        if (!hasSettlementText && this.event.rite && this.event.rite.length > 0) {
+          this.$parent.selectFirstRiteNode();
+        }
+      });
+    }
   }
 }
 </script>

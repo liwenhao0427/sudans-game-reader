@@ -5,10 +5,88 @@
       <span class="container-title">结果</span>
     </div>
     <div class="result-content">
-      <div class="result-grid">
-        <div v-for="(value, key) in result" :key="key" class="result-item">
-          <span class="result-key">{{ formatKey(key) }}</span>
-          <span class="result-value">{{ formatValue(value) }}</span>
+      <!-- 卡片结果 -->
+      <div v-if="hasCards" class="result-section">
+        <div class="section-title">获得卡片</div>
+        <div class="cards-grid">
+          <div v-for="(cardId, index) in cards" :key="index" class="card-item">
+            <span class="card-id">#{{ cardId }}</span>
+            <span v-if="cardNames[cardId]" class="card-name clickable" @click="showCardDetails(cardId)">
+              {{ cardNames[cardId] }}
+            </span>
+            <span v-else class="card-loading">加载中...</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 战利品结果 -->
+      <div v-if="hasLoots" class="result-section">
+        <div class="section-title">获得战利品</div>
+        <div class="loots-grid">
+          <div v-for="(lootId, index) in loots" :key="index" class="loot-item">
+            <span class="loot-id">#{{ lootId }}</span>
+            <span v-if="lootNames[lootId]" class="loot-name clickable" @click="showLootDetails(lootId)">
+              {{ lootNames[lootId] }}
+            </span>
+            <span v-else class="loot-loading">加载中...</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 计数器操作 -->
+      <div v-if="hasCounters" class="result-section">
+        <div class="section-title">计数器操作</div>
+        <div class="counters-grid">
+          <div v-for="(counter, index) in counters" :key="index" class="counter-item">
+            <span class="counter-operation">{{ counter.operation }}</span>
+            <span class="counter-id">#{{ counter.id }}</span>
+            <span class="counter-value">{{ counter.value }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 卡位操作 -->
+      <div v-if="hasSlotOperations" class="result-section">
+        <div class="section-title">卡位操作</div>
+        <div class="slots-grid">
+          <div v-for="(slot, index) in slotOperations" :key="index" class="slot-item">
+            <span class="slot-operation">{{ slot.operation }}</span>
+            <span class="slot-id">{{ slot.slot }}</span>
+            <span v-if="slot.card" class="slot-card">{{ slot.card }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 资源操作 -->
+      <div v-if="hasResources" class="result-section">
+        <div class="section-title">资源变化</div>
+        <div class="resources-grid">
+          <div v-for="(resource, key) in resources" :key="key" class="resource-item">
+            <span class="resource-name">{{ formatResourceName(key) }}</span>
+            <span class="resource-value">{{ resource > 0 ? '+' : '' }}{{ resource }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 选项 -->
+      <div v-if="hasChoices" class="result-section">
+        <div class="section-title">选项</div>
+        <div class="choices-container">
+          <div v-for="(choice, key) in choices" :key="key" class="choice-item">
+            <span class="choice-key">{{ key }}</span>
+            <span class="choice-value">{{ choice }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 其他结果 -->
+      <div v-if="hasOthers" class="result-section">
+        <div class="section-title">其他结果</div>
+        <div class="others-grid">
+          <div v-for="(value, key) in others" :key="key" class="other-item">
+            <span class="other-key">{{ formatKey(key) }}</span>
+            <span class="other-value">{{ formatValue(value) }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -16,6 +94,10 @@
 </template>
 
 <script>
+// 修改导入语句
+import { getCardById, loadEventData } from '@/services/eventService';
+import { eventBus } from '@/components/CardDetailsModal.vue';
+
 export default {
   name: 'ResultDisplay',
   props: {
@@ -24,29 +106,269 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      cardNames: {},
+      lootNames: {}
+    };
+  },
+  computed: {
+    // 提取卡片
+    cards() {
+      const cards = [];
+      if (this.result.card) {
+        if (Array.isArray(this.result.card)) {
+          cards.push(...this.result.card.filter(c => typeof c === 'number'));
+        } else if (typeof this.result.card === 'number') {
+          cards.push(this.result.card);
+        }
+      }
+      return cards;
+    },
+    hasCards() {
+      return this.cards.length > 0;
+    },
+    
+    // 提取战利品
+    loots() {
+      const loots = [];
+      if (this.result.loot) {
+        if (Array.isArray(this.result.loot)) {
+          loots.push(...this.result.loot.filter(l => typeof l === 'number'));
+        } else if (typeof this.result.loot === 'number') {
+          loots.push(this.result.loot);
+        }
+      }
+      return loots;
+    },
+    hasLoots() {
+      return this.loots.length > 0;
+    },
+    
+    // 提取计数器操作
+    counters() {
+      const counters = [];
+      
+      Object.entries(this.result).forEach(([key, value]) => {
+        if (key.startsWith('counter+')) {
+          counters.push({
+            operation: '增加',
+            id: key.slice(8),
+            value: value
+          });
+        } else if (key.startsWith('counter-')) {
+          counters.push({
+            operation: '减少',
+            id: key.slice(8),
+            value: value
+          });
+        } else if (key.startsWith('counter=')) {
+          counters.push({
+            operation: '设置为',
+            id: key.slice(8),
+            value: value
+          });
+        } else if (key.startsWith('global_counter+')) {
+          counters.push({
+            operation: '增加全局',
+            id: key.slice(15),
+            value: value
+          });
+        } else if (key.startsWith('global_counter-')) {
+          counters.push({
+            operation: '减少全局',
+            id: key.slice(15),
+            value: value
+          });
+        } else if (key.startsWith('global_counter=')) {
+          counters.push({
+            operation: '设置全局为',
+            id: key.slice(15),
+            value: value
+          });
+        }
+      });
+      
+      return counters;
+    },
+    hasCounters() {
+      return this.counters.length > 0;
+    },
+    
+    // 提取卡位操作
+    slotOperations() {
+      const operations = [];
+      
+      Object.entries(this.result).forEach(([key, value]) => {
+        if (key.startsWith('s') && key.includes('+')) {
+          const [slot, card] = key.split('+');
+          operations.push({
+            operation: '添加',
+            slot: slot,
+            card: card,
+            value: value
+          });
+        } else if (key.startsWith('s') && key.includes('-')) {
+          const [slot, card] = key.split('-');
+          operations.push({
+            operation: '移除',
+            slot: slot,
+            card: card,
+            value: value
+          });
+        } else if (key.startsWith('clean.s')) {
+          operations.push({
+            operation: '清空',
+            slot: key.slice(6),
+            value: value
+          });
+        }
+      });
+      
+      return operations;
+    },
+    hasSlotOperations() {
+      return this.slotOperations.length > 0;
+    },
+    
+    // 提取资源变化
+    resources() {
+      const resourceKeys = ['coin', 'gold', 'food', 'water', 'energy', 'health', 'sanity'];
+      return Object.entries(this.result)
+        .filter(([key]) => resourceKeys.includes(key))
+        .reduce((acc, [key, value]) => {
+          acc[key] = value;
+          return acc;
+        }, {});
+    },
+    hasResources() {
+      return Object.keys(this.resources).length > 0;
+    },
+    
+    // 提取选项
+    choices() {
+      if (this.result.choose && typeof this.result.choose === 'object') {
+        return this.result.choose;
+      }
+      return {};
+    },
+    hasChoices() {
+      return Object.keys(this.choices).length > 0;
+    },
+    
+    // 其他结果
+    others() {
+      const excludeKeys = [
+        'card', 'loot', 'choose', 
+        ...Object.keys(this.resources),
+        ...this.counters.map(c => `counter${c.operation === '增加' ? '+' : c.operation === '减少' ? '-' : '='}${c.id}`),
+        ...this.counters.map(c => `global_counter${c.operation === '增加全局' ? '+' : c.operation === '减少全局' ? '-' : '='}${c.id}`),
+        ...this.slotOperations.map(s => s.operation === '清空' ? `clean.${s.slot}` : `${s.slot}${s.operation === '添加' ? '+' : '-'}${s.card}`)
+      ];
+      
+      return Object.entries(this.result)
+        .filter(([key]) => !excludeKeys.includes(key) && !key.startsWith('counter') && !key.startsWith('global_counter') && !key.startsWith('s') && !key.startsWith('clean.s'))
+        .reduce((acc, [key, value]) => {
+          acc[key] = value;
+          return acc;
+        }, {});
+    },
+    hasOthers() {
+      return Object.keys(this.others).length > 0;
+    }
+  },
   methods: {
     formatKey(key) {
       // 格式化结果键
-      if (key.startsWith('counter-')) {
-        return '减少计数器: ' + key.slice(8);
-      } else if (key.startsWith('counter+')) {
-        return '增加计数器: ' + key.slice(8);
-      } else if (key.includes('+')) {
-        const [slot, item] = key.split('+');
-        return `添加到槽位 ${slot}: ${item}`;
-      } else if (key.includes('-')) {
-        // eslint-disable-next-line no-unused-vars 
-        const [stat, amount] = key.split('-');
-        return `减少 ${stat}`;
+      const keyMap = {
+        'failed': '失败结果',
+        'success': '成功结果',
+        'think_pop': '思考选项',
+        'table': '表格',
+        'table.clean': '清除表格'
+      };
+      
+      if (keyMap[key]) {
+        return keyMap[key];
       }
+      
       return key;
     },
     formatValue(value) {
       // 格式化结果值
       if (typeof value === 'boolean') {
         return value ? '是' : '否';
+      } else if (typeof value === 'object' && value !== null) {
+        return JSON.stringify(value);
       }
       return value;
+    },
+    formatResourceName(key) {
+      const resourceMap = {
+        'coin': '金币',
+        'gold': '金币',
+      };
+      
+      return resourceMap[key] || key;
+    },
+    async loadCardInfo(cardId) {
+      try {
+        const cardData = await getCardById(cardId);
+        if (cardData) {
+          this.cardNames[cardId] = cardData.name || `卡片 #${cardId}`;
+        } else {
+          this.cardNames[cardId] = `未知卡片 #${cardId}`;
+        }
+      } catch (error) {
+        console.error('加载卡片信息失败:', error);
+        this.cardNames[cardId] = `加载失败 #${cardId}`;
+      }
+    },
+    async loadLootInfo(lootId) {
+      try {
+        const lootData = await loadEventData(lootId, 'loot');
+        if (lootData) {
+          this.lootNames[lootId] = lootData.name || `战利品 #${lootId}`;
+        } else {
+          this.lootNames[lootId] = `未知战利品 #${lootId}`;
+        }
+      } catch (error) {
+        console.error('加载战利品信息失败:', error);
+        this.lootNames[lootId] = `加载失败 #${lootId}`;
+      }
+    },
+    showCardDetails(cardId) {
+      console.log('显示卡片详情:', cardId);
+      eventBus.emit('show-card-details', cardId);
+    },
+    showLootDetails(lootId) {
+      console.log('显示战利品详情:', lootId);
+      eventBus.emit('show-loot-details', lootId);
+    },
+    loadAllReferences() {
+      // 加载所有卡片和战利品引用
+      this.cards.forEach(cardId => {
+        if (!this.cardNames[cardId]) {
+          this.loadCardInfo(cardId);
+        }
+      });
+      
+      this.loots.forEach(lootId => {
+        if (!this.lootNames[lootId]) {
+          this.loadLootInfo(lootId);
+        }
+      });
+    }
+  },
+  mounted() {
+    this.loadAllReferences();
+  },
+  watch: {
+    result: {
+      handler() {
+        this.loadAllReferences();
+      },
+      deep: true
     }
   }
 }
@@ -80,13 +402,32 @@ export default {
   color: #67c23a;
 }
 
-.result-grid {
+.result-section {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #c2e7b0;
+}
+
+.result-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #67c23a;
+  font-size: 14px;
+}
+
+.cards-grid, .loots-grid, .counters-grid, .slots-grid, .resources-grid, .others-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
 }
 
-.result-item {
+.card-item, .loot-item, .counter-item, .slot-item, .resource-item, .other-item, .choice-item {
   display: flex;
   flex-direction: column;
   padding: 8px;
@@ -95,13 +436,67 @@ export default {
   border: 1px solid #e0e0e0;
 }
 
-.result-key {
+.card-id, .loot-id, .counter-id {
+  color: #909399;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.card-name, .loot-name {
+  font-weight: 500;
+  color: #409eff;
+}
+
+.card-name.clickable, .loot-name.clickable {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.card-name.clickable:hover, .loot-name.clickable:hover {
+  color: #66b1ff;
+}
+
+.card-loading, .loot-loading {
+  font-style: italic;
+  color: #909399;
+}
+
+.counter-operation, .slot-operation {
+  font-weight: bold;
+  color: #606266;
+  margin-bottom: 4px;
+}
+
+.counter-value, .slot-card {
+  color: #333;
+}
+
+.resource-name, .other-key, .choice-key {
   font-weight: bold;
   margin-bottom: 4px;
   color: #606266;
 }
 
-.result-value {
+.resource-value, .other-value, .choice-value {
   color: #333;
+}
+
+.resource-value {
+  font-weight: bold;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-item {
+  padding: 10px;
+}
+
+.choice-value {
+  white-space: pre-line;
+  line-height: 1.5;
 }
 </style>

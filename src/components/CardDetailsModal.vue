@@ -31,11 +31,11 @@
           </div>
           
           <!-- 更多信息按钮 -->
-          <div class="more-info-toggle">
+          <!-- <div class="more-info-toggle">
             <button @click="showMoreInfo = !showMoreInfo" class="more-info-button">
               {{ showMoreInfo ? '收起详情' : '显示更多信息' }}
             </button>
-          </div>
+          </div> -->
           
           <!-- 详细标签信息 (可折叠) -->
           <div class="card-tags" v-if="card.tag && showMoreInfo">
@@ -150,7 +150,7 @@ export default {
         'event': '事件',
         'enemy': '敌人',
         'npc': 'NPC',
-        'sudan': '苏丹'
+        'sudan': '苏丹卡'
       };
       return typeMap[type] || type;
     }

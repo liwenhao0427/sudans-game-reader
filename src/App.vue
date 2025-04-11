@@ -151,6 +151,12 @@
     <div class="footer">
       <p>苏丹的游戏剧情阅读器 &copy; 2025 by <a href="https://github.com/liwenhao0427/sudans-game-reader" target="_blank">liwenhao0427</a></p>
     </div>
+
+    <!-- 添加事件和仪式详情弹窗 -->
+    <event-details-modal />
+    <rite-details-modal />
+    <loot-details-modal />
+
   </div>
 </template>
 
@@ -160,6 +166,12 @@ import EventDetails from './components/EventDetails.vue';
 // 导入卡片详情模态框组件
 import CardDetailsModal from '@/components/CardDetailsModal.vue';
 import { ref, onMounted, reactive, computed, watch } from 'vue';
+// 导入现有组件
+import EventDetailsModal from '@/components/EventDetailsModal.vue';
+import RiteDetailsModal from '@/components/RiteDetailsModal.vue';
+import LootDetailsModal from '@/components/LootDetailsModal.vue';
+
+
 import { 
   handleDuplicateKeys, 
   loadEventData, 
@@ -170,8 +182,12 @@ import {
 export default {
   name: 'App',
   components: {
+    // 现有组件
+    EventDetailsModal,
+    RiteDetailsModal,
     CardDetailsModal,
     EventTreeNode,
+    LootDetailsModal,
     EventDetails
   },
   setup() {
@@ -331,8 +347,23 @@ export default {
         if (eventData) {
           const processedData = handleDuplicateKeys(eventData);
           rootEvent.value = processedData;
-          selectedEventId.value = processedData.id;
-          selectedEvent.value = processedData;
+          
+          // 检查是否所有 settlement 都没有文本
+          const hasSettlementText = processedData.settlement && 
+            Object.values(processedData.settlement).some(s => s.text && s.text.trim() !== '');
+          
+          // 如果没有文本，尝试选择第一个仪式
+          if (!hasSettlementText && processedData.rite && processedData.rite.length > 0) {
+            const firstRite = processedData.rite[0];
+            selectedEventId.value = firstRite.id;
+            selectedEvent.value = firstRite;
+            loadedEvents.set(firstRite.id, firstRite);
+          } else {
+            // 否则选择当前事件
+            selectedEventId.value = processedData.id;
+            selectedEvent.value = processedData;
+          }
+          
           loadedEvents.set(processedData.id, processedData);
         }
       } catch (e) {
@@ -369,6 +400,20 @@ export default {
         console.error(`加载事件 ${eventId} 详情失败:`, e);
       }
     };
+    
+    // 查找并选择第一个仪式节点
+    const selectFirstRiteNode = () => {
+      if (!rootEvent.value || !rootEvent.value.rite || !rootEvent.value.rite.length) {
+        return;
+      }
+      
+      // 获取第一个仪式节点
+      const firstRite = rootEvent.value.rite[0];
+      if (firstRite && firstRite.id) {
+        // 选择该节点
+        selectEvent(firstRite.id);
+      }
+    };
 
     onMounted(async () => {
       try {
@@ -403,7 +448,8 @@ export default {
       listFilter,
       filteredEvents,
       activeTypeFilter,
-      filterByType
+      filterByType,
+      selectFirstRiteNode, // 添加新方法到返回值中
     };
   }
 }
