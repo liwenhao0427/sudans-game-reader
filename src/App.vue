@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <h1 class="app-title">苏丹的游戏剧情阅读器</h1>
-    
+    <div class="header-container">
+      <h1 class="app-title">苏丹的游戏剧情阅读器</h1>
+      <a href="https://liwenhao0427.github.io/sultans-game-mod-manager/" target="_blank" class="mod-manager-link">
+        <i class="fas fa-tools"></i> Mod管理
+      </a>
+    </div>
+
     <!-- 事件列表和分页 -->
     <div class="event-list-container" v-if="!rootEvent">
       <div class="list-header">
@@ -447,13 +452,12 @@ export default {
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+/* 优化标题样式 */
 .app-title {
-  text-align: center;
   color: #2c3e50;
-  margin-bottom: 30px;
+  margin: 0;
   font-weight: 600;
-  border-bottom: 2px solid #42b983;
-  padding-bottom: 10px;
+  font-size: 1.5rem;
 }
 
 .search-container {
@@ -785,5 +789,47 @@ export default {
 .footer a:hover {
   text-decoration: underline;
 }
+
+/* 添加头部容器样式 */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  border-bottom: 2px solid #42b983;
+  padding-bottom: 10px;
+}
+
+/* 优化标题样式 */
+.app-title {
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* 优化Mod管理链接样式 */
+.mod-manager-link {
+  font-size: 0.85rem;
+  color: #606266;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  padding: 4px 8px;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mod-manager-link:hover {
+  background-color: #f0f0f0;
+  color: #409EFF;
+  border-color: #d0d0d0;
+}
+
+/* 其他现有样式保持不变 */
 
 </style>
