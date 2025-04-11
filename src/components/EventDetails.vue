@@ -156,7 +156,7 @@
           <div v-for="(condition, index) in event.open_conditions" :key="index" class="condition-item">
             <div class="condition-tips" v-if="condition.tips">{{ condition.tips }}</div>
             <div class="condition-code">
-              <pre>{{ JSON.stringify(condition.condition, null, 2) }}</pre>
+              <condition-display v-if="condition.condition" :condition="condition.condition"></condition-display>
             </div>
           </div>
         </div>
@@ -292,7 +292,7 @@
           <span class="toggle-icon">{{ expandedSections.on ? '▼' : '►' }}</span>
         </div>
         <div class="card-content" v-if="expandedSections.on">
-          <pre>{{ JSON.stringify(event.on, null, 2) }}</pre>
+          <condition-display v-if="event.on" :condition="event.on"></condition-display>
         </div>
       </div>
       

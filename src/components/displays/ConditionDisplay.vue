@@ -28,7 +28,17 @@
           <span class="condition-key">任意满足</span>
           <div class="any-conditions">
             <div v-for="(val, key) in condition.any" :key="key" class="any-condition-item">
-              <span>{{ formatKey(key) }}: {{ val }}</span>
+              <span v-if="key === 'is'">
+                {{ formatKey(key) }}: 
+                <span class="card-value">
+                  <span class="card-id">#{{ val }}</span>
+                  <span v-if="anyCardNames[val]" class="card-name clickable" @click="showCardDetails(val)">
+                    {{ anyCardNames[val] }}
+                  </span>
+                  <span v-else class="card-loading">加载中...</span>
+                </span>
+              </span>
+              <span v-else>{{ formatKey(key) }}: {{ formatValue(key, val) }}</span>
             </div>
           </div>
         </div>
@@ -63,7 +73,8 @@ export default {
   data() {
     return {
       cardName: null,
-      cardsData: null
+      cardsData: null,
+      anyCardNames: {} // 存储any条件中卡片的名称
     };
   },
   computed: {
@@ -100,6 +111,8 @@ export default {
         return '需要类型';
       } else if (key === 'any') {
         return '任意满足';
+      } else if (key === 'round_begin_ba') {
+        return '天数限制';
       } else if (key === '杀戮' || key === '纵欲' || key === '奢靡' || key === '征服') {
         return `需要${key}`;
       } else if (key.startsWith('f:rare-s') && key.includes('.rare')) {
@@ -143,6 +156,8 @@ export default {
         return `${this.cardName} (ID: ${value})`;
       } else if (key === 'type') {
         return this.formatCardType(value);
+      } else if (key === 'round_begin_ba' && Array.isArray(value) && value.length === 2) {
+        return `第 ${value[0]} 天到第 ${value[1]} 天`;
       } else if (['杀戮', '纵欲', '奢靡', '征服'].includes(key)) {
         return value === 1 ? '是' : '否';
       } else if (typeof value === 'boolean') {
@@ -199,44 +214,57 @@ export default {
       return others;
     },
     async loadCardInfo() {
-      if (this.condition.is) {
-        try {
-          if (!this.cardsData) {
-            this.cardsData = await loadCardsData();
-          }
+      // 加载主条件中的卡片
+      if (this.condition && this.condition.is) {
+        await this.loadSingleCardInfo(this.condition.is, (name) => {
+          this.cardName = name;
+        });
+      }
+      
+      // 加载any条件中的卡片
+      if (this.condition && this.condition.any && this.condition.any.is) {
+        await this.loadSingleCardInfo(this.condition.any.is, (name) => {
+          // 在 Vue 3 中直接赋值即可，不需要使用 $set
+          this.anyCardNames[this.condition.any.is] = name;
+        });
+      }
+    },
+    async loadSingleCardInfo(cardId, setNameCallback) {
+      try {
+        if (!this.cardsData) {
+          this.cardsData = await loadCardsData();
+        }
+        
+        // 修复：处理cardsData可能是对象而非数组的情况
+        let card = null;
+        
+        if (Array.isArray(this.cardsData)) {
+          // 如果是数组，使用find方法
+          card = this.cardsData.find(c => c.id === cardId || c.id === parseInt(cardId));
+        } else if (typeof this.cardsData === 'object') {
+          // 如果是对象，直接通过键查找或遍历对象
+          card = this.cardsData[cardId] || this.cardsData[cardId.toString()];
           
-          const cardId = this.condition.is;
-          // 修复：处理cardsData可能是对象而非数组的情况
-          let card = null;
-          
-          if (Array.isArray(this.cardsData)) {
-            // 如果是数组，使用find方法
-            card = this.cardsData.find(c => c.id === cardId || c.id === parseInt(cardId));
-          } else if (typeof this.cardsData === 'object') {
-            // 如果是对象，直接通过键查找或遍历对象
-            card = this.cardsData[cardId] || this.cardsData[cardId.toString()];
-            
-            // 如果直接查找不到，遍历对象
-            if (!card) {
-              for (const key in this.cardsData) {
-                const item = this.cardsData[key];
-                if (item.id === cardId || item.id === parseInt(cardId)) {
-                  card = item;
-                  break;
-                }
+          // 如果直接查找不到，遍历对象
+          if (!card) {
+            for (const key in this.cardsData) {
+              const item = this.cardsData[key];
+              if (item.id === cardId || item.id === parseInt(cardId)) {
+                card = item;
+                break;
               }
             }
           }
-          
-          if (card) {
-            this.cardName = card.name || card.text || `卡片 #${cardId}`;
-          } else {
-            this.cardName = `未知卡片 #${cardId}`;
-          }
-        } catch (error) {
-          console.error('加载卡片信息失败:', error);
-          this.cardName = `加载失败 #${this.condition.is}`;
         }
+        
+        if (card) {
+          setNameCallback(card.name || card.text || `卡片 #${cardId}`);
+        } else {
+          setNameCallback(`未知卡片 #${cardId}`);
+        }
+      } catch (error) {
+        console.error('加载卡片信息失败:', error);
+        setNameCallback(`加载失败 #${cardId}`);
       }
     },
     showCardDetails(cardId) {
@@ -250,6 +278,17 @@ export default {
   watch: {
     'condition.is': function() {
       this.loadCardInfo();
+    },
+    'condition.any': {
+      handler: function(newAny) {
+        if (newAny && newAny.is) {
+          this.loadSingleCardInfo(newAny.is, (name) => {
+            // 在 Vue 3 中直接赋值即可，不需要使用 $set
+            this.anyCardNames[newAny.is] = name;
+          });
+        }
+      },
+      deep: true
     }
   }
 }
