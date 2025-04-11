@@ -133,6 +133,7 @@
       </div>
       
       <!-- 主要结算 -->
+            <!-- 主要结算 -->
       <div class="info-card" v-if="event.settlement && event.settlement.length > 0">
         <div class="card-header" @click="toggleSection('settlement')">
           <h3>主要结算</h3>
@@ -140,28 +141,51 @@
         </div>
         <div class="card-content" v-if="expandedSections.settlement">
           <div v-for="(item, index) in event.settlement" :key="index" class="settlement-item">
+            <!-- 处理选项型事件 -->
+            <div v-if="item.action?.option" class="options-container">
+              <div class="option-description">{{ item.action.option.text }}</div>
+              <div class="options-list">
+                <div v-for="(option, optIndex) in item.action.option.items" :key="optIndex" 
+                     class="option-item" @click="toggleOptionDetails(index, option.tag)"
+                     :class="{'active': isOptionExpanded(index, option.tag)}">
+                  <div class="option-header">
+                    <span class="option-text">{{ option.text }}</span>
+                    <span class="option-toggle">{{ isOptionExpanded(index, option.tag) ? '▼' : '►' }}</span>
+                  </div>
+                  
+                  <div v-if="isOptionExpanded(index, option.tag)" class="option-details">
+                    <div v-if="item.action['case:' + option.tag]?.prompt" class="option-result">
+                      {{ item.action['case:' + option.tag].prompt.text }}
+                    </div>
+                    <div class="option-effects">
+                      <action-display 
+                        v-if="hasEffects(item.action['case:' + option.tag])" 
+                        :action="getEffects(item.action['case:' + option.tag])">
+                      </action-display>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <div class="settlement-body">
-              <div class="settlement-text" v-if="item.result_text" @click="toggleSettlementDetails(index, 'settlementPrior')" :class="{'clickable': true}">
+            <!-- 处理常规结算 -->
+            <div v-else class="settlement-body">
+              <div class="settlement-text" v-if="item.result_text" 
+                   @click="toggleSettlementDetails(index, 'settlement')" 
+                   :class="{'clickable': true}">
                 <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
                 {{ item.result_text }}
-                <div class="toggle-details-hint">{{ isSettlementExpanded('settlementPrior', index) ? '收起详情 ▲' : '查看详情 ▼' }}</div>
+                <div class="toggle-details-hint">
+                  {{ isSettlementExpanded('settlement', index) ? '收起详情 ▲' : '查看详情 ▼' }}
+                </div>
               </div>
               
-              <div v-if="isSettlementExpanded('settlementPrior', index)">
-                <!-- 使用统一的条件显示组件 -->
+              <div v-if="isSettlementExpanded('settlement', index)">
                 <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
-                
-                <!-- 使用统一的结果显示组件 -->
                 <result-display v-if="item.result" :result="item.result"></result-display>
-                
-                <!-- 使用统一的动作显示组件 -->
                 <action-display v-if="item.action" :action="item.action"></action-display>
               </div>
             </div>
-            
-            
-            
           </div>
         </div>
       </div>
@@ -295,6 +319,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 // 导入统一的显示组件
 import ConditionDisplay from './displays/ConditionDisplay.vue';
 import ResultDisplay from './displays/ResultDisplay.vue';
@@ -314,6 +339,7 @@ export default {
   },
   data() {
     return {
+      expandedOptions: {},
       expandedSections: {
         basicInfo: true,
         tips: true,
@@ -335,6 +361,32 @@ export default {
     }
   },
   methods: {
+    toggleOptionDetails(settlementIndex, optionTag) {
+      if (!this.expandedOptions[settlementIndex]) {
+        this.expandedOptions[settlementIndex] = {};
+      }
+      if (!this.expandedOptions[settlementIndex]) {
+        this.expandedOptions[settlementIndex] = {};
+      }
+      this.expandedOptions[settlementIndex][optionTag] =
+        !this.expandedOptions[settlementIndex][optionTag];
+    },
+    
+    isOptionExpanded(settlementIndex, optionTag) {
+      return this.expandedOptions[settlementIndex]?.[optionTag] || false;
+    },
+    
+    hasEffects(caseData) {
+      if (!caseData) return false;
+      const { prompt, ...effects } = caseData;
+      return Object.keys(effects).length > 0;
+    },
+    
+    getEffects(caseData) {
+      if (!caseData) return {};
+      const { prompt, ...effects } = caseData;
+      return effects;
+    },
     toggleSection(section) {
       this.expandedSections[section] = !this.expandedSections[section];
     },
@@ -855,5 +907,87 @@ pre {
   .card-slot-grid, .pop-content {
     grid-template-columns: 1fr;
   }
+}
+
+.options-container {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.option-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.option-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.option-header {
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.option-text {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.option-toggle {
+  color: #666;
+  font-size: 12px;
+}
+
+.option-details {
+  padding: 15px;
+}
+
+.option-result {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #2c3e50;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #42b983;
+}
+
+.option-effects {
+  margin-top: 10px;
+}
+
+.option-item.active {
+  border-color: #42b983;
+}
+
+.option-item.active .option-header {
+  background-color: #f0faf5;
+  border-bottom-color: #42b983;
 }
 </style>
