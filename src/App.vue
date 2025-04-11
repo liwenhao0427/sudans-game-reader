@@ -1,43 +1,21 @@
 <template>
   <div class="container">
-    <h1>游戏分支树展示</h1>
-    
-    <!-- 搜索和类型选择区域 -->
-    <div class="search-container">
-      <div class="search-box">
-        <input 
-          type="text" 
-          v-model="searchQuery" 
-          placeholder="输入ID或事件名称搜索" 
-          @keyup.enter="handleSearch"
-        />
-        <button @click="handleSearch" class="search-button">搜索</button>
-      </div>
-      
-      <div class="type-selector">
-        <label>
-          <input type="radio" v-model="searchType" value="id" /> 按ID
-        </label>
-        <label>
-          <input type="radio" v-model="searchType" value="name" /> 按名称
-        </label>
-      </div>
-      
-      <div class="content-type-selector">
-        <label>
-          <input type="checkbox" v-model="contentTypes.event" /> 事件(event)
-        </label>
-        <label>
-          <input type="checkbox" v-model="contentTypes.rite" /> 仪式(rite)
-        </label>
-        <label>
-          <input type="checkbox" v-model="contentTypes.loot" /> 战利品(loot)
-        </label>
-      </div>
-    </div>
+    <h1 class="app-title">游戏分支树展示</h1>
     
     <!-- 事件列表和分页 -->
     <div class="event-list-container" v-if="!rootEvent">
+      <div class="list-header">
+        <div class="list-stats">共 {{ filteredEvents.length }} 条记录</div>
+        <div class="list-filter">
+          <input 
+            type="text" 
+            v-model="listFilter" 
+            placeholder="在结果中筛选..." 
+            class="filter-input"
+          />
+        </div>
+      </div>
+      
       <div class="event-list">
         <div 
           v-for="event in currentPageEvents" 
@@ -46,36 +24,68 @@
           @click="loadEventAsRoot(event.id, event.type)"
         >
           <div class="event-list-id">{{ event.id }}</div>
-          <div class="event-list-type">{{ getTypeLabel(event.type) }}</div>
+          <div class="event-list-type" :class="'type-' + event.type">{{ getTypeLabel(event.type) }}</div>
           <div class="event-list-name">{{ event.name || event.text || '未命名事件' }}</div>
         </div>
         <div v-if="currentPageEvents.length === 0" class="no-events">
-          没有找到事件，请尝试其他搜索条件
+          <i class="fas fa-info-circle"></i> 没有找到事件，请尝试其他搜索条件
         </div>
       </div>
       
       <div class="pagination">
         <button 
+          @click="goToFirstPage" 
+          :disabled="currentPage <= 1"
+          class="page-button"
+          title="第一页"
+        >
+          <i class="fas fa-angle-double-left"></i>
+        </button>
+        <button 
           @click="prevPage" 
           :disabled="currentPage <= 1"
           class="page-button"
+          title="上一页"
         >
-          上一页
+          <i class="fas fa-angle-left"></i>
         </button>
-        <span class="page-info">{{ currentPage }} / {{ totalPages }}</span>
+        
+        <div class="page-jump">
+          <input 
+            type="number" 
+            v-model.number="jumpToPage" 
+            min="1" 
+            :max="totalPages"
+            class="page-input"
+            @keyup.enter="goToPage"
+          />
+          <span class="page-total">/ {{ totalPages }}</span>
+        </div>
+        
         <button 
           @click="nextPage" 
           :disabled="currentPage >= totalPages"
           class="page-button"
+          title="下一页"
         >
-          下一页
+          <i class="fas fa-angle-right"></i>
+        </button>
+        <button 
+          @click="goToLastPage" 
+          :disabled="currentPage >= totalPages"
+          class="page-button"
+          title="最后一页"
+        >
+          <i class="fas fa-angle-double-right"></i>
         </button>
       </div>
     </div>
     
     <!-- 返回按钮 -->
     <div class="back-button-container" v-if="rootEvent">
-      <button @click="backToList" class="back-button">返回列表</button>
+      <button @click="backToList" class="back-button">
+        <i class="fas fa-arrow-left"></i> 返回列表
+      </button>
     </div>
     
     <!-- 事件树和详情 -->
@@ -87,11 +97,15 @@
           :selected="selectedEventId === rootEvent.id"
           @select="selectEvent"
         />
-        <div v-else class="loading">加载中...</div>
+        <div v-else class="loading">
+          <i class="fas fa-spinner fa-spin"></i> 加载中...
+        </div>
       </div>
       <div class="event-details">
         <event-details v-if="selectedEvent" :event="selectedEvent" />
-        <div v-else class="no-selection">请选择一个事件节点查看详情</div>
+        <div v-else class="no-selection">
+          <i class="fas fa-info-circle"></i> 请选择一个事件节点查看详情
+        </div>
       </div>
     </div>
   </div>
@@ -100,7 +114,7 @@
 <script>
 import EventTreeNode from './components/EventTreeNode.vue';
 import EventDetails from './components/EventDetails.vue';
-import { ref, onMounted, reactive, computed } from 'vue';
+import { ref, onMounted, reactive, computed, watch } from 'vue';
 import { 
   handleDuplicateKeys, 
   loadEventData, 
@@ -125,7 +139,6 @@ export default {
       return typeMap[type] || type;
     };
 
-
     const rootEvent = ref(null);
     const selectedEventId = ref(null);
     const selectedEvent = ref(null);
@@ -133,8 +146,10 @@ export default {
     
     // 搜索和分页相关
     const allEvents = ref([]);
+    const allEventsCache = ref({}); // 缓存所有类型的数据
     const currentPage = ref(1);
-    const pageSize = 10;
+    const jumpToPage = ref(1);
+    const pageSize = 20; // 增加每页显示数量
     const searchQuery = ref('');
     const searchType = ref('id');
     const contentTypes = reactive({
@@ -144,29 +159,75 @@ export default {
     });
     const isLoading = ref(false);
     const searchResults = ref([]);
-    const totalEventsCount = ref(0);
+    const listFilter = ref(''); // 列表内筛选
+    
+    // 根据筛选条件过滤事件
+    const filteredEvents = computed(() => {
+      let events = searchQuery.value ? searchResults.value : allEvents.value;
+      
+      // 应用列表内筛选
+      if (listFilter.value.trim()) {
+        const filter = listFilter.value.toLowerCase();
+        events = events.filter(event => {
+          const name = (event.name || '').toLowerCase();
+          const text = (event.text || '').toLowerCase();
+          const id = String(event.id);
+          return name.includes(filter) || text.includes(filter) || id.includes(filter);
+        });
+      }
+      
+      return events;
+    });
     
     // 计算当前页的事件
     const currentPageEvents = computed(() => {
-      const list = searchQuery.value ? searchResults.value : allEvents.value;
       const start = (currentPage.value - 1) * pageSize;
       const end = start + pageSize;
-      return list.slice(start, end);
+      return filteredEvents.value.slice(start, end);
     });
     
     // 计算总页数
     const totalPages = computed(() => {
-      const count = searchQuery.value ? searchResults.value.length : totalEventsCount.value;
-      return Math.ceil(count / pageSize) || 1;
+      return Math.ceil(filteredEvents.value.length / pageSize) || 1;
     });
     
+    // 监听当前页变化，更新跳转页码
+    watch(currentPage, (newPage) => {
+      jumpToPage.value = newPage;
+    });
+    
+    // 监听总页数变化，确保当前页在有效范围内
+    watch(totalPages, (newTotalPages) => {
+      if (currentPage.value > newTotalPages) {
+        currentPage.value = newTotalPages;
+      }
+    });
+    
+    // 跳转到指定页
+    const goToPage = () => {
+      const page = parseInt(jumpToPage.value);
+      if (page >= 1 && page <= totalPages.value) {
+        currentPage.value = page;
+      } else {
+        // 如果输入的页码无效，重置为当前页
+        jumpToPage.value = currentPage.value;
+      }
+    };
+    
+    // 跳转到第一页
+    const goToFirstPage = () => {
+      currentPage.value = 1;
+    };
+    
+    // 跳转到最后一页
+    const goToLastPage = () => {
+      currentPage.value = totalPages.value;
+    };
+    
     // 下一页
-    const nextPage = async () => {
+    const nextPage = () => {
       if (currentPage.value < totalPages.value) {
         currentPage.value++;
-        if (!searchQuery.value) {
-          await loadEventsForCurrentPage();
-        }
       }
     };
     
@@ -177,8 +238,17 @@ export default {
       }
     };
     
-    // 加载当前页的事件
-    const loadEventsForCurrentPage = async () => {
+    // 清除所有筛选条件
+    const clearFilters = () => {
+      contentTypes.event = true;
+      contentTypes.rite = true;
+      contentTypes.loot = true;
+      listFilter.value = '';
+      loadAllEvents();
+    };
+    
+    // 一次性加载所有事件数据
+    const loadAllEvents = async () => {
       if (isLoading.value) return;
       
       isLoading.value = true;
@@ -189,22 +259,36 @@ export default {
         if (contentTypes.rite) types.push('rite');
         if (contentTypes.loot) types.push('loot');
         
-        // 如果没有选择任何类型，默认使用event
+        // 如果没有选择任何类型，默认使用所有类型
         if (types.length === 0) {
-          types.push('event');
+          types.push('event', 'rite', 'loot');
+          // 更新UI状态
+          contentTypes.event = true;
+          contentTypes.rite = true;
+          contentTypes.loot = true;
         }
         
-        // 对每种类型加载数据
-        allEvents.value = [];
-        let totalCount = 0;
+        let combinedEvents = [];
         
+        // 对每种类型加载数据（使用缓存）
         for (const type of types) {
-          const result = await getEventsByType(type, currentPage.value, pageSize);
-          allEvents.value = [...allEvents.value, ...result.items];
-          totalCount += result.total;
+          if (!allEventsCache.value[type]) {
+            // 如果缓存中没有该类型的数据，则加载
+            const countResult = await getEventsByType(type, 1, 1);
+            const allResult = await getEventsByType(type, 1, countResult.total);
+            allEventsCache.value[type] = allResult.items;
+          }
+          
+          // 从缓存中获取数据
+          combinedEvents = [...combinedEvents, ...allEventsCache.value[type]];
         }
         
-        totalEventsCount.value = totalCount;
+        // 更新事件列表
+        allEvents.value = combinedEvents;
+        
+        // 重置到第一页
+        currentPage.value = 1;
+        jumpToPage.value = 1;
       } catch (e) {
         console.error('加载事件数据失败:', e);
       } finally {
@@ -212,16 +296,18 @@ export default {
       }
     };
     
-    
     // 处理搜索
     const handleSearch = async () => {
       if (!searchQuery.value.trim()) {
         searchResults.value = [];
+        // 如果搜索框为空，显示所有数据
+        await loadAllEvents();
         return;
       }
       
       isLoading.value = true;
       currentPage.value = 1;
+      jumpToPage.value = 1;
       searchResults.value = [];
       
       try {
@@ -308,7 +394,6 @@ export default {
       }
     };
     
-    
     // 返回列表
     const backToList = () => {
       rootEvent.value = null;
@@ -343,8 +428,8 @@ export default {
         // 预加载索引文件
         await loadGameDataIndex();
         
-        // 加载第一页数据
-        await loadEventsForCurrentPage();
+        // 加载所有数据
+        await loadAllEvents();
       } catch (e) {
         console.error('初始化数据失败:', e);
       }
@@ -358,38 +443,61 @@ export default {
       selectEvent,
       allEvents,
       currentPage,
+      jumpToPage,
       totalPages,
       nextPage,
       prevPage,
+      goToPage,
+      goToFirstPage,
+      goToLastPage,
       searchQuery,
       searchType,
       contentTypes,
       handleSearch,
       currentPageEvents,
       loadEventAsRoot,
-      backToList
+      backToList,
+      listFilter,
+      filteredEvents,
+      clearFilters
     };
   }
 }
 </script>
 
 <style>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 .container {
   max-width: 1500px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.app-title {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  font-weight: 600;
+  border-bottom: 2px solid #42b983;
+  padding-bottom: 10px;
 }
 
 .search-container {
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #f8f9fa;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #fff;
   border-radius: 8px;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .search-box {
@@ -398,49 +506,116 @@ export default {
   min-width: 300px;
 }
 
-.search-box input {
+.search-input {
   flex: 1;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border: 1px solid #ddd;
   border-radius: 4px 0 0 4px;
   font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #42b983;
 }
 
 .search-button {
-  padding: 8px 15px;
-  background-color: #4CAF50;
+  padding: 10px 20px;
+  background-color: #42b983;
   color: white;
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .search-button:hover {
-  background-color: #45a049;
+  background-color: #3aa876;
 }
 
 .type-selector, .content-type-selector {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.radio-label, .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.radio-label:hover, .checkbox-label:hover {
+  background-color: #f0f0f0;
+}
+
+.clear-button {
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-button:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
 }
 
 .event-list-container {
-  margin-top: 20px;
+  margin-top: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.list-stats {
+  font-size: 14px;
+  color: #666;
+}
+
+.filter-input {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 200px;
+  transition: border-color 0.3s;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #42b983;
 }
 
 .event-list {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  overflow: hidden;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .event-list-item {
   display: flex;
-  padding: 12px 15px;
+  padding: 15px 20px;
   border-bottom: 1px solid #eee;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
 }
 
 .event-list-item:last-child {
@@ -449,32 +624,64 @@ export default {
 
 .event-list-item:hover {
   background-color: #f5f5f5;
+  transform: translateX(5px);
 }
 
 .event-list-id {
   width: 80px;
   font-weight: bold;
-  color: #666;
+  color: #555;
+}
+
+.event-list-type {
+  width: 70px;
+  color: white;
+  font-size: 0.85em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-align: center;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.type-event {
+  background-color: #42b983;
+}
+
+.type-rite {
+  background-color: #e67e22;
+}
+
+.type-loot {
+  background-color: #3498db;
 }
 
 .event-list-name {
   flex: 1;
+  font-size: 15px;
 }
 
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  padding: 15px;
   gap: 10px;
+  border-top: 1px solid #eee;
 }
 
 .page-button {
-  padding: 6px 12px;
-  background-color: #f0f0f0;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.page-button:hover:not(:disabled) {
+  background-color: #e9ecef;
+  border-color: #ced4da;
 }
 
 .page-button:disabled {
@@ -482,92 +689,114 @@ export default {
   cursor: not-allowed;
 }
 
-.page-info {
-  font-size: 14px;
+.page-jump {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.page-input {
+  width: 50px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.page-total {
   color: #666;
 }
 
 .back-button-container {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .back-button {
-  padding: 8px 15px;
-  background-color: #f0f0f0;
+  padding: 10px 15px;
+  background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .back-button:hover {
-  background-color: #e0e0e0;
+  background-color: #e9ecef;
+  border-color: #ced4da;
 }
 
 .event-tree-container {
   display: flex;
   margin-top: 20px;
-  gap: 20px;
+  gap: 25px;
 }
 
 .tree-view {
   flex: 1;
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 15px;
+  padding: 20px;
   max-width: 40%;
   overflow: auto;
   max-height: 80vh;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .event-details {
   flex: 2;
   border: 1px solid #eee;
   border-radius: 8px;
-  padding: 15px;
+  padding: 20px;
   max-height: 80vh;
   overflow: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .loading, .no-selection, .no-events {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   color: #666;
+  font-style: italic;
 }
 
-.event-list-item {
-  display: flex;
-  padding: 12px 15px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-  transition: background-color 0.2s;
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.event-list-item:last-child {
-  border-bottom: none;
-}
-
-.event-list-item:hover {
-  background-color: #f5f5f5;
-}
-
-.event-list-id {
-  width: 80px;
-  font-weight: bold;
-  color: #666;
-}
-
-.event-list-type {
-  width: 60px;
-  color: #42b983;
-  font-size: 0.9em;
-  padding: 2px 6px;
-  background-color: #f0faf5;
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
   border-radius: 4px;
-  text-align: center;
-  margin-right: 10px;
 }
 
-.event-list-name {
-  flex: 1;
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .event-tree-container {
+    flex-direction: column;
+  }
+  
+  .tree-view {
+    max-width: 100%;
+  }
 }
 </style>
