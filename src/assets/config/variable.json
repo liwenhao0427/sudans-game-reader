@@ -11,7 +11,7 @@
         "zhCN": "<font=\"xiquemuye SDF\"><size=22>简体中文</size></font>",
         "zhTW": "<font=\"xiquemuye SDF\"><size=22>繁體中文</size></font>",
         "en": "<font=\"en/Altinn-DINCondensed SDF\"><size=22>English</size></font>",
-        "ja": "<font=\"ja/LINESeedJP_OTF_Rg SDF\"><size=22>日本語</size></font>",
+        "ja": "<font=\"ja/font_1_kokumr_1.00_rls SDF\"><size=22>日本語</size></font>",
     },
     "language_code_map": {
         //  unity system language 映射(但是貌似没法映射繁体中文)
@@ -48,14 +48,25 @@
         "800x600":[800, 600]
     },
     "support_font_size": {
-        // "FONT_SIZE_XS": "xs",
-        "FONT_SIZE_SM": "sm",
-        "FONT_SIZE_MD": "md",
-        "FONT_SIZE_LG": "lg",
-        // "FONT_SIZE_XL": "xl"
+        "FONT_SIZE_XS": "sm",
+        "FONT_SIZE_SM": "md",
+        "FONT_SIZE_MD": "lg",
+        "FONT_SIZE_LG": "xl",
+        "FONT_SIZE_XL": "xxl",
+        // "FONT_SIZE_XXL": "xxl"
+    },
+    "ui_size": {
+        "xs": 0.9,
+        "sm": 0.95,
+        "md": 1,
+        "lg": 1.1,
+        "xl": 1.2,
+        "xxl": 1.3
     },
     "pop_show_time": 5,
     "hover_pop_show_delay": 0.5,
+    //  结果文本播放倍率[0.5~10.0]
+    "result_text_play_rate": 15.0,
     //  是否显示收藏
     "show_gallery": true,
     //  音乐切换时长
@@ -393,6 +404,7 @@
     "START_NOTICE_FORMAT": "<line-height=108%>{0}",
 
     "STORY_TARGET_ITEM_UNFINISH_FORMAT": "{0} <color=red>({1})</color>",
+    "STORY_TARGET_ITEM_UNFINISH_NO_NUMBER_FORMAT": "{0}",
     "STORY_TARGET_ITEM_FINISH_FORMAT": "<s> {0} </s>",
 
     //  幕后机制额外结果, 结果分隔符
@@ -413,6 +425,8 @@
     "PRESTIGE_CHANGE_NEGATIVE": "<color=#FF1600>-{0}</color>",
 
     "OVER_STORY_TITLE_FORMAT": "<size=250%><color=#FFCF00>{0}</color></size>\n",
+
+    "OVER_PROMPT_FORMAT": "{0}\n{1}",
 
     //  新手引导国际化转换
     "slide/1-1": "slide/1-1",

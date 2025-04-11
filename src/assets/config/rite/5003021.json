@@ -22,7 +22,7 @@
         ],        
         "method_settlement": "",
         "auto_begin": 0,
-        "auto_result": 0,
+        "auto_result": 1,
         "location": "自宅:[2,12]", 
         "icon": "rite_7", 
         "tag_tips": [

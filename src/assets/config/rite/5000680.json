@@ -3,6 +3,7 @@
         "name": "法尔达克的友谊",
         "text": "你的襄助赢得了法尔达克的友谊，他决心追随你，而在此之前，你还可以和他聊聊你的思潮。",       
         "tips": "",
+        "mapping_id":8001064, 
         "once_new":0,
         "round_number": 1,
         "waiting_round":3, 
@@ -25,7 +26,7 @@
         "auto_begin": 0, 
         "auto_result": 0,                            
         "location": "上城区:[7,12]", 
-        "icon": "rite_20",  
+        "icon": "rite_16",  
         "tag_tips": [
         ],
         "tag_tips_up":{

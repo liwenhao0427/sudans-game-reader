@@ -3,6 +3,7 @@
         "name": "暗影神殿",
         "text": "一个恶灵守护着传说中的暗影罗盘……冒险者可以用血祭贿赂他，哲巴尔的祖先笔记这样记载着。",       
         "tips": "",
+        "mapping_id":8001264, 
         "once_new":0,
         "round_number": 3, //需要3回合
         "waiting_round":2, 

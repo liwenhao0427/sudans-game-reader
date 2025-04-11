@@ -3,6 +3,7 @@
         "name": "召唤龙卷风",
         "text": "透过风之护符，你可以尝试束缚一个强大的空气精魂，在你需要的时候，它会为了自由而施放出狂风。",       
         "tips": "",
+        "mapping_id":8001244,
         "once_new":0,
         "round_number": 3,
         "waiting_round":1,

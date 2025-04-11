@@ -16,7 +16,9 @@
             "tips_text":"",
             "action":{     
                 "no_prompt":{
-                    "table.2000024=上朝":0
+                    "table.2000024=上朝":0,
+                    "table.传令官=传令官":0,
+                    "table.旗手=旗手":0,
                 },
                 "rite":5010015, //触发铁卫得背叛
                 "prompt":{

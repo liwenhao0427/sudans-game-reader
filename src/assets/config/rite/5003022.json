@@ -22,7 +22,7 @@
         ],        
         "method_settlement": "",
         "auto_begin": 0,
-        "auto_result": 0,
+        "auto_result": 1,
         "location": "商业区:[10,19]", 
         "icon": "rite_19", 
         "tag_tips": [

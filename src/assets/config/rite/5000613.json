@@ -3,6 +3,7 @@
         "name": "狩猎实战",
         "text": "只有在真正的狩猎中才能锻炼出真正的战士。你决定带着扎齐伊去见见血。",       
         "tips": "",
+        "mapping_id":8001250,
         "once_new":0,
         "round_number": 1,
         "waiting_round":0, 

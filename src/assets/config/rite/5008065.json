@@ -3,17 +3,17 @@
     "name": "老乡见老乡",
     "text": "自从你拜托他去过一次你的舍馆之后，你注意到，法尔达克似乎更频繁地进出其中……",       
     "tips": "",
-    "mapping_id":8001003,
+    "mapping_id":8001147,
     "once_new":0,
-    "round_number": 4,
+    "round_number": 3,
     "waiting_round":1,
     "waiting_round_end_action":[
     ],
     "method_settlement": "",
-    "auto_begin": 0,
+    "auto_begin": 1,
     "auto_result":0,
-    "location": "自宅:[2,12]",
-    "icon": "rite_16", 
+    "location": "商业区:[10,19]",
+    "icon": "rite_8", 
     "tag_tips": [
     ],
     "tag_tips_up":{

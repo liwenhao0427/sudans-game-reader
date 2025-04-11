@@ -3,6 +3,7 @@
         "name": "初步调查",
         "text": "离开驿站之后，那名夫人肯定是回到了自己的家乡。可为什么没有人见过她呢？你决定去那座城市展开调查。",       
         "tips": "",
+        "mapping_id":8001261, 
         "once_new":1,
         "round_number": 1,
         "waiting_round":0,

@@ -39,10 +39,10 @@
                 "result": 
                 {   
                     "clean.s1":1 , //消除贾丽拉
-                    "clean.s2":1  //消除主角
                 },
                 "action": {
                     "global_counter=7200248":1, //成就-最最尊贵的肥羊
+                    "over":13,
                 }
             },
             {

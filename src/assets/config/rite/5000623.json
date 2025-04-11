@@ -3,6 +3,7 @@
         "name": "年轻望族的仰慕",
         "text": "经过一番训练之后，年轻贵族彻底认定了你，现在你有机会向他传播你的思想。",       
         "tips": "",
+        "mapping_id":8001077,
         "once_new":0,
         "round_number": 1,
         "waiting_round":3, 

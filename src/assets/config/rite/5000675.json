@@ -3,6 +3,7 @@
         "name": "强硬驱逐",
         "text": "你认为当地人无法剿灭山匪的踪迹完全是因为无能，如果是你亲自出马，情况肯定就不一样了！",       
         "tips": "",
+        "mapping_id":8001174, 
         "once_new":0,
         "round_number": 3,
         "waiting_round":0, 

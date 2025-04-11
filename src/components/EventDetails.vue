@@ -6,48 +6,131 @@
     </div>
     
     <div class="event-info">
-      <!-- 基本信息 -->
-      <div class="info-card">
-        <div class="card-header" @click="toggleSection('basicInfo')">
-          <h3>基本信息</h3>
-          <span class="toggle-icon">{{ expandedSections.basicInfo ? '▼' : '►' }}</span>
+      <!-- 基本描述 -->
+      <div class="info-card description-card">
+        <div class="info-item full-width" v-if="event.text">
+          <div class="event-description">{{ event.text }}</div>
         </div>
-        <div class="card-content" v-if="expandedSections.basicInfo">
-          <div class="info-grid">
-            <div class="info-item" v-if="event.text">
-              <div class="info-label">描述:</div>
-              <div class="info-value">{{ event.text }}</div>
+      </div>
+
+
+      <!-- 卡片槽位 -->
+      <div class="info-card" v-if="event.cards_slot">
+        <div class="card-header" @click="toggleSection('cardsSlot')">
+          <h3>卡片槽位</h3>
+          <span class="toggle-icon">{{ expandedSections.cardsSlot ? '▼' : '►' }}</span>
+        </div>
+        <div class="card-content" v-if="expandedSections.cardsSlot">
+          <div v-for="(slot, key) in event.cards_slot" :key="key" class="card-slot-item">
+            <div class="card-slot-header">
+              <h4 class="slot-key">{{ key }}</h4>
+              <div class="slot-text">{{ slot.text }}</div>
             </div>
-            <div class="info-item" v-if="event.location">
-              <div class="info-label">位置:</div>
-              <div class="info-value">{{ event.location }}</div>
-            </div>
-            <div class="info-item" v-if="event.tag_tips">
-              <div class="info-label">标签:</div>
-              <div class="info-value tags-container">
-                <span v-for="(tag, index) in event.tag_tips" :key="index" class="tag">{{ tag }}</span>
+            
+            <div class="card-slot-grid">
+              <div class="card-slot-info">
+                <div class="info-badge" :class="{'active': slot.open_adsorb === 1}">
+                  <span class="badge-label">开放吸附</span>
+                  <span class="badge-value">{{ slot.open_adsorb ? '是' : '否' }}</span>
+                </div>
+                <div class="info-badge" :class="{'active': slot.is_key === 1}">
+                  <span class="badge-label">关键</span>
+                  <span class="badge-value">{{ slot.is_key ? '是' : '否' }}</span>
+                </div>
+                <div class="info-badge" :class="{'active': slot.is_empty === 1}">
+                  <span class="badge-label">空</span>
+                  <span class="badge-value">{{ slot.is_empty ? '是' : '否' }}</span>
+                </div>
+                <div class="info-badge" :class="{'active': slot.is_enemy === 1}">
+                  <span class="badge-label">敌人</span>
+                  <span class="badge-value">{{ slot.is_enemy ? '是' : '否' }}</span>
+                </div>
+              </div>
+              
+              <div class="card-slot-condition">
+                <!-- 使用统一的条件显示组件 -->
+                <condition-display v-if="slot.condition" :condition="slot.condition"></condition-display>
               </div>
             </div>
-            <div class="info-item" v-if="event.is_replay !== undefined">
-              <div class="info-label">可重复触发:</div>
-              <div class="info-value">{{ event.is_replay ? '是' : '否' }}</div>
-            </div>
-            <div class="info-item" v-if="event.auto_start !== undefined">
-              <div class="info-label">自动启动:</div>
-              <div class="info-value">{{ event.auto_start ? '是' : '否' }}</div>
-            </div>
-            <div class="info-item" v-if="event.auto_begin !== undefined">
-              <div class="info-label">自动开始:</div>
-              <div class="info-value">{{ event.auto_begin ? '是' : '否' }}</div>
-            </div>
-            <div class="info-item" v-if="event.auto_result !== undefined">
-              <div class="info-label">自动结果:</div>
-              <div class="info-value">{{ event.auto_result ? '是' : '否' }}</div>
+            
+            <div v-if="slot.pops && slot.pops.length > 0" class="card-slot-pops">
+              <div class="pops-header">可能的选择 ({{ slot.pops.length }})</div>
+              <div v-for="(pop, index) in slot.pops" :key="index" class="pop-item">
+                <div class="pop-header">选择 {{ index + 1 }}</div>
+                <div class="pop-content">
+                  <div class="pop-condition">
+                    <!-- 使用统一的条件显示组件 -->
+                    <condition-display v-if="pop.condition" :condition="pop.condition"></condition-display>
+                  </div>
+                  <div class="pop-action">
+                    <!-- 使用统一的动作显示组件 -->
+                    <action-display v-if="pop.action" :action="pop.action"></action-display>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       
+      
+      <!-- 主要结算 -->
+      <div class="info-card" v-if="event.settlement && event.settlement.length > 0">
+        <div class="card-header" @click="toggleSection('settlement')">
+          <h3>主要结算</h3>
+          <span class="toggle-icon">{{ expandedSections.settlement ? '▼' : '►' }}</span>
+        </div>
+        <div class="card-content" v-if="expandedSections.settlement">
+          <div v-for="(item, index) in event.settlement" :key="index" class="settlement-item">
+            <!-- 处理选项型事件 -->
+            <div v-if="item.action?.option" class="options-container">
+              <div class="option-description">{{ item.action.option.text }}</div>
+              <div class="options-list">
+                <div v-for="(option, optIndex) in item.action.option.items" :key="optIndex" 
+                     class="option-item" @click="toggleOptionDetails(index, option.tag)"
+                     :class="{'active': isOptionExpanded(index, option.tag)}">
+                  <div class="option-header">
+                    <span class="option-text">{{ option.text }}</span>
+                    <span class="option-toggle">{{ isOptionExpanded(index, option.tag) ? '▼' : '►' }}</span>
+                  </div>
+                  
+                  <div v-if="isOptionExpanded(index, option.tag)" class="option-details">
+                    <div v-if="item.action['case:' + option.tag]?.prompt" class="option-result">
+                      {{ item.action['case:' + option.tag].prompt.text }}
+                    </div>
+                    <div class="option-effects">
+                      <action-display 
+                        v-if="hasEffects(item.action['case:' + option.tag])" 
+                        :action="getEffects(item.action['case:' + option.tag])">
+                      </action-display>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 处理常规结算 -->
+            <div v-else class="settlement-body">
+              <div class="settlement-text" v-if="item.result_text" 
+                   @click="toggleSettlementDetails(index, 'settlement')" 
+                   :class="{'clickable': true}">
+                <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
+                {{ item.result_text }}
+                <div class="toggle-details-hint">
+                  {{ isSettlementExpanded('settlement', index) ? '收起详情 ▲' : '查看详情 ▼' }}
+                </div>
+              </div>
+              
+              <div v-if="isSettlementExpanded('settlement', index)">
+                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
+                <result-display v-if="item.result" :result="item.result"></result-display>
+                <action-display v-if="item.action" :action="item.action"></action-display>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- 提示信息 -->
       <div class="info-card" v-if="event.tips_text && event.tips_text.length > 0">
         <div class="card-header" @click="toggleSection('tips')">
@@ -132,63 +215,6 @@
         </div>
       </div>
       
-      <!-- 主要结算 -->
-            <!-- 主要结算 -->
-      <div class="info-card" v-if="event.settlement && event.settlement.length > 0">
-        <div class="card-header" @click="toggleSection('settlement')">
-          <h3>主要结算</h3>
-          <span class="toggle-icon">{{ expandedSections.settlement ? '▼' : '►' }}</span>
-        </div>
-        <div class="card-content" v-if="expandedSections.settlement">
-          <div v-for="(item, index) in event.settlement" :key="index" class="settlement-item">
-            <!-- 处理选项型事件 -->
-            <div v-if="item.action?.option" class="options-container">
-              <div class="option-description">{{ item.action.option.text }}</div>
-              <div class="options-list">
-                <div v-for="(option, optIndex) in item.action.option.items" :key="optIndex" 
-                     class="option-item" @click="toggleOptionDetails(index, option.tag)"
-                     :class="{'active': isOptionExpanded(index, option.tag)}">
-                  <div class="option-header">
-                    <span class="option-text">{{ option.text }}</span>
-                    <span class="option-toggle">{{ isOptionExpanded(index, option.tag) ? '▼' : '►' }}</span>
-                  </div>
-                  
-                  <div v-if="isOptionExpanded(index, option.tag)" class="option-details">
-                    <div v-if="item.action['case:' + option.tag]?.prompt" class="option-result">
-                      {{ item.action['case:' + option.tag].prompt.text }}
-                    </div>
-                    <div class="option-effects">
-                      <action-display 
-                        v-if="hasEffects(item.action['case:' + option.tag])" 
-                        :action="getEffects(item.action['case:' + option.tag])">
-                      </action-display>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 处理常规结算 -->
-            <div v-else class="settlement-body">
-              <div class="settlement-text" v-if="item.result_text" 
-                   @click="toggleSettlementDetails(index, 'settlement')" 
-                   :class="{'clickable': true}">
-                <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
-                {{ item.result_text }}
-                <div class="toggle-details-hint">
-                  {{ isSettlementExpanded('settlement', index) ? '收起详情 ▲' : '查看详情 ▼' }}
-                </div>
-              </div>
-              
-              <div v-if="isSettlementExpanded('settlement', index)">
-                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
-                <result-display v-if="item.result" :result="item.result"></result-display>
-                <action-display v-if="item.action" :action="item.action"></action-display>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       
       <!-- 额外结算 -->
       <div class="info-card" v-if="event.settlement_extre && event.settlement_extre.length > 0">
@@ -220,65 +246,45 @@
         </div>
       </div>
       
-      <!-- 卡片槽位 -->
-      <div class="info-card" v-if="event.cards_slot">
-        <div class="card-header" @click="toggleSection('cardsSlot')">
-          <h3>卡片槽位</h3>
-          <span class="toggle-icon">{{ expandedSections.cardsSlot ? '▼' : '►' }}</span>
+      <!-- 其他信息 -->
+      <div class="info-card">
+        <div class="card-header" @click="toggleSection('basicInfo')">
+          <h3>其他信息</h3>
+          <span class="toggle-icon">{{ expandedSections.basicInfo ? '▼' : '►' }}</span>
         </div>
-        <div class="card-content" v-if="expandedSections.cardsSlot">
-          <div v-for="(slot, key) in event.cards_slot" :key="key" class="card-slot-item">
-            <div class="card-slot-header">
-              <h4 class="slot-key">{{ key }}</h4>
-              <div class="slot-text">{{ slot.text }}</div>
+        <div class="card-content" v-if="expandedSections.basicInfo">
+          <div class="info-grid">
+            <div class="info-item" v-if="event.location">
+              <div class="info-label">位置:</div>
+              <div class="info-value">{{ event.location }}</div>
             </div>
-            
-            <div class="card-slot-grid">
-              <div class="card-slot-info">
-                <div class="info-badge" :class="{'active': slot.open_adsorb === 1}">
-                  <span class="badge-label">开放吸附</span>
-                  <span class="badge-value">{{ slot.open_adsorb ? '是' : '否' }}</span>
-                </div>
-                <div class="info-badge" :class="{'active': slot.is_key === 1}">
-                  <span class="badge-label">关键</span>
-                  <span class="badge-value">{{ slot.is_key ? '是' : '否' }}</span>
-                </div>
-                <div class="info-badge" :class="{'active': slot.is_empty === 1}">
-                  <span class="badge-label">空</span>
-                  <span class="badge-value">{{ slot.is_empty ? '是' : '否' }}</span>
-                </div>
-                <div class="info-badge" :class="{'active': slot.is_enemy === 1}">
-                  <span class="badge-label">敌人</span>
-                  <span class="badge-value">{{ slot.is_enemy ? '是' : '否' }}</span>
-                </div>
-              </div>
-              
-              <div class="card-slot-condition">
-                <!-- 使用统一的条件显示组件 -->
-                <condition-display v-if="slot.condition" :condition="slot.condition"></condition-display>
+            <div class="info-item" v-if="event.tag_tips">
+              <div class="info-label">标签:</div>
+              <div class="info-value tags-container">
+                <span v-for="(tag, index) in event.tag_tips" :key="index" class="tag">{{ tag }}</span>
               </div>
             </div>
-            
-            <div v-if="slot.pops && slot.pops.length > 0" class="card-slot-pops">
-              <div class="pops-header">可能的选择 ({{ slot.pops.length }})</div>
-              <div v-for="(pop, index) in slot.pops" :key="index" class="pop-item">
-                <div class="pop-header">选择 {{ index + 1 }}</div>
-                <div class="pop-content">
-                  <div class="pop-condition">
-                    <!-- 使用统一的条件显示组件 -->
-                    <condition-display v-if="pop.condition" :condition="pop.condition"></condition-display>
-                  </div>
-                  <div class="pop-action">
-                    <!-- 使用统一的动作显示组件 -->
-                    <action-display v-if="pop.action" :action="pop.action"></action-display>
-                  </div>
-                </div>
-              </div>
+            <div class="info-item" v-if="event.is_replay !== undefined">
+              <div class="info-label">可重复触发:</div>
+              <div class="info-value">{{ event.is_replay ? '是' : '否' }}</div>
+            </div>
+            <div class="info-item" v-if="event.auto_start !== undefined">
+              <div class="info-label">自动启动:</div>
+              <div class="info-value">{{ event.auto_start ? '是' : '否' }}</div>
+            </div>
+            <div class="info-item" v-if="event.auto_begin !== undefined">
+              <div class="info-label">自动开始:</div>
+              <div class="info-value">{{ event.auto_begin ? '是' : '否' }}</div>
+            </div>
+            <div class="info-item" v-if="event.auto_result !== undefined">
+              <div class="info-label">自动结果:</div>
+              <div class="info-value">{{ event.auto_result ? '是' : '否' }}</div>
             </div>
           </div>
         </div>
       </div>
-      
+
+
       <!-- 触发条件 -->
       <div class="info-card" v-if="event.on">
         <div class="card-header" @click="toggleSection('on')">
@@ -990,4 +996,24 @@ pre {
   background-color: #f0faf5;
   border-bottom-color: #42b983;
 }
+
+.info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.description-card {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-left: 4px solid #42b983;
+}
+
+.event-description {
+  padding: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #2c3e50;
+  white-space: pre-line;
+  font-weight: 500;
+}
+
 </style>

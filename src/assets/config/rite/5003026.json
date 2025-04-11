@@ -22,7 +22,7 @@
         ],        
         "method_settlement": "",
         "auto_begin": 0,
-        "auto_result": 0,
+        "auto_result": 1,
         "location": "野外:[1,6]", 
         "icon": "rite_21", 
         "tag_tips": [

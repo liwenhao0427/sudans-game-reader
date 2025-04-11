@@ -95,7 +95,7 @@
                 "clean.s6":1  //消除苏丹的猜忌
             },
             "action": {
-
+                "global_counter=7200225":1, //成就：没有人比我更懂你
             }
         }
     ],
@@ -171,8 +171,7 @@
         {
             "condition":
             {
-                "type":"sudan",
-                "rare<=":3
+                "is":2000680  
             },
             "open_adsorb":1,
             "is_key":0,

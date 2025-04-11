@@ -3,6 +3,7 @@
         "name": "以身试刃",
         "text": "既然盖斯找死，你也就勉强成全他。",       
         "tips": "",
+        "mapping_id":8001216,
         "once_new":1,
         "round_number": 1,
         "waiting_round":3,

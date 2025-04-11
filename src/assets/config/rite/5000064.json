@@ -3,6 +3,7 @@
         "name": "打碎提灯",
         "text": "三只犯过错误的妖精被囚禁在这里：一只因为偷窃，一只因为偷情，还有一只则因为高贵。",       
         "tips": "",
+        "mapping_id":8001246,
         "once_new":0,
         "round_number": 1,
         "waiting_round":1,

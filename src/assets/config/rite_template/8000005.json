@@ -1,6 +1,6 @@
 {
     "id": 8000005,
-    "name": "自宅-卧室",
+    "name": "",
     "tips": "",
     "bg": "zz_03_bg",
     "fg": "zz_03_fg",
@@ -75,8 +75,8 @@
             "is_set_card_hide_bg": false,
             "slot_bg": "normal_1",
             "pos": {
-                "x": 244,
-                "y": 734
+                "x": 822,
+                "y": 669
             },
             "scale": {
                 "x": 1,

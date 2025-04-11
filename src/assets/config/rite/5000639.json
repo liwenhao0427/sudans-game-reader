@@ -3,6 +3,7 @@
         "name": "处置阿迪莱",
         "text": "胜利者可以任意处置失败者，这就是古代战士的荣誉……也是阿迪莱倔强的坚持。你不知道她是否明白这意味着什么。",       
         "tips": "",
+        "mapping_id":8001216,
         "once_new":0,
         "round_number": 1,
         "waiting_round":0, 
@@ -11,7 +12,7 @@
         "method_settlement": "",
         "auto_begin": 0, 
         "auto_result": 0, //自动执行
-        "location": "野外:[1,6]", 
+        "location": "自宅:[2,12]", 
         "icon": "rite_12",  
         "tag_tips": [
         ],

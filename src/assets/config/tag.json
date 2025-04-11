@@ -5798,5 +5798,23 @@
         "attributes": {
             "吸附指定": 1
         }
+    },
+    "lock_147": {
+        "id": 3020256,
+        "name": "扎齐伊",
+        "code": "lock_147",
+        "type": "attribute",
+        "text": "标识这是扎齐伊",
+        "tips": "",
+        "resource": "tag_0",
+        "can_add": 0,
+        "can_visible": 0,
+        "can_inherit": 1,
+        "can_nagative_and_zero": 0,
+        "fail_tag": [],
+        "tag_vanishing": 0,
+        "tag_sfx": "",
+        "tag_rank": 10,
+        "attributes": {}
     }
 }

@@ -16,7 +16,7 @@
             "result": 
             {
                 //等同于玩家不去
-                "s3-奈布哈尼准备银趴":1 //移除吸附指定tag
+                "s4-奈布哈尼准备银趴":1 //移除吸附指定tag
                 //"clean.s1":1 //妓女死亡
             },
             "action": {
@@ -30,7 +30,7 @@
         }
     ],
     "method_settlement": "",
-    "auto_begin": 1,
+    "auto_begin": 0,
     "auto_result":0,
     "location": "商业区:[10,19]", 
     "icon": "rite_22",  
@@ -166,7 +166,7 @@
             "result": 
             {
                 "no_show":{
-                    "card":2000896  //生成一个神秘的客人
+                    "card":2001059  //生成一个神秘的客人
                 }
             },
             "action": {
@@ -182,7 +182,7 @@
             "result": 
             {
                 "no_show":{
-                    "card":2000896  //生成一个神秘的客人
+                    "card":2001059  //生成一个神秘的客人
                 }
             },
             "action": {

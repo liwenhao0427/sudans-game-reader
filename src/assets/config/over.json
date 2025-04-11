@@ -822,7 +822,7 @@
                 "result_text": ""
             }
         ],
-        "open_after_story": 0,
+        "open_after_story": 1,
         "bg":"over_cg/over_cg_103",
         "icon":"over_icon/over_icon_1",
         "title":"over_icon/over_title",

@@ -22,7 +22,7 @@
         ],        
         "method_settlement": "",
         "auto_begin": 0,
-        "auto_result": 0,
+        "auto_result": 1,
         "location": "宫廷:[2,6]", 
         "icon": "rite_8", 
         "tag_tips": [

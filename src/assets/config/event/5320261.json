@@ -10,6 +10,7 @@
     "condition":{
         "table_have.2000010":1,
         "counter.7000541<":1, //证明莎姬的信物非正常消解
+        "counter.7000439<":1, //集结部队之前
     },
     "settlement": [    //效果 
         {

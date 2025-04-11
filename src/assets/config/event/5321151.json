@@ -9,7 +9,7 @@
     },
     "condition":{
 
-        "have.2000173":1  //法德耶还活着
+        "table_have.2000173":1  //法德耶还活着
     },
     "settlement": [    //效果 
         {

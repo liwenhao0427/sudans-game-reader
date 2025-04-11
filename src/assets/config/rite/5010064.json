@@ -125,7 +125,7 @@
                 },
                 "open_adsorb":1,
                 "is_key":0,
-                "is_empty":0,
+                "is_empty":1,
                 "is_enemy":1, 
                 "text":"唯有真神方能得到天使的侍奉"
             },
@@ -137,7 +137,7 @@
                 },
                 "open_adsorb":1,
                 "is_key":0,
-                "is_empty":0,
+                "is_empty":1,
                 "is_enemy":1, 
                 "text":"从太古，到今日，祂所篡夺的，一切的功",
                 
@@ -150,7 +150,7 @@
                 },
                 "open_adsorb":1,
                 "is_key":0,
-                "is_empty":0,
+                "is_empty":1,
                 "is_enemy":1, 
                 "text":"愚蠢的人类，不计其数，合众为一"
             },
@@ -162,7 +162,7 @@
                 },
                 "open_adsorb":1,
                 "is_key":0,
-                "is_empty":0,
+                "is_empty":1,
                 "is_enemy":1, 
                 "text":"人类主动让一个疯神加冕为世界之主",
             },

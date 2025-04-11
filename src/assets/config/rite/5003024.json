@@ -22,7 +22,7 @@
         ],        
         "method_settlement": "",
         "auto_begin": 0,
-        "auto_result": 0,
+        "auto_result": 1,
         "location": "黑街:[2,5]", 
         "icon": "rite_3", 
         "tag_tips": [

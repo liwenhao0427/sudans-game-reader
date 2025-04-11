@@ -1,7 +1,7 @@
 {
     "id": 5321069,
     "text": "老乡见老乡",     
-    "is_replay": 0, //是否可以重复触发
+    "is_replay": 1, //是否可以重复触发
     "auto_start_init": [1],
     "auto_start": false,   
     "start_trigger": false, // 是否启动就立即开始校验条件
@@ -11,7 +11,7 @@
     "condition":{  //条件
         "counter.7000377>=":1, //触发质子去舍馆
         "table_have.2000350":1,   //质子在手牌
-        "table_have.黑街声望>=":1              //黑街lv1
+        "counter.7100004>=":3,  //侠名大于等于3
         
     },
     "settlement": [    //效果 
