@@ -8,7 +8,7 @@
       <span class="toggle-icon" v-if="hasChildren" @click.stop="toggleExpanded">
         {{ expanded ? '▼' : '►' }}
       </span>
-      <span class="node-title">{{ event.text || '未命名事件' }} (ID: {{ event.id }})</span>
+      <span class="node-title">{{ event.name || event.text || '未命名事件' }} (ID: {{ event.eventId }})</span>
     </div>
     
     <div class="children" v-if="expanded && hasChildren">
@@ -16,9 +16,9 @@
       <template v-else>
         <event-tree-node 
           v-for="child in children" 
-          :key="child.id" 
+          :key="child.eventId" 
           :event="child" 
-          :selected="selectedId === child.id"
+          :selected="selectedId === child.eventId"
           @select="handleChildSelect"
         />
       </template>
@@ -56,7 +56,7 @@ export default {
     
     // 处理选择节点
     const handleSelect = () => {
-      emit('select', props.event.id);
+      emit('select', props.event.eventId);
     };
     
     // 处理子节点选择
@@ -94,6 +94,7 @@ export default {
         }
         
         children.value = loadedChildren;
+        // console.log('子节点加载完成:', children.value); // 添加这一行以查看子节点加载情况
       } catch (e) {
         console.error('加载子节点失败:', e);
       } finally {

@@ -1,36 +1,42 @@
 // 解析带注释的JSON
 export const parseJsonWithComments = (jsonString) => {
   try {
-    // 移除单行注释
-    let noComments = jsonString.replace(/\/\/.*$/gm, '');
-    
-    // 处理可能存在的重复键问题（先转换为字符串形式）
-    // 使用正则表达式匹配JSON对象中的键值对
-    const keyValueRegex = /"([^"]+)":\s*([^,}\]]+)/g;
-    const keys = new Map();
-    let match;
-    
-    while ((match = keyValueRegex.exec(noComments)) !== null) {
-      const key = match[1];
-      if (keys.has(key)) {
-        // 如果是重复键，可能需要特殊处理
-        console.log(`检测到重复键: ${key}`);
-      }
-      keys.set(key, match[2]);
+    // 检查输入是否为空
+    if (!jsonString) {
+      console.error('输入的JSON字符串为空');
+      return null;
     }
     
+    // 先将转义的换行符替换为实际的换行符
+    jsonString = jsonString.replace(/\\n/g, '\n');
+    jsonString = jsonString.replace(/\\r/g, '');
+    jsonString = jsonString.replace(/\\t/g, '');
+    // console.log("初始JSON", jsonString);
+
+    // 移除单行注释，但保留引号内的注释样式文本
+    // 正确处理换行符，确保注释只到换行符为止
+    let noComments = jsonString.replace(/([^"\\]|^)\/\/[^\n]*/g, '$1');
+    // console.log("移除单行注释，但保留引号内的注释样式文本", noComments);
+
     // 处理特殊格式问题，如表达式中的等号
-    noComments = noComments.replace(/"([^"]+)=([^"]+)":/g, '"$1_$2":');
+    noComments = noComments.replace(/"([^"]+)=([^"]+)":/g, '"$1_EQUALS_$2":');
+    
+    // 处理特殊键名，如counter+7000101
+    noComments = noComments.replace(/"([^"]+)\+([^"]+)":/g, '"$1_PLUS_$2":');
     
     // 尝试解析JSON
     try {
-      return JSON.parse(noComments);
+      // 使用自定义解析器处理重复键
+      const result = parseJSONWithDuplicateKeys(noComments);
+      return result;
     } catch (parseError) {
-      // 如果解析失败，尝试更严格的清理
-      console.log("第一次解析失败，尝试更严格的清理...");
+      console.log("第一次解析失败，尝试更严格的清理", noComments);
+      console.log("第一次解析失败，尝试更严格的清理...", parseError);
       
       // 移除所有注释（包括多行注释）
-      noComments = noComments.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '');
+      // 修改单行注释的正则表达式
+      noComments = noComments.replace(/\/\*[\s\S]*?\*\//g, '');
+      noComments = noComments.replace(/([^\\]|^)\/\/[^\n]*(\n|$)/gm, '$1$2');
       
       // 处理可能存在的尾随逗号
       noComments = noComments.replace(/,(\s*[}\]])/g, '$1');
@@ -44,14 +50,12 @@ export const parseJsonWithComments = (jsonString) => {
       // 处理可能存在的非法转义字符
       noComments = noComments.replace(/\\([^"\\/bfnrtu])/g, '\\\\$1');
       
-      // 再次尝试解析
       try {
-        return JSON.parse(noComments);
+        // 再次尝试使用自定义解析器
+        const result = parseJSONWithDuplicateKeys(noComments);
+        return result;
       } catch (finalError) {
-        // 如果仍然失败，尝试手动解析关键部分
         console.error('严格清理后仍然解析失败:', finalError);
-        console.log('尝试手动解析关键部分...');
-        console.log('报错结果:', jsonString, noComments);
         
         // 提取关键信息构建一个简化的对象
         const idMatch = /"id"\s*:\s*(\d+)/.exec(noComments);
@@ -76,6 +80,164 @@ export const parseJsonWithComments = (jsonString) => {
     return null;
   }
 };
+
+// 自定义解析器处理重复键
+/* eslint-disable */
+function parseJSONWithDuplicateKeys(jsonString) {
+  // 使用正则表达式匹配所有键值对
+  const keyValuePairs = [];
+  const keyRegex = /"([^"]+)"\s*:\s*([^,}\]]+|{[^}]*}|\[[^\]]*\]|"[^"]*")/g;
+  
+  let match;
+  const keyMap = new Map();
+  
+  // 收集所有键值对
+  while ((match = keyRegex.exec(jsonString)) !== null) {
+    const key = match[1];
+    const value = match[2].replace(/\\n|\\r|\s+/g, ''); // 移除换行符和空格
+    
+    // 检查是否是重复键
+    if (key === 'rite' || key === 'event_on') {
+      if (!keyMap.has(key)) {
+        keyMap.set(key, []);
+      }
+      // 仅在值不重复且不与当前事件id一致时添加
+      if (!keyMap.get(key).includes(value) && value !== jsonString.id) {
+        keyMap.get(key).push(value);
+        // console.log(key, value);
+      }
+    }
+    
+    keyValuePairs.push({ key, value, index: match.index });
+  }
+  
+  // 尝试使用更安全的方式解析JSON
+  try {
+    // 先尝试清理JSON字符串
+    let cleanedJson = jsonString;
+    
+    // 移除所有注释，修改单行注释的正则表达式
+    cleanedJson = cleanedJson.replace(/\/\/[^\n]*(\n|$)/gm, '$1');
+
+    cleanedJson = cleanedJson.replace(/\/\*[\s\S]*?\*\//g, '');
+    // console.log("移除所有注释，修改单行注释的正则表达式2", cleanedJson);
+    
+    // 处理换行符，将其替换为空格
+    cleanedJson = cleanedJson.replace(/\n/g, ' ');
+    // console.log("处理换行符，将其替换为空格", cleanedJson);
+    
+    // 处理可能存在的尾随逗号
+    cleanedJson = cleanedJson.replace(/,(\s*[}\]])/g, '$1');
+    // console.log("处理可能存在的尾随逗号", cleanedJson);
+    
+    // 使用Function构造函数创建一个沙箱环境
+    try {
+      const jsonObj = new Function('return ' + cleanedJson)();
+      
+      // 处理重复键
+      for (const [key, values] of keyMap.entries()) {
+        if (values.length > 1) {
+          // 递归查找并修复对象中的重复键
+          fixDuplicateKeys(jsonObj, key, values);
+        }
+      }
+      
+      console.log("最终JSON对象", jsonObj);
+      return jsonObj;
+    } catch (evalError) {
+      console.error('使用Function解析JSON失败:', evalError);
+      
+      // 尝试使用JSON5解析，它更宽松
+      try {
+        // 如果有JSON5库可用，可以使用它
+        // 这里我们使用一个简单的手动解析方法
+        
+        // 尝试手动修复一些常见问题
+        cleanedJson = cleanedJson.replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2":');
+        cleanedJson = cleanedJson.replace(/'/g, '"');
+        console.log("第一次尝试修复", cleanedJson);
+
+        // 尝试使用标准JSON解析
+        return JSON.parse(cleanedJson);
+      } catch (jsonError) {
+        console.error('JSON.parse解析失败:', jsonError);
+        
+        // 如果所有方法都失败，尝试使用正则表达式提取关键信息
+        const idMatch = /"id"\s*:\s*(\d+)/.exec(cleanedJson);
+        const textMatch = /"text"\s*:\s*"([^"]*)"/.exec(cleanedJson);
+        console.log("第二次尝试修复", idMatch, textMatch);
+
+        
+        if (idMatch && textMatch) {
+          return {
+            id: parseInt(idMatch[1]),
+            text: textMatch[1],
+            _parseError: true,
+            _originalContent: jsonString
+          };
+        }
+        
+        throw jsonError;
+      }
+    }
+  } catch (e) {
+    console.error('解析JSON过程中发生错误:', e);
+    throw e;
+  }
+}
+
+// 递归查找并修复对象中的重复键
+function fixDuplicateKeys(obj, targetKey, values) {
+  if (!obj || typeof obj !== 'object') return;
+  
+  // 检查当前对象是否有目标键
+  if (Object.prototype.hasOwnProperty.call(obj, targetKey)) {
+    // 将值转换为数组
+    if (!Array.isArray(obj[targetKey])) {
+      obj[targetKey] = [obj[targetKey]];
+    }
+    
+    // 添加其他值
+    for (let i = 1; i < values.length; i++) {
+      let value = values[i];
+      
+      // 尝试解析值
+      try {
+        if (typeof value === 'string') {
+          // 如果是数字字符串，转换为数字
+          if (/^\d+$/.test(value)) {
+            value = parseInt(value);
+          }
+          // 如果是对象或数组字符串，解析它
+          else if (/^[\{\[]/.test(value)) {
+            value = JSON.parse(value);
+          }
+        }
+      } catch (e) {
+        console.warn('解析值失败:', e);
+      }
+      
+      obj[targetKey].push(value);
+    }
+  }
+  
+  // 递归处理子对象
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key) && typeof obj[key] === 'object') {
+      fixDuplicateKeys(obj[key], targetKey, values);
+    }
+  }
+  
+  // 处理数组
+  if (Array.isArray(obj)) {
+    for (let i = 0; i < obj.length; i++) {
+      if (typeof obj[i] === 'object') {
+        fixDuplicateKeys(obj[i], targetKey, values);
+      }
+    }
+  }
+}
+/* eslint-enable */
 
 // 处理重复键的问题
 export const handleDuplicateKeys = (eventData) => {
@@ -226,6 +388,7 @@ export const loadEventData = async (eventId) => {
     const id = isRite ? eventId.substring(5) : eventId;
     
     // 使用require加载JSON文件
+    // console.log("加载的JSON文本", `raw-loader!@/assets/config/${directory}/${id}.json`);
     const eventJsonText = require(`raw-loader!@/assets/config/${directory}/${id}.json`).default;
 
     // 提取JSON内容 - 处理module.exports包装
@@ -243,22 +406,70 @@ export const loadEventData = async (eventId) => {
       jsonContent = jsonContent.substring(1, jsonContent.length - 1);
     }
     
-    // 处理转义的引号和换行符
-    jsonContent = jsonContent.replace(/\\"/g, '"').replace(/\\r\\n/g, '\n');
+    // 处理转义的引号和换行符，但保留原始结构
+    jsonContent = jsonContent.replace(/\\"/g, '"');
+    // 不要替换换行符，保留原始格式
+    // jsonContent = jsonContent.replace(/\\r\\n/g, '\n');
+    // 先将转义的换行符替换为实际的换行符
+    jsonContent = jsonContent.replace(/\\n/g, '\n');
+    jsonContent = jsonContent.replace(/\\r/g, '');
+    jsonContent = jsonContent.replace(/\\t/g, '');
+
     
-    console.log("原始数据", eventJsonText);
-    console.log("处理后的数据", jsonContent);
-    const eventData = parseJsonWithComments(jsonContent);
     
-    if (eventData) {
-      return handleDuplicateKeys(eventData);
+    // console.log("原始数据", eventJsonText);
+    // console.log("处理后的数据", jsonContent);
+    
+    // 直接尝试使用JSON.parse解析，不进行额外的注释处理
+    try {
+      // 先尝试直接解析，这适用于格式良好的JSON
+      const eventData = JSON.parse(jsonContent);
+      let result = handleDuplicateKeys(eventData);
+      result.eventId = eventId;
+      return result;
+    } catch (directParseError) {
+      // console.log("直接解析失败，尝试预处理...", directParseError);
+      
+      // 如果直接解析失败，尝试使用我们的自定义解析器
+      try {
+        // 使用自定义解析器，但不进行注释处理
+        const eventData = parseJsonWithComments(jsonContent);
+        if (eventData) {
+          let result = handleDuplicateKeys(eventData);
+          result.eventId = eventId;
+          return result;
+        }
+      } catch (parseError) {
+        console.error(`解析事件 ${eventId} 失败:`, parseError);
+        
+        // 最后的尝试：手动构建一个基本对象
+        try {
+          // 提取关键信息
+          const idMatch = /"id"\s*:\s*(\d+)/.exec(jsonContent);
+          const textMatch = /"text"\s*:\s*"([^"]*)"/.exec(jsonContent);
+          
+          if (idMatch && textMatch) {
+            return {
+              id: parseInt(idMatch[1]),
+              eventId: eventId,
+              text: textMatch[1],
+              _parseError: true,
+              _originalContent: jsonContent
+            };
+          }
+        } catch (finalError) {
+          console.error(`最终解析事件 ${eventId} 失败:`, finalError);
+        }
+      }
     }
+    
     return null;
   } catch (e) {
     console.error(`加载事件 ${eventId} 失败:`, e);
     // 创建一个错误占位对象
     return {
       id: eventId,
+      eventId: eventId,
       text: `加载失败 (${eventId})`,
       _loadError: true,
       _errorMessage: e.message

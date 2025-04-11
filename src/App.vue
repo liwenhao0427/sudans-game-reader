@@ -23,7 +23,7 @@
 import EventTreeNode from './components/EventTreeNode.vue';
 import EventDetails from './components/EventDetails.vue';
 import { ref, onMounted, reactive } from 'vue';
-import { parseJsonWithComments, handleDuplicateKeys, loadEventData } from './services/eventService';
+import {  handleDuplicateKeys, loadEventData } from './services/eventService';
 
 export default {
   name: 'App',
@@ -62,27 +62,28 @@ export default {
     onMounted(async () => {
       try {
         // 使用require加载JSON文件
-        const eventJsonText = require('raw-loader!@/assets/config/event/5300000.json').default;
+        // const eventJsonText = require('raw-loader!@/assets/config/event/5300000.json').default;
         
-        // 提取JSON内容 - 处理module.exports包装
-        let jsonContent = eventJsonText;
-        if (jsonContent.startsWith('module.exports = ')) {
-          // 移除 module.exports = 和首尾的引号
-          jsonContent = jsonContent.substring(16);
-        }
+        // // 提取JSON内容 - 处理module.exports包装
+        // let jsonContent = eventJsonText;
+        // if (jsonContent.startsWith('module.exports = ')) {
+        //   // 移除 module.exports = 和首尾的引号
+        //   jsonContent = jsonContent.substring(16);
+        // }
         
-        // 移除字符串首尾的引号和分号
-        jsonContent = jsonContent.trim();
-        if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
-          jsonContent = jsonContent.substring(1, jsonContent.length - 2);
-        } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
-          jsonContent = jsonContent.substring(1, jsonContent.length - 1);
-        }
+        // // 移除字符串首尾的引号和分号
+        // jsonContent = jsonContent.trim();
+        // if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
+        //   jsonContent = jsonContent.substring(1, jsonContent.length - 2);
+        // } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
+        //   jsonContent = jsonContent.substring(1, jsonContent.length - 1);
+        // }
         
-        // 处理转义的引号和换行符
-        jsonContent = jsonContent.replace(/\\"/g, '"').replace(/\\r\\n/g, '\n');
-        const eventData = parseJsonWithComments(jsonContent);
+        // // 处理转义的引号和换行符
+        // jsonContent = jsonContent.replace(/\\"/g, '"').replace(/\\r\\n/g, '\n');
+        // const eventData = parseJsonWithComments(jsonContent);
         
+        const eventData = await loadEventData(5300000);
         if (eventData) {
           const processedData = handleDuplicateKeys(eventData);
           rootEvent.value = processedData;
