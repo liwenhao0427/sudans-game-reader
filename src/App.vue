@@ -147,7 +147,7 @@
       </div>
     </div>
 
-        
+    <card-details-modal />
     <div class="footer">
       <p>苏丹的游戏剧情阅读器 &copy; 2025 by <a href="https://github.com/liwenhao0427/sudans-game-reader" target="_blank">liwenhao0427</a></p>
     </div>
@@ -157,6 +157,8 @@
 <script>
 import EventTreeNode from './components/EventTreeNode.vue';
 import EventDetails from './components/EventDetails.vue';
+// 导入卡片详情模态框组件
+import CardDetailsModal from '@/components/CardDetailsModal.vue';
 import { ref, onMounted, reactive, computed, watch } from 'vue';
 import { 
   handleDuplicateKeys, 
@@ -168,6 +170,7 @@ import {
 export default {
   name: 'App',
   components: {
+    CardDetailsModal,
     EventTreeNode,
     EventDetails
   },

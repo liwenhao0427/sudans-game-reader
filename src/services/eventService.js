@@ -581,3 +581,77 @@ export const loadEventData = async (eventId, type) => {
     };
   }
 };
+
+// ... 现有代码 ...
+
+// 添加一个变量来缓存卡片数据
+let cardsData = null;
+
+// 加载卡片数据并缓存
+export async function loadCardsData() {
+  if (cardsData !== null) {
+    return cardsData;
+  }
+  
+  try {
+    // 使用require直接导入JSON文件
+    const response = require('raw-loader!@/assets/config/cards_simplified.json').default;
+    
+    // 处理JSON内容 - 处理module.exports包装
+    let jsonContent = response;
+    if (jsonContent.startsWith('module.exports = ')) {
+      jsonContent = jsonContent.substring(16);
+    }
+    
+    // 移除字符串首尾的引号和分号
+    jsonContent = jsonContent.trim();
+    if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 2);
+    } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 1);
+    }
+    
+    // 处理转义字符
+    jsonContent = jsonContent.replace(/\\"/g, '"');
+    jsonContent = jsonContent.replace(/\\n/g, '\n');
+    jsonContent = jsonContent.replace(/\\r/g, '');
+    jsonContent = jsonContent.replace(/\\t/g, '');
+    
+    try {
+      // 尝试直接解析
+      cardsData = JSON.parse(jsonContent);
+    } catch (directParseError) {
+      // 如果直接解析失败，尝试使用自定义解析器
+      cardsData = parseJsonWithComments(jsonContent);
+    }
+    
+    return cardsData;
+  } catch (e) {
+    console.error('加载卡片数据失败:', e);
+    throw e;
+  }
+}
+
+// 根据卡片ID获取卡片信息
+export async function getCardById(cardId) {
+  try {
+    const cards = await loadCardsData();
+    return cards.find(card => card.id === cardId || card.id === parseInt(cardId));
+  } catch (e) {
+    console.error(`获取卡片 ${cardId} 信息失败:`, e);
+    return null;
+  }
+}
+
+// 根据卡片类型获取卡片列表
+export async function getCardsByType(type) {
+  try {
+    const cards = await loadCardsData();
+    return cards.filter(card => card.type === type);
+  } catch (e) {
+    console.error(`获取类型为 ${type} 的卡片列表失败:`, e);
+    return [];
+  }
+}
+
+// ... 现有代码 ...

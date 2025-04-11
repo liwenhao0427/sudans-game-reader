@@ -13,6 +13,7 @@
     "element-plus": "^2.9.7",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
+    "mitt": "^3.0.1",
     "vue": "^3.2.13"
   },
   "devDependencies": {
