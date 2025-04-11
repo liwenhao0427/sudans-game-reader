@@ -1,25 +1,63 @@
 <template>
   <div class="container">
     <h1>游戏分支树展示</h1>
-    <div class="event-tree">
-      <event-node v-if="rootEvent" :event="rootEvent" />
-      <div v-else class="loading">加载中...</div>
+    <div class="event-tree-container">
+      <div class="tree-view">
+        <event-tree-node 
+          v-if="rootEvent" 
+          :event="rootEvent" 
+          :selected="selectedEventId === rootEvent.id"
+          @select="selectEvent"
+        />
+        <div v-else class="loading">加载中...</div>
+      </div>
+      <div class="event-details">
+        <event-details v-if="selectedEvent" :event="selectedEvent" />
+        <div v-else class="no-selection">请选择一个事件节点查看详情</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import EventNode from './components/EventNode.vue';
-import { ref, onMounted } from 'vue';
-import { parseJsonWithComments, handleDuplicateKeys } from './services/eventService';
+import EventTreeNode from './components/EventTreeNode.vue';
+import EventDetails from './components/EventDetails.vue';
+import { ref, onMounted, reactive } from 'vue';
+import { parseJsonWithComments, handleDuplicateKeys, loadEventData } from './services/eventService';
 
 export default {
   name: 'App',
   components: {
-    EventNode
+    EventTreeNode,
+    EventDetails
   },
   setup() {
     const rootEvent = ref(null);
+    const selectedEventId = ref(null);
+    const selectedEvent = ref(null);
+    const loadedEvents = reactive(new Map());
+
+    // 选择事件节点
+    const selectEvent = async (eventId) => {
+      selectedEventId.value = eventId;
+      
+      // 如果已经加载过该事件，直接使用缓存
+      if (loadedEvents.has(eventId)) {
+        selectedEvent.value = loadedEvents.get(eventId);
+        return;
+      }
+      
+      // 否则加载事件详情
+      try {
+        const eventData = await loadEventData(eventId);
+        if (eventData) {
+          loadedEvents.set(eventId, eventData);
+          selectedEvent.value = eventData;
+        }
+      } catch (e) {
+        console.error(`加载事件 ${eventId} 详情失败:`, e);
+      }
+    };
 
     onMounted(async () => {
       try {
@@ -43,12 +81,12 @@ export default {
         
         // 处理转义的引号和换行符
         jsonContent = jsonContent.replace(/\\"/g, '"').replace(/\\r\\n/g, '\n');
-        
-        console.log("处理后的JSON内容:", jsonContent);
         const eventData = parseJsonWithComments(jsonContent);
         
         if (eventData) {
-          rootEvent.value = handleDuplicateKeys(eventData);
+          const processedData = handleDuplicateKeys(eventData);
+          rootEvent.value = processedData;
+          loadedEvents.set(processedData.id, processedData);
         }
       } catch (e) {
         console.error('加载事件数据失败:', e);
@@ -56,7 +94,10 @@ export default {
     });
 
     return {
-      rootEvent
+      rootEvent,
+      selectedEventId,
+      selectedEvent,
+      selectEvent
     };
   }
 }
@@ -70,11 +111,32 @@ export default {
   font-family: Arial, sans-serif;
 }
 
-.event-tree {
+.event-tree-container {
+  display: flex;
   margin-top: 20px;
+  gap: 20px;
 }
 
-.loading {
+.tree-view {
+  flex: 1;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  max-width: 40%;
+  overflow: auto;
+  max-height: 80vh;
+}
+
+.event-details {
+  flex: 2;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.loading, .no-selection {
   text-align: center;
   padding: 20px;
   color: #666;
