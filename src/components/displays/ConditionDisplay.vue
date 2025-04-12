@@ -1,5 +1,5 @@
 <template>
-  <div class="condition-container">
+  <div class="condition-container" v-if="Object.keys(this.condition).length > 0">
     <div class="container-header">
       <span class="container-icon">🔍</span>
       <span class="container-title">条件</span>
@@ -114,7 +114,7 @@
           <span class="condition-value">{{ formatValue(key, value) }}</span>
         </div>
       </div>
-      <div v-else class="complex-condition">
+      <div v-if="shouldShowJson" class="complex-condition">
         <pre>{{ JSON.stringify(condition, null, 2) }}</pre>
       </div>
     </div>
@@ -180,6 +180,21 @@ export default {
     // 添加新的计算属性来检测递归条件
     hasRecursiveConditions() {
       return this.condition && (this.condition.all || this.condition.any);
+    },
+    
+    // 添加新的计算属性来检测是否应该显示JSON
+    shouldShowJson() {
+      // 如果条件为空对象或者其他条件都不满足，则显示JSON
+      return !this.isSimpleCondition && 
+              !this.condition.all &&
+              !this.condition.is &&
+              !this.condition.type &&
+              !this.condition.any &&
+              Object.keys(this.getOtherConditions(this.condition)).length === 0 &&
+              Object.keys(this.getSlotRestrictions(this.condition)).length === 0 &&
+             !this.hasRecursiveConditions &&
+             !this.isComplexCondition ||
+             Object.keys(this.condition).length === 0;
     }
   },
   methods: {

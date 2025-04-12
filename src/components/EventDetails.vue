@@ -401,7 +401,6 @@ export default {
     hasEffects(caseData) {
       if (!caseData) return false;
       const { prompt, ...effects } = caseData;
-      console.log(effects)
       return Object.keys(effects).length > 0;
     },
     

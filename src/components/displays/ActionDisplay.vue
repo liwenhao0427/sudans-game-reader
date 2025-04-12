@@ -1,5 +1,5 @@
 <template>
-  <div class="action-container">
+  <div class="action-container" v-if="Object.keys(this.action).length > 0">
     <div class="container-header">
       <span class="container-icon">⚡</span>
       <span class="container-title">动作</span>
@@ -40,25 +40,20 @@
         </div>
       </div>
       
-      <!-- 战利品引用显示 -->
-      <div v-if="hasLootReferences" class="loot-references">
-        <div v-for="(lootRef, key) in lootReferences" :key="key" class="loot-reference-item">
-          <div class="loot-reference-header">{{ formatKey(key) }}</div>
-          <div class="loot-reference">
-            <span class="loot-id">#{{ lootRef }}</span>
-            <span v-if="lootNames['loot_'+lootRef]" class="loot-name clickable" @click="showLootDetails(lootRef)">
-              {{ lootNames['loot_'+lootRef] }}
-            </span>
-            <span v-else class="loot-loading">加载中...</span>
-          </div>
-        </div>
-      </div>
-      
       <!-- 事件引用显示 -->
       <div v-if="hasEventReferences" class="event-references">
         <div v-for="(eventRef, key) in eventReferences" :key="key" class="event-reference-item">
           <div class="event-reference-header">{{ formatKey(key) }}</div>
-          <div class="event-reference">
+          <div v-if="Array.isArray(eventRef)" class="event-reference-array">
+            <div v-for="(event, index) in eventRef" :key="`${key}-${index}`" class="event-reference">
+              <span class="event-id">#{{ event }}</span>
+              <span v-if="eventNames[event]" class="event-name clickable" @click="showEventDetails(event)">
+                {{ eventNames[event] }}
+              </span>
+              <span v-else class="event-loading">加载中...</span>
+            </div>
+          </div>
+          <div v-else class="event-reference">
             <span class="event-id">#{{ eventRef }}</span>
             <span v-if="eventNames[eventRef]" class="event-name clickable" @click="showEventDetails(eventRef)">
               {{ eventNames[eventRef] }}
@@ -72,12 +67,44 @@
       <div v-if="hasRiteReferences" class="rite-references">
         <div v-for="(riteRef, key) in riteReferences" :key="key" class="rite-reference-item">
           <div class="rite-reference-header">{{ formatKey(key) }}</div>
-          <div class="rite-reference">
+          <div v-if="Array.isArray(riteRef)" class="rite-reference-array">
+            <div v-for="(rite, index) in riteRef" :key="`${key}-${index}`" class="rite-reference">
+              <span class="rite-id">#{{ rite }}</span>
+              <span v-if="riteNames['rite_'+rite]" class="rite-name clickable" @click="showRiteDetails(rite)">
+                {{ riteNames['rite_'+rite] }}
+              </span>
+              <span v-else class="rite-loading">加载中...</span>
+            </div>
+          </div>
+          <div v-else class="rite-reference">
             <span class="rite-id">#{{ riteRef }}</span>
             <span v-if="riteNames['rite_'+riteRef]" class="rite-name clickable" @click="showRiteDetails(riteRef)">
               {{ riteNames['rite_'+riteRef] }}
             </span>
-            <span v-else class="rite-loading">仪式加载失败...</span>
+            <span v-else class="rite-loading">加载中...</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 战利品引用显示 -->
+      <div v-if="hasLootReferences" class="loot-references">
+        <div v-for="(lootRef, key) in lootReferences" :key="key" class="loot-reference-item">
+          <div class="loot-reference-header">{{ formatKey(key) }}</div>
+          <div v-if="Array.isArray(lootRef)" class="loot-reference-array">
+            <div v-for="(loot, index) in lootRef" :key="`${key}-${index}`" class="loot-reference">
+              <span class="loot-id">#{{ loot }}</span>
+              <span v-if="lootNames['loot_'+loot]" class="loot-name clickable" @click="showLootDetails(loot)">
+                {{ lootNames['loot_'+loot] }}
+              </span>
+              <span v-else class="loot-loading">加载中...</span>
+            </div>
+          </div>
+          <div v-else class="loot-reference">
+            <span class="loot-id">#{{ lootRef }}</span>
+            <span v-if="lootNames['loot_'+lootRef]" class="loot-name clickable" @click="showLootDetails(lootRef)">
+              {{ lootNames['loot_'+lootRef] }}
+            </span>
+            <span v-else class="loot-loading">加载中...</span>
           </div>
         </div>
       </div>
@@ -744,7 +771,9 @@ export default {
 }
 
 .card-reference-array,
-.rite-reference-array {
+.rite-reference-array,
+.event-reference-array,
+.loot-reference-array {
   display: flex;
   flex-direction: column;
   gap: 8px;

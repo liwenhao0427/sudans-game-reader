@@ -1,5 +1,5 @@
 <template>
-  <div class="result-container">
+  <div class="result-container" v-if="Object.keys(this.result).length > 0">
     <div class="container-header">
       <span class="container-icon">✅</span>
       <span class="container-title">结果</span>
