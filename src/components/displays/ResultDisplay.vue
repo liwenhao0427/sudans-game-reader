@@ -45,6 +45,19 @@
         </div>
       </div>
       
+      <!-- 卡位属性操作 -->
+      <div v-if="hasSlotAttributes" class="result-section">
+        <div class="section-title">卡位属性变化</div>
+        <div class="slot-attributes-grid">
+          <div v-for="(attr, index) in slotAttributes" :key="index" class="slot-attribute-item">
+            <span class="slot-number">卡位 {{ attr.slot }}</span>
+            <span class="attribute-name">{{ attr.attribute }}</span>
+            <span class="attribute-operation">{{ attr.operation === 'PLUS' ? '增加' : attr.operation === 'EQUALS' ? '设置为' : attr.operation }}</span>
+            <span class="attribute-value">{{ attr.value }}</span>
+          </div>
+        </div>
+      </div>
+      
       <!-- 卡位操作 -->
       <div v-if="hasSlotOperations" class="result-section">
         <div class="section-title">卡位操作</div>
@@ -151,7 +164,23 @@ export default {
       const counters = [];
       
       Object.entries(this.result).forEach(([key, value]) => {
-        if (key.startsWith('counter+')) {
+        // 处理 counter_PLUS_7000467 和 counter_EQUALS_7000465 格式
+        const plusMatch = key.match(/counter_PLUS_(\d+)/);
+        const equalsMatch = key.match(/counter_EQUALS_(\d+)/);
+        
+        if (plusMatch) {
+          counters.push({
+            operation: '增加',
+            id: plusMatch[1],
+            value: value
+          });
+        } else if (equalsMatch) {
+          counters.push({
+            operation: '设置为',
+            id: equalsMatch[1],
+            value: value
+          });
+        } else if (key.startsWith('counter+')) {
           counters.push({
             operation: '增加',
             id: key.slice(8),
@@ -196,12 +225,35 @@ export default {
       return this.counters.length > 0;
     },
     
+    // 提取卡位属性操作 (s1_PLUS_体魄 等)
+    slotAttributes() {
+      const attributes = [];
+      
+      Object.entries(this.result).forEach(([key, value]) => {
+        // 匹配 s1_PLUS_体魄 格式
+        const slotAttrMatch = key.match(/s(\d+)_([A-Z]+)_(.+)/);
+        if (slotAttrMatch) {
+          attributes.push({
+            slot: slotAttrMatch[1],
+            operation: slotAttrMatch[2],
+            attribute: slotAttrMatch[3],
+            value: value
+          });
+        }
+      });
+      
+      return attributes;
+    },
+    hasSlotAttributes() {
+      return this.slotAttributes.length > 0;
+    },
+    
     // 提取卡位操作
     slotOperations() {
       const operations = [];
       
       Object.entries(this.result).forEach(([key, value]) => {
-        if (key.startsWith('s') && key.includes('+')) {
+        if (key.startsWith('s') && key.includes('+') && !key.includes('_PLUS_')) {
           const [slot, card] = key.split('+');
           operations.push({
             operation: '添加',
@@ -209,7 +261,7 @@ export default {
             card: card,
             value: value
           });
-        } else if (key.startsWith('s') && key.includes('-')) {
+        } else if (key.startsWith('s') && key.includes('-') && !key.includes('_')) {
           const [slot, card] = key.split('-');
           operations.push({
             operation: '移除',
@@ -262,13 +314,28 @@ export default {
       const excludeKeys = [
         'card', 'loot', 'choose', 
         ...Object.keys(this.resources),
-        ...this.counters.map(c => `counter${c.operation === '增加' ? '+' : c.operation === '减少' ? '-' : '='}${c.id}`),
-        ...this.counters.map(c => `global_counter${c.operation === '增加全局' ? '+' : c.operation === '减少全局' ? '-' : '='}${c.id}`),
+        ...this.counters.map(c => {
+          if (c.operation === '增加') return `counter+${c.id}`;
+          if (c.operation === '减少') return `counter-${c.id}`;
+          if (c.operation === '设置为') return `counter=${c.id}`;
+          if (c.operation === '增加全局') return `global_counter+${c.id}`;
+          if (c.operation === '减少全局') return `global_counter-${c.id}`;
+          if (c.operation === '设置全局为') return `global_counter=${c.id}`;
+          return `counter_${c.operation === '增加' ? 'PLUS' : 'EQUALS'}_${c.id}`;
+        }),
+        ...this.slotAttributes.map(a => `s${a.slot}_${a.operation}_${a.attribute}`),
         ...this.slotOperations.map(s => s.operation === '清空' ? `clean.${s.slot}` : `${s.slot}${s.operation === '添加' ? '+' : '-'}${s.card}`)
       ];
       
       return Object.entries(this.result)
-        .filter(([key]) => !excludeKeys.includes(key) && !key.startsWith('counter') && !key.startsWith('global_counter') && !key.startsWith('s') && !key.startsWith('clean.s'))
+        .filter(([key]) => !excludeKeys.includes(key) && 
+                          !key.match(/counter_PLUS_\d+/) && 
+                          !key.match(/counter_EQUALS_\d+/) && 
+                          !key.match(/s\d+_[A-Z]+_.+/) && 
+                          !key.startsWith('counter') && 
+                          !key.startsWith('global_counter') && 
+                          !key.startsWith('s') && 
+                          !key.startsWith('clean.s'))
         .reduce((acc, [key, value]) => {
           acc[key] = value;
           return acc;
@@ -437,13 +504,13 @@ export default {
   font-size: 14px;
 }
 
-.cards-grid, .loots-grid, .counters-grid, .slots-grid, .resources-grid, .others-grid {
+.cards-grid, .loots-grid, .counters-grid, .slots-grid, .resources-grid, .others-grid, .slot-attributes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
 }
 
-.card-item, .loot-item, .counter-item, .slot-item, .resource-item, .other-item, .choice-item {
+.card-item, .loot-item, .counter-item, .slot-item, .resource-item, .other-item, .choice-item, .slot-attribute-item {
   display: flex;
   flex-direction: column;
   padding: 8px;
@@ -514,5 +581,27 @@ export default {
 .choice-value {
   white-space: pre-line;
   line-height: 1.5;
+}
+
+/* 新增卡位属性样式 */
+.slot-number {
+  font-weight: bold;
+  color: #606266;
+  margin-bottom: 4px;
+}
+
+.attribute-name {
+  color: #409eff;
+  margin-bottom: 4px;
+}
+
+.attribute-operation {
+  color: #67c23a;
+  margin-bottom: 4px;
+}
+
+.attribute-value {
+  font-weight: bold;
+  color: #333;
 }
 </style>
