@@ -173,7 +173,7 @@
           <div class="counter-reference">
             <span class="counter-id">#{{ extractCounterId(key) }}</span>
             <span v-if="counterNames[extractCounterId(key)]" class="counter-name">
-              {{ counterNames[extractCounterId(key)] }}
+              {{ counterNames[extractCounterId(key)] }} {{ key.indexOf('PLUS') > -1 ? '增加' : '减少' }} {{ counterRef }} 点
             </span>
             <span v-else class="counter-value">{{ counterRef }}</span>
           </div>
@@ -218,7 +218,8 @@ export default {
           !key.startsWith('loot') &&
           !key.startsWith('table.') &&
           !key.startsWith('hand_pop.') &&
-          !key.includes('counter_PLUS_')
+          !key.includes('counter_PLUS_') &&
+          !key.includes('counter-')
         ) {
           result[key] = value;
         }
@@ -318,7 +319,7 @@ export default {
     const counterReferences = computed(() => {
       const result = {};
       for (const [key, value] of Object.entries(props.action)) {
-        if (key.includes('counter_PLUS_')) {
+        if (key.includes('counter_PLUS_')||key.includes('counter-')) {
           result[key] = value;
         }
       }
@@ -344,7 +345,9 @@ export default {
       } else if (key.startsWith('hand_pop.')) {
         return '手牌提示';
       } else if (key.includes('counter_PLUS_')) {
-        return '计数器';
+        return '计数器增加';
+      } else if (key.includes('counter-')) {
+        return '计数器减少';
       } else if (key === 'card') {
         return '获得卡片';
       } else if (key === 'loot') {
@@ -404,7 +407,8 @@ export default {
     // 提取计数器ID
     const extractCounterId = (key) => {
       const match = key.match(/counter_PLUS_(\d+)/);
-      return match ? match[1] : null;
+      const match2 = key.match(/counter-(\d+)/);
+      return match ? match[1] : (match2 ? match2[1] : null);
     };
     
     // 加载卡片名称
