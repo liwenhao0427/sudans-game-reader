@@ -58,10 +58,10 @@
       <div v-if="hasEventReferences" class="event-references">
         <div v-for="(eventRef, key) in eventReferences" :key="key" class="event-reference-item">
           <div class="event-reference-header">{{ formatKey(key) }}</div>
-          <div v-for="(event, index) in eventRef" :key="`${key}-${index}`" class="event-reference">
-            <span class="event-id">#{{ event }}</span>
-            <span v-if="eventNames[event]" class="event-name clickable" @click="showEventDetails(event)">
-              {{ eventNames[event] }}
+          <div class="event-reference">
+            <span class="event-id">#{{ eventRef }}</span>
+            <span v-if="eventNames[eventRef]" class="event-name clickable" @click="showEventDetails(eventRef)">
+              {{ eventNames[eventRef] }}
             </span>
             <span v-else class="event-loading">加载中...</span>
           </div>
@@ -72,21 +72,12 @@
       <div v-if="hasRiteReferences" class="rite-references">
         <div v-for="(riteRef, key) in riteReferences" :key="key" class="rite-reference-item">
           <div class="rite-reference-header">{{ formatKey(key) }}</div>
-          <div v-if="Array.isArray(riteRef)" class="rite-reference-array">
-            <div v-for="(rite, index) in riteRef" :key="`${key}-${index}`" class="rite-reference">
-              <span class="rite-id">#{{ rite }}</span>
-              <span v-if="riteNames['rite_'+rite]" class="rite-name clickable" @click="showRiteDetails(rite)">
-                {{ riteNames['rite_'+rite] }}
-              </span>
-              <span v-else class="rite-loading">加载中...</span>
-            </div>
-          </div>
-          <div v-else class="rite-reference">
+          <div class="rite-reference">
             <span class="rite-id">#{{ riteRef }}</span>
-            <span v-if="lootNames['loot_'+riteRef]" class="rite-name clickable" @click="showLootDetails(riteRef)">
-              {{ lootNames['loot_'+riteRef] }}
+            <span v-if="riteNames['rite_'+riteRef]" class="rite-name clickable" @click="showRiteDetails(riteRef)">
+              {{ riteNames['rite_'+riteRef] }}
             </span>
-            <span v-else class="rite-loading">加载中...</span>
+            <span v-else class="rite-loading">仪式加载失败...</span>
           </div>
         </div>
       </div>
