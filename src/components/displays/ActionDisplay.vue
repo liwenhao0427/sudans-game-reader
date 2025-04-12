@@ -83,8 +83,8 @@
           </div>
           <div v-else class="rite-reference">
             <span class="rite-id">#{{ riteRef }}</span>
-            <span v-if="riteNames['loot_'+riteRef]" class="rite-name clickable" @click="showLootDetails(riteRef)">
-              {{ riteNames['loot_'+riteRef] }}
+            <span v-if="lootNames['loot_'+riteRef]" class="rite-name clickable" @click="showLootDetails(riteRef)">
+              {{ lootNames['loot_'+riteRef] }}
             </span>
             <span v-else class="rite-loading">加载中...</span>
           </div>
@@ -231,7 +231,7 @@ export default {
     const eventReferences = computed(() => {
       const result = {};
       for (const [key, value] of Object.entries(props.action)) {
-        if (key === 'event') {
+        if (key === 'event' || key === 'event_on' || key === 'event_off') {
           result[key] = value;
         }
       }
@@ -336,6 +336,10 @@ export default {
         return `${prefix}仪式`;
       } else if (key === 'event') {
         return '事件';
+      } else if (key === 'event_on') {
+        return '触发事件';
+      } else if (key === 'event_off') {
+        return '关闭事件';
       }
       return key;
     };

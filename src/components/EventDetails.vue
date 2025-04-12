@@ -110,11 +110,12 @@
             </div>
 
             <!-- 处理常规结算 -->
-            <div v-else-if="item.result_title" class="settlement-body">
+            <div v-else-if="item.result_title || item.result_text" class="settlement-body">
               <div class="settlement-text" 
                    @click="toggleSettlementDetails(index, 'settlement')" 
                    :class="{'clickable': true}">
                 <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
+                {{ item.result_text }}
                 <div class="toggle-details-hint">
                   {{ isSettlementExpanded('settlement', index) ? '收起详情 ▲' : '查看详情 ▼' }}
                 </div>
