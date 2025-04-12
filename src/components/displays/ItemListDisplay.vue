@@ -14,7 +14,7 @@
         <span v-else-if="item.type === 'rite'" 
               class="item-name rite-name clickable" 
               @click="showDetails(item.id, 'rite')">
-          {{ itemNames[item.id] || '仪式 #' + item.id }}
+          {{ itemNames['rite_'+item.id] || '仪式 #' + item.id }}
         </span>
         <!-- 事件类型 -->
         <span v-else-if="item.type === 'event'" 
@@ -38,6 +38,7 @@
 import { ref, onMounted } from 'vue';
 import { getCardById, loadEventData } from '@/services/eventService';
 import { eventBus } from '@/components/CardDetailsModal.vue';
+import eventBus2 from '@/utils/eventBus';
 
 export default {
   name: 'ItemListDisplay',
@@ -69,10 +70,11 @@ export default {
     const loadEventName = async (eventId, type) => {
       if (!itemNames.value[eventId]) {
         try {
-          const eventData = await loadEventData(eventId);
+          console.log(`加载${type} ${eventId}`); // 添加这一行以确认事件ID是否正确传递给 loadEventData 函数
+          const eventData = await loadEventData(eventId, type);
           if (eventData) {
             const prefix = type === 'rite' ? '仪式: ' : '';
-            itemNames.value[eventId] = prefix + (eventData.name || eventData.text || `${type} #${eventId}`);
+            itemNames.value['rite_'+eventId] = prefix + (eventData.name || eventData.text || `${type} #${eventId}`);
           }
         } catch (error) {
           console.error(`加载${type} ${eventId} 失败:`, error);
@@ -99,8 +101,10 @@ export default {
       console.log(`显示${type}详情:`, id);
       if (type === 'card') {
         eventBus.emit('show-card-details', id);
-      } else {
-        eventBus.emit('show-event-details', id);
+      } else if(type == 'rite'){
+        eventBus2.emit('show-rite-details', id);
+      } else if(type == 'event'){
+        eventBus2.emit('show-event-details', id);
       }
     };
     

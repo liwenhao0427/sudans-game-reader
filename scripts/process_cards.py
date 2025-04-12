@@ -27,6 +27,19 @@ def process_cards_json(input_file, output_file):
     elif content.startswith('"') and content.endswith('"'):
         content = content[1:-1]
     
+    # 移除包含注释//的整行
+    content = re.sub(r'[^\n]*//[^\n]*\n', '\n', content)
+    
+    # 移除包含counter+的整行
+    content = re.sub(r'[^\n]*"counter\+[^\n]*\n', '\n', content)
+    
+    # 移除包含is_rite的整行
+    content = re.sub(r'[^\n]*"is_rite"[^\n]*\n', '\n', content)
+
+    # 移除尾随逗号
+    content = re.sub(r',\s*}', '}', content)
+    content = re.sub(r',\s*]', ']', content)
+
     # 处理转义字符
     content = content.replace('\\\"', '"')
     content = content.replace('\\n', '\n')
@@ -72,6 +85,11 @@ def process_cards_json(input_file, output_file):
         simplified_cards = {}
         
         for card_id, card_content in matches:
+            # 如果已经处理过这个ID，跳过（处理重复键）
+            if card_id in simplified_cards:
+                print(f"警告: 发现重复的卡片ID: {card_id}，使用第一个出现的定义")
+                continue
+                
             # 提取各个字段
             id_match = re.search(r'"id":\s*(\d+)', card_content)
             name_match = re.search(r'"name":\s*"([^"]*)"', card_content)
