@@ -186,8 +186,7 @@
 <script>
 import { ref, computed, onMounted, watch } from 'vue';
 import { getCardById, loadEventData, getCommentFromCache } from '@/services/eventService';
-import { eventBus } from '@/components/CardDetailsModal.vue';
-import eventBus2 from '@/utils/eventBus';
+import eventBus from '@/utils/eventBus';
 
 export default {
   name: 'ActionDisplay',
@@ -476,6 +475,7 @@ export default {
       }
     };
     
+    // 在setup中修改showCardDetails方法
     // 显示卡片详情
     const showCardDetails = (cardId) => {
       console.log(`显示卡片详情:`, cardId);
@@ -485,19 +485,19 @@ export default {
     // 显示事件详情
     const showEventDetails = (eventId) => {
       console.log(`显示事件详情:`, eventId);
-      eventBus2.emit('show-event-details', eventId);
+      eventBus.emit('show-event-details', eventId);
     };
     
     // 显示仪式详情
     const showRiteDetails = (riteId) => {
       console.log(`显示仪式详情:`, riteId);
-      eventBus2.emit('show-rite-details', riteId);
+      eventBus.emit('show-rite-details', riteId);
     };
     
     // 显示战利品详情
     const showLootDetails = (lootId) => {
       console.log(`显示战利品详情:`, lootId);
-      eventBus2.emit('show-loot-details', lootId);
+      eventBus.emit('show-loot-details', lootId);
     };
     
     // 加载所有引用的名称

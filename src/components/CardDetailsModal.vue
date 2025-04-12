@@ -57,10 +57,7 @@
 
 <script>
 import { loadCardsData } from '@/services/eventService';
-import mitt from 'mitt';
-
-// Create a global event emitter
-export const eventBus = mitt();
+import eventBus from '@/utils/eventBus';
 
 export default {
   name: 'CardDetailsModal',

@@ -37,8 +37,7 @@
 <script>
 import { ref, onMounted } from 'vue';
 import { getCardById, loadEventData } from '@/services/eventService';
-import { eventBus } from '@/components/CardDetailsModal.vue';
-import eventBus2 from '@/utils/eventBus';
+import eventBus from '@/utils/eventBus';
 
 export default {
   name: 'ItemListDisplay',
@@ -106,9 +105,9 @@ export default {
       if (type === 'card') {
         eventBus.emit('show-card-details', id);
       } else if(type == 'rite'){
-        eventBus2.emit('show-rite-details', id);
+        eventBus.emit('show-rite-details', id);
       } else if(type == 'event'){
-        eventBus2.emit('show-event-details', id);
+        eventBus.emit('show-event-details', id);
       }
     };
     
