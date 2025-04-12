@@ -818,9 +818,19 @@ export const loadEventData = async (eventId, type) => {
       id = eventId.substring(5);
     }
     
+    // FIXME 临时处理，我没法了，这玩意儿不存在就无响应
+    if(id == '5000002'){
+      console.error(`文件不存在: ${id}`);
+      return null;
+    }
     // 使用require加载JSON文件
     // console.log("加载的JSON文本", `raw-loader!@/assets/config/${directory}/${id}.json`);
     const eventJsonText = require(`raw-loader!@/assets/config/${directory}/${id}.json`).default;
+    // 判断文件是否存在，如果不存在则返回null
+    if (!eventJsonText) {
+      console.error(`File not found: @/assets/config/${directory}/${id}.json`);
+      return null;
+    }
 
     // 提取JSON内容 - 处理module.exports包装
     let jsonContent = eventJsonText;
