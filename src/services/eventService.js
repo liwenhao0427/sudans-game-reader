@@ -11,7 +11,11 @@ export const parseJsonWithComments = (jsonString) => {
     jsonString = jsonString.replace(/\\n/g, '\n');
     jsonString = jsonString.replace(/\\r/g, '');
     jsonString = jsonString.replace(/\\t/g, '');
-    // console.log("初始JSON", jsonString);
+    
+
+    // 提取并缓存注释
+    extractAndCacheComments(jsonString);
+    
 
     // 移除单行注释，但保留引号内的注释样式文本
     // 正确处理换行符，确保注释只到换行符为止
@@ -81,6 +85,117 @@ export const parseJsonWithComments = (jsonString) => {
   }
 };
 
+
+// 提取并缓存JSON中的注释
+export function extractAndCacheComments(jsonString) {
+  if (!jsonString) return;
+  
+  // 创建一个本地缓存对象，如果不存在
+  let commentCache = localStorage.getItem('commentCache');
+  if (!commentCache) {
+    commentCache = {};
+  } else {
+    try {
+      commentCache = JSON.parse(commentCache);
+    } catch (e) {
+      console.error('解析缓存失败，重置缓存:', e);
+      commentCache = {};
+    }
+  }
+  
+  // 修改正则表达式，匹配形如 "counter.7000420>=":1 //主角戳瞎自己 的模式
+  // 或者 "counter.7000420<":1 //主角没瞎 的模式
+  const counterRegex = /"counter\.(\d+)([<>=]+)"\s*:\s*([^,\n\r}]+)(?:\s*\/\/(.*))?/g;
+  
+  let match;
+  while ((match = counterRegex.exec(jsonString)) !== null) {
+    // 正确提取各部分
+    const counterId = match[1];
+    const operator = match[2];
+    const value = match[3] ? match[3].trim() : '';
+    
+    // 提取注释部分，如果存在的话
+    let comment = '';
+    if (match[4]) {
+      comment = match[4].trim();
+    } else if (value.includes('//')) {
+      // 如果注释被包含在值部分，尝试提取
+      const commentParts = value.split('//');
+      if (commentParts.length > 1) {
+        comment = commentParts[1].trim();
+      }
+    }
+    
+    if (!comment) continue; // 如果没有注释，跳过
+    
+    console.log("提取注释", counterId, operator, comment);
+    
+    // 存储完整键名的注释 (例如: "7000420>=")
+    const fullKey = `${counterId}${operator}`;
+    
+    // 检查是否已存在该键，如果存在且新注释更短，则跳过
+    if (commentCache[fullKey] && commentCache[fullKey].length <= comment.length) {
+      // 如果已有注释更短或相同长度，保留已有注释
+    } else {
+      commentCache[fullKey] = comment;
+    }
+    
+    // 同时存储不带运算符的基础键 (例如: "7000420")
+    if (!commentCache[counterId] || commentCache[counterId].length > comment.length) {
+      // 如果基础键不存在，或者新注释更短，则更新
+      commentCache[counterId] = comment;
+    }
+  }
+  
+  // 保存到本地存储
+  localStorage.setItem('commentCache', JSON.stringify(commentCache));
+}
+
+// 获取注释缓存
+export function getCommentFromCache(counterId) {
+  try {
+    let commentCache = localStorage.getItem('commentCache');
+    
+    // 如果缓存不存在，尝试从默认配置加载
+    if (!commentCache) {
+      try {
+        // 导入默认缓存配置
+        const defaultCache = require('@/assets/config/defaultCommentCache.json');
+        localStorage.setItem('commentCache', JSON.stringify(defaultCache));
+        commentCache = JSON.stringify(defaultCache);
+        console.log('已从默认配置加载注释缓存');
+      } catch (e) {
+        console.error('加载默认缓存配置失败:', e);
+        commentCache = '{}';
+      }
+    }
+    
+    const cache = JSON.parse(commentCache);
+    
+    // 先尝试直接获取counterId对应的缓存
+    if (cache[counterId]) {
+      return cache[counterId];
+    }
+    
+    // 检查是否为全局计数器ID (通常以g开头)
+    if (counterId.toString().startsWith('g')) {
+      const baseId = counterId.toString().substring(1); // 移除g前缀
+      return cache[baseId] || null;
+    }
+    
+    // 检查是否存在对应的全局计数器缓存
+    const globalId = `g${counterId}`;
+    if (cache[globalId]) {
+      return cache[globalId];
+    }
+    
+    return null;
+  } catch (e) {
+    console.error('获取注释缓存失败:', e);
+    return null;
+  }
+}
+
 // 自定义解析器处理重复键
 /* eslint-disable */
 function parseJSONWithDuplicateKeys(jsonString) {
@@ -115,7 +230,6 @@ function parseJSONWithDuplicateKeys(jsonString) {
   try {
     // 先尝试清理JSON字符串
     let cleanedJson = jsonString;
-    
     // 移除所有注释，修改单行注释的正则表达式
     cleanedJson = cleanedJson.replace(/\/\/[^\n]*(\n|$)/gm, '$1');
 
@@ -329,7 +443,7 @@ export const getChildEventIds = (eventData) => {
     // 检查对象是否同时包含id和type属性
     if (obj.id && obj.type) {
       const id = obj.id;
-      console.log(obj)
+      // console.log(obj)
       const type = obj.type;
       
       // 根据type类型添加不同前缀的ID
@@ -582,7 +696,6 @@ export const loadEventData = async (eventId, type) => {
   }
 };
 
-// ... 现有代码 ...
 
 // 添加一个变量来缓存卡片数据
 let cardsData = null;
@@ -653,5 +766,3 @@ export async function getCardsByType(type) {
     return [];
   }
 }
-
-// ... 现有代码 ...

@@ -8,9 +8,72 @@
       <div v-if="isSimpleCondition" class="simple-condition">
         <div v-for="(value, key) in condition" :key="key" class="condition-item">
           <span class="condition-key">{{ formatKey(key) }}</span>
-          <span class="condition-value">{{ formatValue(key, value) }}</span>
+          <span class="condition-value">
+            <!-- 处理仪式条件，添加点击查看详情 -->
+            <template v-if="key.includes('rite')">
+              <span class="clickable" @click="showRiteDetails(typeof value === 'number' ? value : key.replace(/^(!)?rite/, '').replace(/^\./, ''))">
+                {{ formatValue(key, value) }}
+              </span>
+            </template>
+            <!-- 处理卡片拥有条件，添加点击查看详情 -->
+            <template v-else-if="key.includes('have')">
+              <span class="clickable" @click="showCardDetails(getCardIdFromKey(key))">
+                {{ formatValue(key, value) }}
+              </span>
+            </template>
+            <!-- 其他条件 -->
+            <template v-else>
+              {{ formatValue(key, value) }}
+            </template>
+          </span>
         </div>
       </div>
+      
+      <!-- 递归条件显示 -->
+      <div v-else-if="hasRecursiveConditions" class="recursive-condition">
+        <!-- 处理all条件 -->
+        <div v-if="condition.all" class="all-condition">
+          <div class="condition-header">全部满足：</div>
+          <div class="nested-conditions">
+            <condition-display :condition="condition.all" />
+          </div>
+        </div>
+        
+        <!-- 处理any条件 -->
+        <div v-if="condition.any" class="any-condition">
+          <div class="condition-header">任意满足：</div>
+          <div class="nested-conditions">
+            <condition-display :condition="condition.any" />
+          </div>
+        </div>
+        
+        <!-- 处理其他条件 -->
+        <div v-if="Object.keys(getOtherConditions(condition)).length > 0" class="other-conditions">
+          <div v-for="(value, key) in getOtherConditions(condition)" :key="key" class="condition-item">
+            <span class="condition-key">{{ formatKey(key) }}</span>
+            <span class="condition-value">
+              <!-- 处理仪式条件，添加点击查看详情 -->
+              <template v-if="key.includes('rite')">
+                <span class="clickable" @click="showRiteDetails(typeof value === 'number' ? value : key.replace(/^(!)?rite/, '').replace(/^\./, ''))">
+                  {{ formatValue(key, value) }}
+                </span>
+              </template>
+              <!-- 处理卡片拥有条件，添加点击查看详情 -->
+              <template v-else-if="key.includes('have')">
+                <span class="clickable" @click="showCardDetails(getCardIdFromKey(key))">
+                  {{ formatValue(key, value) }}
+                </span>
+              </template>
+              <!-- 其他条件 -->
+              <template v-else>
+                {{ formatValue(key, value) }}
+              </template>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 特殊条件显示 -->
       <div v-else-if="hasSpecialCondition" class="special-condition">
         <div v-if="condition.is" class="condition-item">
           <span class="condition-key">需要卡片</span>
@@ -59,11 +122,15 @@
 </template>
 
 <script>
-import { loadCardsData } from '@/services/eventService';
+import { loadCardsData, getCommentFromCache, loadEventData } from '@/services/eventService';
 import { eventBus } from '@/components/CardDetailsModal.vue';
 
 export default {
   name: 'ConditionDisplay',
+  // 添加自引用以支持递归显示
+  components: {
+    ConditionDisplay: () => import('./ConditionDisplay.vue')
+  },
   props: {
     condition: {
       type: Object,
@@ -74,7 +141,10 @@ export default {
     return {
       cardName: null,
       cardsData: null,
-      anyCardNames: {} // 存储any条件中卡片的名称
+      anyCardNames: {}, // 存储any条件中卡片的名称
+      counterCache: {}, // 存储counter的缓存文本
+      cardCache: {}, // 存储卡片名称缓存
+      riteCache: {} // 存储仪式名称缓存
     };
   },
   computed: {
@@ -105,6 +175,11 @@ export default {
           !(value instanceof Array) && 
           Object.keys(value).length > 3; // 如果对象属性超过3个，视为复杂对象
       });
+    },
+    
+    // 添加新的计算属性来检测递归条件
+    hasRecursiveConditions() {
+      return this.condition && (this.condition.all || this.condition.any);
     }
   },
   methods: {
@@ -120,6 +195,52 @@ export default {
         return '天数限制';
       } else if (key === '杀戮' || key === '纵欲' || key === '奢靡' || key === '征服') {
         return `需要${key}`;
+      } else if (key.startsWith('rite') || key.startsWith('!rite')) {
+        // 处理仪式条件
+        const isNegated = key.startsWith('!');
+        // const riteId = key.replace(/^(!)?rite/, '').replace(/^\./, '');
+        return isNegated ? `仪式未开启` : `仪式已开启`;
+      } else if (key.startsWith('have.') || key.startsWith('!have.')) {
+        // 处理拥有卡片条件
+        const isNegated = key.startsWith('!');
+        const cardInfo = key.replace(/^(!)?have\./, '').split('.');
+        // const cardId = cardInfo[0];
+        const cardDesc = cardInfo.length > 1 ? cardInfo[1] : '';
+        return isNegated ? `未拥有卡片${cardDesc ? ` ${cardDesc}` : ''}` : `拥有卡片${cardDesc ? ` ${cardDesc}` : ''}`;
+      } else if (key.startsWith('hand_have.') || key.startsWith('!hand_have.')) {
+        // 处理手牌中的卡片条件
+        const isNegated = key.startsWith('!');
+        // const cardId = key.replace(/^(!)?hand_have\./, '');
+        return isNegated ? `手牌中没有` : `手牌中有`;
+      } else if (key.startsWith('table_have.') || key.startsWith('!table_have.')) {
+        // 处理牌库中的卡片条件
+        const isNegated = key.startsWith('!');
+        // const cardId = key.replace(/^(!)?table_have\./, '');
+        return isNegated ? `牌库中没有` : `牌库中有`;
+      } else if (key.startsWith('counter.')) {
+        // 处理counter类型的条件
+        const counterMatch = key.match(/counter\.(\d+)([<>=]+)/);
+        if (counterMatch) {
+          const counterId = counterMatch[1];
+          const operator = counterMatch[2];
+          
+          // 尝试从缓存获取counter的注释文本
+          const cachedText = this.getCounterText(counterId, operator);
+          if (cachedText) {
+            // 根据操作符添加适当的文本
+            let operatorText = '';
+            if (operator === '<') operatorText = '小于';
+            else if (operator === '>') operatorText = '大于';
+            else if (operator === '<=') operatorText = '小于等于';
+            else if (operator === '>=') operatorText = '大于等于';
+            else if (operator === '=') operatorText = '等于';
+            
+            return `${cachedText}${operatorText}`;
+          }
+        }
+        
+        // 如果没有缓存或匹配失败，返回原始键
+        return key;
       } else if (key.startsWith('r') && /^r\d+:.+[<>=]/.test(key)) {
         // 处理卡槽角色属性条件，如 "r1:体魄<"
         const slotMatch = key.match(/r(\d+):(.+?)([<>=]+)$/);
@@ -178,10 +299,47 @@ export default {
       }
       return key;
     },
+    
+    // 添加获取counter缓存文本的方法
+    getCounterText(counterId, operator) {
+      // 先尝试获取完整键名的缓存 (例如: "7000420>=")
+      const fullKey = `${counterId}${operator}`;
+      
+      // 检查本地缓存
+      if (this.counterCache[fullKey]) {
+        return this.counterCache[fullKey];
+      }
+      
+      // 从localStorage获取
+      let cachedText = getCommentFromCache(fullKey);
+      if (!cachedText) {
+        // 如果没有找到完整键名的缓存，尝试获取基础键的缓存
+        cachedText = getCommentFromCache(counterId);
+      }
+      
+      // 存储到本地缓存
+      if (cachedText) {
+        this.counterCache[fullKey] = cachedText;
+      }
+      
+      return cachedText;
+    },
     formatValue(key, value) {
       // 格式化条件值
       if (key === 'is' && this.cardName) {
         return `${this.cardName} (ID: ${value})`;
+      } else if (key.startsWith('rite') || key.startsWith('!rite')) {
+        // 处理仪式值，显示仪式名称
+        const riteId = typeof value === 'number' ? value : key.replace(/^(!)?rite/, '').replace(/^\./, '');
+        const riteName = this.getRiteName(riteId);
+        return riteName ? `${riteName} (#${riteId})` : `仪式 #${riteId}`;
+      } else if (key.startsWith('have.') || key.startsWith('!have.') || 
+                 key.startsWith('hand_have.') || key.startsWith('!hand_have.') ||
+                 key.startsWith('table_have.') || key.startsWith('!table_have.')) {
+        // 处理卡片值，显示卡片名称
+        const cardId = this.getCardIdFromKey(key);
+        const cardName = this.getCardName(cardId);
+        return cardName ? `${cardName} (#${cardId})` : `卡片 #${cardId}`;
       } else if (key === 'type') {
         return this.formatCardType(value);
       } else if (key === 'round_begin_ba' && Array.isArray(value) && value.length === 2) {
@@ -201,6 +359,68 @@ export default {
       }
       return value;
     },
+    // 从键中提取卡片ID
+    getCardIdFromKey(key) {
+      if (key.startsWith('have.') || key.startsWith('!have.')) {
+        return key.replace(/^(!)?have\./, '').split('.')[0];
+      } else if (key.startsWith('hand_have.') || key.startsWith('!hand_have.')) {
+        return key.replace(/^(!)?hand_have\./, '');
+      } else if (key.startsWith('table_have.') || key.startsWith('!table_have.')) {
+        return key.replace(/^(!)?table_have\./, '');
+      }
+      return null;
+    },
+    
+    // 获取卡片名称
+    getCardName(cardId) {
+      if (!cardId) return null;
+      
+      // 检查缓存
+      if (this.cardCache[cardId]) {
+        return this.cardCache[cardId];
+      }
+      
+      // 异步加载卡片名称
+      this.loadSingleCardInfo(cardId, (name) => {
+        this.cardCache[cardId] = name;
+      });
+      
+      return this.cardCache[cardId] || null;
+    },
+    
+    // 获取仪式名称
+    getRiteName(riteId) {
+      if (!riteId) return null;
+      
+      // 检查缓存
+      if (this.riteCache[riteId]) {
+        return this.riteCache[riteId];
+      }
+      
+      // 异步加载仪式名称
+      this.loadRiteInfo(riteId);
+      
+      return this.riteCache[riteId] || null;
+    },
+    
+    // 加载仪式信息
+    async loadRiteInfo(riteId) {
+      try {
+        const eventsData = await loadEventData();
+        if (eventsData && eventsData.rites) {
+          const rite = eventsData.rites.find(r => r.id === parseInt(riteId) || r.id === riteId);
+          if (rite) {
+            this.riteCache[riteId] = rite.name || rite.text || `仪式 #${riteId}`;
+          } else {
+            this.riteCache[riteId] = `未知仪式 #${riteId}`;
+          }
+        }
+      } catch (error) {
+        console.error('加载仪式信息失败:', error);
+        this.riteCache[riteId] = `加载失败 #${riteId}`;
+      }
+    },
+    
     formatCardType(type) {
       // 格式化卡片类型
       const typeMap = {
@@ -237,7 +457,7 @@ export default {
     },
     getOtherConditions(condition) {
       // 获取其他非特殊条件
-      const specialKeys = ['is', 'type', 'any'];
+      const specialKeys = ['is', 'type', 'any', 'all'];
       const others = {};
       Object.entries(condition).forEach(([key, value]) => {
         if (!specialKeys.includes(key) && 
@@ -302,7 +522,7 @@ export default {
           setNameCallback(`未知卡片 #${cardId}`);
         }
       } catch (error) {
-        console.error('加载卡片信息失败:', error);
+        console.error('加载卡片信息失败:', cardId, error);
         setNameCallback(`加载失败 #${cardId}`);
       }
     },
@@ -435,5 +655,35 @@ export default {
   border-radius: 4px;
   border: 1px solid #e0e0e0;
   overflow-x: auto;
+}
+
+.recursive-condition {
+  margin-bottom: 10px;
+}
+
+.all-condition, .any-condition {
+  margin-bottom: 15px;
+}
+
+.condition-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #409eff;
+}
+
+.nested-conditions {
+  margin-left: 15px;
+  padding-left: 10px;
+  border-left: 2px solid #b3d8ff;
+}
+
+.clickable {
+  cursor: pointer;
+  color: #409eff;
+  text-decoration: underline;
+}
+
+.clickable:hover {
+  color: #66b1ff;
 }
 </style>

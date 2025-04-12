@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { loadEventData, loadGameDataIndex } from '@/services/eventService';
+import { loadEventData, loadGameDataIndex, getCommentFromCache } from '@/services/eventService';
 import eventBus from '@/utils/eventBus';
 
 export default {
@@ -123,6 +123,7 @@ export default {
       riteNames: {}, // 存储仪式名称
       eventsData: null, // 事件数据缓存
       ritesData: null, // 仪式数据缓存
+      counterCache: {} // 存储counter的缓存文本
     };
   },
   computed: {
@@ -285,8 +286,63 @@ export default {
         return `选项结果: ${key.substring(5)}`;
       }
       
+      // 处理counter类型的键
+      if (key.startsWith('counter+') || key.startsWith('counter-') || key.startsWith('counter=')) {
+        const operator = key.charAt(7); // 获取操作符 +, -, =
+        const counterId = key.substring(8); // 获取counter ID
+        
+        // 尝试从缓存获取counter的注释文本
+        const cachedText = this.getCounterText(counterId);
+        
+        if (cachedText) {
+          let operatorText = '';
+          if (operator === '+') operatorText = '增加';
+          else if (operator === '-') operatorText = '减少';
+          else if (operator === '=') operatorText = '设置';
+          
+          return `${operatorText} ${cachedText}`;
+        }
+      }
+      
+      // 处理全局counter类型的键
+      if (key.startsWith('global_counter+') || key.startsWith('global_counter-') || key.startsWith('global_counter=')) {
+        const operator = key.charAt(14); // 获取操作符 +, -, =
+        const counterId = key.substring(15); // 获取counter ID
+        
+        // 尝试从缓存获取counter的注释文本
+        const cachedText = this.getCounterText(counterId);
+        
+        if (cachedText) {
+          let operatorText = '';
+          if (operator === '+') operatorText = '增加全局';
+          else if (operator === '-') operatorText = '减少全局';
+          else if (operator === '=') operatorText = '设置全局';
+          
+          return `${operatorText} ${cachedText}`;
+        }
+      }
+      
       return actionMap[key] || key;
     },
+    
+    // 添加获取counter缓存文本的方法
+    getCounterText(counterId) {
+      // 检查本地缓存
+      if (this.counterCache[counterId]) {
+        return this.counterCache[counterId];
+      }
+      
+      // 从localStorage获取
+      const cachedText = getCommentFromCache(counterId);
+      
+      // 存储到本地缓存
+      if (cachedText) {
+        this.counterCache[counterId] = cachedText;
+      }
+      
+      return cachedText;
+    },
+    
     formatValue(key, value) {
       // 格式化动作值
       if (Array.isArray(value)) {
@@ -357,14 +413,10 @@ export default {
       }
     },
     showEventDetails(eventId) {
-      // 显示事件详情弹窗
-      console.log('显示事件详情:', eventId);
       // 使用事件总线触发全局事件
       eventBus.emit('show-event-details', eventId);
     },
     showRiteDetails(riteId) {
-      // 显示仪式详情弹窗
-      console.log('显示仪式详情:', riteId);
       // 使用 mitt 触发事件
       eventBus.emit('show-rite-details', riteId);
     },

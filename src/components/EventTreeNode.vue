@@ -12,6 +12,10 @@
         <div class="node-title">
           {{ event.name || event.text || '未命名事件' }}
           <span class="node-id">(ID: {{ event.eventId }})</span>
+          <!-- 添加节点类型标签 -->
+          <span v-if="(event.eventId+'').startsWith('rite') " class="node-type rite">仪式</span>
+          <span v-else-if="(event.eventId+'').startsWith('loot') " class="node-type loot">战利品</span>
+          <span v-else class="node-type event">事件</span>
         </div>
         <div class="node-details" v-if="event.tag_tips || event.location">
           <span class="tag" v-for="tag in event.tag_tips" :key="tag"><span v-if="event.tag_tips">{{ tag }}</span></span>
@@ -65,6 +69,23 @@ export default {
     // 检查是否有子节点
     const hasChildren = computed(() => {
       return getChildEventIds(props.event).length > 0;
+    });
+    
+    // 判断是否为仪式节点
+    const isRite = computed(() => {
+      return props.event.eventId && props.event.eventId.toString().startsWith('5');
+    });
+    
+    // 判断是否为战利品节点
+    const isLoot = computed(() => {
+      // 检查是否包含战利品相关的属性或标签
+      return props.event.tag_tips && props.event.tag_tips.some(tag => 
+        tag.includes('战利品') || tag.includes('宝藏') || tag.includes('奖励')
+      ) || props.event.text && (
+        props.event.text.includes('战利品') || 
+        props.event.text.includes('宝藏') || 
+        props.event.text.includes('奖励')
+      );
     });
     
     // 处理选择节点
@@ -138,6 +159,8 @@ export default {
       children,
       hasChildren,
       selectedId,
+      isRite,
+      isLoot,
       handleSelect,
       handleChildSelect,
       toggleExpanded
@@ -252,5 +275,30 @@ export default {
   color: #666;
   font-style: italic;
   font-size: 13px;
+}
+
+.node-type {
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  margin-left: 6px;
+  font-weight: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.node-type.event {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.node-type.rite {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.node-type.loot {
+  background-color: #fffde7;
+  color: #f57f17;
 }
 </style>

@@ -39,7 +39,7 @@
         <div class="counters-grid">
           <div v-for="(counter, index) in counters" :key="index" class="counter-item">
             <span class="counter-operation">{{ counter.operation }}</span>
-            <span class="counter-id">#{{ counter.id }}</span>
+            <span class="counter-id">{{ getCounterText(counter.id) }}</span>
             <span class="counter-value">{{ counter.value }}</span>
           </div>
         </div>
@@ -95,7 +95,7 @@
 
 <script>
 // 修改导入语句
-import { getCardById, loadEventData } from '@/services/eventService';
+import { getCardById, loadEventData, getCommentFromCache } from '@/services/eventService';
 import { eventBus } from '@/components/CardDetailsModal.vue';
 
 export default {
@@ -109,7 +109,8 @@ export default {
   data() {
     return {
       cardNames: {},
-      lootNames: {}
+      lootNames: {},
+      counterCache: {} // 添加counter缓存对象
     };
   },
   computed: {
@@ -278,6 +279,23 @@ export default {
     }
   },
   methods: {
+    // 添加获取counter缓存文本的方法
+    getCounterText(counterId) {
+      // 检查本地缓存
+      if (this.counterCache[counterId]) {
+        return this.counterCache[counterId];
+      }
+      
+      // 从localStorage获取
+      const cachedText = getCommentFromCache(counterId);
+      
+      // 存储到本地缓存
+      if (cachedText) {
+        this.counterCache[counterId] = cachedText;
+      }
+      
+      return cachedText || `计数器 #${counterId}`;
+    },
     formatKey(key) {
       // 格式化结果键
       const keyMap = {
@@ -320,7 +338,7 @@ export default {
           this.cardNames[cardId] = `未知卡片 #${cardId}`;
         }
       } catch (error) {
-        console.error('加载卡片信息失败:', error);
+        console.error('加载卡片信息失败:',cardId, error);
         this.cardNames[cardId] = `加载失败 #${cardId}`;
       }
     },
@@ -338,11 +356,9 @@ export default {
       }
     },
     showCardDetails(cardId) {
-      console.log('显示卡片详情:', cardId);
       eventBus.emit('show-card-details', cardId);
     },
     showLootDetails(lootId) {
-      console.log('显示战利品详情:', lootId);
       eventBus.emit('show-loot-details', lootId);
     },
     loadAllReferences() {

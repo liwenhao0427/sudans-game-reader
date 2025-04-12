@@ -49,7 +49,7 @@
               
               <div class="card-slot-condition">
                 <!-- 使用统一的条件显示组件 -->
-                <condition-display v-if="slot.condition" :condition="slot.condition"></condition-display>
+                <condition-display v-if="isNotNullOrEmpty(slot.condition)" :condition="slot.condition"></condition-display>
               </div>
             </div>
             
@@ -60,11 +60,11 @@
                 <div class="pop-content">
                   <div class="pop-condition">
                     <!-- 使用统一的条件显示组件 -->
-                    <condition-display v-if="pop.condition" :condition="pop.condition"></condition-display>
+                    <condition-display v-if="isNotNullOrEmpty(pop.condition)" :condition="pop.condition"></condition-display>
                   </div>
                   <div class="pop-action">
                     <!-- 使用统一的动作显示组件 -->
-                    <action-display v-if="pop.action" :action="pop.action"></action-display>
+                    <action-display v-if="isNotNullOrEmpty(pop.action)" :action="pop.action"></action-display>
                   </div>
                 </div>
               </div>
@@ -122,9 +122,9 @@
               </div>
               
               <div v-if="isSettlementExpanded('settlement', index)">
-                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
-                <result-display v-if="item.result" :result="item.result"></result-display>
-                <action-display v-if="item.action" :action="item.action"></action-display>
+                <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
+                <result-display v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
+                <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
               </div>
             </div>
           </div>
@@ -146,6 +146,11 @@
         </div>
       </div>
       
+      <!-- 物品列表 -->
+      <div class="info-card" v-if="event.item && event.item.length > 0">
+        <item-list-display :items="event.item" />
+      </div>
+
       <!-- 开启条件 -->
       <div class="info-card" v-if="event.open_conditions && event.open_conditions.length > 0">
         <div class="card-header" @click="toggleSection('openConditions')">
@@ -156,7 +161,7 @@
           <div v-for="(condition, index) in event.open_conditions" :key="index" class="condition-item">
             <div class="condition-tips" v-if="condition.tips">{{ condition.tips }}</div>
             <div class="condition-code">
-              <condition-display v-if="condition.condition" :condition="condition.condition"></condition-display>
+              <condition-display v-if="isNotNullOrEmpty(condition.condition)" :condition="condition.condition"></condition-display>
             </div>
           </div>
         </div>
@@ -202,13 +207,13 @@
               
               <div v-if="isSettlementExpanded('settlementPrior', index)">
                 <!-- 使用统一的条件显示组件 -->
-                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
+                <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>
                 
                 <!-- 使用统一的结果显示组件 -->
-                <result-display v-if="item.result" :result="item.result"></result-display>
+                <result-display v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
                 
                 <!-- 使用统一的动作显示组件 -->
-                <action-display v-if="item.action" :action="item.action"></action-display>
+                <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
               </div>
             </div>
           </div>
@@ -247,7 +252,7 @@
       </div>
       
       <!-- 其他信息 -->
-      <div class="info-card">
+      <div class="info-card" v-if="event.location || event.tag_tips|| event.is_replay|| event.auto_start">
         <div class="card-header" @click="toggleSection('basicInfo')">
           <h3>其他信息</h3>
           <span class="toggle-icon">{{ expandedSections.basicInfo ? '▼' : '►' }}</span>
@@ -330,12 +335,14 @@
 import ConditionDisplay from './displays/ConditionDisplay.vue';
 import ResultDisplay from './displays/ResultDisplay.vue';
 import ActionDisplay from './displays/ActionDisplay.vue';
+import ItemListDisplay from './displays/ItemListDisplay.vue';
 export default {
   name: 'EventDetails',
   components: {
     ConditionDisplay,
     ResultDisplay,
-    ActionDisplay
+    ActionDisplay,
+    ItemListDisplay
   },
   props: {
     event: {
@@ -367,6 +374,9 @@ export default {
     }
   },
   methods: {
+    isNotNullOrEmpty(obj) {
+      return obj !== null && obj !== undefined && Object.keys(obj).length > 0;
+    },
     toggleOptionDetails(settlementIndex, optionTag) {
       if (!this.expandedOptions[settlementIndex]) {
         this.expandedOptions[settlementIndex] = {};
