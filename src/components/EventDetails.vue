@@ -84,7 +84,7 @@
           <div v-for="(item, index) in event.settlement" :key="index" class="settlement-item">
             <!-- 处理选项型事件 -->
             <div v-if="item.action?.option" class="options-container">
-              <div class="option-description">{{ item.action.option.text }}</div>
+              <div class="option-description">描述：{{ item.action.option.text }}</div>
               <div class="options-list">
                 <div v-for="(option, optIndex) in item.action.option.items" :key="optIndex" 
                      class="option-item" @click="toggleOptionDetails(index, option.tag)"
@@ -110,12 +110,11 @@
             </div>
 
             <!-- 处理常规结算 -->
-            <div v-else class="settlement-body">
-              <div class="settlement-text" v-if="item.result_text" 
+            <div v-else-if="item.result_title" class="settlement-body">
+              <div class="settlement-text" 
                    @click="toggleSettlementDetails(index, 'settlement')" 
                    :class="{'clickable': true}">
                 <div class="settlement-title" v-if="item.result_title">{{ item.result_title }}</div>
-                {{ item.result_text }}
                 <div class="toggle-details-hint">
                   {{ isSettlementExpanded('settlement', index) ? '收起详情 ▲' : '查看详情 ▼' }}
                 </div>
@@ -126,6 +125,12 @@
                 <result-display v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
                 <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
               </div>
+            </div>
+
+            <div v-else class="settlement-body">
+              <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
+                <result-display v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
+                <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
             </div>
           </div>
         </div>

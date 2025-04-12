@@ -42,7 +42,6 @@
     },
     methods: {
       async showModal(eventId) {
-        console.log('显示事件详情模态框，事件 ID:', eventId);
         this.eventId = eventId;
         this.visible = true;
         this.loading = true;
@@ -52,7 +51,6 @@
         try {
           const data = await loadEventData(eventId, 'event');
           this.eventData = data || {};
-          console.log('加载的事件数据:', this.eventData);
           if (!data) {
             this.error = `无法加载事件 #${eventId} 的数据`;
           }

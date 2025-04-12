@@ -13,25 +13,11 @@
           <p>{{ error }}</p>
         </div>
         <div v-else class="loot-details">
-          <div class="loot-id">ID: {{ lootId }}</div>
-          <div v-if="lootData.name" class="loot-name">{{ lootData.name }}</div>
-          <div v-if="lootData.text" class="loot-text">{{ lootData.text }}</div>
-          
-          <div v-if="lootData.description" class="loot-section">
-            <h4>描述</h4>
-            <div class="loot-description">{{ lootData.description }}</div>
-          </div>
-          
-          <div v-if="lootData.value" class="loot-section">
-            <h4>价值</h4>
-            <div class="loot-value">{{ lootData.value }}</div>
-          </div>
-          
-          <pre v-if="showRaw" class="raw-data">{{ JSON.stringify(lootData, null, 2) }}</pre>
+          <!-- 使用 EventDetails 组件显示战利品数据 -->
+          <event-details :event="lootData"></event-details>
         </div>
       </div>
       <div class="modal-footer">
-        <button @click="toggleRawData">{{ showRaw ? '隐藏原始数据' : '显示原始数据' }}</button>
         <button @click="closeModal">关闭</button>
       </div>
     </div>
@@ -40,10 +26,14 @@
 
 <script>
 import { loadEventData } from '@/services/eventService';
+import EventDetails from '@/components/EventDetails.vue';
 import eventBus from '@/utils/eventBus';
 
 export default {
   name: 'LootDetailsModal',
+  components: {
+    EventDetails
+  },
   data() {
     return {
       visible: false,
@@ -63,7 +53,7 @@ export default {
       this.lootData = {};
       
       try {
-        const data = await loadEventData(lootId, 'loot');
+        const data = await loadEventData(`${lootId}`, 'loot');
         this.lootData = data || {};
         if (!data) {
           this.error = `无法加载战利品 #${lootId} 的数据`;
@@ -144,7 +134,7 @@ export default {
 }
 
 .modal-content {
-  padding: 20px;
+  padding: 0;
   overflow-y: auto;
   flex-grow: 1;
 }
@@ -172,56 +162,5 @@ export default {
 .loading, .error {
   text-align: center;
   padding: 20px;
-}
-
-.loot-details {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.loot-id {
-  color: #666;
-  font-size: 0.9em;
-}
-
-.loot-name {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
-}
-
-.loot-text {
-  white-space: pre-line;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
-.loot-section {
-  margin-top: 10px;
-}
-
-.loot-section h4 {
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.loot-description {
-  white-space: pre-line;
-  line-height: 1.5;
-}
-
-.loot-value {
-  font-weight: bold;
-  color: #67c23a;
-}
-
-.raw-data {
-  background-color: #f5f5f5;
-  padding: 10px;
-  border-radius: 4px;
-  overflow-x: auto;
-  font-family: monospace;
-  font-size: 0.9em;
 }
 </style>

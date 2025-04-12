@@ -74,7 +74,11 @@ export default {
           const eventData = await loadEventData(eventId, type);
           if (eventData) {
             const prefix = type === 'rite' ? '仪式: ' : '';
-            itemNames.value['rite_'+eventId] = prefix + (eventData.name || eventData.text || `${type} #${eventId}`);
+            if(type == 'rite'){
+              itemNames.value['rite_'+eventId] = prefix + (eventData.name || eventData.text || `${type} #${eventId}`);
+            }else {
+              itemNames.value[eventId] = prefix + (eventData.name || eventData.text || `${type} #${eventId}`);
+            }
           }
         } catch (error) {
           console.error(`加载${type} ${eventId} 失败:`, error);

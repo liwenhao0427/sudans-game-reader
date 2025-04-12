@@ -86,22 +86,16 @@ export const parseJsonWithComments = (jsonString) => {
 };
 
 
+// 创建一个全局变量来存储注释缓存
+let globalCommentCache = {};
+let loadDefaultCache = false;
+
 // 提取并缓存JSON中的注释
 export function extractAndCacheComments(jsonString) {
   if (!jsonString) return;
   
-  // 创建一个本地缓存对象，如果不存在
-  let commentCache = localStorage.getItem('commentCache');
-  if (!commentCache) {
-    commentCache = {};
-  } else {
-    try {
-      commentCache = JSON.parse(commentCache);
-    } catch (e) {
-      console.error('解析缓存失败，重置缓存:', e);
-      commentCache = {};
-    }
-  }
+  // 使用全局变量而不是localStorage
+  let commentCache = globalCommentCache;
   
   // 修改正则表达式，匹配形如 "counter.7000420>=":1 //主角戳瞎自己 的模式
   // 或者 "counter.7000420<":1 //主角没瞎 的模式
@@ -128,8 +122,6 @@ export function extractAndCacheComments(jsonString) {
     
     if (!comment) continue; // 如果没有注释，跳过
     
-    console.log("提取注释", counterId, operator, comment);
-    
     // 存储完整键名的注释 (例如: "7000420>=")
     const fullKey = `${counterId}${operator}`;
     
@@ -147,46 +139,47 @@ export function extractAndCacheComments(jsonString) {
     }
   }
   
-  // 保存到本地存储
-  localStorage.setItem('commentCache', JSON.stringify(commentCache));
+  // 更新全局缓存
+  globalCommentCache = commentCache;
 }
 
 // 获取注释缓存
 export function getCommentFromCache(counterId) {
   try {
-    let commentCache = localStorage.getItem('commentCache');
+    // 使用全局变量而不是localStorage
+    let commentCache = globalCommentCache;
     
-    // 如果缓存不存在，尝试从默认配置加载
-    if (!commentCache) {
+    // 如果缓存为空对象，尝试从默认配置加载
+    if (!loadDefaultCache || Object.keys(commentCache).length === 0) {
       try {
         // 导入默认缓存配置
-        const defaultCache = require('@/assets/config/defaultCommentCache.json');
-        localStorage.setItem('commentCache', JSON.stringify(defaultCache));
-        commentCache = JSON.stringify(defaultCache);
-        console.log('已从默认配置加载注释缓存');
+        const defaultCache = JSON.parse(require('@/assets/defaultCommentCache.json'));
+        // 直接使用默认缓存
+        globalCommentCache = defaultCache;
+        commentCache = defaultCache;
+        loadDefaultCache = true;
       } catch (e) {
         console.error('加载默认缓存配置失败:', e);
-        commentCache = '{}';
+        commentCache = {};
       }
     }
-    
-    const cache = JSON.parse(commentCache);
+    console.log("获取注释缓存", counterId, commentCache, commentCache[counterId]);
     
     // 先尝试直接获取counterId对应的缓存
-    if (cache[counterId]) {
-      return cache[counterId];
+    if (commentCache[counterId]) {
+      return commentCache[counterId];
     }
     
     // 检查是否为全局计数器ID (通常以g开头)
     if (counterId.toString().startsWith('g')) {
       const baseId = counterId.toString().substring(1); // 移除g前缀
-      return cache[baseId] || null;
+      return commentCache[baseId] || null;
     }
     
     // 检查是否存在对应的全局计数器缓存
     const globalId = `g${counterId}`;
-    if (cache[globalId]) {
-      return cache[globalId];
+    if (commentCache[globalId]) {
+      return commentCache[globalId];
     }
     
     return null;
@@ -256,7 +249,7 @@ function parseJSONWithDuplicateKeys(jsonString) {
         }
       }
       
-      console.log("最终JSON对象", jsonObj);
+      // console.log("最终JSON对象", jsonObj);
       return jsonObj;
     } catch (evalError) {
       console.error('使用Function解析JSON失败:', evalError);

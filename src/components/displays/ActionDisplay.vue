@@ -12,6 +12,48 @@
         </div>
       </div>
       
+      <!-- 卡片引用显示 -->
+      <div v-if="hasCardReferences" class="card-references">
+        <div v-for="(cardRef, key) in cardReferences" :key="key" class="card-reference-item">
+          <div class="card-reference-header">{{ formatKey(key) }}</div>
+          <div v-if="Array.isArray(cardRef)" class="card-reference-array">
+            <div v-for="(item, index) in cardRef" :key="`${key}-${index}`" class="card-reference">
+              <template v-if="typeof item === 'number'">
+                <span class="card-id">#{{ item }}</span>
+                <span v-if="cardNames[item]" class="card-name clickable" @click="showCardDetails(item)">
+                  {{ cardNames[item] }}
+                </span>
+                <span v-else class="card-loading">加载中...</span>
+              </template>
+              <template v-else>
+                <span class="card-value">{{ item }}</span>
+              </template>
+            </div>
+          </div>
+          <div v-else class="card-reference">
+            <span class="card-id">#{{ cardRef }}</span>
+            <span v-if="cardNames[cardRef]" class="card-name clickable" @click="showCardDetails(cardRef)">
+              {{ cardNames[cardRef] }}
+            </span>
+            <span v-else class="card-loading">加载中...</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 战利品引用显示 -->
+      <div v-if="hasLootReferences" class="loot-references">
+        <div v-for="(lootRef, key) in lootReferences" :key="key" class="loot-reference-item">
+          <div class="loot-reference-header">{{ formatKey(key) }}</div>
+          <div class="loot-reference">
+            <span class="loot-id">#{{ lootRef }}</span>
+            <span v-if="lootNames['loot_'+lootRef]" class="loot-name clickable" @click="showLootDetails(lootRef)">
+              {{ lootNames['loot_'+lootRef] }}
+            </span>
+            <span v-else class="loot-loading">加载中...</span>
+          </div>
+        </div>
+      </div>
+      
       <!-- 事件引用显示 -->
       <div v-if="hasEventReferences" class="event-references">
         <div v-for="(eventRef, key) in eventReferences" :key="key" class="event-reference-item">
@@ -30,10 +72,19 @@
       <div v-if="hasRiteReferences" class="rite-references">
         <div v-for="(riteRef, key) in riteReferences" :key="key" class="rite-reference-item">
           <div class="rite-reference-header">{{ formatKey(key) }}</div>
-          <div class="rite-reference">
+          <div v-if="Array.isArray(riteRef)" class="rite-reference-array">
+            <div v-for="(rite, index) in riteRef" :key="`${key}-${index}`" class="rite-reference">
+              <span class="rite-id">#{{ rite }}</span>
+              <span v-if="riteNames['rite_'+rite]" class="rite-name clickable" @click="showRiteDetails(rite)">
+                {{ riteNames['rite_'+rite] }}
+              </span>
+              <span v-else class="rite-loading">加载中...</span>
+            </div>
+          </div>
+          <div v-else class="rite-reference">
             <span class="rite-id">#{{ riteRef }}</span>
-            <span v-if="riteNames[riteRef]" class="rite-name clickable" @click="showRiteDetails(riteRef)">
-              {{ riteNames[riteRef] }}
+            <span v-if="riteNames['loot_'+riteRef]" class="rite-name clickable" @click="showLootDetails(riteRef)">
+              {{ riteNames['loot_'+riteRef] }}
             </span>
             <span v-else class="rite-loading">加载中...</span>
           </div>
@@ -56,45 +107,55 @@
       <div v-if="hasOptions" class="options">
         <div v-for="(option, key) in options" :key="key" class="option-item">
           <div class="option-header">{{ formatKey(key) }}</div>
-          <div class="option-content">
-            <div v-if="option.id" class="option-id">ID: {{ option.id }}</div>
-            <div v-if="option.text" class="option-text">{{ option.text }}</div>
-            <div v-if="option.icon" class="option-icon">图标: {{ Array.isArray(option.icon) ? option.icon.join(', ') : option.icon }}</div>
-            
-            <div v-if="option.items && option.items.length" class="option-choices">
-              <div v-for="(item, index) in option.items" :key="index" class="option-choice">
-                <div class="choice-tag">{{ item.tag }}</div>
-                <div class="choice-text">{{ item.text }}</div>
-              </div>
-            </div>
+          <!-- 选项内容 -->
+        </div>
+      </div>
+      
+      <!-- 表格引用显示 -->
+      <div v-if="hasTableReferences" class="table-references">
+        <div v-for="(tableRef, key) in tableReferences" :key="key" class="table-reference-item">
+          <div class="table-reference-header">{{ formatKey(key) }}</div>
+          <div class="table-reference">
+            <span v-if="isCardReference(key)" class="card-id">#{{ extractCardId(key) }}</span>
+            <span v-if="isCardReference(key) && cardNames[extractCardId(key)]" 
+                  class="card-name clickable" 
+                  @click="showCardDetails(extractCardId(key))">
+              {{ cardNames[extractCardId(key)] }}
+            </span>
+            <span v-else-if="isCardReference(key)" class="card-loading">加载中...</span>
+            <span v-else class="table-value">{{ tableRef }}</span>
           </div>
         </div>
       </div>
       
-      <!-- 选项RESULT显示 -->
-      <div v-if="hasCases" class="cases">
-        <div v-for="(caseAction, key) in cases" :key="key" class="case-item">
-          <div class="case-header">{{ formatKey(key) }}</div>
-          <action-display :action="caseAction" />
-        </div>
-      </div>
-      
-      <!-- 延迟动作显示 -->
-      <div v-if="hasDelays" class="delays">
-        <div v-for="(delay, key) in delays" :key="key" class="delay-item">
-          <div class="delay-header">{{ formatKey(key) }}</div>
-          <div class="delay-content">
-            <div v-if="delay.id" class="delay-id">ID: {{ delay.id }}</div>
-            <div v-if="delay.round" class="delay-round">{{ delay.round }} 回合后</div>
-            <action-display :action="getDelayActions(delay)" />
+      <!-- 手牌引用显示 -->
+      <div v-if="hasHandReferences" class="hand-references">
+        <div v-for="(handRef, key) in handReferences" :key="key" class="hand-reference-item">
+          <div class="hand-reference-header">{{ formatKey(key) }}</div>
+          <div class="hand-reference">
+            <span v-if="isCardReference(key)" class="card-id">#{{ extractCardId(key) }}</span>
+            <span v-if="isCardReference(key) && cardNames[extractCardId(key)]" 
+                  class="card-name clickable" 
+                  @click="showCardDetails(extractCardId(key))">
+              {{ cardNames[extractCardId(key)] }}
+            </span>
+            <span v-else-if="isCardReference(key)" class="card-loading">加载中...</span>
+            <span v-else class="hand-value">{{ handRef }}</span>
           </div>
         </div>
       </div>
       
-      <div v-if="hasComplexActions" class="complex-actions">
-        <div v-for="(value, key) in complexActions" :key="key" class="complex-action">
-          <div class="complex-action-header">{{ formatKey(key) }}</div>
-          <pre>{{ JSON.stringify(value, null, 2) }}</pre>
+      <!-- 计数器引用显示 -->
+      <div v-if="hasCounterReferences" class="counter-references">
+        <div v-for="(counterRef, key) in counterReferences" :key="key" class="counter-reference-item">
+          <div class="counter-reference-header">{{ formatKey(key) }}</div>
+          <div class="counter-reference">
+            <span class="counter-id">#{{ extractCounterId(key) }}</span>
+            <span v-if="counterNames[extractCounterId(key)]" class="counter-name">
+              {{ counterNames[extractCounterId(key)] }}
+            </span>
+            <span v-else class="counter-value">{{ counterRef }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -102,492 +163,595 @@
 </template>
 
 <script>
-import { loadEventData, loadGameDataIndex, getCommentFromCache } from '@/services/eventService';
-import eventBus from '@/utils/eventBus';
+import { ref, computed, onMounted, watch } from 'vue';
+import { getCardById, loadEventData, getCommentFromCache } from '@/services/eventService';
+import { eventBus } from '@/components/CardDetailsModal.vue';
+import eventBus2 from '@/utils/eventBus';
 
 export default {
   name: 'ActionDisplay',
-  // 添加自身引用
-  components: {
-    ActionDisplay: () => import('./ActionDisplay.vue')
-  },
   props: {
     action: {
       type: Object,
       required: true
     }
   },
-  data() {
-    return {
-      eventNames: {}, // 存储事件名称
-      riteNames: {}, // 存储仪式名称
-      eventsData: null, // 事件数据缓存
-      ritesData: null, // 仪式数据缓存
-      counterCache: {} // 存储counter的缓存文本
+  setup(props) {
+    const cardNames = ref({});
+    const eventNames = ref({});
+    const riteNames = ref({});
+    const lootNames = ref({});
+    const counterNames = ref({});
+    
+    // 分类处理不同类型的动作
+    const simpleActions = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (
+          typeof value !== 'object' && 
+          !key.startsWith('card') && 
+          !key.startsWith('event') && 
+          !key.startsWith('rite') && 
+          !key.startsWith('prompt') && 
+          !key.startsWith('option') &&
+          !key.startsWith('loot') &&
+          !key.startsWith('table.') &&
+          !key.startsWith('hand_pop.') &&
+          !key.includes('counter_PLUS_')
+        ) {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 卡片引用
+    const cardReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key === 'card') {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 战利品引用
+    const lootReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key === 'loot') {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 事件引用
+    const eventReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key === 'event') {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 仪式引用
+    const riteReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key === 'rite' || key.endsWith('.rite')) {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 提示文本
+    const prompts = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key.startsWith('prompt')) {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 选项
+    const options = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key.startsWith('option')) {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 表格引用
+    const tableReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key.startsWith('table.')) {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 手牌引用
+    const handReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key.startsWith('hand_pop.')) {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 计数器引用
+    const counterReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key.includes('counter_PLUS_')) {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+    // 判断是否有各类引用
+    const hasSimpleActions = computed(() => Object.keys(simpleActions.value).length > 0);
+    const hasCardReferences = computed(() => Object.keys(cardReferences.value).length > 0);
+    const hasLootReferences = computed(() => Object.keys(lootReferences.value).length > 0);
+    const hasEventReferences = computed(() => Object.keys(eventReferences.value).length > 0);
+    const hasRiteReferences = computed(() => Object.keys(riteReferences.value).length > 0);
+    const hasPrompts = computed(() => Object.keys(prompts.value).length > 0);
+    const hasOptions = computed(() => Object.keys(options.value).length > 0);
+    const hasTableReferences = computed(() => Object.keys(tableReferences.value).length > 0);
+    const hasHandReferences = computed(() => Object.keys(handReferences.value).length > 0);
+    const hasCounterReferences = computed(() => Object.keys(counterReferences.value).length > 0);
+    
+    // 格式化键名
+    const formatKey = (key) => {
+      if (key.startsWith('table.')) {
+        return '牌库';
+      } else if (key.startsWith('hand_pop.')) {
+        return '手牌提示';
+      } else if (key.includes('counter_PLUS_')) {
+        return '计数器';
+      } else if (key === 'card') {
+        return '获得卡片';
+      } else if (key === 'loot') {
+        return '获得战利品';
+      } else if (key === 'rite') {
+        return '仪式';
+      } else if (key.endsWith('.rite')) {
+        // 处理带前缀的仪式引用
+        const prefix = key.split('.')[0];
+        return `${prefix}仪式`;
+      } else if (key === 'event') {
+        return '事件';
+      }
+      return key;
     };
-  },
-  computed: {
-    simpleActions() {
-      // 提取简单动作（非对象值且不是特殊类型）
-      return Object.entries(this.action)
-        .filter(([key, value]) => 
-          typeof value !== 'object' || value === null || Array.isArray(value) && 
-          !this.isEventReference(key) && 
-          !this.isRiteReference(key)
-        )
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    complexActions() {
-      // 提取复杂动作（对象值且不是特殊类型）
-      return Object.entries(this.action)
-        .filter(([key, value]) => 
-          typeof value === 'object' && value !== null && 
-          !Array.isArray(value) &&
-          !this.isPrompt(key, value) &&
-          !this.isOption(key, value) &&
-          !this.isCase(key) &&
-          !this.isDelay(key, value) &&
-          !this.isSuccess(key) &&
-          !this.isFailure(key)
-        )
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    eventReferences() {
-      // 提取事件引用
-      return Object.entries(this.action)
-        .filter(([key]) => this.isEventReference(key))
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    riteReferences() {
-      // 提取仪式引用
-      return Object.entries(this.action)
-        .filter(([key, value]) => this.isRiteReference(key, value))
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    prompts() {
-      // 提取提示文本
-      return Object.entries(this.action)
-        .filter(([key, value]) => this.isPrompt(key, value))
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    options() {
-      // 提取选项
-      return Object.entries(this.action)
-        .filter(([key, value]) => this.isOption(key, value))
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    cases() {
-      // 提取选项结果
-      return Object.entries(this.action)
-        .filter(([key]) => this.isCase(key))
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    delays() {
-      // 提取延迟动作
-      return Object.entries(this.action)
-        .filter(([key, value]) => this.isDelay(key, value))
-        .reduce((acc, [key, value]) => {
-          acc[key] = value;
-          return acc;
-        }, {});
-    },
-    hasSimpleActions() {
-      return Object.keys(this.simpleActions).length > 0;
-    },
-    hasComplexActions() {
-      return Object.keys(this.complexActions).length > 0;
-    },
-    hasEventReferences() {
-      return Object.keys(this.eventReferences).length > 0;
-    },
-    hasRiteReferences() {
-      return Object.keys(this.riteReferences).length > 0;
-    },
-    hasPrompts() {
-      return Object.keys(this.prompts).length > 0;
-    },
-    hasOptions() {
-      return Object.keys(this.options).length > 0;
-    },
-    hasCases() {
-      return Object.keys(this.cases).length > 0;
-    },
-    hasDelays() {
-      return Object.keys(this.delays).length > 0;
-    }
-  },
-  methods: {
-    isEventReference(key) {
-      return key === 'event_on' || key === 'event_off';
-    },
-    isRiteReference(key, value) {
-      return key === 'rite' || key === 'clean.rite' || 
-             (typeof value === 'number' && value.toString().startsWith('500'));
-    },
-    isPrompt(key, value) {
-      return key === 'prompt' && value && typeof value === 'object' && value.text;
-    },
-    isOption(key, value) {
-      return key === 'option' && value && typeof value === 'object' && value.items;
-    },
-    isCase(key) {
-      return key.startsWith('case:');
-    },
-    isDelay(key, value) {
-      return key === 'delay' && value && typeof value === 'object' && value.round;
-    },
-    isSuccess(key) {
-      return key === 'success';
-    },
-    isFailure(key) {
-      return key === 'failure';
-    },
-    formatKey(key) {
-      // 格式化动作键
-      const actionMap = {
-        'rite': '仪式',
-        'clean.rite': '清除仪式',
-        'event': '事件',
-        'event_on': '激活事件',
-        'event_off': '关闭事件',
-        'choose': '选择',
-        'add': '添加',
-        'remove': '移除',
-        'prompt': '提示',
-        'option': '选项',
-        'delay': '延迟动作',
-        'success': '成功结果',
-        'failure': '失败结果',
-        'no_prompt': '无提示动作'
-      };
-      
-      if (key.startsWith('case:')) {
-        return `选项结果: ${key.substring(5)}`;
-      }
-      
-      // 处理counter类型的键
-      if (key.startsWith('counter+') || key.startsWith('counter-') || key.startsWith('counter=')) {
-        const operator = key.charAt(7); // 获取操作符 +, -, =
-        const counterId = key.substring(8); // 获取counter ID
-        
-        // 尝试从缓存获取counter的注释文本
-        const cachedText = this.getCounterText(counterId);
-        
-        if (cachedText) {
-          let operatorText = '';
-          if (operator === '+') operatorText = '增加';
-          else if (operator === '-') operatorText = '减少';
-          else if (operator === '=') operatorText = '设置';
-          
-          return `${operatorText} ${cachedText}`;
-        }
-      }
-      
-      // 处理全局counter类型的键
-      if (key.startsWith('global_counter+') || key.startsWith('global_counter-') || key.startsWith('global_counter=')) {
-        const operator = key.charAt(14); // 获取操作符 +, -, =
-        const counterId = key.substring(15); // 获取counter ID
-        
-        // 尝试从缓存获取counter的注释文本
-        const cachedText = this.getCounterText(counterId);
-        
-        if (cachedText) {
-          let operatorText = '';
-          if (operator === '+') operatorText = '增加全局';
-          else if (operator === '-') operatorText = '减少全局';
-          else if (operator === '=') operatorText = '设置全局';
-          
-          return `${operatorText} ${cachedText}`;
-        }
-      }
-      
-      return actionMap[key] || key;
-    },
     
-    // 添加获取counter缓存文本的方法
-    getCounterText(counterId) {
-      // 检查本地缓存
-      if (this.counterCache[counterId]) {
-        return this.counterCache[counterId];
-      }
-      
-      // 从localStorage获取
-      const cachedText = getCommentFromCache(counterId);
-      
-      // 存储到本地缓存
-      if (cachedText) {
-        this.counterCache[counterId] = cachedText;
-      }
-      
-      return cachedText;
-    },
-    
-    formatValue(key, value) {
-      // 格式化动作值
-      if (Array.isArray(value)) {
-        return value.join(', ');
-      }
+    // 格式化值
+    const formatValue = (key, value) => {
       return value;
-    },
-    getDelayActions(delay) {
-      // 提取延迟动作中的实际动作
-      const actions = {};
-      Object.entries(delay).forEach(([key, value]) => {
-        if (key !== 'id' && key !== 'round') {
-          actions[key] = value;
+    };
+    
+    // 判断是否为卡片引用
+    const isCardReference = (key) => {
+      if (key.startsWith('table.')) {
+        const parts = key.split('.');
+        return parts.length >= 2 && !isNaN(parseInt(parts[parts.length - 1]));
+      } else if (key.startsWith('hand_pop.')) {
+        const parts = key.split('.');
+        for (const part of parts) {
+          const match = part.match(/\d{7}/);
+          if (match) return true;
         }
-      });
-      return actions;
-    },
-    async loadEventInfo(eventId) {
-      try {
-        if (!this.eventsData) {
-          this.eventsData = await loadGameDataIndex();
-        }
-        
-        if (this.eventsData && this.eventsData.events) {
-          const event = this.eventsData.events.find(e => e.id === eventId || e.id === parseInt(eventId));
-          if (event) {
-            this.eventNames[eventId] = event.name || event.text || `事件 #${eventId}`;
-            return;
-          }
-        }
-        
-        // 如果索引中没有找到，尝试直接加载事件数据
-        const eventData = await loadEventData(eventId, 'event');
-        if (eventData) {
-          this.eventNames[eventId] = eventData.name || eventData.text || `事件 #${eventId}`;
-        } else {
-          this.eventNames[eventId] = `未知事件 #${eventId}`;
-        }
-      } catch (error) {
-        console.error('加载事件信息失败:', error);
-        this.eventNames[eventId] = `加载失败 #${eventId}`;
       }
-    },
-    async loadRiteInfo(riteId) {
-      try {
-        if (!this.ritesData) {
-          this.ritesData = await loadGameDataIndex();
-        }
-        
-        if (this.ritesData && this.ritesData.rites) {
-          const rite = this.ritesData.rites.find(r => r.id === riteId || r.id === parseInt(riteId));
-          if (rite) {
-            this.riteNames[riteId] = rite.name || rite.text || `仪式 #${riteId}`;
-            return;
-          }
-        }
-        
-        // 如果索引中没有找到，尝试直接加载仪式数据
-        const riteData = await loadEventData(riteId, 'rite');
-        if (riteData) {
-          this.riteNames[riteId] = riteData.name || riteData.text || `仪式 #${riteId}`;
-        } else {
-          this.riteNames[riteId] = `未知仪式 #${riteId}`;
-        }
-      } catch (error) {
-        console.error('加载仪式信息失败:', error);
-        this.riteNames[riteId] = `加载失败 #${riteId}`;
+      return false;
+    };
+    
+    // 提取卡片ID
+    const extractCardId = (key) => {
+      if (key.startsWith('table.')) {
+        const parts = key.split('.');
+        const lastPart = parts[parts.length - 1];
+        const idMatch = lastPart.match(/\d+/);
+        return idMatch ? parseInt(idMatch[0]) : null;
+      } else if (key.startsWith('hand_pop.')) {
+        const match = key.match(/\d{7}/);
+        return match ? parseInt(match[0]) : null;
       }
-    },
-    showEventDetails(eventId) {
-      // 使用事件总线触发全局事件
-      eventBus.emit('show-event-details', eventId);
-    },
-    showRiteDetails(riteId) {
-      // 使用 mitt 触发事件
-      eventBus.emit('show-rite-details', riteId);
-    },
-    loadAllReferences() {
-      // 加载所有事件和仪式引用
-      Object.values(this.eventReferences).forEach(events => {
-        if (Array.isArray(events)) {
-          events.forEach(eventId => this.loadEventInfo(eventId));
-        } else {
-          this.loadEventInfo(events);
+      return null;
+    };
+    
+    // 提取计数器ID
+    const extractCounterId = (key) => {
+      const match = key.match(/counter_PLUS_(\d+)/);
+      return match ? match[1] : null;
+    };
+    
+    // 加载卡片名称
+    const loadCardName = async (cardId) => {
+      if (!cardNames.value[cardId]) {
+        try {
+          const cardData = await getCardById(cardId);
+          if (cardData) {
+            cardNames.value[cardId] = cardData.name || cardData.text || `卡片 #${cardId}`;
+          }
+        } catch (error) {
+          console.error(`加载卡片 ${cardId} 失败:`, error);
+          cardNames.value[cardId] = `卡片 #${cardId}`;
         }
-      });
+      }
+    };
+    
+    // 加载事件或仪式名称
+    const loadEventName = async (eventId, type) => {
+      let key;
+      let namesRef;
       
-      Object.values(this.riteReferences).forEach(riteId => {
-        this.loadRiteInfo(riteId);
-      });
-    }
-  },
-  mounted() {
-    this.loadAllReferences();
-  },
-  watch: {
-    action: {
-      handler() {
-        this.loadAllReferences();
-      },
-      deep: true
-    }
+      if (type === 'rite') {
+        key = `rite_${eventId}`;
+        namesRef = riteNames;
+      } else if (type === 'loot') {
+        key = `loot_${eventId}`;
+        namesRef = lootNames;
+      } else {
+        key = eventId;
+        namesRef = eventNames;
+      }
+      
+      if (!namesRef.value[key]) {
+        try {
+          const eventData = await loadEventData(key);
+          if (eventData) {
+            let prefix = '事件';
+            if (type === 'rite') prefix = '仪式: ';
+            else if (type === 'loot') prefix = '战利品: ';
+            
+            namesRef.value[key] = prefix + (eventData.name || eventData.text || `${type} #${eventId}`);
+          }
+        } catch (error) {
+          console.error(`加载${type} ${eventId} 失败:`, error);
+          namesRef.value[key] = `${type} #${eventId}`;
+        }
+      }
+    };
+    
+    // 加载计数器名称
+    const loadCounterName = async (counterId) => {
+      if (!counterNames.value[counterId]) {
+        try {
+          const name = await getCommentFromCache(counterId);
+          if (name) {
+            counterNames.value[counterId] = name;
+          } else {
+            counterNames.value[counterId] = `计数器 #${counterId}`;
+          }
+        } catch (error) {
+          console.error(`加载计数器 ${counterId} 失败:`, error);
+          counterNames.value[counterId] = `计数器 #${counterId}`;
+        }
+      }
+    };
+    
+    // 显示卡片详情
+    const showCardDetails = (cardId) => {
+      console.log(`显示卡片详情:`, cardId);
+      eventBus.emit('show-card-details', cardId);
+    };
+    
+    // 显示事件详情
+    const showEventDetails = (eventId) => {
+      console.log(`显示事件详情:`, eventId);
+      eventBus2.emit('show-event-details', eventId);
+    };
+    
+    // 显示仪式详情
+    const showRiteDetails = (riteId) => {
+      console.log(`显示仪式详情:`, riteId);
+      eventBus2.emit('show-rite-details', riteId);
+    };
+    
+    // 显示战利品详情
+    const showLootDetails = (lootId) => {
+      console.log(`显示战利品详情:`, lootId);
+      eventBus2.emit('show-loot-details', lootId);
+    };
+    
+    // 加载所有引用的名称
+    const loadAllReferences = () => {
+      // 加载卡片引用
+      for (const [key, value] of Object.entries(cardReferences.value)) {
+        if (key && Array.isArray(value)) {
+          value.forEach(item => {
+            if (typeof item === 'number') {
+              loadCardName(item);
+            }
+          });
+        } else if (typeof value === 'number') {
+          loadCardName(value);
+        }
+      }
+      
+      // 加载表格引用中的卡片
+      for (const key of Object.keys(tableReferences.value)) {
+        if (isCardReference(key)) {
+          const cardId = extractCardId(key);
+          if (cardId) {
+            loadCardName(cardId);
+          }
+        }
+      }
+      
+      // 加载手牌引用中的卡片
+      for (const key of Object.keys(handReferences.value)) {
+        if (isCardReference(key)) {
+          const cardId = extractCardId(key);
+          if (cardId) {
+            loadCardName(cardId);
+          }
+        }
+      }
+      
+      // 加载事件引用
+      for (const [key, value] of Object.entries(eventReferences.value)) {
+        if (key && Array.isArray(value)) {
+          value.forEach(eventId => {
+            loadEventName(eventId, 'event');
+          });
+        } else if (typeof value === 'number') {
+          loadEventName(value, 'event');
+        }
+      }
+      
+      // 加载仪式引用
+      for (const [key, value] of Object.entries(riteReferences.value)) {
+        if (key && Array.isArray(value)) {
+          value.forEach(riteId => {
+            loadEventName(riteId, 'rite');
+          });
+        } else if (typeof value === 'number') {
+          loadEventName(value, 'rite');
+        }
+      }
+      // 加载战利品引用
+      for (const [key, value] of Object.entries(lootReferences.value)) {
+        if (key && Array.isArray(value)) {
+          value.forEach(lootId => {
+            loadEventName(lootId, 'loot');
+          });
+        } else if (typeof value === 'number') {
+          loadEventName(value, 'loot');
+        }
+      }
+      // 加载计数器引用
+      for (const key of Object.keys(counterReferences.value)) {
+        const counterId = extractCounterId(key);
+        if (counterId) {
+          loadCounterName(counterId);
+        }
+      }
+    };
+    
+    // 监听action变化，重新加载引用
+    watch(() => props.action, () => {
+      loadAllReferences();
+    }, { deep: true });
+    
+    // 组件挂载时加载所有引用
+    onMounted(() => {
+      loadAllReferences();
+    });
+    
+    return {
+      cardNames,
+      eventNames,
+      riteNames,
+      lootNames,
+      counterNames,
+      simpleActions,
+      cardReferences,
+      lootReferences,
+      eventReferences,
+      riteReferences,
+      prompts,
+      options,
+      tableReferences,
+      handReferences,
+      counterReferences,
+      hasSimpleActions,
+      hasCardReferences,
+      hasLootReferences,
+      hasEventReferences,
+      hasRiteReferences,
+      hasPrompts,
+      hasOptions,
+      hasTableReferences,
+      hasHandReferences,
+      hasCounterReferences,
+      formatKey,
+      formatValue,
+      isCardReference,
+      extractCardId,
+      extractCounterId,
+      showCardDetails,
+      showEventDetails,
+      showRiteDetails,
+      showLootDetails
+    };
   }
 }
 </script>
 
 <style scoped>
 .action-container {
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: 6px;
-  background-color: #fdf6ec;
-  border: 1px solid #f5dab1;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .container-header {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
 }
 
 .container-icon {
+  font-size: 18px;
   margin-right: 8px;
-  font-size: 16px;
+  color: #ff9800;
 }
 
 .container-title {
-  font-weight: bold;
-  font-size: 15px;
-  color: #e6a23c;
-}
-
-.simple-actions, .event-references, .rite-references, .prompts, .options, .cases, .delays {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.action-item, .event-reference-item, .rite-reference-item, .prompt-item, .option-item, .case-item, .delay-item {
-  display: flex;
-  flex-direction: column;
-  padding: 8px;
-  background-color: white;
-  border-radius: 4px;
-  border: 1px solid #e0e0e0;
-}
-
-.action-key, .event-reference-header, .rite-reference-header, .prompt-header, .option-header, .case-header, .delay-header {
-  font-weight: bold;
-  margin-bottom: 4px;
-  color: #606266;
-}
-
-.action-value, .event-reference, .rite-reference, .prompt-content, .option-content, .delay-content {
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
 }
 
-.event-id, .rite-id {
-  color: #909399;
-  font-size: 0.9em;
-  margin-right: 5px;
+.action-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.event-name, .rite-name {
+.action-item, 
+.event-reference-item, 
+.rite-reference-item,
+.card-reference-item,
+.loot-reference-item,
+.prompt-item,
+.option-item,
+.table-reference-item,
+.hand-reference-item,
+.counter-reference-item {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.action-key,
+.event-reference-header,
+.rite-reference-header,
+.card-reference-header,
+.loot-reference-header,
+.prompt-header,
+.option-header,
+.table-reference-header,
+.hand-reference-header,
+.counter-reference-header {
   font-weight: 500;
-  color: #409eff;
+  color: #555;
+  margin-bottom: 8px;
+  display: block;
 }
 
-.event-name.clickable, .rite-name.clickable {
+.action-value {
+  color: #333;
+}
+
+.event-reference,
+.rite-reference,
+.card-reference,
+.loot-reference,
+.table-reference,
+.hand-reference,
+.counter-reference {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.event-id,
+.rite-id,
+.card-id,
+.loot-id,
+.counter-id {
+  color: #666;
+  font-size: 12px;
+}
+
+.event-name,
+.rite-name,
+.card-name,
+.loot-name,
+.counter-name {
+  color: #333;
+}
+
+.event-name.clickable,
+.rite-name.clickable,
+.card-name.clickable,
+.loot-name.clickable {
+  color: #1976d2;
   cursor: pointer;
   text-decoration: underline;
 }
 
-.event-name.clickable:hover, .rite-name.clickable:hover {
-  color: #66b1ff;
+.event-name.clickable:hover,
+.rite-name.clickable:hover,
+.card-name.clickable:hover,
+.loot-name.clickable:hover {
+  color: #0d47a1;
 }
 
-.event-loading, .rite-loading {
+.event-loading,
+.rite-loading,
+.card-loading,
+.loot-loading {
   font-style: italic;
-  color: #909399;
+  color: #666;
+  font-size: 12px;
 }
 
-.prompt-text, .option-text {
-  white-space: pre-line;
-  margin: 5px 0;
+.prompt-content,
+.option-content {
+  padding: 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
 }
 
-.prompt-id, .option-id, .delay-id {
-  font-size: 0.8em;
-  color: #909399;
-  margin-bottom: 3px;
+.prompt-id,
+.prompt-text,
+.prompt-icon {
+  margin-bottom: 4px;
 }
 
-.option-choices {
-  margin-top: 8px;
-  border-top: 1px dashed #e0e0e0;
-  padding-top: 8px;
+.rite-name {
+  color: #7b1fa2;
 }
 
-.option-choice {
-  margin-bottom: 5px;
-  padding: 5px;
-  background-color: #f5f7fa;
-  border-radius: 3px;
+.card-name {
+  color: #1976d2;
 }
 
-.choice-tag {
-  font-weight: bold;
-  font-size: 0.9em;
-  color: #409eff;
-  margin-bottom: 3px;
+.loot-name {
+  color: #ff9800;
 }
 
-.delay-round {
-  font-weight: bold;
-  color: #e6a23c;
-  margin-bottom: 5px;
+.counter-name {
+  color: #4caf50;
 }
 
-.complex-actions {
+.card-reference-array,
+.rite-reference-array {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.complex-action {
-  background-color: white;
-  border-radius: 4px;
-  border: 1px solid #e0e0e0;
-  overflow: hidden;
-}
-
-.complex-action-header {
-  padding: 8px 12px;
-  background-color: #faf0e6;
-  font-weight: bold;
-  border-bottom: 1px solid #f5dab1;
-}
-
-.complex-action pre {
-  margin: 0;
-  padding: 10px;
-  background-color: white;
+  gap: 8px;
 }
 </style>
