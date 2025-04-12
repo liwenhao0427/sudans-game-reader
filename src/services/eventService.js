@@ -28,6 +28,10 @@ export const parseJsonWithComments = (jsonString) => {
     // 处理特殊键名，如counter+7000101
     noComments = noComments.replace(/"([^"]+)\+([^"]+)":/g, '"$1_PLUS_$2":');
     
+    // 处理尾随逗号问题 - 在对象和数组结束前的逗号
+    noComments = noComments.replace(/,(\s*[\]}])/g, '$1');
+    // console.log("处理尾随逗号问题 - 在对象和数组结束前的逗号", noComments);
+    
     // 尝试解析JSON
     try {
       // 使用自定义解析器处理重复键
@@ -42,8 +46,12 @@ export const parseJsonWithComments = (jsonString) => {
       noComments = noComments.replace(/\/\*[\s\S]*?\*\//g, '');
       noComments = noComments.replace(/([^\\]|^)\/\/[^\n]*(\n|$)/gm, '$1$2');
       
-      // 处理可能存在的尾随逗号
+      // 处理可能存在的尾随逗号 - 更严格的处理
       noComments = noComments.replace(/,(\s*[}\]])/g, '$1');
+      // 处理对象内部的尾随逗号
+      noComments = noComments.replace(/,(\s*})/g, '$1');
+      // 处理数组内部的尾随逗号
+      noComments = noComments.replace(/,(\s*\])/g, '$1');
       
       // 处理可能存在的非标准JSON语法
       noComments = noComments.replace(/([{,])\s*([a-zA-Z0-9_$]+)\s*:/g, '$1"$2":');
@@ -227,19 +235,27 @@ function parseJSONWithDuplicateKeys(jsonString) {
     cleanedJson = cleanedJson.replace(/\/\/[^\n]*(\n|$)/gm, '$1');
 
     cleanedJson = cleanedJson.replace(/\/\*[\s\S]*?\*\//g, '');
-    // console.log("移除所有注释，修改单行注释的正则表达式2", cleanedJson);
     
     // 处理换行符，将其替换为空格
     cleanedJson = cleanedJson.replace(/\n/g, ' ');
-    // console.log("处理换行符，将其替换为空格", cleanedJson);
     
-    // 处理可能存在的尾随逗号
+    // 处理可能存在的尾随逗号 - 更全面的处理
     cleanedJson = cleanedJson.replace(/,(\s*[}\]])/g, '$1');
-    // console.log("处理可能存在的尾随逗号", cleanedJson);
+    // 处理对象内部的尾随逗号
+    cleanedJson = cleanedJson.replace(/,(\s*})/g, '$1');
+    // 处理数组内部的尾随逗号
+    cleanedJson = cleanedJson.replace(/,(\s*\])/g, '$1');
     
-    // 使用Function构造函数创建一个沙箱环境
+    // 处理特殊字符和转义序列
+    // 处理字体标签中的引号问题
+    cleanedJson = cleanedJson.replace(/<font=\\?"([^"]+)\\?">/g, '<font="$1">');
+    
+    // 处理反斜杠后跟着换行的情况
+    cleanedJson = cleanedJson.replace(/\\(\s+)/g, ' ');
+    
+    // 使用JSON.parse直接尝试解析，避免使用Function构造函数
     try {
-      const jsonObj = new Function('return ' + cleanedJson)();
+      const jsonObj = JSON.parse(cleanedJson);
       
       // 处理重复键
       for (const [key, values] of keyMap.entries()) {
@@ -249,10 +265,34 @@ function parseJSONWithDuplicateKeys(jsonString) {
         }
       }
       
-      // console.log("最终JSON对象", jsonObj);
       return jsonObj;
-    } catch (evalError) {
-      console.error('使用Function解析JSON失败:', evalError);
+    } catch (jsonParseError) {
+      console.error('JSON.parse解析失败，尝试使用Function:', jsonParseError);
+      
+      // 如果JSON.parse失败，再尝试使用Function构造函数
+      try {
+        // 进一步处理可能导致Function构造函数失败的特殊字符
+        cleanedJson = cleanedJson.replace(/<font=[^>]+>/g, '');  // 移除字体标签
+        cleanedJson = cleanedJson.replace(/<\/font>/g, '');      // 移除字体结束标签
+        cleanedJson = cleanedJson.replace(/<[^>]+>/g, '');       // 移除其他HTML标签
+        
+        // 处理Title SDF等特殊标识符
+        cleanedJson = cleanedJson.replace(/Title SDF/g, '"Title SDF"');
+        
+        const jsonObj = new Function('return ' + cleanedJson)();
+        
+        // 处理重复键
+        for (const [key, values] of keyMap.entries()) {
+          if (values.length > 1) {
+            // 递归查找并修复对象中的重复键
+            fixDuplicateKeys(jsonObj, key, values);
+          }
+        }
+        
+        return jsonObj;
+      } catch (evalError) {
+        console.error('使用Function解析JSON失败:', evalError);
+      }
       
       // 尝试使用JSON5解析，它更宽松
       try {
@@ -262,6 +302,8 @@ function parseJSONWithDuplicateKeys(jsonString) {
         // 尝试手动修复一些常见问题
         cleanedJson = cleanedJson.replace(/(['"])?([a-zA-Z0-9_]+)(['"])?:/g, '"$2":');
         cleanedJson = cleanedJson.replace(/'/g, '"');
+        // 再次处理尾随逗号
+        cleanedJson = cleanedJson.replace(/,(\s*[}\]])/g, '$1');
         console.log("第一次尝试修复", cleanedJson);
 
         // 尝试使用标准JSON解析
