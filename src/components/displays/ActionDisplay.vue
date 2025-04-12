@@ -116,7 +116,10 @@
           <div class="prompt-content">
             <div v-if="prompt.id" class="prompt-id">ID: {{ prompt.id }}</div>
             <div v-if="prompt.text" class="prompt-text">{{ prompt.text }}</div>
-            <div v-if="prompt.icon" class="prompt-icon">图标: {{ prompt.icon }}</div>
+            <div v-if="prompt.icon" class="prompt-icon">图标: {{ Array.isArray(prompt.icon) ? prompt.icon.join(', ') : prompt.icon }}</div>
+            <!-- 添加确认提示的特殊字段 -->
+            <div v-if="prompt.confirm_text" class="prompt-confirm-text">确认按钮: {{ prompt.confirm_text }}</div>
+            <div v-if="prompt.cancel_text" class="prompt-cancel-text">取消按钮: {{ prompt.cancel_text }}</div>
           </div>
         </div>
       </div>
@@ -271,7 +274,7 @@ export default {
     const prompts = computed(() => {
       const result = {};
       for (const [key, value] of Object.entries(props.action)) {
-        if (key.startsWith('prompt')) {
+        if (key.startsWith('prompt') || key === 'confirm') {
           result[key] = value;
         }
       }
@@ -358,6 +361,8 @@ export default {
         return '触发事件';
       } else if (key === 'event_off') {
         return '关闭事件';
+      } else if (key === 'confirm') {
+        return '确认提示';
       }
       return key;
     };
@@ -777,5 +782,23 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.prompt-confirm-text,
+.prompt-cancel-text {
+  margin-top: 8px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.prompt-confirm-text {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.prompt-cancel-text {
+  background-color: #ffebee;
+  color: #c62828;
 }
 </style>
