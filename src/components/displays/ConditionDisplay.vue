@@ -12,7 +12,7 @@
             <!-- 处理仪式条件，添加点击查看详情 -->
             <template v-if="key.includes('rite')">
               <span class="clickable" @click="showRiteDetails(typeof value === 'number' ? value : key.replace(/^(!)?rite/, '').replace(/^\./, ''))">
-                {{ formatValue(key, value) }}
+                {{ riteCache[value]  || 'rite_' + value }} 
               </span>
             </template>
             <!-- 处理卡片拥有条件，添加点击查看详情 -->
@@ -124,6 +124,7 @@
 <script>
 import { loadCardsData, getCommentFromCache, loadEventData } from '@/services/eventService';
 import { eventBus } from '@/components/CardDetailsModal.vue';
+import eventBus2 from '@/utils/eventBus';
 
 export default {
   name: 'ConditionDisplay',
@@ -198,6 +199,12 @@ export default {
     }
   },
   methods: {
+    // 显示仪式详情
+    showRiteDetails(riteId) {
+      console.log(`显示仪式详情:`, riteId);
+      // 使用事件总线触发显示仪式详情事件
+      eventBus2.emit('show-rite-details', riteId);
+    },
     formatKey(key) {
       // 格式化条件键
       if (key === 'is') {
@@ -421,7 +428,7 @@ export default {
     // 加载仪式信息
     async loadRiteInfo(riteId) {
       try {
-        const eventsData = await loadEventData();
+        const eventsData = await loadEventData(riteId, 'rite');
         if (eventsData && eventsData.rites) {
           const rite = eventsData.rites.find(r => r.id === parseInt(riteId) || r.id === riteId);
           if (rite) {

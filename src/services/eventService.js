@@ -171,7 +171,7 @@ export function getCommentFromCache(counterId) {
         commentCache = {};
       }
     }
-    console.log("获取注释缓存", counterId, commentCache, commentCache[counterId]);
+    // console.log("获取注释缓存", counterId, commentCache, commentCache[counterId]);
     
     // 先尝试直接获取counterId对应的缓存
     if (commentCache[counterId]) {
@@ -212,15 +212,15 @@ function parseJSONWithDuplicateKeys(jsonString) {
     const key = match[1];
     const value = match[2].replace(/\\n|\\r|\s+/g, ''); // 移除换行符和空格
     
-    // 检查是否是重复键
-    if (key === 'rite' || key === 'event_on') {
+    // 检查是否是需要处理为数组的重复键
+    const keysToArrayify = ['rite', 'event_on', 'rite_end', 'card', 'loot'];
+    if (keysToArrayify.includes(key) || keysToArrayify.some(k => key.endsWith(`.${k}`))) {
       if (!keyMap.has(key)) {
         keyMap.set(key, []);
       }
       // 仅在值不重复且不与当前事件id一致时添加
       if (!keyMap.get(key).includes(value) && value !== jsonString.id) {
         keyMap.get(key).push(value);
-        // console.log(key, value);
       }
     }
     
@@ -255,31 +255,16 @@ function parseJSONWithDuplicateKeys(jsonString) {
     
     // 使用JSON.parse直接尝试解析，避免使用Function构造函数
     try {
-      const jsonObj = JSON.parse(cleanedJson);
-      
-      // 处理重复键
-      for (const [key, values] of keyMap.entries()) {
-        if (values.length > 1) {
-          // 递归查找并修复对象中的重复键
-          fixDuplicateKeys(jsonObj, key, values);
-        }
-      }
-      
+      // 使用自定义的JSON解析函数处理重复键
+      const jsonObj = parseJSONWithArrays(cleanedJson, keyMap);
       return jsonObj;
     } catch (jsonParseError) {
-      console.error('JSON.parse解析失败，尝试使用Function:', jsonParseError);
+      console.error('自定义JSON解析失败，尝试使用标准JSON.parse:', jsonParseError);
       
-      // 如果JSON.parse失败，再尝试使用Function构造函数
       try {
-        // 进一步处理可能导致Function构造函数失败的特殊字符
-        cleanedJson = cleanedJson.replace(/<font=[^>]+>/g, '');  // 移除字体标签
-        cleanedJson = cleanedJson.replace(/<\/font>/g, '');      // 移除字体结束标签
-        cleanedJson = cleanedJson.replace(/<[^>]+>/g, '');       // 移除其他HTML标签
-        
-        // 处理Title SDF等特殊标识符
-        cleanedJson = cleanedJson.replace(/Title SDF/g, '"Title SDF"');
-        
-        const jsonObj = new Function('return ' + cleanedJson)();
+        // 标准JSON.parse不能处理重复键，所以我们需要先处理重复键
+        // 这里我们使用一个简单的方法：将JSON字符串转换为对象，然后手动处理重复键
+        const jsonObj = JSON.parse(cleanedJson);
         
         // 处理重复键
         for (const [key, values] of keyMap.entries()) {
@@ -290,8 +275,33 @@ function parseJSONWithDuplicateKeys(jsonString) {
         }
         
         return jsonObj;
-      } catch (evalError) {
-        console.error('使用Function解析JSON失败:', evalError);
+      } catch (standardParseError) {
+        console.error('标准JSON.parse解析失败，尝试使用Function:', standardParseError);
+        
+        // 如果JSON.parse失败，再尝试使用Function构造函数
+        try {
+          // 进一步处理可能导致Function构造函数失败的特殊字符
+          cleanedJson = cleanedJson.replace(/<font=[^>]+>/g, '');  // 移除字体标签
+          cleanedJson = cleanedJson.replace(/<\/font>/g, '');      // 移除字体结束标签
+          cleanedJson = cleanedJson.replace(/<[^>]+>/g, '');       // 移除其他HTML标签
+          
+          // 处理Title SDF等特殊标识符
+          cleanedJson = cleanedJson.replace(/Title SDF/g, '"Title SDF"');
+          
+          const jsonObj = new Function('return ' + cleanedJson)();
+          
+          // 处理重复键
+          for (const [key, values] of keyMap.entries()) {
+            if (values.length > 1) {
+              // 递归查找并修复对象中的重复键
+              fixDuplicateKeys(jsonObj, key, values);
+            }
+          }
+          
+          return jsonObj;
+        } catch (evalError) {
+          console.error('使用Function解析JSON失败:', evalError);
+        }
       }
       
       // 尝试使用JSON5解析，它更宽松
@@ -335,57 +345,224 @@ function parseJSONWithDuplicateKeys(jsonString) {
   }
 }
 
-// 递归查找并修复对象中的重复键
-function fixDuplicateKeys(obj, targetKey, values) {
-  if (!obj || typeof obj !== 'object') return;
+function parseJSONWithArrays(jsonString, keyMap) {
+  // 先使用标准JSON.parse解析
+  const obj = JSON.parse(jsonString);
   
-  // 检查当前对象是否有目标键
-  if (Object.prototype.hasOwnProperty.call(obj, targetKey)) {
-    // 将值转换为数组
-    if (!Array.isArray(obj[targetKey])) {
-      obj[targetKey] = [obj[targetKey]];
+  // 然后处理重复键
+  for (const [key, values] of keyMap.entries()) {
+    if (values.length > 0) {
+      // 找到包含该键的对象和路径
+      const pathParts = key.split('.');
+      const finalKey = pathParts[pathParts.length - 1];
+      
+      // 如果是简单键（没有点号），需要确定它在哪个嵌套对象中
+      if (pathParts.length === 1) {
+        // 查找该键在原始JSON中的位置
+        const keyRegex = new RegExp(`"${key}"\\s*:`, 'g');
+        let match;
+        const positions = [];
+        
+        while ((match = keyRegex.exec(jsonString)) !== null) {
+          positions.push(match.index);
+        }
+        
+        if (positions.length > 0) {
+          // 对于每个位置，确定它所在的嵌套对象
+          for (const pos of positions) {
+            // 向前查找最近的左大括号
+            let braceCount = 0;
+            let objectStart = -1;
+            
+            for (let i = pos; i >= 0; i--) {
+              if (jsonString[i] === '{') {
+                braceCount++;
+                if (objectStart === -1) {
+                  objectStart = i;
+                }
+              } else if (jsonString[i] === '}') {
+                braceCount--;
+              }
+              
+              // 找到包含该键的对象
+              if (braceCount === 1 && objectStart !== -1) {
+                // 尝试确定这个对象在整个JSON中的路径
+                const objPath = findObjectPath(obj, jsonString.substring(objectStart, pos));
+                
+                if (objPath) {
+                  // 找到了路径，将值设置到正确的位置
+                  let current = obj;
+                  for (let j = 0; j < objPath.length - 1; j++) {
+                    current = current[objPath[j]];
+                  }
+                  
+                  // 将值转换为数组
+                  const parsedValues = values.map(val => {
+                    // 尝试将数字字符串转换为数字
+                    if (/^\d+$/.test(val)) {
+                      return parseInt(val);
+                    }
+                    return val;
+                  });
+                  
+                  // 设置为数组
+                  current[objPath[objPath.length - 1]][key] = parsedValues;
+                  
+                  // 删除可能错误添加到顶层的数组
+                  if (obj[key] && obj[key] !== current[objPath[objPath.length - 1]][key]) {
+                    delete obj[key];
+                  }
+                  
+                  break;
+                }
+              }
+            }
+          }
+        } else {
+          // 如果找不到位置，尝试使用默认处理
+          processNestedKey(obj, key, values);
+        }
+      } else {
+        // 对于嵌套键，使用路径处理
+        processNestedKey(obj, key, values);
+      }
+    }
+  }
+  
+  return obj;
+}
+
+// 查找对象路径
+function findObjectPath(obj, objectStart) {
+  // 这个函数尝试根据对象的开始部分找到它在整个JSON中的路径
+  // 由于这是一个复杂的问题，这里提供一个简化版本
+  
+  // 提取可能的键
+  const keyMatch = /"([^"]+)"\s*:/.exec(objectStart);
+  if (!keyMatch) return null;
+  
+  const possibleKey = keyMatch[1];
+  
+  // 递归查找包含该键的对象
+  const findPath = (current, path = []) => {
+    if (!current || typeof current !== 'object') return null;
+    
+    // 检查当前对象是否有可能的键
+    if (Object.prototype.hasOwnProperty.call(current, possibleKey)) {
+      return path;
     }
     
-    // 添加其他值
-    for (let i = 1; i < values.length; i++) {
-      let value = values[i];
-      
-      // 尝试解析值
-      try {
-        if (typeof value === 'string') {
-          // 如果是数字字符串，转换为数字
-          if (/^\d+$/.test(value)) {
-            value = parseInt(value);
-          }
-          // 如果是对象或数组字符串，解析它
-          else if (/^[\{\[]/.test(value)) {
-            value = JSON.parse(value);
-          }
+    // 递归处理子对象
+    if (Array.isArray(current)) {
+      for (let i = 0; i < current.length; i++) {
+        if (typeof current[i] === 'object') {
+          const result = findPath(current[i], [...path, i]);
+          if (result) return result;
         }
-      } catch (e) {
-        console.warn('解析值失败:', e);
       }
+    } else {
+      for (const prop in current) {
+        if (Object.prototype.hasOwnProperty.call(current, prop) && 
+            typeof current[prop] === 'object') {
+          const result = findPath(current[prop], [...path, prop]);
+          if (result) return result;
+        }
+      }
+    }
+    
+    return null;
+  };
+  
+  return findPath(obj);
+}
+// 处理嵌套键
+function processNestedKey(obj, key, values) {
+  const pathParts = key.split('.');
+  const finalKey = pathParts[pathParts.length - 1];
+  
+  // 遍历对象树，找到所有包含该键的对象
+  const findAndUpdateObjects = (current, path = []) => {
+    if (!current || typeof current !== 'object') return;
+    
+    // 检查当前对象是否有目标键
+    if (pathParts.length === 1) {
+      if (Object.prototype.hasOwnProperty.call(current, key)) {
+        // 将值转换为数组
+        const parsedValues = values.map(val => {
+          // 尝试将数字字符串转换为数字
+          if (/^\d+$/.test(val)) {
+            return parseInt(val);
+          }
+          return val;
+        });
+        
+        current[key] = parsedValues;
+        return true;
+      }
+    } else if (path.length === pathParts.length - 1 && 
+               path.every((p, i) => p === pathParts[i]) && 
+               Object.prototype.hasOwnProperty.call(current, finalKey)) {
+      // 找到了完整路径
+      const parsedValues = values.map(val => {
+        if (/^\d+$/.test(val)) {
+          return parseInt(val);
+        }
+        return val;
+      });
       
-      obj[targetKey].push(value);
+      current[finalKey] = parsedValues;
+      return true;
     }
-  }
-  
-  // 递归处理子对象
-  for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key) && typeof obj[key] === 'object') {
-      fixDuplicateKeys(obj[key], targetKey, values);
-    }
-  }
-  
-  // 处理数组
-  if (Array.isArray(obj)) {
-    for (let i = 0; i < obj.length; i++) {
-      if (typeof obj[i] === 'object') {
-        fixDuplicateKeys(obj[i], targetKey, values);
+    
+    // 递归处理子对象
+    let found = false;
+    if (Array.isArray(current)) {
+      for (let i = 0; i < current.length; i++) {
+        if (typeof current[i] === 'object') {
+          found = findAndUpdateObjects(current[i], path) || found;
+        }
+      }
+    } else {
+      for (const prop in current) {
+        if (Object.prototype.hasOwnProperty.call(current, prop) && 
+            typeof current[prop] === 'object') {
+          const newPath = [...path];
+          if (prop === pathParts[path.length]) {
+            newPath.push(prop);
+          }
+          found = findAndUpdateObjects(current[prop], newPath) || found;
+        }
       }
     }
+    
+    return found;
+  };
+  
+  // 开始查找和更新
+  const found = findAndUpdateObjects(obj);
+  
+  // 如果没有找到匹配的对象，尝试创建路径
+  if (!found && pathParts.length > 1) {
+    let current = obj;
+    for (let i = 0; i < pathParts.length - 1; i++) {
+      if (!current[pathParts[i]]) {
+        current[pathParts[i]] = {};
+      }
+      current = current[pathParts[i]];
+    }
+    
+    // 将值转换为数组
+    const parsedValues = values.map(val => {
+      if (/^\d+$/.test(val)) {
+        return parseInt(val);
+      }
+      return val;
+    });
+    
+    current[finalKey] = parsedValues;
   }
 }
+
 /* eslint-enable */
 
 // 处理重复键的问题
