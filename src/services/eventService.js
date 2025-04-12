@@ -988,3 +988,90 @@ export async function getCardsByType(type) {
     return [];
   }
 }
+
+// 获取仪式卡位信息
+export async function getRiteSlotInfo(riteId, slotId) {
+  try {
+    // 加载仪式数据
+    const riteData = await loadEventData(riteId, 'rite');
+    if(slotId[0] != 's'){
+      slotId = 's' + slotId;
+    }
+    
+    // 检查是否成功加载数据
+    if (!riteData) {
+      console.error(`无法加载仪式数据: ${riteId}`);
+      return null;
+    }
+    
+    // 检查是否有解析错误
+    if (riteData._parseError || riteData._loadError) {
+      console.error(`仪式数据解析错误: ${riteId}`, riteData._errorMessage || '未知错误');
+      return null;
+    }
+    
+    // 检查是否有cards_slot属性
+    if (!riteData.cards_slot) {
+      console.error(`仪式数据中没有卡位信息: ${riteId}`);
+      return null;
+    }
+    
+    // 获取指定卡位的信息
+    const slotInfo = riteData.cards_slot[slotId];
+    
+    if (!slotInfo) {
+      console.error(`仪式 ${riteId} 中没有找到卡位 ${slotId} 的信息`);
+      return null;
+    }
+    
+    // 返回卡位信息，并添加仪式ID和卡位ID
+    return {
+      ...slotInfo,
+      riteId: riteId,
+      slotId: slotId
+    };
+  } catch (e) {
+    console.error(`获取仪式 ${riteId} 卡位 ${slotId} 信息失败:`, e);
+    return null;
+  }
+}
+
+// 获取仪式所有卡位信息
+export async function getAllRiteSlots(riteId) {
+  try {
+    // 如果riteId不是字符串或不是以rite_开头，则添加前缀
+    if (typeof riteId === 'number' || (typeof riteId === 'string' && !riteId.startsWith('rite_'))) {
+      riteId = `rite_${riteId}`;
+    }
+    
+    // 加载仪式数据
+    const riteData = await loadEventData(riteId, 'rite');
+    
+    // 检查是否成功加载数据
+    if (!riteData || !riteData.cards_slot) {
+      console.error(`无法加载仪式卡位数据: ${riteId}`);
+      return null;
+    }
+    
+    // 检查是否有解析错误
+    if (riteData._parseError || riteData._loadError) {
+      console.error(`仪式数据解析错误: ${riteId}`);
+      return null;
+    }
+    
+    // 处理所有卡位信息，添加riteId和slotId
+    const result = {};
+    Object.entries(riteData.cards_slot).forEach(([slotId, slotInfo]) => {
+      result[slotId] = {
+        ...slotInfo,
+        riteId: riteId,
+        slotId: slotId
+      };
+    });
+    
+    return result;
+  } catch (e) {
+    console.error(`获取仪式 ${riteId} 所有卡位信息失败:`, e);
+    return null;
+  }
+}

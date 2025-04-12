@@ -99,7 +99,7 @@
 
 <script>
 import {  computed } from 'vue';
-import { eventBus } from '@/components/CardDetailsModal.vue';
+// import { eventBus } from '@/components/CardDetailsModal.vue';
 import eventBus2 from '@/utils/eventBus';
 import ConditionItem from './condition-components/ConditionItem.vue';
 import CardCondition from './condition-components/CardCondition.vue';
@@ -227,7 +227,7 @@ export default {
     
     const showCardDetails = (cardId) => {
       console.log(`显示卡片详情:`, cardId);
-      eventBus.emit('show-card-details', cardId);
+      eventBus2.emit('show-card-details', cardId);
     };
     
     return {

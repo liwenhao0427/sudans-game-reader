@@ -24,51 +24,10 @@
           <div v-for="(slot, key) in event.cards_slot" :key="key" class="card-slot-item">
             <div class="card-slot-header">
               <h4 class="slot-key">{{ key }}</h4>
-              <div class="slot-text">{{ slot.text }}</div>
             </div>
             
-            <div class="card-slot-grid">
-              <div class="card-slot-info">
-                <div class="info-badge" :class="{'active': slot.open_adsorb === 1}">
-                  <span class="badge-label">开放吸附</span>
-                  <span class="badge-value">{{ slot.open_adsorb ? '是' : '否' }}</span>
-                </div>
-                <div class="info-badge" :class="{'active': slot.is_key === 1}">
-                  <span class="badge-label">关键</span>
-                  <span class="badge-value">{{ slot.is_key ? '是' : '否' }}</span>
-                </div>
-                <div class="info-badge" :class="{'active': slot.is_empty === 1}">
-                  <span class="badge-label">空</span>
-                  <span class="badge-value">{{ slot.is_empty ? '是' : '否' }}</span>
-                </div>
-                <div class="info-badge" :class="{'active': slot.is_enemy === 1}">
-                  <span class="badge-label">敌人</span>
-                  <span class="badge-value">{{ slot.is_enemy ? '是' : '否' }}</span>
-                </div>
-              </div>
-              
-              <div class="card-slot-condition">
-                <!-- 使用统一的条件显示组件 -->
-                <condition-display v-if="isNotNullOrEmpty(slot.condition)" :condition="slot.condition"></condition-display>
-              </div>
-            </div>
-            
-            <div v-if="slot.pops && slot.pops.length > 0" class="card-slot-pops">
-              <div class="pops-header">可能的选择 ({{ slot.pops.length }})</div>
-              <div v-for="(pop, index) in slot.pops" :key="index" class="pop-item">
-                <div class="pop-header">选择 {{ index + 1 }}</div>
-                <div class="pop-content">
-                  <div class="pop-condition">
-                    <!-- 使用统一的条件显示组件 -->
-                    <condition-display v-if="isNotNullOrEmpty(pop.condition)" :condition="pop.condition"></condition-display>
-                  </div>
-                  <div class="pop-action">
-                    <!-- 使用统一的动作显示组件 -->
-                    <action-display v-if="isNotNullOrEmpty(pop.action)" :action="pop.action"></action-display>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- 使用通用卡片槽位显示组件 -->
+            <slot-display :slotInfo="slot"></slot-display>
           </div>
         </div>
       </div>
@@ -123,14 +82,14 @@
               
               <div v-if="isSettlementExpanded('settlement', index)">
                 <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
-                <result-display v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
+                <result-display :riteId="event.id" v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
                 <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
               </div>
             </div>
 
             <div v-else class="settlement-body">
               <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
-                <result-display v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
+                <result-display  :riteId="event.id" v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
                 <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
             </div>
           </div>
@@ -216,7 +175,7 @@
                 <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>
                 
                 <!-- 使用统一的结果显示组件 -->
-                <result-display v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
+                <result-display  :riteId="event.id" v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
                 
                 <!-- 使用统一的动作显示组件 -->
                 <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
@@ -247,7 +206,7 @@
                 <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
                 
                 <!-- 使用统一的结果显示组件 -->
-                <result-display v-if="item.result" :result="item.result"></result-display>
+                <result-display  :riteId="event.id" v-if="item.result" :result="item.result"></result-display>
                 
                 <!-- 使用统一的动作显示组件 -->
                 <action-display v-if="item.action" :action="item.action"></action-display>
@@ -342,13 +301,15 @@ import ConditionDisplay from './displays/ConditionDisplay.vue';
 import ResultDisplay from './displays/ResultDisplay.vue';
 import ActionDisplay from './displays/ActionDisplay.vue';
 import ItemListDisplay from './displays/ItemListDisplay.vue';
+import SlotDisplay from './displays/SlotDisplay.vue';
 export default {
   name: 'EventDetails',
   components: {
     ConditionDisplay,
     ResultDisplay,
     ActionDisplay,
-    ItemListDisplay
+    ItemListDisplay,
+    SlotDisplay
   },
   props: {
     event: {
@@ -757,129 +718,26 @@ pre {
   white-space: pre-wrap;
 }
 
-/* 卡片槽位样式 */
+/* 简化卡片槽位样式，因为详细内容由SlotDisplay组件处理 */
 .card-slot-item {
   margin-bottom: 20px;
-  padding: 15px;
-  background-color: #f9f9f9;
   border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
 }
 
 .card-slot-header {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #e0e0e0;
-  padding-bottom: 10px;
+  padding: 10px 15px;
+  background-color: #f0f7ff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid #d0e3ff;
 }
 
 .slot-key {
   font-size: 18px;
-  color: #333;
-  margin: 0 0 8px 0;
-  font-weight: 600;
-}
-
-.slot-text {
-  color: #555;
-  font-size: 14px;
-  line-height: 1.5;
-  font-style: italic;
-}
-
-.card-slot-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.card-slot-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.info-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px 12px;
-  background-color: #f0f0f0;
-  border-radius: 6px;
-  min-width: 80px;
-  border: 1px solid #ddd;
-}
-
-.info-badge.active {
-  background-color: #e8f5e9;
-  border-color: #81c784;
-}
-
-.badge-label {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 4px;
-}
-
-.badge-value {
-  font-weight: bold;
-  color: #333;
-}
-
-.condition-header, .pops-header, .pop-header, .action-header {
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #333;
-  font-size: 14px;
-  background-color: #eee;
-  padding: 6px 10px;
-  border-radius: 4px;
-}
-
-.pops-header {
-  background-color: #e3f2fd;
   color: #1976d2;
-  padding: 8px 12px;
-  font-size: 16px;
-  margin-bottom: 12px;
-}
-
-.card-slot-pops {
-  margin-top: 20px;
-  border-top: 1px dashed #ccc;
-  padding-top: 15px;
-}
-
-.pop-item {
-  margin-bottom: 15px;
-  padding: 12px;
-  background-color: #fff;
-  border-radius: 6px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.pop-header {
-  background-color: #f5f5f5;
-  margin: -12px -12px 12px -12px;
-  padding: 10px 15px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.pop-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.pop-condition, .pop-action {
-  background-color: #f9f9f9;
-  padding: 10px;
-  border-radius: 4px;
-  border: 1px solid #eee;
+  margin: 0;
+  font-weight: 600;
 }
 
 /* 添加统一的条件和动作显示样式 */

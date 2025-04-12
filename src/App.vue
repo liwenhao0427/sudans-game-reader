@@ -156,6 +156,7 @@
     <event-details-modal />
     <rite-details-modal />
     <loot-details-modal />
+    <SlotDetailsModal />
 
   </div>
 </template>
@@ -170,7 +171,7 @@ import { ref, onMounted, reactive, computed, watch } from 'vue';
 import EventDetailsModal from '@/components/EventDetailsModal.vue';
 import RiteDetailsModal from '@/components/RiteDetailsModal.vue';
 import LootDetailsModal from '@/components/LootDetailsModal.vue';
-
+import SlotDetailsModal from '@/components/SlotDetailsModal.vue';
 
 import { 
   handleDuplicateKeys, 
@@ -185,6 +186,7 @@ export default {
     // 现有组件
     EventDetailsModal,
     RiteDetailsModal,
+    SlotDetailsModal,
     CardDetailsModal,
     EventTreeNode,
     LootDetailsModal,

@@ -49,11 +49,16 @@
       <div v-if="hasSlotAttributes" class="result-section">
         <div class="section-title">卡位属性变化</div>
         <div class="slot-attributes-grid">
-          <div v-for="(attr, index) in slotAttributes" :key="index" class="slot-attribute-item">
+          <div v-for="(attr, index) in slotAttributes" :key="index" class="slot-attribute-item clickable" @click="showSlotDetails(attr.slot)">
             <span class="slot-number">卡位 {{ attr.slot }}</span>
-            <span class="attribute-name">{{ attr.attribute }}</span>
-            <span class="attribute-operation">{{ attr.operation === 'PLUS' ? '增加' : attr.operation === 'EQUALS' ? '设置为' : attr.operation }}</span>
-            <span class="attribute-value">{{ attr.value }}</span>
+            <span v-if="slotInfoCache[`s${attr.slot}`] && slotInfoCache[`s${attr.slot}`].text" class="slot-description">
+              {{ slotInfoCache[`s${attr.slot}`].text }}
+            </span>
+            <div class="attribute-details">
+              <span class="attribute-name">{{ attr.attribute }}</span>
+              <span class="attribute-operation">{{ attr.operation === 'PLUS' ? '增加' : attr.operation === 'EQUALS' ? '设置为' : attr.operation }}</span>
+              <span class="attribute-value">{{ attr.value }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -62,10 +67,15 @@
       <div v-if="hasSlotOperations" class="result-section">
         <div class="section-title">卡位操作</div>
         <div class="slots-grid">
-          <div v-for="(slot, index) in slotOperations" :key="index" class="slot-item">
-            <span class="slot-operation">{{ slot.operation }}</span>
+          <div v-for="(slot, index) in slotOperations" :key="index" class="slot-item clickable" @click="showSlotDetails(slot.slot)">
             <span class="slot-id">{{ slot.slot }}</span>
-            <span v-if="slot.card" class="slot-card">{{ slot.card }}</span>
+            <span v-if="slotInfoCache[slot.slot] && slotInfoCache[slot.slot].text" class="slot-description">
+              {{ slotInfoCache[slot.slot].text }}
+            </span>
+            <div class="operation-details">
+              <span class="slot-operation">{{ slot.operation }}</span>
+              <span v-if="slot.card" class="slot-card">{{ slot.card }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -108,8 +118,8 @@
 
 <script>
 // 修改导入语句
-import { getCardById, loadEventData, getCommentFromCache } from '@/services/eventService';
-import { eventBus } from '@/components/CardDetailsModal.vue';
+import { getCardById, loadEventData, getCommentFromCache, getRiteSlotInfo } from '@/services/eventService';
+import eventBus from '@/utils/eventBus';
 
 export default {
   name: 'ResultDisplay',
@@ -117,13 +127,18 @@ export default {
     result: {
       type: Object,
       required: true
+    },
+    riteId: {
+      type: [String, Number],
+      default: null
     }
   },
   data() {
     return {
       cardNames: {},
       lootNames: {},
-      counterCache: {} // 添加counter缓存对象
+      counterCache: {}, // 添加counter缓存对象
+      slotInfoCache: {} // 添加卡位信息缓存
     };
   },
   computed: {
@@ -428,6 +443,43 @@ export default {
     showLootDetails(lootId) {
       eventBus.emit('show-loot-details', lootId);
     },
+    // 显示卡位详情
+    async showSlotDetails(slotId) {
+      // 如果没有仪式ID，无法显示卡位详情
+      if (!this.riteId) {
+        console.warn('无法显示卡位详情：未提供仪式ID');
+        return;
+      }
+      
+      try {
+        // 尝试获取卡位信息
+        let slotInfo = this.slotInfoCache[slotId];
+        console.log('显示卡位详情:', slotInfo);
+        
+        if (!slotInfo) {
+          slotInfo = await getRiteSlotInfo(this.riteId, slotId);
+          console.log('显示卡位详情:', slotInfo);
+          
+          if (slotInfo) {
+            // 缓存卡位信息
+            this.slotInfoCache[slotId] = slotInfo;
+          } else {
+            console.error(`无法获取卡位 ${slotId} 的信息`);
+            return;
+          }
+        }
+        
+        // 使用eventBus触发显示卡位详情的事件
+        eventBus.emit('show-slot-details', {
+          slotId: slotId,
+          riteId: this.riteId,
+          slotInfo: slotInfo
+        });
+      } catch (error) {
+        console.error(`显示卡位 ${slotId} 详情失败:`, error);
+      }
+    },
+    
     loadAllReferences() {
       // 加载所有卡片和战利品引用
       this.cards.forEach(cardId => {
@@ -441,6 +493,36 @@ export default {
           this.loadLootInfo(lootId);
         }
       });
+      
+      // 预加载卡位信息
+      if (this.riteId) {
+        // 预加载卡位属性操作中的卡位
+        this.slotAttributes.forEach(attr => {
+          const slotId = `s${attr.slot}`;
+          if (!this.slotInfoCache[slotId]) {
+            this.preloadSlotInfo(slotId);
+          }
+        });
+        
+        // 预加载卡位操作中的卡位
+        this.slotOperations.forEach(op => {
+          if (!this.slotInfoCache[op.slot]) {
+            this.preloadSlotInfo(op.slot);
+          }
+        });
+      }
+    },
+    
+    // 预加载卡位信息
+    async preloadSlotInfo(slotId) {
+      try {
+        const slotInfo = await getRiteSlotInfo(this.riteId, slotId);
+        if (slotInfo) {
+          this.slotInfoCache[slotId] = slotInfo;
+        }
+      } catch (error) {
+        console.error(`预加载卡位 ${slotId} 信息失败:`, error);
+      }
     }
   },
   mounted() {
@@ -590,6 +672,26 @@ export default {
   margin-bottom: 4px;
 }
 
+.slot-description {
+  color: #606266;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  font-style: italic;
+  line-height: 1.4;
+  max-height: 60px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.attribute-details, .operation-details {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f7fa;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
 .attribute-name {
   color: #409eff;
   margin-bottom: 4px;
@@ -603,5 +705,62 @@ export default {
 .attribute-value {
   font-weight: bold;
   color: #333;
+}
+
+.card-name.clickable, .loot-name.clickable, .slot-attribute-item.clickable, .slot-item.clickable {
+  cursor: pointer;
+}
+
+.card-name.clickable:hover, .loot-name.clickable:hover {
+  color: #66b1ff;
+}
+
+.slot-attribute-item.clickable:hover, .slot-item.clickable:hover {
+  background-color: #f5f7fa;
+  border-color: #c6e2ff;
+}
+
+.card-loading, .loot-loading {
+  font-style: italic;
+  color: #909399;
+}
+
+.counter-operation, .slot-operation {
+  font-weight: bold;
+  color: #606266;
+  margin-bottom: 4px;
+}
+
+.counter-value, .slot-card {
+  color: #333;
+}
+
+.resource-name, .other-key, .choice-key {
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #606266;
+}
+
+.resource-value, .other-value, .choice-value {
+  color: #333;
+}
+
+.resource-value {
+  font-weight: bold;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-item {
+  padding: 10px;
+}
+
+.choice-value {
+  white-space: pre-line;
+  line-height: 1.5;
 }
 </style>
