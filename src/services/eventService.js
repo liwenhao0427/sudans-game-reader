@@ -919,6 +919,66 @@ export const loadEventData = async (eventId, type) => {
 };
 
 
+// 添加一个变量来缓存结局数据
+let oversData = null;
+
+// 加载结局数据并缓存
+export async function loadOversData() {
+  if (oversData !== null) {
+    return oversData;
+  }
+  
+  try {
+    // 使用require直接导入JSON文件
+    const response = require('raw-loader!@/assets/over_processed.json').default;
+    
+    // 处理JSON内容 - 处理module.exports包装
+    let jsonContent = response;
+    if (jsonContent.startsWith('module.exports = ')) {
+      jsonContent = jsonContent.substring(16);
+    }
+    
+    // 移除字符串首尾的引号和分号
+    jsonContent = jsonContent.trim();
+    if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 2);
+    } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 1);
+    }
+    
+    // 处理转义字符
+    jsonContent = jsonContent.replace(/\\"/g, '"');
+    jsonContent = jsonContent.replace(/\\n/g, '\n');
+    jsonContent = jsonContent.replace(/\\r/g, '');
+    jsonContent = jsonContent.replace(/\\t/g, '');
+    
+    try {
+      // 尝试直接解析
+      oversData = JSON.parse(jsonContent);
+    } catch (directParseError) {
+      // 如果直接解析失败，尝试使用自定义解析器
+      oversData = parseJsonWithComments(jsonContent);
+    }
+    
+    return oversData;
+  } catch (e) {
+    console.error('加载结局数据失败:', e);
+    return {};
+  }
+}
+
+// 根据结局ID获取结局信息
+export async function getOverById(overId) {
+  try {
+    const overs = await loadOversData();
+    return overs[overId.toString()];
+  } catch (e) {
+    console.error(`获取结局 ${overId} 信息失败:`, e);
+    return null;
+  }
+}
+
+
 // 添加一个变量来缓存卡片数据
 let cardsData = null;
 

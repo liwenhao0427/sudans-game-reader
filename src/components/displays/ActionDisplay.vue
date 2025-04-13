@@ -166,6 +166,29 @@
         </div>
       </div>
       
+      <!-- 结局引用显示 -->
+      <div v-if="hasOverReferences" class="over-references">
+        <div v-for="(overRef, key) in overReferences" :key="key" class="over-reference-item">
+          <div class="over-reference-header">{{ formatKey(key) }}</div>
+          <div v-if="Array.isArray(overRef)" class="over-reference-array">
+            <div v-for="(over, index) in overRef" :key="`${key}-${index}`" class="over-reference">
+              <span class="over-id">#{{ over }}</span>
+              <span v-if="overNames[over]" class="over-name clickable" @click="showOverDetails(over)">
+                {{ overNames[over] }}
+              </span>
+              <span v-else class="over-loading">加载中...</span>
+            </div>
+          </div>
+          <div v-else class="over-reference">
+            <span class="over-id">#{{ overRef }}</span>
+            <span v-if="overNames[overRef]" class="over-name clickable" @click="showOverDetails(overRef)">
+              {{ overNames[overRef] }}
+            </span>
+            <span v-else class="over-loading">加载中...</span>
+          </div>
+        </div>
+      </div>
+      
       <!-- 计数器引用显示 -->
       <div v-if="hasCounterReferences" class="counter-references">
         <div v-for="(counterRef, key) in counterReferences" :key="key" class="counter-reference-item">
@@ -185,7 +208,7 @@
 
 <script>
 import { ref, computed, onMounted, watch } from 'vue';
-import { getCardById, loadEventData, getCommentFromCache } from '@/services/eventService';
+import { getCardById, loadEventData, getCommentFromCache, getOverById } from '@/services/eventService';
 import eventBus from '@/utils/eventBus';
 
 export default {
@@ -202,6 +225,7 @@ export default {
     const riteNames = ref({});
     const lootNames = ref({});
     const counterNames = ref({});
+    const overNames = ref({}); // 添加结局名称引用
     
     // 分类处理不同类型的动作
     const simpleActions = computed(() => {
@@ -331,12 +355,25 @@ export default {
     const hasLootReferences = computed(() => Object.keys(lootReferences.value).length > 0);
     const hasEventReferences = computed(() => Object.keys(eventReferences.value).length > 0);
     const hasRiteReferences = computed(() => Object.keys(riteReferences.value).length > 0);
+    const hasOverReferences = computed(() => Object.keys(overReferences.value).length > 0); // 添加结局引用判断
     const hasPrompts = computed(() => Object.keys(prompts.value).length > 0);
     const hasOptions = computed(() => Object.keys(options.value).length > 0);
     const hasTableReferences = computed(() => Object.keys(tableReferences.value).length > 0);
     const hasHandReferences = computed(() => Object.keys(handReferences.value).length > 0);
     const hasCounterReferences = computed(() => Object.keys(counterReferences.value).length > 0);
     
+    // 结局引用
+    const overReferences = computed(() => {
+      const result = {};
+      for (const [key, value] of Object.entries(props.action)) {
+        if (key === 'over') {
+          result[key] = value;
+        }
+      }
+      return result;
+    });
+    
+
     // 格式化键名
     const formatKey = (key) => {
       if (key.startsWith('table.')) {
@@ -353,6 +390,8 @@ export default {
         return '获得战利品';
       } else if (key === 'rite') {
         return '仪式';
+      } else if (key === 'over') {
+        return '触发结局'; // 添加结局键名格式化
       } else if (key.endsWith('.rite')) {
         // 处理带前缀的仪式引用
         const prefix = key.split('.')[0];
@@ -368,6 +407,30 @@ export default {
       }
       return key;
     };
+
+    // 显示结局详情
+    const showOverDetails = (overId) => {
+      console.log(`显示结局详情:`, overId);
+      eventBus.emit('show-over-details', overId);
+    };
+
+     // 加载结局名称
+     const loadOverName = async (overId) => {
+      if (!overNames.value[overId]) {
+        try {
+          const overData = await getOverById(overId);
+          if (overData) {
+            overNames.value[overId] = overData.name || overData.text || `结局 #${overId}`;
+          } else {
+            overNames.value[overId] = `结局 #${overId}`;
+          }
+        } catch (error) {
+          console.error(`加载结局 ${overId} 失败:`, error);
+          overNames.value[overId] = `结局 #${overId}`;
+        }
+      }
+    };
+    
     
     // 格式化值
     const formatValue = (key, value) => {
@@ -514,6 +577,18 @@ export default {
           loadCardName(value);
         }
       }
+
+      // 加载结局引用
+      for (const [key, value] of Object.entries(overReferences.value)) {
+        if (key && Array.isArray(value)) {
+          value.forEach(overId => {
+            loadOverName(overId);
+          });
+        } else if (typeof value === 'number') {
+          loadOverName(value);
+        }
+      }
+      
       
       // 加载表格引用中的卡片
       for (const key of Object.keys(tableReferences.value)) {
@@ -591,11 +666,13 @@ export default {
       riteNames,
       lootNames,
       counterNames,
+      overNames, // 添加结局名称
       simpleActions,
       cardReferences,
       lootReferences,
       eventReferences,
       riteReferences,
+      overReferences, // 添加结局引用
       prompts,
       options,
       tableReferences,
@@ -606,6 +683,7 @@ export default {
       hasLootReferences,
       hasEventReferences,
       hasRiteReferences,
+      hasOverReferences, // 添加结局引用判断
       hasPrompts,
       hasOptions,
       hasTableReferences,
@@ -619,7 +697,8 @@ export default {
       showCardDetails,
       showEventDetails,
       showRiteDetails,
-      showLootDetails
+      showLootDetails,
+      showOverDetails // 添加显示结局详情方法
     };
   }
 }
@@ -712,6 +791,7 @@ export default {
 .rite-id,
 .card-id,
 .loot-id,
+.over-id,
 .counter-id {
   color: #666;
   font-size: 12px;
@@ -721,6 +801,7 @@ export default {
 .rite-name,
 .card-name,
 .loot-name,
+.over-name,
 .counter-name {
   color: #333;
 }
@@ -728,7 +809,8 @@ export default {
 .event-name.clickable,
 .rite-name.clickable,
 .card-name.clickable,
-.loot-name.clickable {
+.loot-name.clickable,
+.over-name.clickable {
   color: #1976d2;
   cursor: pointer;
   text-decoration: underline;
@@ -737,14 +819,16 @@ export default {
 .event-name.clickable:hover,
 .rite-name.clickable:hover,
 .card-name.clickable:hover,
-.loot-name.clickable:hover {
+.loot-name.clickable:hover,
+.over-name.clickable:hover {
   color: #0d47a1;
 }
 
 .event-loading,
 .rite-loading,
 .card-loading,
-.loot-loading {
+.loot-loading,
+.over-loading {
   font-style: italic;
   color: #666;
   font-size: 12px;
@@ -775,6 +859,10 @@ export default {
   color: #ff9800;
 }
 
+.over-name {
+  color: #9b59b6; /* 紫色，用于结局 */
+}
+
 .counter-name {
   color: #4caf50;
 }
@@ -782,7 +870,8 @@ export default {
 .card-reference-array,
 .rite-reference-array,
 .event-reference-array,
-.loot-reference-array {
+.loot-reference-array,
+.over-reference-array {
   display: flex;
   flex-direction: column;
   gap: 8px;

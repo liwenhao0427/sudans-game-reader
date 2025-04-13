@@ -10,14 +10,14 @@
     <!-- 事件列表和分页 -->
     <div class="event-list-container" v-if="!rootEvent">
       <div class="list-header">
-        <div class="list-stats">共 {{ filteredEvents.length }} 条记录</div>
+        <input 
+          type="text" 
+          v-model="listFilter" 
+          placeholder="在结果中筛选..." 
+          class="filter-input"
+        />
+
         <div class="list-filter">
-          <input 
-            type="text" 
-            v-model="listFilter" 
-            placeholder="在结果中筛选..." 
-            class="filter-input"
-          />
           <!-- 添加类型筛选按钮 -->
           <div class="type-filter-buttons">
             <button 
@@ -42,6 +42,13 @@
               战利品
             </button>
             <button 
+              @click="filterByType('over')" 
+              class="type-filter-button" 
+              :class="{'active': activeTypeFilter === 'over'}"
+            >
+              结局
+            </button>
+            <button 
               @click="filterByType('all')" 
               class="type-filter-button" 
               :class="{'active': activeTypeFilter === 'all'}"
@@ -50,6 +57,7 @@
             </button>
           </div>
         </div>
+        <div class="list-stats">共 {{ filteredEvents.length }} 条记录</div>
       </div>
       
       <div class="event-list">
@@ -57,7 +65,7 @@
           v-for="event in currentPageEvents" 
           :key="event.id" 
           class="event-list-item"
-          @click="loadEventAsRoot(event.id, event.type)"
+          @click="event.type === 'over' ? showOverDetails(event.id) : loadEventAsRoot(event.id, event.type)"
         >
           <div class="event-list-id">{{ event.id }}</div>
           <div class="event-list-type" :class="'type-' + event.type">{{ getTypeLabel(event.type) }}</div>
@@ -157,6 +165,7 @@
     <rite-details-modal />
     <loot-details-modal />
     <SlotDetailsModal />
+    <OverDetailsModal />
 
   </div>
 </template>
@@ -166,18 +175,21 @@ import EventTreeNode from './components/EventTreeNode.vue';
 import EventDetails from './components/EventDetails.vue';
 // 导入卡片详情模态框组件
 import CardDetailsModal from '@/components/CardDetailsModal.vue';
+import OverDetailsModal from '@/components/OverDetailsModal.vue';
 import { ref, onMounted, reactive, computed, watch } from 'vue';
 // 导入现有组件
 import EventDetailsModal from '@/components/EventDetailsModal.vue';
 import RiteDetailsModal from '@/components/RiteDetailsModal.vue';
 import LootDetailsModal from '@/components/LootDetailsModal.vue';
 import SlotDetailsModal from '@/components/SlotDetailsModal.vue';
+import eventBus from '@/utils/eventBus';
 
 import { 
   handleDuplicateKeys, 
   loadEventData, 
   loadGameDataIndex,
-  getEventsByType
+  getEventsByType,
+  loadOversData
 } from './services/eventService';
 
 export default {
@@ -190,6 +202,7 @@ export default {
     CardDetailsModal,
     EventTreeNode,
     LootDetailsModal,
+    OverDetailsModal,
     EventDetails
   },
   setup() {
@@ -197,7 +210,8 @@ export default {
       const typeMap = {
         'event': '事件',
         'rite': '仪式',
-        'loot': '战利品'
+        'loot': '战利品',
+        'over': '结局'
       };
       return typeMap[type] || type;
     };
@@ -306,6 +320,12 @@ export default {
       }
     };
     
+    // 添加结局相关方法
+    const showOverDetails = (overId) => {
+      // 触发结局详情弹窗显示
+      eventBus.emit('show-over-details', overId);
+    };
+    
     // 一次性加载所有事件数据
     const loadAllEvents = async () => {
       if (isLoading.value) return;
@@ -327,6 +347,25 @@ export default {
           
           // 从缓存中获取数据
           combinedEvents = [...combinedEvents, ...allEventsCache.value[type]];
+        }
+        
+        // 加载结局数据
+        if (!allEventsCache.value['over']) {
+          try {
+            const oversData = await loadOversData();
+            const overItems = Object.entries(oversData).map(([id, data]) => ({
+              id,
+              name: data.name || data.text || `结局 ${id}`,
+              text: data.text || '',
+              type: 'over'
+            }));
+            allEventsCache.value['over'] = overItems;
+            combinedEvents = [...combinedEvents, ...overItems];
+          } catch (e) {
+            console.error('加载结局数据失败:', e);
+          }
+        } else {
+          combinedEvents = [...combinedEvents, ...allEventsCache.value['over']];
         }
         
         // 更新事件列表
@@ -445,6 +484,7 @@ export default {
       goToFirstPage,
       goToLastPage,
       currentPageEvents,
+      showOverDetails,
       loadEventAsRoot,
       backToList,
       listFilter,
@@ -464,7 +504,7 @@ export default {
 .type-filter-buttons {
   display: flex;
   gap: 8px;
-  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .type-filter-button {
@@ -602,7 +642,7 @@ export default {
 
 .list-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 15px 20px;
   background-color: #f8f9fa;
@@ -612,6 +652,8 @@ export default {
 .list-stats {
   font-size: 14px;
   color: #666;
+  position: absolute;
+  right: 50px;
 }
 
 .filter-input {
@@ -619,7 +661,7 @@ export default {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
-  width: 200px;
+  width: 300px;
   transition: border-color 0.3s;
 }
 
@@ -677,6 +719,10 @@ export default {
 
 .type-loot {
   background-color: #3498db;
+}
+
+.type-over {
+  background-color: #9b59b6; /* 紫色，用于结局类型 */
 }
 
 .event-list-name {
