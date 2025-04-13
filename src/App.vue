@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header-container">
       <h1 class="app-title">苏丹的游戏剧情阅读器</h1>
-      <a href="https://sultans-game-mod-manager.edgeone.site/" target="_blank" class="mod-manager-link">
+      <a href="https://liwenhao0427.github.io/sultans-game-mod-manager/" target="_blank" class="mod-manager-link">
         <i class="fas fa-tools"></i> Mod管理
       </a>
     </div>
