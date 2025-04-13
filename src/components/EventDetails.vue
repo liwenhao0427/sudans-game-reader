@@ -14,20 +14,34 @@
       </div>
 
 
-      <!-- 卡片槽位 -->
-      <div class="info-card" v-if="event.cards_slot">
+       <!-- 卡片槽位 -->
+       <div class="info-card" v-if="event.cards_slot">
         <div class="card-header" @click="toggleSection('cardsSlot')">
           <h3>卡片槽位</h3>
           <span class="toggle-icon">{{ expandedSections.cardsSlot ? '▼' : '►' }}</span>
         </div>
         <div class="card-content" v-if="expandedSections.cardsSlot">
-          <div v-for="(slot, key) in event.cards_slot" :key="key" class="card-slot-item">
-            <div class="card-slot-header">
-              <h4 class="slot-key">{{ key }}</h4>
+          <div class="cards-slot-grid">
+            <div v-for="(slot, key) in event.cards_slot" :key="key" 
+                 class="card-slot-item" 
+                 :class="{'adsorb-enabled': slot.open_adsorb, 'enemy-slot': slot.is_enemy}"
+                 @click="toggleSlotDetails(key)">
+                 <div class="card-slot-header">
+                <h4 class="slot-key">
+                  <span class="slot-id">{{ key }}</span>  
+                </h4>
+                <h4 class="slot-type-header">
+                  <span v-for="(value, attrKey) in getRequiredAttributes(slot.condition)" :key="attrKey">
+                    {{ attrKey }}
+                  </span> 
+                  <span class="attribute-tag">{{ formatCardType(slot.condition.type) }}</span>  
+                </h4>
+                <!-- 显示卡片类型和所需属性 -->
+                <div class="slot-text">{{ slot.text }}</div>
+                <div v-if="slot.is_enemy" class="enemy-icon">☠</div>
+                <div v-if="slot.open_adsorb" class="adsorb-icon">🧲</div>
+              </div>
             </div>
-            
-            <!-- 使用通用卡片槽位显示组件 -->
-            <slot-display :slotInfo="slot"></slot-display>
           </div>
         </div>
       </div>
@@ -291,6 +305,19 @@
         </div>
       </div>
     </div>
+
+    <!-- 卡片槽位详情模态框 -->
+    <div class="modal" v-if="showSlotModal && currentSlotKey">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>卡片槽位详情: {{ currentSlotKey }}</h3>
+          <button class="close-button" @click="showSlotModal = false">&times;</button>
+        </div>
+        <div class="modal-body">
+          <slot-display :slotInfo="event.cards_slot[currentSlotKey]"></slot-display>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -319,6 +346,9 @@ export default {
   },
   data() {
     return {
+      expandedSlots: {},  // 新增：用于跟踪哪些卡片槽位被展开
+      showSlotModal: false,  // 新增：控制卡片槽位详情模态框的显示
+      currentSlotKey: null,  // 新增：当前选中的卡片槽位键名
       expandedOptions: {},
       expandedSections: {
         basicInfo: true,
@@ -341,6 +371,46 @@ export default {
     }
   },
   methods: {
+    toggleSlotDetails(slotKey) {
+      this.currentSlotKey = slotKey;
+      this.showSlotModal = true;
+    },
+
+    formatCardType(type) {
+      // 格式化卡片类型
+      const typeMap = {
+        'char': '角色',
+        'item': '物品',
+        'skill': '技能',
+        'event': '事件',
+        'enemy': '敌人',
+        'npc': 'NPC',
+        'sudan': '苏丹卡'
+      };
+      return typeMap[type] || type;
+    },
+
+    getRequiredAttributes(condition) {
+      if (!condition) return {};
+      
+      const requiredAttrs = {};
+      Object.entries(condition).forEach(([key, value]) => {
+        // 排除特殊键和非1值的属性
+        if (key !== 'type' && 
+            !key.startsWith('f:') && 
+            !key.includes('<=') && 
+            !key.includes('>=') && 
+            value === 1) {
+          requiredAttrs[key] = value;
+        }
+      });
+      return requiredAttrs;
+    },
+    
+    
+    isNotNullOrEmpty(obj) {
+      return obj !== null && obj !== undefined && Object.keys(obj).length > 0;
+    },
     isNotNullOrEmpty(obj) {
       return obj !== null && obj !== undefined && Object.keys(obj).length > 0;
     },
@@ -718,28 +788,6 @@ pre {
   white-space: pre-wrap;
 }
 
-/* 简化卡片槽位样式，因为详细内容由SlotDisplay组件处理 */
-.card-slot-item {
-  margin-bottom: 20px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.card-slot-header {
-  padding: 10px 15px;
-  background-color: #f0f7ff;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom: 1px solid #d0e3ff;
-}
-
-.slot-key {
-  font-size: 18px;
-  color: #1976d2;
-  margin: 0;
-  font-weight: 600;
-}
-
 /* 添加统一的条件和动作显示样式 */
 .condition-container, .result-container, .action-container {
   margin-top: 15px;
@@ -890,4 +938,134 @@ pre {
   font-weight: 500;
 }
 
+/* 卡片槽位网格布局 */
+.cards-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  justify-content: center;
+}
+
+.card-slot-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 120px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 未开启自动吸附的卡片显示为灰色 */
+.card-slot-item:not(.adsorb-enabled) {
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+.card-slot-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.card-slot-header {
+  padding: 10px 8px;
+  background-color: #f0f7ff;
+  border-bottom: 1px solid #d0e3ff;
+  position: relative;
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.slot-key {
+  place-self: flex-end;
+
+  font-size: 16px;
+  color: #1976d2;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* 未开启自动吸附的卡片标题颜色 */
+.card-slot-item:not(.adsorb-enabled) .slot-type-header {
+  color: #757575;
+}
+
+
+.slot-text {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.attribute-tag {
+  font-size: 10px;
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 1px 6px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 2px;
+}
+
+/* 敌对卡位样式 */
+.enemy-slot .card-slot-header {
+  background-color: #ffebee;
+  border-bottom-color: #ffcdd2;
+}
+
+.enemy-slot .slot-key {
+  color: #d32f2f;
+}
+
+.enemy-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
+  color: #d32f2f;
+}
+
+/* 吸附卡位样式 */
+.adsorb-enabled .card-slot-header {
+  background-color: #e8f5e9;
+  border-bottom-color: #c8e6c9;
+}
+
+.adsorb-enabled .slot-key {
+  color: #388e3c;
+}
+
+.adsorb-icon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 14px;
+  color: #388e3c;
+}
+
+@media (max-width: 768px) {
+  .cards-slot-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  
+  .card-slot-item {
+    width: 100px;
+    height: 180px;
+  }
+}
 </style>
