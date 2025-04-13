@@ -3,25 +3,57 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3>{{ card ? (card.name || '未命名卡片') : '加载中...' }}</h3>
-        <button class="close-button" @click="close">×</button>
+        <div class="header-buttons">
+          <button class="json-button" @click="showJsonData = !showJsonData">
+            {{ showJsonData ? '隐藏JSON' : '查看JSON' }}
+          </button>
+          <button class="close-button" @click="close">×</button>
+        </div>
       </div>
       <div class="modal-body" v-if="card">
-        <div class="card-info">
+        <!-- JSON数据显示区域 -->
+        <div class="json-data" v-if="showJsonData">
+          <pre>{{ JSON.stringify(card, null, 2) }}</pre>
+        </div>
+        
+        <div class="card-info" v-else>
           <!-- 基本信息 -->
           <div class="card-basic-info">
             <div class="card-title" v-if="card.title">{{ card.title }}</div>
             <div class="card-meta">
               <span class="card-id">ID: {{ card.id }}</span>
               <span class="card-type">类型: {{ formatCardType(card.type) }}</span>
-              <span class="card-rare" v-if="card.rare">稀有度: {{ card.rare }}</span>
+              <span class="card-rare" v-if="card.rare !== undefined">稀有度: {{ card.rare }}</span>
             </div>
           </div>
           
           <!-- 卡片描述 -->
           <div class="card-text" v-if="card.text">{{ card.text }}</div>
           
-          <!-- 卡槽条件 (简化显示) -->
+          <!-- 标签信息 -->
+          <div class="card-tags" v-if="card.tag && Object.keys(card.tag).length > 0">
+            <div class="tags-title">标签:</div>
+            <div class="tags-container">
+              <span v-for="(value, key) in card.tag" :key="key" class="tag-item" 
+                    :class="getTagClass(key, value)">
+                {{ key }}{{ value !== 1 ? ': ' + value : '' }}
+              </span>
+            </div>
+          </div>
+          
+          <!-- 装备槽 -->
+          <div class="card-equips" v-if="card.equips && card.equips.length > 0">
+            <div class="equips-title">装备槽:</div>
+            <div class="equips-container">
+              <span v-for="(equip, index) in card.equips" :key="index" class="equip-item">
+                {{ equip }}
+              </span>
+            </div>
+          </div>
+          
+          <!-- 卡槽条件 -->
           <div class="card-slots" v-if="hasSlotConditions">
+            <div class="slots-title">卡槽条件:</div>
             <div class="slots-container">
               <div v-for="(condition, index) in formatSlotConditions" :key="index" class="slot-item">
                 <span class="slot-name">{{ condition.name }}</span>
@@ -30,21 +62,21 @@
             </div>
           </div>
           
-          <!-- 更多信息按钮 -->
-          <!-- <div class="more-info-toggle">
-            <button @click="showMoreInfo = !showMoreInfo" class="more-info-button">
-              {{ showMoreInfo ? '收起详情' : '显示更多信息' }}
-            </button>
-          </div> -->
-          
-          <!-- 详细标签信息 (可折叠) -->
-          <div class="card-tags" v-if="card.tag && showMoreInfo">
-            <div class="tags-title">标签:</div>
-            <div class="tags-container">
-              <span v-for="(value, key) in card.tag" :key="key" class="tag-item">
-                {{ key }}{{ value !== 1 ? ': ' + value : '' }}
-              </span>
+          <!-- 其他属性 -->
+          <div class="card-other-props" v-if="hasOtherProps">
+            <div class="props-title">其他属性:</div>
+            <div class="props-list">
+              <div v-for="(value, key) in otherProps" :key="key" class="prop-item">
+                <span class="prop-name">{{ formatPropName(key) }}:</span>
+                <span class="prop-value">{{ formatPropValue(value) }}</span>
+              </div>
             </div>
+          </div>
+          
+          <!-- 资源路径 -->
+          <div class="card-resource" v-if="card.resource">
+            <div class="resource-title">资源路径:</div>
+            <div class="resource-value">{{ card.resource }}</div>
           </div>
         </div>
       </div>
@@ -67,7 +99,8 @@ export default {
       cardId: null,
       card: null,
       cardsData: null,
-      showMoreInfo: false
+      showMoreInfo: true, // 默认显示所有信息
+      showJsonData: false // 控制JSON数据的显示
     };
   },
   computed: {
@@ -95,6 +128,34 @@ export default {
         }
       }
       return slots;
+    },
+    hasOtherProps() {
+      if (!this.card) return false;
+      return Object.keys(this.otherProps).length > 0;
+    },
+    otherProps() {
+      if (!this.card) return {};
+      
+      const excludedProps = ['id', 'name', 'title', 'text', 'type', 'rare', 'tag', 'equips', 'resource'];
+      const slotPattern = /^s\d+$|^!s\d+$/;
+      
+      const props = {};
+      for (const key in this.card) {
+        if (!excludedProps.includes(key) && !slotPattern.test(key) && key !== 'card_vanishing' && key !== 'vanish' && key !== 'is_only') {
+          props[key] = this.card[key];
+        }
+      }
+      
+      // 添加特殊属性
+      if (this.card.is_only !== undefined) {
+        props['is_only'] = this.card.is_only;
+      }
+      
+      if (this.card.card_vanishing !== undefined) {
+        props['card_vanishing'] = this.card.card_vanishing;
+      }
+      
+      return props;
     }
   },
   methods: {
@@ -102,7 +163,7 @@ export default {
       this.visible = true;
       this.cardId = cardId;
       this.card = null;
-      this.showMoreInfo = false;
+      this.showJsonData = false; // 重置JSON显示状态
       await this.loadCardData();
     },
     close() {
@@ -150,6 +211,41 @@ export default {
         'sudan': '苏丹卡'
       };
       return typeMap[type] || type;
+    },
+    formatPropName(key) {
+      const nameMap = {
+        'card_favour': '卡片偏好',
+        'tips': '提示',
+        'pops': '弹出信息',
+        'is_only': '唯一性',
+        'card_vanishing': '消失条件'
+      };
+      return nameMap[key] || key;
+    },
+    formatPropValue(value) {
+      if (value === null || value === undefined) return '无';
+      if (typeof value === 'object') {
+        if (Array.isArray(value)) {
+          return value.length ? value.join(', ') : '空数组';
+        }
+        return Object.keys(value).length ? JSON.stringify(value) : '空对象';
+      }
+      if (typeof value === 'boolean') return value ? '是' : '否';
+      if (value === 0 || value === 1) {
+        if (typeof value === 'number') return value === 1 ? '是' : '否';
+      }
+      return value.toString();
+    },
+    getTagClass(key) {
+      // 根据标签类型返回不同的CSS类
+      const attributeTags = ['体魄', '智慧', '魅力', '社交', '战斗', '生存', '魔力', '隐匿'];
+      const statusTags = ['可堆叠', '已拥有', '装备', '已装备', '消耗品', '倒计时'];
+      const typeTags = ['武器', '服装', '饰品', '军队', '部队', '贵族', '男性', '女性', '孤儿', '质子'];
+      
+      if (attributeTags.includes(key)) return 'attribute-tag';
+      if (statusTags.includes(key)) return 'status-tag';
+      if (typeTags.includes(key)) return 'type-tag';
+      return '';
     }
   },
   created() {
@@ -181,8 +277,8 @@ export default {
   background-color: white;
   border-radius: 8px;
   width: 90%;
-  max-width: 500px;
-  max-height: 80vh;
+  max-width: 600px;
+  max-height: 85vh;
   overflow-y: auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -193,6 +289,48 @@ export default {
   align-items: center;
   padding: 12px 15px;
   border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.json-button {
+  background-color: #ecf5ff;
+  color: #409eff;
+  border: 1px solid #d9ecff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.json-button:hover {
+  background-color: #409eff;
+  color: white;
+}
+
+.json-data {
+  background-color: #f5f7fa;
+  border-radius: 4px;
+  padding: 10px;
+  overflow: auto;
+  max-height: 500px;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.json-data pre {
+  margin: 0;
 }
 
 .modal-header h3 {
@@ -222,7 +360,7 @@ export default {
 .card-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .card-basic-info {
@@ -249,12 +387,70 @@ export default {
   line-height: 1.5;
   white-space: pre-line;
   color: #303133;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  border-left: 3px solid #409eff;
+}
+
+.tags-title, .equips-title, .slots-title, .props-title, .resource-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #606266;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-item {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  background-color: #f0f2f5;
+  color: #606266;
+}
+
+/* 属性标签 */
+.attribute-tag {
+  background-color: #e1f3d8;
+  color: #67c23a;
+}
+
+/* 状态标签 */
+.status-tag {
+  background-color: #fdf6ec;
+  color: #e6a23c;
+}
+
+/* 类型标签 */
+.type-tag {
+  background-color: #ecf5ff;
+  color: #409eff;
+}
+
+.equips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.equip-item {
+  background-color: #f0f9ff;
+  border: 1px solid #d0e6ff;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: #409eff;
 }
 
 .card-slots {
   margin-top: 10px;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
 }
 
 .slots-container {
@@ -283,52 +479,42 @@ export default {
   color: #606266;
 }
 
-.more-info-toggle {
-  margin-top: 12px;
-  text-align: center;
-}
-
-.more-info-button {
-  background-color: #f5f7fa;
-  border: 1px solid #dcdfe6;
-  border-radius: 4px;
-  padding: 4px 12px;
-  font-size: 12px;
-  color: #606266;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.more-info-button:hover {
-  background-color: #ecf5ff;
-  color: #409eff;
-}
-
-.card-tags {
-  margin-top: 10px;
-  border-top: 1px solid #eee;
-  padding-top: 10px;
-}
-
-.tags-title {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: #606266;
-}
-
-.tags-container {
+.props-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.tag-item {
-  background-color: #f0f2f5;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 12px;
+.prop-item {
+  display: flex;
+  padding: 5px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.prop-name {
+  font-weight: bold;
   color: #606266;
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.prop-value {
+  color: #303133;
+  word-break: break-word;
+}
+
+.card-resource {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #909399;
+}
+
+.resource-value {
+  font-family: monospace;
+  background-color: #f5f7fa;
+  padding: 5px;
+  border-radius: 4px;
+  word-break: break-all;
 }
 
 .loading-text {
