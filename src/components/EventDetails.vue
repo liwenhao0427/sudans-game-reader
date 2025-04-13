@@ -351,14 +351,14 @@ export default {
       currentSlotKey: null,  // 新增：当前选中的卡片槽位键名
       expandedOptions: {},
       expandedSections: {
-        basicInfo: true,
+        basicInfo: false,
         tips: true,
         openConditions: false,
-        randomText: true,
+        randomText: false,
         settlementPrior: false,
         settlement: true,
         settlementExtre: false,
-        cardsSlot: false,
+        cardsSlot: true,
         on: false,
         condition: false
       },

@@ -930,7 +930,7 @@ export async function loadCardsData() {
   
   try {
     // 使用require直接导入JSON文件
-    const response = require('raw-loader!@/assets/config/cards_processed.json').default;
+    const response = require('raw-loader!@/assets/cards_processed.json').default;
     
     // 处理JSON内容 - 处理module.exports包装
     let jsonContent = response;

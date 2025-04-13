@@ -1,7 +1,7 @@
 import json
 import re
 import os
-
+# 算了，太麻烦了，不用这个解析了，我直接用JSON5处理好像就没问题，https://www.lddgo.net/string/json5 反正只要没重复键也不丢信息
 def process_cards_json(input_file, output_file):
     """
     处理不标准的cards.json文件，提取指定字段并生成标准JSON
@@ -42,7 +42,7 @@ def process_cards_json(input_file, output_file):
 
     # 处理转义字符
     content = content.replace('\\\"', '"')
-    content = content.replace('\\n', '\n')
+    # content = content.replace('\\n', '\n')
     content = content.replace('\\r', '')
     content = content.replace('\\t', '')
     
@@ -113,9 +113,9 @@ def process_cards_json(input_file, output_file):
 if __name__ == "__main__":
     # 设置输入和输出文件路径
     input_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 
-                             "src", "assets", "config", "cards.json")
+                             "src", "assets", "config", "over.json")
     output_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), 
-                              "src", "assets", "cards_processed.json")
+                              "src", "assets", "over_processed.json")
     
     # 确保输出目录存在
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
