@@ -36,7 +36,7 @@
             <div class="tags-container">
               <span v-for="(value, key) in card.tag" :key="key" class="tag-item" 
                     :class="getTagClass(key, value)">
-                {{ key }}{{ value !== 1 ? ': ' + value : '' }}
+                {{ key }}{{ attributeTags.includes(key) ? ': ' + value : (value !== 1 ? ': ' + value : '') }}
               </span>
             </div>
           </div>
@@ -100,7 +100,8 @@ export default {
       card: null,
       cardsData: null,
       showMoreInfo: true, // 默认显示所有信息
-      showJsonData: false // 控制JSON数据的显示
+      showJsonData: false, // 控制JSON数据的显示
+      attributeTags: ['体魄', '智慧', '魅力', '社交', '战斗', '生存', '魔力', '隐匿']
     };
   },
   computed: {
@@ -238,11 +239,10 @@ export default {
     },
     getTagClass(key) {
       // 根据标签类型返回不同的CSS类
-      const attributeTags = ['体魄', '智慧', '魅力', '社交', '战斗', '生存', '魔力', '隐匿'];
       const statusTags = ['可堆叠', '已拥有', '装备', '已装备', '消耗品', '倒计时'];
       const typeTags = ['武器', '服装', '饰品', '军队', '部队', '贵族', '男性', '女性', '孤儿', '质子'];
       
-      if (attributeTags.includes(key)) return 'attribute-tag';
+      if (this.attributeTags.includes(key)) return 'attribute-tag';
       if (statusTags.includes(key)) return 'status-tag';
       if (typeTags.includes(key)) return 'type-tag';
       return '';
