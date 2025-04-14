@@ -1,3 +1,6 @@
+// 在文件顶部添加 JSON5 导入
+import JSON5 from 'json5';
+
 // 解析带注释的JSON
 export const parseJsonWithComments = (jsonString) => {
   try {
@@ -20,7 +23,6 @@ export const parseJsonWithComments = (jsonString) => {
     // 移除单行注释，但保留引号内的注释样式文本
     // 正确处理换行符，确保注释只到换行符为止
     let noComments = jsonString.replace(/([^"\\]|^)\/\/[^\n]*/g, '$1');
-    // console.log("移除单行注释，但保留引号内的注释样式文本", noComments);
 
     // 处理特殊格式问题，如表达式中的等号
     noComments = noComments.replace(/"([^"]+)=([^"]+)":/g, '"$1_EQUALS_$2":');
@@ -30,7 +32,6 @@ export const parseJsonWithComments = (jsonString) => {
     
     // 处理尾随逗号问题 - 在对象和数组结束前的逗号
     noComments = noComments.replace(/,(\s*[\]}])/g, '$1');
-    // console.log("处理尾随逗号问题 - 在对象和数组结束前的逗号", noComments);
     
     // 尝试解析JSON
     try {
@@ -320,6 +321,14 @@ function parseJSONWithDuplicateKeys(jsonString) {
         return JSON.parse(cleanedJson);
       } catch (jsonError) {
         console.error('JSON.parse解析失败:', jsonError);
+
+        try {
+          const result = JSON5.parse(jsonString);
+          return result;
+        }catch (finalError) {
+          console.error('JSON5仍然解析失败:', finalError);
+        }
+
         
         // 如果所有方法都失败，尝试使用正则表达式提取关键信息
         const idMatch = /"id"\s*:\s*(\d+)/.exec(cleanedJson);
