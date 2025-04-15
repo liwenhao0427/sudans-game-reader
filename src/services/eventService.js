@@ -827,11 +827,11 @@ export const loadEventData = async (eventId, type) => {
       id = eventId.substring(5);
     }
     
-    // FIXME 临时处理，我没法了，这玩意儿不存在就无响应
-    if(id == '5000002'){
-      console.error(`文件不存在: ${id}`);
-      return null;
-    }
+    // 这个文件太大了
+    // if(id == '5000002'){
+    //   console.error(`文件不存在: ${id}`);
+    //   return null;
+    // }
     // 使用require加载JSON文件
     // console.log("加载的JSON文本", `raw-loader!@/assets/config/${directory}/${id}.json`);
     const eventJsonText = require(`raw-loader!@/assets/config/${directory}/${id}.json`).default;

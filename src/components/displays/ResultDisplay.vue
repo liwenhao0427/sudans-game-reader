@@ -32,6 +32,20 @@
           </div>
         </div>
       </div>
+
+      <!-- 仪式结果 -->
+      <div v-if="hasRites" class="result-section">
+        <div class="section-title">开启仪式</div>
+        <div class="rites-grid">
+          <div v-for="(riteId, index) in rites" :key="index" class="rite-item">
+            <span class="rite-id">#{{ riteId }}</span>
+            <span v-if="riteNames[riteId]" class="rite-name clickable" @click="showRiteDetails(riteId)">
+              {{ riteNames[riteId] }}
+            </span>
+            <span v-else class="rite-loading">加载中...</span>
+          </div>
+        </div>
+      </div>
       
       <!-- 计数器操作 -->
       <div v-if="hasCounters" class="result-section">
@@ -137,8 +151,9 @@ export default {
     return {
       cardNames: {},
       lootNames: {},
-      counterCache: {}, // 添加counter缓存对象
-      slotInfoCache: {} // 添加卡位信息缓存
+      riteNames: {}, // 添加仪式名称缓存
+      counterCache: {},
+      slotInfoCache: {}
     };
   },
   computed: {
@@ -324,10 +339,26 @@ export default {
       return Object.keys(this.choices).length > 0;
     },
     
+    // 提取仪式
+    rites() {
+      const rites = [];
+      if (this.result.rite) {
+        if (Array.isArray(this.result.rite)) {
+          rites.push(...this.result.rite.filter(r => typeof r === 'number'));
+        } else if (typeof this.result.rite === 'number') {
+          rites.push(this.result.rite);
+        }
+      }
+      return rites;
+    },
+    hasRites() {
+      return this.rites.length > 0;
+    },
+
     // 其他结果
     others() {
       const excludeKeys = [
-        'card', 'loot', 'choose', 
+        'card', 'loot', 'choose', 'rite', // 添加 'rite' 到排除列表
         ...Object.keys(this.resources),
         ...this.counters.map(c => {
           if (c.operation === '增加') return `counter+${c.id}`;
@@ -361,6 +392,27 @@ export default {
     }
   },
   methods: {
+
+     // 添加显示仪式详情的方法
+     showRiteDetails(riteId) {
+      eventBus.emit('show-rite-details', riteId);
+    },
+    
+    // 添加加载仪式信息的方法
+    async loadRiteInfo(riteId) {
+      try {
+        const riteData = await loadEventData(riteId, 'rite');
+        if (riteData) {
+          this.riteNames[riteId] = riteData.name || riteData.text || `仪式 #${riteId}`;
+        } else {
+          this.riteNames[riteId] = `未知仪式 #${riteId}`;
+        }
+      } catch (error) {
+        console.error('加载仪式信息失败:', error);
+        this.riteNames[riteId] = `加载失败 #${riteId}`;
+      }
+    },
+    
     // 添加获取counter缓存文本的方法
     getCounterText(counterId) {
       // 检查本地缓存
@@ -491,6 +543,13 @@ export default {
       this.loots.forEach(lootId => {
         if (!this.lootNames[lootId]) {
           this.loadLootInfo(lootId);
+        }
+      });
+      
+      // 加载所有仪式引用
+      this.rites.forEach(riteId => {
+        if (!this.riteNames[riteId]) {
+          this.loadRiteInfo(riteId);
         }
       });
       
@@ -721,6 +780,86 @@ export default {
 }
 
 .card-loading, .loot-loading {
+  font-style: italic;
+  color: #909399;
+}
+
+.counter-operation, .slot-operation {
+  font-weight: bold;
+  color: #606266;
+  margin-bottom: 4px;
+}
+
+.counter-value, .slot-card {
+  color: #333;
+}
+
+.resource-name, .other-key, .choice-key {
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #606266;
+}
+
+.resource-value, .other-value, .choice-value {
+  color: #333;
+}
+
+.resource-value {
+  font-weight: bold;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-item {
+  padding: 10px;
+}
+
+.choice-value {
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+/* 添加仪式相关样式 */
+.rites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.rite-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.rite-id {
+  color: #909399;
+  font-size: 0.9em;
+  margin-bottom: 4px;
+}
+
+.rite-name {
+  font-weight: 500;
+  color: #409eff;
+}
+
+.rite-name.clickable {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.rite-name.clickable:hover {
+  color: #66b1ff;
+}
+
+.rite-loading {
   font-style: italic;
   color: #909399;
 }

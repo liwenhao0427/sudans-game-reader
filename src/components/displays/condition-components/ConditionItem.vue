@@ -24,24 +24,34 @@
       <!-- 处理卡片拥有条件，添加点击查看详情 -->
       <template v-else-if="isCardCondition">
         <span class="clickable" @click="handleCardClick">
-          {{ formattedValue }}
+          {{ displayValue }}
+        </span>
+      </template>
+      <!-- 处理卡位卡片条件，添加点击查看详情 -->
+      <template v-else-if="isSlotCardCondition">
+        <span class="clickable" @click="handleSlotCardClick">
+          {{ displayValue }}
         </span>
       </template>
       <!-- 其他条件 -->
       <template v-else>
-        {{ formattedValue }}
+        {{ displayValue }}
       </template>
     </span>
   </div>
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue';
-import { getCommentFromCache, loadEventData } from '@/services/eventService';
+import { ref, computed, onMounted, watch } from 'vue';
+import { getCommentFromCache, loadEventData, getCardById, getRiteSlotInfo } from '@/services/eventService';
 
 export default {
   name: 'ConditionItem',
   props: {
+    riteId: {
+      type: Number,
+      required: true
+    },
     conditionKey: {
       type: String,
       required: true
@@ -52,8 +62,9 @@ export default {
   },
   setup(props, { emit }) {
     const riteCache = ref({});
-    const cardCache = ref({});
+    // const cardCache = ref({});
     const counterCache = ref({});
+    const displayValue = ref(''); // 新增：用于显示的值
     
     // 计算属性
     const isRiteCondition = computed(() => {
@@ -66,16 +77,34 @@ export default {
              props.conditionKey.includes('table_have');
     });
     
+    // 新增：检测是否为卡位卡片条件
+    const isSlotCardCondition = computed(() => {
+      // 匹配形如 s3.is 或 !s3.纵欲的痕迹 的模式
+      return /^(!)?s\d+\.(is|[^.]+)/.test(props.conditionKey);
+    });
+    
     const formattedKey = computed(() => {
       return formatKey(props.conditionKey);
     });
     
-    const formattedValue = computed(() => {
-      return formatValue(props.conditionKey, props.conditionValue);
-    });
-    
     // 方法
     const formatKey = (key) => {
+      // 处理卡位相关条件
+      if (/^(!)?s\d+\.is$/.test(key)) {
+        const isNegated = key.startsWith('!');
+        const slotMatch = key.match(/s(\d+)/);
+        const slotNum = slotMatch ? slotMatch[1] : '';
+        return isNegated ? `卡位 ${slotNum} 不是` : `卡位 ${slotNum} 是`;
+      } else if (/^(!)?s\d+\.[^.]+$/.test(key)) {
+        const isNegated = key.startsWith('!');
+        const slotMatch = key.match(/s(\d+)\.([^.]+)/);
+        if (slotMatch) {
+          const slotNum = slotMatch[1];
+          const attribute = slotMatch[2];
+          return isNegated ? `卡位 ${slotNum} 没有${attribute}` : `卡位 ${slotNum} 有${attribute}`;
+        }
+      }
+      
       if (key === 'is') {
         return '需要卡片';
       } else if (key === 'type') {
@@ -216,6 +245,19 @@ export default {
     };
     
     const formatValue = (key, value) => {
+      // 处理卡位卡片条件
+      if (/^(!)?s\d+\.is$/.test(key) && typeof value === 'number') {
+        return `卡片 #${value}`;
+      }
+      
+      // 处理卡位属性条件
+      if (/^(!)?s\d+\.[^.]+$/.test(key)) {
+        const slotMatch = key.match(/s(\d+)/);
+        if (slotMatch) {
+          return `卡位 ${slotMatch[1]}`;
+        }
+      }
+      
       if (key.startsWith('rite') || key.startsWith('!rite')) {
         // 处理仪式值，显示仪式名称
         const riteId = getRiteId();
@@ -226,8 +268,7 @@ export default {
                  key.startsWith('table_have.') || key.startsWith('!table_have.')) {
         // 处理卡片值，显示卡片名称
         const cardId = getCardIdFromKey(key);
-        const cardName = getCardName(cardId);
-        return cardName ? `${cardName} (#${cardId})` : `卡片 #${cardId}`;
+        return `卡片 #${cardId}`;
       } else if (key === 'round_begin_ba' && Array.isArray(value) && value.length === 2) {
         return `第 ${value[0]} 天到第 ${value[1]} 天`;
       } else if (key.startsWith('r') && /^r\d+:.+[<>=]/.test(key) && Array.isArray(value)) {
@@ -246,21 +287,61 @@ export default {
       return value;
     };
     
-    const getCardIdFromKey = (key) => {
-      if (key.startsWith('have.') || key.startsWith('!have.')) {
-        return key.replace(/^(!)?have\./, '').split('.')[0];
-      } else if (key.startsWith('hand_have.') || key.startsWith('!hand_have.')) {
-        return key.replace(/^(!)?hand_have\./, '');
-      } else if (key.startsWith('table_have.') || key.startsWith('!table_have.')) {
-        return key.replace(/^(!)?table_have\./, '');
+    // 新增：异步加载卡片和卡位信息
+    const loadCardAndSlotInfo = async () => {
+      if (/^(!)?s\d+\.is$/.test(props.conditionKey) && typeof props.conditionValue === 'number') {
+        // 加载卡片信息
+        try {
+          const cardData = await getCardById(props.conditionValue);
+          if (cardData && cardData.name) {
+            displayValue.value = `${cardData.name} (#${props.conditionValue})`;
+          } else {
+            displayValue.value = `卡片 #${props.conditionValue}`;
+          }
+        } catch (e) {
+          console.error(`获取卡片 ${props.conditionValue} 名称失败:`, e);
+          displayValue.value = `卡片 #${props.conditionValue}`;
+        }
+      } else if (/^(!)?s\d+\.[^.]+$/.test(props.conditionKey)) {
+        // 加载卡位信息
+        const slotMatch = props.conditionKey.match(/s(\d+)/);
+        if (slotMatch) {
+          try {
+            const slotData = await getRiteSlotInfo(props.riteId, 's'+slotMatch[1]);
+            if (slotData && slotData.text) {
+              displayValue.value = slotData.text;
+            } else {
+              displayValue.value = `卡位 ${slotMatch[1]}`;
+            }
+          } catch (e) {
+            console.error(`获取卡位 s${slotMatch[1]} 名称失败:`, e);
+            displayValue.value = `卡位 ${slotMatch[1]}`;
+          }
+        }
+      } else if (isCardCondition.value) {
+        // 处理卡片条件
+        const cardId = getCardIdFromKey(props.conditionKey);
+        if (cardId) {
+          try {
+            const cardData = await getCardById(cardId);
+            if (cardData && cardData.name) {
+              displayValue.value = `${cardData.name} (#${cardId})`;
+            } else {
+              displayValue.value = `卡片 #${cardId}`;
+            }
+          } catch (e) {
+            console.error(`获取卡片 ${cardId} 名称失败:`, e);
+            displayValue.value = `卡片 #${cardId}`;
+          }
+        } else {
+          displayValue.value = formatValue(props.conditionKey, props.conditionValue);
+        }
+      } else {
+        // 其他条件使用同步格式化
+        displayValue.value = formatValue(props.conditionKey, props.conditionValue);
       }
-      return null;
     };
     
-    const getCardName = (cardId) => {
-      if (!cardId) return null;
-      return cardCache.value[cardId] || null;
-    };
     
     const getRiteId = () => {
       if (typeof props.conditionValue === 'number') {
@@ -275,14 +356,60 @@ export default {
       return riteCache.value[riteId] || null;
     };
     
+    // 获取卡位信息
+    const getSlotInfo = () => {
+      const slotMatch = props.conditionKey.match(/s(\d+)/);
+      if (slotMatch) {
+        return {
+          slotNumber: slotMatch[1],
+          // 如果是 s3.is 类型，值就是卡片ID
+          cardId: /^(!)?s\d+\.is$/.test(props.conditionKey) ? props.conditionValue : null,
+          // 提取属性名，如 "纵欲的痕迹"
+          attribute: props.conditionKey.match(/\.([^.]+)$/)?.[1]
+        };
+      }
+      return null;
+    };
+    
     const handleRiteClick = (riteId) => {
       emit('show-rite-details', riteId);
     };
     
+    // 修复 getCardIdFromKey 函数中未使用的 key 参数
+    const getCardIdFromKey = (key) => {
+      // 处理卡位卡片条件
+      if (/^(!)?s\d+\.is$/.test(props.conditionKey)) {
+        return props.conditionValue;
+      }
+      
+      if (key.startsWith('have.') || key.startsWith('!have.')) {
+        return key.replace(/^(!)?have\./, '').split('.')[0];
+      } else if (key.startsWith('hand_have.') || key.startsWith('!hand_have.')) {
+        return key.replace(/^(!)?hand_have\./, '');
+      } else if (key.startsWith('table_have.') || key.startsWith('!table_have.')) {
+        return key.replace(/^(!)?table_have\./, '');
+      }
+      return null;
+    };
+
     const handleCardClick = () => {
       const cardId = getCardIdFromKey(props.conditionKey);
       if (cardId) {
         emit('show-card-details', cardId);
+      }
+    };
+    
+    // 新增：处理卡位卡片点击
+    const handleSlotCardClick = () => {
+      const slotInfo = getSlotInfo();
+      if (slotInfo) {
+        if (slotInfo.cardId) {
+          // 如果有卡片ID，显示卡片详情
+          emit('show-card-details', slotInfo.cardId);
+        } else {
+          // 否则显示卡位详情
+          emit('show-slot-details', slotInfo.slotNumber);
+        }
       }
     };
     
@@ -299,8 +426,14 @@ export default {
       }
     };
     
+    // 监听属性变化，重新加载数据
+    watch([() => props.conditionKey, () => props.conditionValue, () => props.riteId], () => {
+      loadCardAndSlotInfo();
+    });
+
     // 初始化加载
     onMounted(() => {
+      // 加载仪式信息
       if (isRiteCondition.value) {
         if (Array.isArray(props.conditionValue)) {
           props.conditionValue.forEach(riteId => {
@@ -311,15 +444,20 @@ export default {
           loadRiteInfo(getRiteId());
         }
       }
+      
+      // 加载卡片和卡位信息
+      loadCardAndSlotInfo();
     });
     
     return {
       isRiteCondition,
       isCardCondition,
+      isSlotCardCondition,
       formattedKey,
-      formattedValue,
+      displayValue, // 替换 formattedValue
       handleRiteClick,
       handleCardClick,
+      handleSlotCardClick,
       getRiteId,
       getRiteName
     };

@@ -196,7 +196,9 @@
           <div class="counter-reference">
             <span class="counter-id">#{{ extractCounterId(key) }}</span>
             <span v-if="counterNames[extractCounterId(key)]" class="counter-name">
-              {{ counterNames[extractCounterId(key)] }} {{ key.indexOf('PLUS') > -1 ? '增加' : '减少' }} {{ counterRef }} 点
+              {{ counterNames[extractCounterId(key)] }} 
+              {{ key.indexOf('PLUS') > -1 ? '增加' : (key.indexOf('EQUALS') > -1 ? '设置为' : '减少') }} 
+              {{ counterRef }} 点
             </span>
             <span v-else class="counter-value">{{ counterRef }}</span>
           </div>
@@ -241,8 +243,7 @@ export default {
           !key.startsWith('loot') &&
           !key.startsWith('table.') &&
           !key.startsWith('hand_pop.') &&
-          !key.includes('counter_PLUS_') &&
-          !key.includes('counter-')
+          !key.includes('counter') 
         ) {
           result[key] = value;
         }
@@ -342,7 +343,7 @@ export default {
     const counterReferences = computed(() => {
       const result = {};
       for (const [key, value] of Object.entries(props.action)) {
-        if (key.includes('counter_PLUS_')||key.includes('counter-')) {
+        if (key.includes('counter_PLUS_') || key.includes('counter-') || key.includes('counter_EQUALS_')) {
           result[key] = value;
         }
       }
@@ -382,6 +383,8 @@ export default {
         return '手牌提示';
       } else if (key.includes('counter_PLUS_')) {
         return '计数器增加';
+      } else if (key.includes('counter_EQUALS_')) {
+        return '计数器设置';
       } else if (key.includes('counter-')) {
         return '计数器减少';
       } else if (key === 'card') {
@@ -466,11 +469,17 @@ export default {
       return null;
     };
     
-    // 提取计数器ID
-    const extractCounterId = (key) => {
-      const match = key.match(/counter_PLUS_(\d+)/);
-      const match2 = key.match(/counter-(\d+)/);
-      return match ? match[1] : (match2 ? match2[1] : null);
+     // 提取计数器ID
+     const extractCounterId = (key) => {
+      const plusMatch = key.match(/counter_PLUS_(\d+)/);
+      const minusMatch = key.match(/counter-(\d+)/);
+      const equalsMatch = key.match(/counter_EQUALS_(\d+)/);
+      
+      if (plusMatch) return plusMatch[1];
+      if (minusMatch) return minusMatch[1];
+      if (equalsMatch) return equalsMatch[1];
+      
+      return null;
     };
     
     // 加载卡片名称

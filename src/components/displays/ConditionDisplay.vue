@@ -9,11 +9,13 @@
       <div v-if="isSimpleCondition" class="simple-condition">
         <condition-item 
           v-for="(value, key) in condition" 
+          :riteId="riteId"
           :key="key" 
           :conditionKey="key" 
           :conditionValue="value"
           @show-rite-details="showRiteDetails"
           @show-card-details="showCardDetails"
+          @show-slot-details="showSlotDetails"
         />
       </div>
       
@@ -39,11 +41,13 @@
         <div v-if="Object.keys(otherConditions).length > 0" class="other-conditions">
           <condition-item 
             v-for="(value, key) in otherConditions" 
+            :riteId="riteId"
             :key="key" 
             :conditionKey="key" 
             :conditionValue="value"
             @show-rite-details="showRiteDetails"
             @show-card-details="showCardDetails"
+            @show-slot-details="showSlotDetails"
           />
         </div>
       </div>
@@ -81,11 +85,13 @@
         <!-- 其他条件 -->
         <condition-item 
           v-for="(value, key) in otherConditions" 
+          :riteId="riteId"
           :key="key" 
           :conditionKey="key" 
           :conditionValue="value"
           @show-rite-details="showRiteDetails"
           @show-card-details="showCardDetails"
+          @show-slot-details="showSlotDetails"
         />
       </div>
       
@@ -98,9 +104,10 @@
 </template>
 
 <script>
+import {  getRiteSlotInfo } from '@/services/eventService';
 import {  computed } from 'vue';
 // import { eventBus } from '@/components/CardDetailsModal.vue';
-import eventBus2 from '@/utils/eventBus';
+import eventBus from '@/utils/eventBus';
 import ConditionItem from './condition-components/ConditionItem.vue';
 import CardCondition from './condition-components/CardCondition.vue';
 import AnyCondition from './condition-components/AnyCondition.vue';
@@ -116,6 +123,11 @@ export default {
     SlotRestriction
   },
   props: {
+    riteId: {
+      type: Number,
+      required: true,
+      default: 0
+    },
     condition: {
       type: Object,
       required: true,
@@ -186,7 +198,9 @@ export default {
             typeof value !== 'object' || 
             // 特殊处理r开头的属性条件和天数限制
             key.startsWith('r') || 
-            key === 'round_begin_ba') {
+            key === 'round_begin_ba' ||
+            // 添加对卡位属性条件的处理，如 s3.is 或 !s3.纵欲的痕迹
+            /^(!)?s\d+\.(is|[^.]+)/.test(key)) {
           others[key] = value;
         }
       });
@@ -222,14 +236,55 @@ export default {
     const showRiteDetails = (riteId) => {
       console.log(`显示仪式详情:`, riteId);
       // 使用事件总线触发显示仪式详情事件
-      eventBus2.emit('show-rite-details', riteId);
+      eventBus.emit('show-rite-details', riteId);
     };
     
     const showCardDetails = (cardId) => {
       console.log(`显示卡片详情:`, cardId);
-      eventBus2.emit('show-card-details', cardId);
+      eventBus.emit('show-card-details', cardId);
     };
     
+    const slotInfoCache = {}; // 用于缓存获取的卡位信息，key为slotId，如 's1', 's2',
+
+    // 添加处理卡位详情的方法
+    const showSlotDetails = async (slotNumber) => {
+      const slotId = 's'+slotNumber
+      console.log(`显示卡位详情:`, 's'+slotNumber);
+      // 如果没有仪式ID，无法显示卡位详情
+      if (!props.riteId) {
+        console.warn('无法显示卡位详情：未提供仪式ID');
+        return;
+      }
+      
+      try {
+        // 尝试获取卡位信息
+        let slotInfo = slotInfoCache[slotId];
+        console.log('显示卡位详情:', slotInfo);
+        
+        if (!slotInfo) {
+          slotInfo = await getRiteSlotInfo(props.riteId, slotId);
+          console.log('显示卡位详情:', slotInfo);
+          
+          if (slotInfo) {
+            // 缓存卡位信息
+            slotInfoCache[slotId] = slotInfo;
+          } else {
+            console.error(`无法获取卡位 ${slotId} 的信息`);
+            return;
+          }
+        }
+        
+        // 使用eventBus触发显示卡位详情的事件
+        eventBus.emit('show-slot-details', {
+          slotId: slotId,
+          riteId: props.riteId,
+          slotInfo: slotInfo
+        });
+      } catch (error) {
+        console.error(`显示卡位 ${slotId} 详情失败:`, error);
+      }
+    };    
+
     return {
       isSimpleCondition,
       hasSpecialKeys,
@@ -241,7 +296,8 @@ export default {
       slotRestrictions,
       formatCardType,
       showRiteDetails,
-      showCardDetails
+      showCardDetails,
+      showSlotDetails // 添加到返回值中
     };
   }
 }

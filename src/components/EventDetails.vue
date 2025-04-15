@@ -95,14 +95,14 @@
               </div>
               
               <div v-if="isSettlementExpanded('settlement', index)">
-                <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
+                <condition-display :riteId="event.id" v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
                 <result-display :riteId="event.id" v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
                 <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
               </div>
             </div>
 
             <div v-else class="settlement-body">
-              <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
+              <condition-display :riteId="event.id" v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>                
                 <result-display  :riteId="event.id" v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
                 <action-display v-if="isNotNullOrEmpty(item.action)" :action="item.action"></action-display>
             </div>
@@ -140,7 +140,7 @@
           <div v-for="(condition, index) in event.open_conditions" :key="index" class="condition-item">
             <div class="condition-tips" v-if="condition.tips">{{ condition.tips }}</div>
             <div class="condition-code">
-              <condition-display v-if="isNotNullOrEmpty(condition.condition)" :condition="condition.condition"></condition-display>
+              <condition-display :riteId="event.id" v-if="isNotNullOrEmpty(condition.condition)" :condition="condition.condition"></condition-display>
             </div>
           </div>
         </div>
@@ -186,7 +186,7 @@
               
               <div v-if="isSettlementExpanded('settlementPrior', index)">
                 <!-- 使用统一的条件显示组件 -->
-                <condition-display v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>
+                <condition-display :riteId="event.id" v-if="isNotNullOrEmpty(item.condition)" :condition="item.condition"></condition-display>
                 
                 <!-- 使用统一的结果显示组件 -->
                 <result-display  :riteId="event.id" v-if="isNotNullOrEmpty(item.result)" :result="item.result"></result-display>
@@ -217,7 +217,7 @@
               
               <div v-if="isSettlementExpanded('settlementPrior', index)">
                 <!-- 使用统一的条件显示组件 -->
-                <condition-display v-if="item.condition" :condition="item.condition"></condition-display>
+                <condition-display :riteId="event.id" v-if="item.condition" :condition="item.condition"></condition-display>
                 
                 <!-- 使用统一的结果显示组件 -->
                 <result-display  :riteId="event.id" v-if="item.result" :result="item.result"></result-display>
@@ -276,7 +276,7 @@
           <span class="toggle-icon">{{ expandedSections.on ? '▼' : '►' }}</span>
         </div>
         <div class="card-content" v-if="expandedSections.on">
-          <condition-display v-if="event.on" :condition="event.on"></condition-display>
+          <condition-display :riteId="event.id" v-if="event.on" :condition="event.on"></condition-display>
         </div>
       </div>
       
@@ -288,7 +288,7 @@
         </div>
         <div class="card-content" v-if="expandedSections.condition">
           <!-- 使用统一的条件显示组件 -->
-          <condition-display v-if="event.condition" :condition="event.condition"></condition-display>
+          <condition-display :riteId="event.id" v-if="event.condition" :condition="event.condition"></condition-display>
         </div>
       </div>
     </div>
