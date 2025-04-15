@@ -1144,3 +1144,169 @@ export async function getAllRiteSlots(riteId) {
     return null;
   }
 }
+
+
+// 添加一个变量来缓存后日谈数据
+let afterStoriesData = null;
+
+// 加载后日谈数据
+export async function loadAfterStoryById(afterStoryId) {
+  try {
+    // 使用require加载JSON文件
+    const response = require(`raw-loader!@/assets/config/after_story/${afterStoryId}.json`).default;
+    
+    // 处理JSON内容 - 处理module.exports包装
+    let jsonContent = response;
+    if (jsonContent.startsWith('module.exports = ')) {
+      jsonContent = jsonContent.substring(16);
+    }
+    
+    // 移除字符串首尾的引号和分号
+    jsonContent = jsonContent.trim();
+    if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 2);
+    } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 1);
+    }
+    
+    // 处理转义字符
+    jsonContent = jsonContent.replace(/\\"/g, '"');
+    jsonContent = jsonContent.replace(/\\n/g, '\n');
+    jsonContent = jsonContent.replace(/\\r/g, '');
+    jsonContent = jsonContent.replace(/\\t/g, '');
+    
+    try {
+      // 先尝试直接解析，这适用于格式良好的JSON
+      const afterStoryData = JSON.parse(jsonContent);
+      return afterStoryData;
+    } catch (directParseError) {
+      // console.log(`直接解析后日谈 ${afterStoryId} 失败，尝试使用自定义解析器:`, directParseError);
+      
+      // 如果直接解析失败，尝试使用我们的自定义解析器
+      try {
+        // 使用自定义解析器处理带注释的JSON
+        const afterStoryData = parseJsonWithComments(jsonContent);
+        if (afterStoryData) {
+          // 确保extra字段是数组
+          if (afterStoryData.extra && !Array.isArray(afterStoryData.extra)) {
+            afterStoryData.extra = Object.values(afterStoryData.extra);
+          }
+          return afterStoryData;
+        }
+      } catch (parseError) {
+        console.error(`解析后日谈 ${afterStoryId} 失败:`, parseError);
+        
+        // 最后的尝试：手动提取关键信息
+        try {
+          // 提取关键信息
+          const idMatch = /"id"\s*:\s*(\d+)/.exec(jsonContent);
+          const nameMatch = /"name"\s*:\s*"([^"]*)"/.exec(jsonContent);
+          const extraItems = [];
+          
+          // 尝试提取extra数组中的项目
+          const extraRegex = /"key"\s*:\s*"([^"]*)".+?"result_text"\s*:\s*"([^"]*)"/gs;
+          let extraMatch;
+          while ((extraMatch = extraRegex.exec(jsonContent)) !== null) {
+            extraItems.push({
+              key: extraMatch[1],
+              result_text: extraMatch[2]
+            });
+          }
+          
+          return {
+            id: idMatch ? parseInt(idMatch[1]) : afterStoryId,
+            name: nameMatch ? nameMatch[1] : `后日谈 ${afterStoryId}`,
+            extra: extraItems,
+            _parseError: true,
+            _originalContent: jsonContent
+          };
+        } catch (finalError) {
+          console.error(`最终解析后日谈 ${afterStoryId} 失败:`, finalError);
+        }
+      }
+    }
+    
+    return null;
+  } catch (e) {
+    console.error(`加载后日谈 ${afterStoryId} 失败:`, e);
+    return null;
+  }
+}
+
+// 获取所有后日谈列表
+export async function getAfterStories() {
+  if (afterStoriesData !== null) {
+    return afterStoriesData;
+  }
+  
+  try {
+    // 通过遍历文件夹获取后日谈数据
+    const afterStoryFiles = require.context('@/assets/config/after_story', false, /\.json$/);
+    const fileList = afterStoryFiles.keys();
+    
+    // 处理文件列表并加载数据
+    afterStoriesData = await Promise.all(
+      fileList.map(async (filePath) => {
+        // 从文件路径中提取ID
+        const fileId = filePath.replace(/^\.\//, '').replace(/\.json$/, '');
+        
+        try {
+          // 尝试加载完整数据以获取更准确的信息
+          const afterStoryData = await loadAfterStoryById(fileId);
+          
+          if (afterStoryData) {
+            return {
+              id: fileId,
+              name: afterStoryData.name || `后日谈 ${fileId}`,
+              text: afterStoryData.text || (afterStoryData.extra && afterStoryData.extra.length > 0 ? 
+                     afterStoryData.extra[0].result_text : ''),
+              type: 'after_story',
+              extraCount: afterStoryData.extra ? afterStoryData.extra.length : 0
+            };
+          }
+          
+          // 如果加载失败，尝试提取基本信息
+          const fileContent = afterStoryFiles(filePath).default;
+          
+          // 提取基本信息
+          let jsonContent = fileContent;
+          if (jsonContent.startsWith('module.exports = ')) {
+            jsonContent = jsonContent.substring(16);
+          }
+          
+          // 移除字符串首尾的引号和分号
+          jsonContent = jsonContent.trim();
+          if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
+            jsonContent = jsonContent.substring(1, jsonContent.length - 2);
+          } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
+            jsonContent = jsonContent.substring(1, jsonContent.length - 1);
+          }
+          
+          // 提取基本信息
+          const nameMatch = /"name"\s*:\s*"([^"]*)"/.exec(jsonContent);
+          const textMatch = /"result_text"\s*:\s*"([^"]*)"/.exec(jsonContent);
+          
+          return {
+            id: fileId,
+            name: nameMatch ? nameMatch[1] : `后日谈 ${fileId}`,
+            text: textMatch ? textMatch[1] : '',
+            type: 'after_story'
+          };
+        } catch (e) {
+          console.error(`提取后日谈 ${fileId} 基本信息失败:`, e);
+          return {
+            id: fileId,
+            name: `后日谈 ${fileId}`,
+            text: '加载失败',
+            type: 'after_story'
+          };
+        }
+      })
+    );
+    
+    return afterStoriesData;
+  } catch (e) {
+    console.error('加载后日谈列表失败:', e);
+    return [];
+  }
+}

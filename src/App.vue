@@ -49,6 +49,13 @@
               结局
             </button>
             <button 
+              @click="filterByType('after_story')" 
+              class="type-filter-button" 
+              :class="{'active': activeTypeFilter === 'after_story'}"
+            >
+              后日谈
+            </button>
+            <button 
               @click="filterByType('all')" 
               class="type-filter-button" 
               :class="{'active': activeTypeFilter === 'all'}"
@@ -65,7 +72,7 @@
           v-for="event in currentPageEvents" 
           :key="event.id" 
           class="event-list-item"
-          @click="event.type === 'over' ? showOverDetails(event.id) : loadEventAsRoot(event.id, event.type)"
+          @click="handleItemClick(event)"
         >
           <div class="event-list-id">{{ event.id }}</div>
           <div class="event-list-type" :class="'type-' + event.type">{{ getTypeLabel(event.type) }}</div>
@@ -166,6 +173,7 @@
     <loot-details-modal />
     <SlotDetailsModal />
     <OverDetailsModal />
+    <AfterStoryDetailsModal />
 
   </div>
 </template>
@@ -183,19 +191,21 @@ import RiteDetailsModal from '@/components/RiteDetailsModal.vue';
 import LootDetailsModal from '@/components/LootDetailsModal.vue';
 import SlotDetailsModal from '@/components/SlotDetailsModal.vue';
 import eventBus from '@/utils/eventBus';
+import AfterStoryDetailsModal from '@/components/AfterStoryDetailsModal.vue';
+
 
 import { 
   handleDuplicateKeys, 
   loadEventData, 
   loadGameDataIndex,
   getEventsByType,
-  loadOversData
+  loadOversData,
+  getAfterStories
 } from './services/eventService';
 
 export default {
   name: 'App',
   components: {
-    // 现有组件
     EventDetailsModal,
     RiteDetailsModal,
     SlotDetailsModal,
@@ -203,6 +213,7 @@ export default {
     EventTreeNode,
     LootDetailsModal,
     OverDetailsModal,
+    AfterStoryDetailsModal,
     EventDetails
   },
   setup() {
@@ -211,7 +222,8 @@ export default {
         'event': '事件',
         'rite': '仪式',
         'loot': '战利品',
-        'over': '结局'
+        'over': '结局',
+        'after_story': '后日谈'
       };
       return typeMap[type] || type;
     };
@@ -301,6 +313,23 @@ export default {
       currentPage.value = 1;
     };
     
+    // 处理列表项点击
+    const handleItemClick = (event) => {
+      if (event.type === 'over') {
+        showOverDetails(event.id);
+      } else if (event.type === 'after_story') {
+        showAfterStoryDetails(event.id);
+      } else {
+        loadEventAsRoot(event.id, event.type);
+      }
+    };
+
+    // 显示后日谈详情
+    const showAfterStoryDetails = (afterStoryId) => {
+      console.log(`显示后日谈详情:`, afterStoryId);
+      eventBus.emit('show-after-story-details', afterStoryId);
+    };
+
     // 跳转到最后一页
     const goToLastPage = () => {
       currentPage.value = totalPages.value;
@@ -368,6 +397,19 @@ export default {
           combinedEvents = [...combinedEvents, ...allEventsCache.value['over']];
         }
         
+        // 加载后日谈数据
+        if (!allEventsCache.value['after_story']) {
+          try {
+            const afterStories = await getAfterStories();
+            allEventsCache.value['after_story'] = afterStories;
+            combinedEvents = [...combinedEvents, ...afterStories];
+          } catch (e) {
+            console.error('加载后日谈数据失败:', e);
+          }
+        } else {
+          combinedEvents = [...combinedEvents, ...allEventsCache.value['after_story']];
+        }
+        
         // 更新事件列表
         allEvents.value = combinedEvents;
         
@@ -380,6 +422,7 @@ export default {
         isLoading.value = false;
       }
     };
+    
     
     // 加载事件作为根节点
     const loadEventAsRoot = async (eventId, type) => {
@@ -485,13 +528,15 @@ export default {
       goToLastPage,
       currentPageEvents,
       showOverDetails,
+      showAfterStoryDetails,
       loadEventAsRoot,
       backToList,
       listFilter,
       filteredEvents,
       activeTypeFilter,
       filterByType,
-      selectFirstRiteNode, // 添加新方法到返回值中
+      selectFirstRiteNode,
+      handleItemClick, // 添加新方法
     };
   }
 }
@@ -927,6 +972,9 @@ export default {
   border-color: #d0d0d0;
 }
 
-/* 其他现有样式保持不变 */
+/* 添加后日谈类型样式 */
+.type-after_story {
+  background-color: #8e44ad; /* 深紫色，用于后日谈类型 */
+}
 
 </style>
