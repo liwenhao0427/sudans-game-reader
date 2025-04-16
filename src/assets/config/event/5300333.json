@@ -1,25 +1,23 @@
 {
-    "id": 5300333,
-    "text": "舞姬偷戒指事发",     
-    "is_replay": 0, //是否可以重复触发
-    "auto_start": false,
-    "start_trigger": false, // 是否启动就立即开始校验条件
-    "on":{   //时机
-        "round_begin_ba":3
-    },
-    "condition":{  //条件
-    },
-    "settlement": [    //效果 
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{
-                "rite":5001104,
-                "failed":{
-                    "event_on":5300334 //重试
-                }
-            }
+  "id": 5300333,
+  "text": "舞姬偷戒指事发",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 3
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "rite": 5001104,
+        "failed": {
+          "event_on": 5300334
         }
-
-    ]
+      }
+    }
+  ]
 }

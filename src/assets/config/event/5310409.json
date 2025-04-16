@@ -1,25 +1,26 @@
 {
-        "id": 5310409,
-        "text": "结局-逃跑-最后的苏丹卡",
-        "is_replay": 0, 
-        "auto_start": false, 
-        "start_trigger": false,  //立即触发
-        "on":{   
-            "rite_end": 5010001
-        },
-        "condition":{
-        },
-        "settlement": [    
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{     
-                "event_on":5310403,
-                "event_on":5310404,
-                "event_on":5310405,
-                "event_on":5310406,
-                "event_on":5310407
-            }
-            }
+  "id": 5310409,
+  "text": "结局-逃跑-最后的苏丹卡",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "rite_end": 5010001
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "event_on": [
+          5310403,
+          5310404,
+          5310405,
+          5310406,
+          5310407
         ]
-    } 
+      }
+    }
+  ]
+}

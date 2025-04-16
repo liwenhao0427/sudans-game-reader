@@ -1,440 +1,432 @@
 {
-    //  系统配置项, 直接获取并有对应处理的
-
-    //  配置版本, 目前就直接用一个当前时间的时间戳来标记了
-    //  特定版本升级的时候提一下就好, 平常不用动
-    "configVersion": 20241207130815,
-
-    //  默认语言代码, 这个主要是方便正确处理异常
-    "default_language_code": "en",
-    "support_language": {
-        "zhCN": "<font=\"xiquemuye SDF\"><size=22>简体中文</size></font>",
-        "zhTW": "<font=\"xiquemuye SDF\"><size=22>繁體中文</size></font>",
-        "en": "<font=\"en/Altinn-DINCondensed SDF\"><size=22>English</size></font>",
-        "ja": "<font=\"ja/font_1_kokumr_1.00_rls SDF\"><size=22>日本語</size></font>",
-    },
-    "language_code_map": {
-        //  unity system language 映射(但是貌似没法映射繁体中文)
-        "ChineseSimplified": "zhCN",
-        "ChineseTraditional": "zhTW",
-        "Chinese": "zhCN",
-        "Unknown": "en",
-        "English": "en",
-        "Japanese": "ja",
-
-        //  steam多语言代码映射
-        "schinese": "zhCN",
-        "tchinese": "zhTW",
-        "english": "en",
-        "japanese": "ja"
-    },
-    "card_state_icon": {
-        "hurt": "card_state/state_hurt",
-        "traces_of_desire": "card_state/state_sex",
-        "cursed": "card_state/state_cursed",
-        "sick": "card_state/state_sick",
-        "sacrifices": "card_state/staet_sacrifices"
-    },
-    "support_fullScreen": [
-        "ExclusiveFullScreen",
-        "Windowed"
+  "configVersion": 20241207130815,
+  "default_language_code": "en",
+  "support_language": {
+    "zhCN": "<font=\"xiquemuye SDF\"><size=22>简体中文</size></font>",
+    "zhTW": "<font=\"xiquemuye SDF\"><size=22>繁體中文</size></font>",
+    "en": "<font=\"en/Altinn-DINCondensed SDF\"><size=22>English</size></font>",
+    "ja": "<font=\"ja/font_1_kokumr_1.00_rls SDF\"><size=22>日本語</size></font>"
+  },
+  "language_code_map": {
+    "ChineseSimplified": "zhCN",
+    "ChineseTraditional": "zhTW",
+    "Chinese": "zhCN",
+    "Unknown": "en",
+    "English": "en",
+    "Japanese": "ja",
+    "schinese": "zhCN",
+    "tchinese": "zhTW",
+    "english": "en",
+    "japanese": "ja"
+  },
+  "card_state_icon": {
+    "hurt": "card_state/state_hurt",
+    "traces_of_desire": "card_state/state_sex",
+    "cursed": "card_state/state_cursed",
+    "sick": "card_state/state_sick",
+    "sacrifices": "card_state/staet_sacrifices"
+  },
+  "support_fullScreen": [
+    "ExclusiveFullScreen",
+    "Windowed"
+  ],
+  "support_resolution": {
+    "2560x1440": [
+      2560,
+      1440
     ],
-    "support_resolution": {
-        "2560x1440":[2560, 1440],
-        "1920x1080":[1920, 1080],
-        "1600x900":[1600, 900],
-        "1280x800":[1280, 800], //  for steam deck
-        "1280x720":[1280, 720],
-        "800x600":[800, 600]
-    },
-    "support_font_size": {
-        "FONT_SIZE_XS": "sm",
-        "FONT_SIZE_SM": "md",
-        "FONT_SIZE_MD": "lg",
-        "FONT_SIZE_LG": "xl",
-        "FONT_SIZE_XL": "xxl",
-        // "FONT_SIZE_XXL": "xxl"
-    },
-    "ui_size": {
-        "xs": 0.9,
-        "sm": 0.95,
-        "md": 1,
-        "lg": 1.1,
-        "xl": 1.2,
-        "xxl": 1.3
-    },
-    "pop_show_time": 5,
-    "hover_pop_show_delay": 0.5,
-    //  结果文本播放倍率[0.5~10.0]
-    "result_text_play_rate": 1.0,
-    "result_text_auto_play_rate": 15.0,
-    //  是否显示收藏
-    "show_gallery": true,
-    //  音乐切换时长
-    "music_transition_time": 4,
-    // 测试用，自动归类开关
-    "auto_classify": false,
-    // 测试用，四个卡牌栏位自动归类整理的tag
-    "auto_classify_bag_tags":
+    "1920x1080": [
+      1920,
+      1080
+    ],
+    "1600x900": [
+      1600,
+      900
+    ],
+    "1280x800": [
+      1280,
+      800
+    ],
+    "1280x720": [
+      1280,
+      720
+    ],
+    "800x600": [
+      800,
+      600
+    ]
+  },
+  "support_font_size": {
+    "FONT_SIZE_XS": "sm",
+    "FONT_SIZE_SM": "md",
+    "FONT_SIZE_MD": "lg",
+    "FONT_SIZE_LG": "xl",
+    "FONT_SIZE_XL": "xxl"
+  },
+  "ui_size": {
+    "xs": 0.9,
+    "sm": 0.95,
+    "md": 1,
+    "lg": 1.1,
+    "xl": 1.2,
+    "xxl": 1.3
+  },
+  "pop_show_time": 5,
+  "hover_pop_show_delay": 0.5,
+  "result_text_play_rate": 1.0,
+  "result_text_auto_play_rate": 15.0,
+  "show_gallery": true,
+  "music_transition_time": 4,
+  "auto_classify": false,
+  "auto_classify_bag_tags": [
     [
-        ["char", "sudan"],
-        ["consumable"],
-        ["equipment"]
+      "char",
+      "sudan"
     ],
-    //
-    "special_counters": [
-        7100001,
-        7100002,
-        7100003,
-        7100004,
-        7100005,
-        7100006,    //  金骰子
-        7100007,    //  回到上一回合次数
-        7100008     //  苏丹卡可重抽次数
+    [
+      "consumable"
     ],
-    "show_note_type":[
-        [1],
-        [2, 3],
-        [4, 10001, 10002]
+    [
+      "equipment"
+    ]
+  ],
+  "special_counters": [
+    7100001,
+    7100002,
+    7100003,
+    7100004,
+    7100005,
+    7100006,
+    7100007,
+    7100008
+  ],
+  "show_note_type": [
+    [
+      1
     ],
-    //  目标帧率
-    "target_fps": 45,
-    "begin_guide_sprites":{
-        "MouseWheel":[
-            "mouse_wheel_1",
-            "mouse_wheel_2"
-        ],
-        "Arrow":[
-            "arrow_1",
-            "arrow_2"
-        ],
-        "ArrowUp":[
-            "arrow_up_1",
-            "arrow_up_2"
-        ],
-         "ArrowLeft":[
-            "arrow_left_1",
-            "arrow_left_2"
-        ],
-        "ArrowRight":[
-            "arrow_right_1",
-            "arrow_right_2"
-        ],
-        "MouseRightClick":[
-            "mouse_click_1",
-            "mouse_right_click"
-        ],
-        "MouseLeftClick":[
-            "mouse_click_1",
-            "mouse_left_click"
-        ],
-        "MouseDrag":[
-            "mouse_drag_1",
-            "mouse_drag_2"
-        ]
+    [
+      2,
+      3
+    ],
+    [
+      4,
+      10001,
+      10002
+    ]
+  ],
+  "target_fps": 45,
+  "begin_guide_sprites": {
+    "MouseWheel": [
+      "mouse_wheel_1",
+      "mouse_wheel_2"
+    ],
+    "Arrow": [
+      "arrow_1",
+      "arrow_2"
+    ],
+    "ArrowUp": [
+      "arrow_up_1",
+      "arrow_up_2"
+    ],
+    "ArrowLeft": [
+      "arrow_left_1",
+      "arrow_left_2"
+    ],
+    "ArrowRight": [
+      "arrow_right_1",
+      "arrow_right_2"
+    ],
+    "MouseRightClick": [
+      "mouse_click_1",
+      "mouse_right_click"
+    ],
+    "MouseLeftClick": [
+      "mouse_click_1",
+      "mouse_left_click"
+    ],
+    "MouseDrag": [
+      "mouse_drag_1",
+      "mouse_drag_2"
+    ]
+  },
+  "harmonious_replacer": {
+    "cards_2010001": "safe/cards/2010001",
+    "cards_2010002": "safe/cards/2010001",
+    "cards_2010003": "safe/cards/2010001",
+    "cards_2010004": "safe/cards/2010001",
+    "cards_2000513": "safe/cards/2010001",
+    "cards_2000500": "safe/cards/2000500",
+    "cards_2000770": "safe/cards/2000770",
+    "cards_2000772": "safe/cards/2000772",
+    "cards_2000851": "safe/cards/2000851",
+    "cards_2000852": "safe/cards/2000852",
+    "sudan_big_1_sudan_1": "safe/sudan_big/1_sudan_1",
+    "sudan_big_1_sudan_1_2": "safe/sudan_big/1_sudan_1_2",
+    "sudan_big_1_sudan_1_3": "safe/sudan_big/1_sudan_1_3",
+    "sudan_big_1_sudan_1_4": "safe/sudan_big/1_sudan_1_4",
+    "sudan_big_1_sudan_1_5": "safe/sudan_big/1_sudan_1_5",
+    "sudan_big_1_sudan_1_6": "safe/sudan_big/1_sudan_1_6",
+    "sudan_big_1_sudan_1_7": "safe/sudan_big/1_sudan_1_7",
+    "sudan_big_1_sudan_4_4": "safe/sudan_big/1_sudan_4_4",
+    "sudan_big_1_sudan_4_5": "safe/sudan_big/1_sudan_4_5",
+    "sudan_big_1_sudan_4_6": "safe/sudan_big/1_sudan_4_6",
+    "sudan_big_1_sudan_4_7": "safe/sudan_big/1_sudan_4_7",
+    "full_1_sudan_1": "full/safe/1_sudan_1",
+    "full_1_sudan_1_2": "full/safe/1/suand_1_2",
+    "full_1_sudan_4_2": "full/safe/1_sudan_4_2"
+  },
+  "contact": [
+    {
+      "id": "920132246",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=2YdAmnw_NE4yZS7CfWNM1Rv2hRmAKsAX&authKey=lxyp28%2BgfG1ZFDChn5yHf5Yih29J14aOpZqhfLrSUHKJFVa70KErmuJhJOyjhuzo&noverify=0&group_code=920132246",
+      "full": true
     },
-    //  替换
-    "harmonious_replacer": {
-        "cards/2010001": "safe/cards/2010001",
-        "cards/2010002": "safe/cards/2010001",
-        "cards/2010003": "safe/cards/2010001",
-        "cards/2010004": "safe/cards/2010001",
-        "cards/2000513": "safe/cards/2010001",
-
-        "cards/2000500": "safe/cards/2000500",
-        "cards/2000770": "safe/cards/2000770",
-        "cards/2000772": "safe/cards/2000772",
-        "cards/2000851": "safe/cards/2000851",
-        "cards/2000852": "safe/cards/2000852",
-        
-        "sudan_big/1_sudan_1": "safe/sudan_big/1_sudan_1",
-        "sudan_big/1_sudan_1_2": "safe/sudan_big/1_sudan_1_2",
-        "sudan_big/1_sudan_1_3": "safe/sudan_big/1_sudan_1_3",
-        "sudan_big/1_sudan_1_4": "safe/sudan_big/1_sudan_1_4",
-        "sudan_big/1_sudan_1_5": "safe/sudan_big/1_sudan_1_5",
-        "sudan_big/1_sudan_1_6": "safe/sudan_big/1_sudan_1_6",
-        "sudan_big/1_sudan_1_7": "safe/sudan_big/1_sudan_1_7",
-        "sudan_big/1_sudan_4_4": "safe/sudan_big/1_sudan_4_4",
-        "sudan_big/1_sudan_4_5": "safe/sudan_big/1_sudan_4_5",
-        "sudan_big/1_sudan_4_6": "safe/sudan_big/1_sudan_4_6",
-        "sudan_big/1_sudan_4_7": "safe/sudan_big/1_sudan_4_7",
-        "full/1_sudan_1": "full/safe/1_sudan_1",
-        "full/1_sudan_1_2": "full/safe/1/suand_1_2",
-        "full/1_sudan_4_2": "full/safe/1_sudan_4_2"
+    {
+      "id": "512807267",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=G8R_KWj8XLdx3iEmuySMgjKmht4aZg0h&authKey=xiPqCD%2B4tHnULT6awmi6lNa0q6IqpjwoPWqLJjuuVYXSxgT29%2B6sIrggwCUY8Szj&noverify=0&group_code=512807267",
+      "full": true
     },
-    //  联系方式, 方便后续直接更新调整
-    "contact": [
-        {
-            "id": "920132246",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=2YdAmnw_NE4yZS7CfWNM1Rv2hRmAKsAX&authKey=lxyp28%2BgfG1ZFDChn5yHf5Yih29J14aOpZqhfLrSUHKJFVa70KErmuJhJOyjhuzo&noverify=0&group_code=920132246",
-            "full": true
-        },
-        {
-            "id": "512807267",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=G8R_KWj8XLdx3iEmuySMgjKmht4aZg0h&authKey=xiPqCD%2B4tHnULT6awmi6lNa0q6IqpjwoPWqLJjuuVYXSxgT29%2B6sIrggwCUY8Szj&noverify=0&group_code=512807267",
-            "full": true
-        },
-        {
-            "id": "441210279",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=8vvvR-p5k1TnUE_eN2RIGbS9wTqb8qs0&authKey=wBSm0mRG%2B7VAxpDMCzm2E4LQ0geSNkfBGuxx1gFiADUMTzBE9owzHxW7tb2UJdiw&noverify=0&group_code=441210279",
-            "full": true
-        },
-        {
-            "id": "439275425",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=QqcOhIfsseiMYoNz9fwpv_643hbQNoI4&authKey=QzVdN5bNL5lh4LtV0jdbJjrc1CgfW%2FhSFuIbATg2fVV647WwW57noxT6G%2FJx%2Bv4V&noverify=0&group_code=439275425",
-            "full": true
-        },
-        {
-            "id": "762819255",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=h8O1N2JvgN8BrFxarSxuN4VsK0qrFsUB&authKey=PUMBC6Nd5bCfcPCDzeqbJ7%2FquSkwBzJM2emPvhrK%2F2pgqy56mgY6EvJCMCpBuOo6&noverify=0&group_code=762819255",
-            "full": true
-        },
-        {
-            "id": "160709388",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=1BHHbBVIFRxa543RYV_QwmeKX-7aRnI8&authKey=RauK%2FHyex6BU8QiKKBx5HPi1C%2FFjWVjFjvzl5U3xxOmalIV2Af14Ol4MKaOrdSiU&noverify=0&group_code=160709388",
-            "full": true
-        },
-        {
-            "id": "461159718",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=rM4FsjmHx8Rh8XTqM1mQs4OkRg01Y17q&authKey=QkSg5xI07mIA%2Fb8lorG%2FC4JbaQ1RBfaIraxqOHhB%2F3Bh6519BUdXz5Bynmar5iDE&noverify=0&group_code=461159718",
-            "full": true
-        },
-        {
-            "id": "826423251",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=daCTN5_DeDjq-3CLxSy-5L2G860jzqbd&authKey=KxyGAMPodAVvm%2Bh1eNjXSaiy8mcbEVKV3%2BamX0%2BVcUk2nv7y2x%2FavrtBxB2y3irv&noverify=0&group_code=826423251",
-            "full": true
-        },
-        {
-            "id": "874134150",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=nE-Oe5YemhVv2VQx78DM51C4eay2bgNj&authKey=FjPa6GFiqthvy2rXHmG4VYn%2B%2BwpJnJY200X6eicMFwgnloZ6tBg%2BEGdYxjtJ%2BtTX&noverify=0&group_code=874134150",
-            "full": true
-        },
-        {
-            "id": "178833728",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=4l6l3ytKqom5dmuCx0RMO2xq6xSIGDmS&authKey=Drnvh14v0Sqk6%2FwGvb7t6cqYtKShC9XP4TugGsdty%2BC5rG5r0UWAuNKoer4AmAH7&noverify=0&group_code=178833728",
-            "full": true
-        },
-        {
-            "id": "941068372",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3_SSiz6ky8goMUuhHYMl28WReex2mpgi&authKey=j0wiuFq4gu7uCuPAvD5mbd%2BNDRASb%2F33f5UC1QYx0LkKzhfaBCqLA%2Fo6Yi64kmEb&noverify=0&group_code=941068372",
-            "full": true
-        },
-        {
-            "id": "237387011",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=C6GUXQ-mCpFHzj5sl2QYtK108uNtNU9P&authKey=ttXEqMgmiFj6rZgb6lekLaQ6Zgqm5KkjQv8FCDFBHX%2BOpOFLQ9iZIa4pozgacC1i&noverify=0&group_code=237387011",
-            "full": true
-        },
-        {
-            "id": "575915842",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=y-lv9NIrD-2rLipN_SxvJmQyhcj7BCRx&authKey=F5ulWCwJwkfAN8DjxxgPcrkz%2Fwd0p53zyLD14FCTX4WaYgGoD0Q8gFSUQmhvMztl&noverify=0&group_code=575915842",
-            "full": true
-        },
-        {
-            "id": "557226121",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=b36aTzgUAENbo5-0rlXg-5m_76qKq4RM&authKey=Qy4F10TlYj8ZL9Ld9Cg8LO7abSivg%2FzolmqLc9aHS7fMcrwXfqxXFsx25xYL%2BTTL&noverify=0&group_code=557226121",
-            "full": true
-        },
-        {
-            "id": "495342590",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=TIyYlxYz782Fe5CHczEIkZXgwvD_aFUu&authKey=eVC0ZsNMOhv8pq3Nrq2sjLpDEFYtc9gnavwnE%2FFbLx2oQfcWRmNditQzY9dk2vxv&noverify=0&group_code=495342590",
-            "full": true
-        },
-        {
-            "id": "556331370",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=sXYtiURt--sV4tH6jrHkxJPid0dgAQQ_&authKey=yw%2FMTOMBHFVBK83Hp4B1ZW7Vcty506iTaBUyhmBt83I2axgH6MZiXC6ZBRcTSoBG&noverify=0&group_code=556331370",
-            "full": true
-        },
-        {
-            "id": "839172670",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Pj5CZaJK_d4x4J4OHDbGFT23MCYlAkTm&authKey=ayLix7NYPCR1CG%2BrzYnrMySJZOk%2FohtAw8hEHqOMhN2yWVjVUvEy91aJB1RiXY%2B5&noverify=0&group_code=839172670",
-            "full": true
-        },
-        {
-            "id": "706049283",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=xSApUX6JDG5V_EGpLRxAcYN8oiZAeK9Q&authKey=8qNxKj%2B2e0B5bGYoBSwwQy9nAZJJHuRF1n%2FQK%2BN6SJikKmcFBqVm2bxWMEPiRmXD&noverify=0&group_code=706049283",
-            "full": true
-        },
-        {
-            "id": "715566613",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=yI6CbSsCCedmAuVwrnMeclOlSqczAafZ&authKey=RRa4WqbpPD6O%2F%2F159ApOuGeZXZr80u08VoDDhIgt1KQwwSJrD4gJYmLOZcOX6vVK&noverify=0&group_code=715566613",
-            "full": true
-        },
-        {
-            "id": "758091580",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XW7jVGKvq-6TuOydS0ZxDZ-ImcHRr9lW&authKey=bfa%2BX%2FvFrDUrY9U1yLeR%2BqWaV62nAaVyJenRUMCRiIuXQ5CvCbM4fYKyBA5%2F9LUV&noverify=0&group_code=758091580",
-            "full": true
-        },
-        {
-            "id": "701489834",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=_xBOV7p-dkyyci2tqkd9xA9AYFxui4eA&authKey=h6KSbs2Czwk3SiMOTRzhSGZy2dsRWxiCOF44nLXqHXAyZqj340sEvOUjym2lb9XB&noverify=0&group_code=701489834",
-            "full": true
-        },
-        {
-            "id": "719844174",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5wymH5eKjoTGHqt9QXbYE4AlktuzPZHg&authKey=azF6j%2FyNiaBc8ZTkgcAxhgg98xbXPhH9%2BrX%2BmjORKcF5gV9e2UAPzb0xDBbONo04&noverify=0&group_code=719844174",
-            "full": true
-        },
-        {
-            "id": "716832728",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=y-revsUkig3g6rT6m_ZOX5rJzo1W13eK&authKey=1NsHM07TlttDoJhrhjg352M7DotT4p7hHqhVb%2F6bkzLVxNxedzReWXSe%2BH%2BRNV%2B1&noverify=0&group_code=716832728",
-            "full": true
-        },
-        {
-            "id": "719662265",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=UwdGp1PZTidlOmq0cVXeljekNeDewVkX&authKey=NraxsvUKlEk2EszKzRk2%2BWwhXxOh6dGX514t9hfJExTuw8Sx5v1G1Ni9QDXl29nP&noverify=0&group_code=719662265",
-            "full": true
-        },
-        {
-            "id": "160892816",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=4m8-P0OJX7mFasYnA_ZkXgVHVvOh47rR&authKey=ypegzZSReLCC5b6vQuB4rGJPGqo6FSYsYvDgjwptzcH5PlqULA%2Bg451vUW1Nl%2BUx&noverify=0&group_code=160892816",
-            "full": true
-        },
-        {
-            "id": "750966350",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XIpRE2rhYUHBtVrnCy9lzu3XaAIR8gN8&authKey=ZsrNLiEz6uS4CTyjyxSm6zFs1Ut7Djtsjb%2Fh8bGz9Thq8tBLf6%2FLUNHrgeGIqhU0&noverify=0&group_code=750966350",
-            "full": true
-        },
-        {
-            "id": "735118422",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=59pzPooxxbTm6RYFzmalAksm75uDzK2p&authKey=0gWbSzRSoqSVmJ6U1MkWpeBsEGQ4KI3vmUIJs3MceWPRz3VczHe%2Fb2rUmu%2BcTVhd&noverify=0&group_code=735118422",
-            "full": true
-        },
-        {
-            "id": "739564403",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=d9CWCVBAWE7fAqss8wABp_6HXEp5AKlj&authKey=NJu9Iwi71m1qzla%2FHbZN9cW4%2Ftu8Y0YYKTxnHlBrxsKuXFK8RId66HcJZiVP2tD2&noverify=0&group_code=739564403",
-            "full": true
-        },
-        {
-            "id": "237963493",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3K3H14uT1FhUQXjpZJtGzOfPjRxjEbkb&authKey=PPeXjMVAO%2BP2%2BJR9D%2Bo8EwTAixOXvCA9KE0jqYHRMgzT0m7iCcVnjaTprk7QLQpu&noverify=0&group_code=237963493",
-            "full": true
-        },
-        {
-            "id": "749204872",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=seMIY6xRbd6j8H28AJP8WFqKPtJwJUHn&authKey=80epTGm7rt7BUeC1Ol7dRM03Oxctbdxhkvwj6Z%2BcjrtLdelm8ROEKRFe6poy2W0r&noverify=0&group_code=749204872",
-            "full": true
-        },
-        {
-            "id": "592812973",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=KzqcyuUyTCHxuwuYQcfilC2Px6l_CScF&authKey=TNt5RdCz0CRRoOz1N4DLGtamArGAKBRpYItYKXdwIxvkfCaeVdL2pAnLtwQhmEg1&noverify=0&group_code=592812973",
-            "full": true
-        },
-        {
-            "id": "186069010",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=_L19nOk9pUXO4-VSzf5hc7WNZGfjA5Rv&authKey=T5V%2BGvcW0vGc9pdtLKaAWuE8gYjrViHGSSaBeFyq1PEHGyuaGt0vWo1mk34onsi4&noverify=0&group_code=186069010",
-            "full": true
-        },
-        {
-            "id": "584314219",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=YsfPuSIZR3AF_uDGM8YsGAQjVwA92nkv&authKey=LsUiphNsl%2Bosf%2B89dfjlvsQOKhdkAllvg%2FhaU5FsoplSIOp0uSLwAVBcoVduqwg9&noverify=0&group_code=584314219",
-            "full": true
-        },
-        {
-            "id": "608430069",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=P1kHufuWLS1hBt5exx0wgl4Q4O6XNlhF&authKey=ACZiFuqs5SLpoMZrPiwmeOCSkNteexUhoUAET%2BkOu33xm6z8HnG0slNljcMSpwtC&noverify=0&group_code=608430069",
-            "full": true
-        },
-        {
-            "id": "595357565",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=bDsNjajFkUQ60Y4LqJ2KEyePq5lE_bBw&authKey=dDv4plYFi7nApRQNENQzX4DWPtQuUtegVEbVJojsEBTDLnUSJi3Or9c%2BVv%2FBO51v&noverify=0&group_code=595357565",
-            "full": true
-        },
-        {
-            "id": "595482361",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=zY9donqGdk2qLRkCVpZ73Wj1QXZ7EkF3&authKey=qjAxUR4JHECVYxDWiOpyADNz72BdoBd43HTFFvVHaTtfFSUOOqEe1h3W%2FiyiTky1&noverify=0&group_code=595482361",
-            "full": true
-        },
-        {
-            "id": "584025502",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ixr-BM8gJlEjFPm1qfIhmIlHZhcp9CCZ&authKey=cjYIOM87NTprJoO%2BC2nD%2BALYPya3uKnuoTNwd1gU39sWG3Tr5EBms7AzQxz5LYf9&noverify=0&group_code=584025502",
-            "full": true
-        },
-        {
-            "id": "571937148",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=lQ8d51a_xlTpYEdF8ZH-xd4PSt61j6eM&authKey=knXBpkUYazVfNUTGyqzBDWYP14piZioRA3CE5dvlUL3nnCxcYjksLxl%2FM34rfftI&noverify=0&group_code=571937148",
-            "full": true
-        },
-        {
-            "id": "605073265",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=sUs2-bF8G4W6iziTY5PkE4Id_ev7Cs_H&authKey=FuafeB3iXMaUtrfzi5fxNhnfxM2iVuoA0s%2BgffefcQo5zNzxLQAb5z48bxg%2BOeej&noverify=0&group_code=605073265",
-            "full": true
-        },
-        {
-            "id": "603870735",
-            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=gHSERFj2otfOIFXh2emGT2klKe-yhX36&authKey=IRYciSbZCvDNR%2Bi%2FASuDC2C7mgeEC5FW%2FlD28a6VUQ9a6S%2F0W6tw5pILGo%2FoAhuV&noverify=0&group_code=603870735",
-            "full": true
-        },
-    ],
-
-    //  以下都是非系统参数配置, 可能需要多语言翻译的
-    "REDRAW_NOTICE": "<line-height=-2.1em><align=right><voffset=-2><size=120><link=\"redraw\"><sprite=4></link></size></voffset> <b>x</b><voffset=10><size=80>{1}</size></voffset>\t</align>\n</line-height>",
-    "REDRAW_NOTICE_NUMBER_NAME": "number_5",
-    "START_UI_START_GAME_BUTTON_BG": "ss://i18n/zhCN/ui/start_ui_start_game_button_bg.png",
-    "RITE_PANEL_TITLE": "<mspace=76>{0}</mspace>",
-    "RITE_PANEL_OPEN_TIPS_CONTENT": "<size=100><sprite=35></size><color=#FF0000><indent=120>{0}</indent></color>\n",
-    "RITE_PANEL_TIPS_TEXT_HEADER": "<line-height=100%>\n<align=center><sprite=3></align>\n",
-    "RITE_PANEL_TIPS_TEXT_ICON": "<size=100><sprite=12></size><color=#FCE29A>",
-    "RITE_PANEL_TIPS_TEXT_CONTENT": "<indent=120>{0}</indent>\n",
-    "RITE_PANEL_TIPS_TEXT_FOOT": "</color></line-height>",
-    "MAIN_UI_TITLE_FORMAT": "<mspace=1em>{0}</mspace>",
-    "MAIN_UI_TITLE_NUMBER_FORMAT": "<space=0.1em><mspace=0.8em>{0}</mspace><space=0.1em>",
-    "MAIN_UI_TITLE_SUDAN_IN_RITE_NUMBER_FORMAT": "<space=0.1em><mspace=0.8em><color=#f0f0f0>{0}</color></mspace><space=0.1em>",
-    // 主界面倒计时相关
-    "MAIN_UI_TITLE_NUMBER_FORMAT_RED": "<color=red>{0}</color>",
-    "MAIN_UI_TITLE_NUMBER_NOMAL": "<sprite=7><sprite=7><sprite=7><sprite=7><sprite=7><sprite=4>",
-    "MAIN_UI_TITLE_NUMBER_TODAY": "<sprite=7><sprite=7><sprite=7><sprite=7><sprite=7><sprite=2>",
-    "MAIN_UI_TITLE_NUMBER_LAST": "<sprite=6><sprite=6><sprite=6><sprite=6><sprite=6><sprite=6>",
-    "MAIN_UI_TITLE_NUMBER_RED": "<sprite=6><sprite=6><sprite=6><sprite=6><sprite=6><sprite=5>",
-    "MAIN_UI_TITLE_NUMBER_RED_TODAY": "<sprite=6><sprite=6><sprite=6><sprite=6><sprite=6><sprite=3>",
-
-    "START_UI_LOGO": "Image/logo/logo_zhCN",
-    "OVER_UI_LOGO": "Image/logo/logo_zhCN",
-    "MAIN_UI_LEAVE": "Image/main_new/Leave_zhCN",
-    "NEXT_DAY": "Image/main_new/next_day",
-    "NEXT_DAY_HOVER": "Image/main_new/next_day_hover",
-
-    "SETTLEMENT_CURRENT_DICE": "Image/rite/settlement_current_dice",
-    "SETTLEMENT_NEED_ATTRIBUTE": "Image/rite/settlement_need_attribute",
-
-    "CARD_TAG_CAN_ADD_FORMAT": "{0}<indent=70%>{1}</indent>",
-    "CARD_TAG_CANNOT_ADD_FORMAT": "{0}<indent=70%>{1}</indent>",
-    "CARD_TAG_POSITIVE_VALUE_FORMAT": "<color=yellow>{0}</color>",
-    "CARD_TAG_NEGATIVE_VALUE_FORMAT": "<color=red>{0}</color>",
-    "CARD_TAG_ZERO_VALUE_FORMAT": "{0}",
-
-    "START_NOTICE_FORMAT": "<line-height=108%>{0}",
-
-    "STORY_TARGET_ITEM_UNFINISH_FORMAT": "{0} <color=red>({1})</color>",
-    "STORY_TARGET_ITEM_UNFINISH_NO_NUMBER_FORMAT": "{0}",
-    "STORY_TARGET_ITEM_FINISH_FORMAT": "<s> {0} </s>",
-
-    //  幕后机制额外结果, 结果分隔符
-    "PROMPT_RESULT_SEPERATOR": "\n",
-
-    //  仪式结算金骰子增加数量格式
-    "RITE_RESULT_DICE_COUNT_PROMPT_GOLD_PLUS_COUNT": "x {0}",
-
-    "RITE_SETTLEMENT_RESULT_TEXT_FORMAT": "{0}",
-    "RITE_SETTLEMENT_RESULT_DICE_TEXT_FORMAT": "<sprite=2><indent=120>{0}",
-    "RITE_SETTLEMENT_RESULT_TITLE_FORMAT": "<sprite=1><indent=80><size=+10><font=\"Title SDF\">{0}</font></size></indent>",
-    "RITE_SETTLEMENT_RESULT_DICE_WAITING": "<sprite=2><indent=120><sprite anim=\"5,11,4\">  <sprite anim=\"14,15,3\"></indent>",
-    "RITE_SETTLEMENT_RESULT_NORMAL_WAITING": "<sprite=0><indent=80><sprite anim=\"5,11,3\">  <sprite anim=\"14,15,3\"></indent>",
-
-    "QUEST_FAVOUR_TEXT_FORMAT": "<indent=30%>\n\n\n\n<i><color=#A28E58>{0}</color></i>",
-
-    "PRESTIGE_CHANGE_POSITIVE": "<color=#FFDD00>+{0}</color>",
-    "PRESTIGE_CHANGE_NEGATIVE": "<color=#FF1600>-{0}</color>",
-
-    "OVER_STORY_TITLE_FORMAT": "<size=250%><color=#FFCF00>{0}</color></size>\n",
-
-    "OVER_PROMPT_FORMAT": "{0}\n{1}",
-
-    //  新手引导国际化转换
-    "slide/1-1": "slide/1-1",
-    "slide/1-2": "slide/1-2",
-    "slide/1-3": "slide/1-3",
-    "slide/1-4": "slide/1-4",
-
-    "gain": "shop/item_gain",
-    "buff": "shop/item_buff",
+    {
+      "id": "441210279",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=8vvvR-p5k1TnUE_eN2RIGbS9wTqb8qs0&authKey=wBSm0mRG%2B7VAxpDMCzm2E4LQ0geSNkfBGuxx1gFiADUMTzBE9owzHxW7tb2UJdiw&noverify=0&group_code=441210279",
+      "full": true
+    },
+    {
+      "id": "439275425",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=QqcOhIfsseiMYoNz9fwpv_643hbQNoI4&authKey=QzVdN5bNL5lh4LtV0jdbJjrc1CgfW%2FhSFuIbATg2fVV647WwW57noxT6G%2FJx%2Bv4V&noverify=0&group_code=439275425",
+      "full": true
+    },
+    {
+      "id": "762819255",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=h8O1N2JvgN8BrFxarSxuN4VsK0qrFsUB&authKey=PUMBC6Nd5bCfcPCDzeqbJ7%2FquSkwBzJM2emPvhrK%2F2pgqy56mgY6EvJCMCpBuOo6&noverify=0&group_code=762819255",
+      "full": true
+    },
+    {
+      "id": "160709388",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=1BHHbBVIFRxa543RYV_QwmeKX-7aRnI8&authKey=RauK%2FHyex6BU8QiKKBx5HPi1C%2FFjWVjFjvzl5U3xxOmalIV2Af14Ol4MKaOrdSiU&noverify=0&group_code=160709388",
+      "full": true
+    },
+    {
+      "id": "461159718",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=rM4FsjmHx8Rh8XTqM1mQs4OkRg01Y17q&authKey=QkSg5xI07mIA%2Fb8lorG%2FC4JbaQ1RBfaIraxqOHhB%2F3Bh6519BUdXz5Bynmar5iDE&noverify=0&group_code=461159718",
+      "full": true
+    },
+    {
+      "id": "826423251",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=daCTN5_DeDjq-3CLxSy-5L2G860jzqbd&authKey=KxyGAMPodAVvm%2Bh1eNjXSaiy8mcbEVKV3%2BamX0%2BVcUk2nv7y2x%2FavrtBxB2y3irv&noverify=0&group_code=826423251",
+      "full": true
+    },
+    {
+      "id": "874134150",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=nE-Oe5YemhVv2VQx78DM51C4eay2bgNj&authKey=FjPa6GFiqthvy2rXHmG4VYn%2B%2BwpJnJY200X6eicMFwgnloZ6tBg%2BEGdYxjtJ%2BtTX&noverify=0&group_code=874134150",
+      "full": true
+    },
+    {
+      "id": "178833728",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=4l6l3ytKqom5dmuCx0RMO2xq6xSIGDmS&authKey=Drnvh14v0Sqk6%2FwGvb7t6cqYtKShC9XP4TugGsdty%2BC5rG5r0UWAuNKoer4AmAH7&noverify=0&group_code=178833728",
+      "full": true
+    },
+    {
+      "id": "941068372",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3_SSiz6ky8goMUuhHYMl28WReex2mpgi&authKey=j0wiuFq4gu7uCuPAvD5mbd%2BNDRASb%2F33f5UC1QYx0LkKzhfaBCqLA%2Fo6Yi64kmEb&noverify=0&group_code=941068372",
+      "full": true
+    },
+    {
+      "id": "237387011",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=C6GUXQ-mCpFHzj5sl2QYtK108uNtNU9P&authKey=ttXEqMgmiFj6rZgb6lekLaQ6Zgqm5KkjQv8FCDFBHX%2BOpOFLQ9iZIa4pozgacC1i&noverify=0&group_code=237387011",
+      "full": true
+    },
+    {
+      "id": "575915842",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=y-lv9NIrD-2rLipN_SxvJmQyhcj7BCRx&authKey=F5ulWCwJwkfAN8DjxxgPcrkz%2Fwd0p53zyLD14FCTX4WaYgGoD0Q8gFSUQmhvMztl&noverify=0&group_code=575915842",
+      "full": true
+    },
+    {
+      "id": "557226121",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=b36aTzgUAENbo5-0rlXg-5m_76qKq4RM&authKey=Qy4F10TlYj8ZL9Ld9Cg8LO7abSivg%2FzolmqLc9aHS7fMcrwXfqxXFsx25xYL%2BTTL&noverify=0&group_code=557226121",
+      "full": true
+    },
+    {
+      "id": "495342590",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=TIyYlxYz782Fe5CHczEIkZXgwvD_aFUu&authKey=eVC0ZsNMOhv8pq3Nrq2sjLpDEFYtc9gnavwnE%2FFbLx2oQfcWRmNditQzY9dk2vxv&noverify=0&group_code=495342590",
+      "full": true
+    },
+    {
+      "id": "556331370",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=sXYtiURt--sV4tH6jrHkxJPid0dgAQQ_&authKey=yw%2FMTOMBHFVBK83Hp4B1ZW7Vcty506iTaBUyhmBt83I2axgH6MZiXC6ZBRcTSoBG&noverify=0&group_code=556331370",
+      "full": true
+    },
+    {
+      "id": "839172670",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Pj5CZaJK_d4x4J4OHDbGFT23MCYlAkTm&authKey=ayLix7NYPCR1CG%2BrzYnrMySJZOk%2FohtAw8hEHqOMhN2yWVjVUvEy91aJB1RiXY%2B5&noverify=0&group_code=839172670",
+      "full": true
+    },
+    {
+      "id": "706049283",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=xSApUX6JDG5V_EGpLRxAcYN8oiZAeK9Q&authKey=8qNxKj%2B2e0B5bGYoBSwwQy9nAZJJHuRF1n%2FQK%2BN6SJikKmcFBqVm2bxWMEPiRmXD&noverify=0&group_code=706049283",
+      "full": true
+    },
+    {
+      "id": "715566613",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=yI6CbSsCCedmAuVwrnMeclOlSqczAafZ&authKey=RRa4WqbpPD6O%2F%2F159ApOuGeZXZr80u08VoDDhIgt1KQwwSJrD4gJYmLOZcOX6vVK&noverify=0&group_code=715566613",
+      "full": true
+    },
+    {
+      "id": "758091580",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XW7jVGKvq-6TuOydS0ZxDZ-ImcHRr9lW&authKey=bfa%2BX%2FvFrDUrY9U1yLeR%2BqWaV62nAaVyJenRUMCRiIuXQ5CvCbM4fYKyBA5%2F9LUV&noverify=0&group_code=758091580",
+      "full": true
+    },
+    {
+      "id": "701489834",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=_xBOV7p-dkyyci2tqkd9xA9AYFxui4eA&authKey=h6KSbs2Czwk3SiMOTRzhSGZy2dsRWxiCOF44nLXqHXAyZqj340sEvOUjym2lb9XB&noverify=0&group_code=701489834",
+      "full": true
+    },
+    {
+      "id": "719844174",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=5wymH5eKjoTGHqt9QXbYE4AlktuzPZHg&authKey=azF6j%2FyNiaBc8ZTkgcAxhgg98xbXPhH9%2BrX%2BmjORKcF5gV9e2UAPzb0xDBbONo04&noverify=0&group_code=719844174",
+      "full": true
+    },
+    {
+      "id": "716832728",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=y-revsUkig3g6rT6m_ZOX5rJzo1W13eK&authKey=1NsHM07TlttDoJhrhjg352M7DotT4p7hHqhVb%2F6bkzLVxNxedzReWXSe%2BH%2BRNV%2B1&noverify=0&group_code=716832728",
+      "full": true
+    },
+    {
+      "id": "719662265",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=UwdGp1PZTidlOmq0cVXeljekNeDewVkX&authKey=NraxsvUKlEk2EszKzRk2%2BWwhXxOh6dGX514t9hfJExTuw8Sx5v1G1Ni9QDXl29nP&noverify=0&group_code=719662265",
+      "full": true
+    },
+    {
+      "id": "160892816",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=4m8-P0OJX7mFasYnA_ZkXgVHVvOh47rR&authKey=ypegzZSReLCC5b6vQuB4rGJPGqo6FSYsYvDgjwptzcH5PlqULA%2Bg451vUW1Nl%2BUx&noverify=0&group_code=160892816",
+      "full": true
+    },
+    {
+      "id": "750966350",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XIpRE2rhYUHBtVrnCy9lzu3XaAIR8gN8&authKey=ZsrNLiEz6uS4CTyjyxSm6zFs1Ut7Djtsjb%2Fh8bGz9Thq8tBLf6%2FLUNHrgeGIqhU0&noverify=0&group_code=750966350",
+      "full": true
+    },
+    {
+      "id": "735118422",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=59pzPooxxbTm6RYFzmalAksm75uDzK2p&authKey=0gWbSzRSoqSVmJ6U1MkWpeBsEGQ4KI3vmUIJs3MceWPRz3VczHe%2Fb2rUmu%2BcTVhd&noverify=0&group_code=735118422",
+      "full": true
+    },
+    {
+      "id": "739564403",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=d9CWCVBAWE7fAqss8wABp_6HXEp5AKlj&authKey=NJu9Iwi71m1qzla%2FHbZN9cW4%2Ftu8Y0YYKTxnHlBrxsKuXFK8RId66HcJZiVP2tD2&noverify=0&group_code=739564403",
+      "full": true
+    },
+    {
+      "id": "237963493",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=3K3H14uT1FhUQXjpZJtGzOfPjRxjEbkb&authKey=PPeXjMVAO%2BP2%2BJR9D%2Bo8EwTAixOXvCA9KE0jqYHRMgzT0m7iCcVnjaTprk7QLQpu&noverify=0&group_code=237963493",
+      "full": true
+    },
+    {
+      "id": "749204872",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=seMIY6xRbd6j8H28AJP8WFqKPtJwJUHn&authKey=80epTGm7rt7BUeC1Ol7dRM03Oxctbdxhkvwj6Z%2BcjrtLdelm8ROEKRFe6poy2W0r&noverify=0&group_code=749204872",
+      "full": true
+    },
+    {
+      "id": "592812973",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=KzqcyuUyTCHxuwuYQcfilC2Px6l_CScF&authKey=TNt5RdCz0CRRoOz1N4DLGtamArGAKBRpYItYKXdwIxvkfCaeVdL2pAnLtwQhmEg1&noverify=0&group_code=592812973",
+      "full": true
+    },
+    {
+      "id": "186069010",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=_L19nOk9pUXO4-VSzf5hc7WNZGfjA5Rv&authKey=T5V%2BGvcW0vGc9pdtLKaAWuE8gYjrViHGSSaBeFyq1PEHGyuaGt0vWo1mk34onsi4&noverify=0&group_code=186069010",
+      "full": true
+    },
+    {
+      "id": "584314219",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=YsfPuSIZR3AF_uDGM8YsGAQjVwA92nkv&authKey=LsUiphNsl%2Bosf%2B89dfjlvsQOKhdkAllvg%2FhaU5FsoplSIOp0uSLwAVBcoVduqwg9&noverify=0&group_code=584314219",
+      "full": true
+    },
+    {
+      "id": "608430069",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=P1kHufuWLS1hBt5exx0wgl4Q4O6XNlhF&authKey=ACZiFuqs5SLpoMZrPiwmeOCSkNteexUhoUAET%2BkOu33xm6z8HnG0slNljcMSpwtC&noverify=0&group_code=608430069",
+      "full": true
+    },
+    {
+      "id": "595357565",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=bDsNjajFkUQ60Y4LqJ2KEyePq5lE_bBw&authKey=dDv4plYFi7nApRQNENQzX4DWPtQuUtegVEbVJojsEBTDLnUSJi3Or9c%2BVv%2FBO51v&noverify=0&group_code=595357565",
+      "full": true
+    },
+    {
+      "id": "595482361",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=zY9donqGdk2qLRkCVpZ73Wj1QXZ7EkF3&authKey=qjAxUR4JHECVYxDWiOpyADNz72BdoBd43HTFFvVHaTtfFSUOOqEe1h3W%2FiyiTky1&noverify=0&group_code=595482361",
+      "full": true
+    },
+    {
+      "id": "584025502",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ixr-BM8gJlEjFPm1qfIhmIlHZhcp9CCZ&authKey=cjYIOM87NTprJoO%2BC2nD%2BALYPya3uKnuoTNwd1gU39sWG3Tr5EBms7AzQxz5LYf9&noverify=0&group_code=584025502",
+      "full": true
+    },
+    {
+      "id": "571937148",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=lQ8d51a_xlTpYEdF8ZH-xd4PSt61j6eM&authKey=knXBpkUYazVfNUTGyqzBDWYP14piZioRA3CE5dvlUL3nnCxcYjksLxl%2FM34rfftI&noverify=0&group_code=571937148",
+      "full": true
+    },
+    {
+      "id": "605073265",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=sUs2-bF8G4W6iziTY5PkE4Id_ev7Cs_H&authKey=FuafeB3iXMaUtrfzi5fxNhnfxM2iVuoA0s%2BgffefcQo5zNzxLQAb5z48bxg%2BOeej&noverify=0&group_code=605073265",
+      "full": true
+    },
+    {
+      "id": "603870735",
+      "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=gHSERFj2otfOIFXh2emGT2klKe-yhX36&authKey=IRYciSbZCvDNR%2Bi%2FASuDC2C7mgeEC5FW%2FlD28a6VUQ9a6S%2F0W6tw5pILGo%2FoAhuV&noverify=0&group_code=603870735",
+      "full": true
+    }
+  ],
+  "REDRAW_NOTICE": "<line-height=-2.1em><align=right><voffset=-2><size=120><link=\"redraw\"><sprite=4></link></size></voffset> <b>x</b><voffset=10><size=80>{1}</size></voffset>\t</align>\n</line-height>",
+  "REDRAW_NOTICE_NUMBER_NAME": "number_5",
+  "START_UI_START_GAME_BUTTON_BG": "ss://i18n/zhCN/ui/start_ui_start_game_button_bg.png",
+  "RITE_PANEL_TITLE": "<mspace=76>{0}</mspace>",
+  "RITE_PANEL_OPEN_TIPS_CONTENT": "<size=100><sprite=35></size><color=#FF0000><indent=120>{0}</indent></color>\n",
+  "RITE_PANEL_TIPS_TEXT_HEADER": "<line-height=100%>\n<align=center><sprite=3></align>\n",
+  "RITE_PANEL_TIPS_TEXT_ICON": "<size=100><sprite=12></size><color=#FCE29A>",
+  "RITE_PANEL_TIPS_TEXT_CONTENT": "<indent=120>{0}</indent>\n",
+  "RITE_PANEL_TIPS_TEXT_FOOT": "</color></line-height>",
+  "MAIN_UI_TITLE_FORMAT": "<mspace=1em>{0}</mspace>",
+  "MAIN_UI_TITLE_NUMBER_FORMAT": "<space=0.1em><mspace=0.8em>{0}</mspace><space=0.1em>",
+  "MAIN_UI_TITLE_SUDAN_IN_RITE_NUMBER_FORMAT": "<space=0.1em><mspace=0.8em><color=#f0f0f0>{0}</color></mspace><space=0.1em>",
+  "MAIN_UI_TITLE_NUMBER_FORMAT_RED": "<color=red>{0}</color>",
+  "MAIN_UI_TITLE_NUMBER_NOMAL": "<sprite=7><sprite=7><sprite=7><sprite=7><sprite=7><sprite=4>",
+  "MAIN_UI_TITLE_NUMBER_TODAY": "<sprite=7><sprite=7><sprite=7><sprite=7><sprite=7><sprite=2>",
+  "MAIN_UI_TITLE_NUMBER_LAST": "<sprite=6><sprite=6><sprite=6><sprite=6><sprite=6><sprite=6>",
+  "MAIN_UI_TITLE_NUMBER_RED": "<sprite=6><sprite=6><sprite=6><sprite=6><sprite=6><sprite=5>",
+  "MAIN_UI_TITLE_NUMBER_RED_TODAY": "<sprite=6><sprite=6><sprite=6><sprite=6><sprite=6><sprite=3>",
+  "START_UI_LOGO": "Image/logo/logo_zhCN",
+  "OVER_UI_LOGO": "Image/logo/logo_zhCN",
+  "MAIN_UI_LEAVE": "Image/main_new/Leave_zhCN",
+  "NEXT_DAY": "Image/main_new/next_day",
+  "NEXT_DAY_HOVER": "Image/main_new/next_day_hover",
+  "SETTLEMENT_CURRENT_DICE": "Image/rite/settlement_current_dice",
+  "SETTLEMENT_NEED_ATTRIBUTE": "Image/rite/settlement_need_attribute",
+  "CARD_TAG_CAN_ADD_FORMAT": "{0}<indent=70%>{1}</indent>",
+  "CARD_TAG_CANNOT_ADD_FORMAT": "{0}<indent=70%>{1}</indent>",
+  "CARD_TAG_POSITIVE_VALUE_FORMAT": "<color=yellow>{0}</color>",
+  "CARD_TAG_NEGATIVE_VALUE_FORMAT": "<color=red>{0}</color>",
+  "CARD_TAG_ZERO_VALUE_FORMAT": "{0}",
+  "START_NOTICE_FORMAT": "<line-height=108%>{0}",
+  "STORY_TARGET_ITEM_UNFINISH_FORMAT": "{0} <color=red>({1})</color>",
+  "STORY_TARGET_ITEM_UNFINISH_NO_NUMBER_FORMAT": "{0}",
+  "STORY_TARGET_ITEM_FINISH_FORMAT": "<s> {0} </s>",
+  "PROMPT_RESULT_SEPERATOR": "\n",
+  "RITE_RESULT_DICE_COUNT_PROMPT_GOLD_PLUS_COUNT": "x {0}",
+  "RITE_SETTLEMENT_RESULT_TEXT_FORMAT": "{0}",
+  "RITE_SETTLEMENT_RESULT_DICE_TEXT_FORMAT": "<sprite=2><indent=120>{0}",
+  "RITE_SETTLEMENT_RESULT_TITLE_FORMAT": "<sprite=1><indent=80><size=+10><font=\"Title SDF\">{0}</font></size></indent>",
+  "RITE_SETTLEMENT_RESULT_DICE_WAITING": "<sprite=2><indent=120><sprite anim=\"5,11,4\">  <sprite anim=\"14,15,3\"></indent>",
+  "RITE_SETTLEMENT_RESULT_NORMAL_WAITING": "<sprite=0><indent=80><sprite anim=\"5,11,3\">  <sprite anim=\"14,15,3\"></indent>",
+  "QUEST_FAVOUR_TEXT_FORMAT": "<indent=30%>\n\n\n\n<i><color=#A28E58>{0}</color></i>",
+  "PRESTIGE_CHANGE_POSITIVE": "<color=#FFDD00>+{0}</color>",
+  "PRESTIGE_CHANGE_NEGATIVE": "<color=#FF1600>-{0}</color>",
+  "OVER_STORY_TITLE_FORMAT": "<size=250%><color=#FFCF00>{0}</color></size>\n",
+  "OVER_PROMPT_FORMAT": "{0}\n{1}",
+  "slide_1_1": "slide/1-1",
+  "slide_1_2": "slide/1-2",
+  "slide_1_3": "slide/1-3",
+  "slide_1_4": "slide/1-4",
+  "gain": "shop/item_gain",
+  "buff": "shop/item_buff"
 }

@@ -1,35 +1,34 @@
- {
-        "id": 5300183,
-        "text": "浴场小鳄鱼事件",     
-        "is_replay": 0, //是否可以重复触发
-        "auto_start": false,
-        "start_trigger": false, // 是否启动就立即开始校验条件
-        "on":{   //时机
-            "rite_end":5001501
+{
+  "id": 5300183,
+  "text": "浴场小鳄鱼事件",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "rite_end": 5001501
+  },
+  "condition": {
+    "hand_have.杀戮.稀有度小于等于": "银"
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "table.clean.杀戮.稀有度等于3": "石",
+        "failed": {
+          "table.clean.杀戮.稀有度等于2": "石",
+          "failed": {
+            "table.clean.杀戮.稀有度等于1": "石"
+          }
         },
-        "condition":{  //条件
-            "hand_have.杀戮.rare<=":3  //白银品级以下的杀戮卡
-        },
-        "settlement": [    //效果 
-            {
-                "tips_resource":"", 
-                "tips_text":"",
-                "action":{
-                    "table.clean.杀戮.rare=3":1,
-                    "failed":{
-                        "table.clean.杀戮.rare=2":1,
-                        "failed":{
-                            "table.clean.杀戮.rare=1":1,
-                        }
-                    },
-                    "counter+7100003":1, //权势+1
-                    "prompt":{
-                        "id":"5300183_prompt_01",
-                        "text":"这个故事把苏丹逗得开怀大笑——当然也帮你折断了这张杀戮卡。问题在于，某些宫廷侍卫看起来像是大难临头的样子，非常奇怪。",
-                        "icon":"cards/2000001"
-                    }
-                }
-            }
-
-        ]
-    } 
+        "counter加7100003": 1,
+        "prompt": {
+          "id": "5300183_prompt_01",
+          "text": "这个故事把苏丹逗得开怀大笑——当然也帮你折断了这张杀戮卡。问题在于，某些宫廷侍卫看起来像是大难临头的样子，非常奇怪。",
+          "icon": "cards/2000001"
+        }
+      }
+    }
+  ]
+}

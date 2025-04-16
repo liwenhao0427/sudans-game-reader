@@ -1,30 +1,27 @@
 {
-    "id": 5321071,
-    "text": "阿里木声望事件-抓贼（废弃）",     
-    "is_replay": 0, 
-    //"auto_start_init": [1],
-    "auto_start": false,   
-    "start_trigger": false,
-    "on":{
-       "round_begin_ba":1
-    },
-    "condition":{
-        "counter.7000380>=":1, //需要建立舍馆
-        "counter.7000397<":1 //未触发抓到小贼
-        
-    },
-    "settlement": [
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{
-                "card":2000987, //赃物
-                "rite":5008067,    //抓贼
-                "success":{
-                    "event_off":5321071
-                }
-            }
+  "id": 5321071,
+  "text": "阿里木声望事件-抓贼（废弃）",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "counter.7000380大于等于": 1,
+    "counter.7000397小于": 1
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "card": 2000987,
+        "rite": 5008067,
+        "success": {
+          "event_off": 5321071
         }
-
-    ]
+      }
+    }
+  ]
 }

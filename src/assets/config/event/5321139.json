@@ -1,25 +1,24 @@
 {
-    "id": 5321139,
-    "text": "赛狗循环",     
-    "is_replay": 0, //是否可以重复触发
-    "auto_start": false,
-    "start_trigger": false, // 是否启动就立即开始校验条件
-    "on":{   //时机
-        "round_begin_ba":1 
-    },
-    "condition":{  //条件
-    
-        "counter.7000542>=":1, //完结过一次赌狗比赛
-        "counter.7000540<":1, //高规格黑街赛狗开始计数器小于1
-        "!rite":5008146      //场上无本仪式
-    },
-    "settlement": [    //效果 
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{
-                "rite":5008146 //黑街赛狗
-            }
-        }
-    ]
+  "id": 5321139,
+  "text": "赛狗循环",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "counter.7000542大于等于": 1,
+    "counter.7000540小于": 1,
+    "非rite": 5008146
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "rite": 5008146
+      }
+    }
+  ]
 }

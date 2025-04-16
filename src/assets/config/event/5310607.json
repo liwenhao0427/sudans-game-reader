@@ -1,53 +1,57 @@
 {
-    "id": 5310607,
-    "text": "与正教决裂",
-    "is_replay": 1, //是否可以重复触发
-    "auto_start_init":[1],
-    "start_trigger": false, // 是否启动就立即开始校验条件
-    "on": { //时机
-       "round_begin_ba": 1 //回合结算开始时
+  "id": 5310607,
+  "text": "与正教决裂",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "counter.7000572大于等于": 1,
+    "any": {
+      "table_have.2000725": 1,
+      "table_have.2000726": 1,
+      "table_have.2000727": 1,
+      "table_have.2000728": 1
     },
-    "condition": { //条件
-        "counter.7000572>=":1,   //和正教决裂
-        "any":{
-            "table_have.2000725":1,
-            "table_have.2000726":1,
-            "table_have.2000727":1,
-            "table_have.2000728":1  //任一正教的理念闲置
+    "counter.7000591小于": 1
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "rite": 5004509,
+        "no_prompt": {
+          "clean.rite": [
+            5004501,
+            5004502,
+            5004503,
+            5004504,
+            5004505,
+            5004506,
+            5004507,
+            5004508,
+            5004513,
+            5004514,
+            5004515,
+            5004516,
+            5000506,
+            5000508
+          ]
         },
-        "counter.7000591<":1  //还没成为教领
-    },
-    "settlement": [ //效果 
-        {
-            "tips_resource": "",
-            "tips_text": "",
-            "action": {
-                "rite":5004509, //开启仪式  和正教决裂  
-                "no_prompt":{
-                    "clean.rite":5004501,  //关闭伊曼
-                    "clean.rite":5004502,  //关闭俺寻思正教思潮
-                    "clean.rite":5004503,  //关闭派人去忏悔
-                    "clean.rite":5004504,  //关闭打工
-                    "clean.rite":5004505,  //关闭打工
-                    "clean.rite":5004506,  //关闭打工
-                    "clean.rite":5004507,  //关闭打工
-                    "clean.rite":5004508,  //关闭打工
-                    "clean.rite":5004513,  //关闭祈祷
-                    "clean.rite":5004514,  //关闭辩经
-                    "clean.rite":5004515,  //关闭密室
-                    "clean.rite":5004516,  //关闭幽会,
-                    "clean.rite":5000506,  //关闭鬼屋求助
-                    "clean.rite":5000508,  //关闭鬼屋求助
-                },
-                "prompt":{
-                    "id":"5310607_prompt_01",
-                    "text":"由于你此前的种种恶行，纯净者教会与你彻底决裂。",
-                    "icon":"common/position_shenmiao_1"
-                },
-                "success":{
-                    "event_off":5310607  //关闭自检
-                }
-            }
+        "prompt": {
+          "id": "5310607_prompt_01",
+          "text": "由于你此前的种种恶行，纯净者教会与你彻底决裂。",
+          "icon": "common/position_shenmiao_1"
+        },
+        "success": {
+          "event_off": 5310607
         }
-    ]
+      }
+    }
+  ]
 }

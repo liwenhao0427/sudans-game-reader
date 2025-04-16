@@ -1,5 +1,5 @@
 <template>
-    <div class="modal-overlay" v-if="visible" @click.self="closeModal">
+    <div class="modal-overlay" v-if="visible" @click.self="closeModal" :style="{ zIndex: modalZIndex }" @mousedown="bringToFront">
       <div class="modal-container">
         <div class="modal-header">
           <h3>{{ eventData.name || '事件详情' }}</h3>
@@ -25,6 +25,7 @@
   import { loadEventData } from '@/services/eventService';
   import EventDetails from '@/components/EventDetails.vue';
   import eventBus from '@/utils/eventBus';
+  import { modalService } from '@/services/modalService';
   
   export default {
     name: 'EventDetailsModal',
@@ -34,19 +35,23 @@
     data() {
       return {
         visible: false,
-        eventId: null,
         eventData: {},
         loading: false,
-        error: null
+        error: null,
+        eventId: null,
+        modalZIndex: 1000 // 默认z-index
       };
     },
     methods: {
       async showModal(eventId) {
-        this.eventId = eventId;
         this.visible = true;
         this.loading = true;
         this.error = null;
+        this.eventId = eventId;
         this.eventData = {};
+        
+        // 获取新的z-index值
+        this.modalZIndex = modalService.registerModal();
         
         try {
           const data = await loadEventData(eventId, 'event');
@@ -63,6 +68,12 @@
       },
       closeModal() {
         this.visible = false;
+        // 注销弹窗
+        modalService.unregisterModal(this.modalZIndex);
+      },
+      bringToFront() {
+        // 将当前弹窗提升到最前面
+        this.modalZIndex = modalService.bringToFront(this.modalZIndex);
       }
     },
     created() {
@@ -72,11 +83,16 @@
     beforeUnmount() {  // Vue 3 中使用 beforeUnmount 替代 beforeDestroy
       // 移除事件监听
       eventBus.off('show-event-details', this.showModal);
+      // 确保在组件卸载时注销弹窗
+      if (this.visible) {
+        modalService.unregisterModal(this.modalZIndex);
+      }
     }
   };
   </script>
   
   <style scoped>
+  /* 移除固定的z-index值，改为动态绑定 */
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -87,7 +103,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    /* z-index 现在通过动态绑定设置 */
   }
   
   .modal-container {

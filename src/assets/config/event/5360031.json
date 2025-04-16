@@ -1,25 +1,27 @@
 {
-    "id": 5360031,
-    "text": "一局游戏内嫖过所有的妓女",
-    "is_replay": 1, 
-    "auto_start_init": [1], 
-    "start_trigger": false, 
-    "on":{   
-        "round_begin_ba":1 
-    },
-    "condition":{
-        "counter.7000095>=":1,
-        "counter.7000096>=":1,
-        "counter.7000097>=":1
-    },
-    "settlement": [    
+  "id": 5360031,
+  "text": "一局游戏内嫖过所有的妓女",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "counter.7000095大于等于": 1,
+    "counter.7000096大于等于": 1,
+    "counter.7000097大于等于": 1
+  },
+  "settlement": [
     {
-        "tips_resource":"", 
-        "tips_text":"",
-        "action":{
-            "global_counter=7210028": 1,
-            "debug": "一局游戏内嫖过所有的妓女"
-        }
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "global_counter等于7210028": 1,
+        "debug": "一局游戏内嫖过所有的妓女"
+      }
     }
-    ]
+  ]
 }

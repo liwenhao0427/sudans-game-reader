@@ -139,7 +139,7 @@ export default {
         return isNegated ? `牌库中没有` : `牌库中有`;
       } else if (key.startsWith('counter.')) {
         // 处理counter类型的条件
-        const counterMatch = key.match(/counter\.(\d+)([<>=]+)/);
+        const counterMatch = key.match(/counter\.(\d+)([大小等于]+)/);
         if (counterMatch) {
           const counterId = counterMatch[1];
           const operator = counterMatch[2];
@@ -148,12 +148,7 @@ export default {
           const cachedText = getCounterText(counterId, operator);
           if (cachedText) {
             // 根据操作符添加适当的文本
-            let operatorText = '';
-            if (operator === '<') operatorText = '小于';
-            else if (operator === '>') operatorText = '大于';
-            else if (operator === '<=') operatorText = '小于等于';
-            else if (operator === '>=') operatorText = '大于等于';
-            else if (operator === '=') operatorText = '等于';
+            let operatorText = operator;
             
             return `${cachedText}${operatorText}`;
           }
@@ -161,9 +156,9 @@ export default {
         
         // 如果没有缓存或匹配失败，返回原始键
         return key;
-      } else if (key.startsWith('r') && /^r\d+:.+[<>=]/.test(key)) {
+      } else if (key.startsWith('r') && /^r\d+:.+[大小等于]/.test(key)) {
         // 处理卡槽角色属性条件，如 "r1:体魄<"
-        const slotMatch = key.match(/r(\d+):(.+?)([<>=]+)$/);
+        const slotMatch = key.match(/r(\d+):(.+?)([大小等于]+)$/);
         if (slotMatch) {
           const slotNum = slotMatch[1];
           let attribute = slotMatch[2]; // 体魄、战斗等属性
@@ -174,12 +169,7 @@ export default {
             attribute = attribute.split('_PLUS_').join(' + ');
           }
           
-          let operatorText = '';
-          if (operator === '<') operatorText = '小于';
-          else if (operator === '>') operatorText = '大于';
-          else if (operator === '<=') operatorText = '小于等于';
-          else if (operator === '>=') operatorText = '大于等于';
-          else if (operator === '=') operatorText = '等于';
+          let operatorText = operator;
           
           return `卡槽 ${slotNum} 的${attribute}${operatorText}`;
         }

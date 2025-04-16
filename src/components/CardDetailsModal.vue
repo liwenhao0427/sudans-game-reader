@@ -1,5 +1,5 @@
 <template>
-  <div class="card-details-modal" v-if="visible" @click.self="close">
+  <div class="card-details-modal" v-if="visible" @click.self="close" :style="{ zIndex: modalZIndex }" @mousedown="bringToFront">
     <div class="modal-content">
       <div class="modal-header">
         <h3>{{ card ? (card.name || '未命名卡片') : '加载中...' }}</h3>
@@ -90,6 +90,7 @@
 <script>
 import { loadCardsData } from '@/services/eventService';
 import eventBus from '@/utils/eventBus';
+import { modalService } from '@/services/modalService';
 
 export default {
   name: 'CardDetailsModal',
@@ -101,7 +102,8 @@ export default {
       cardsData: null,
       showMoreInfo: true, // 默认显示所有信息
       showJsonData: false, // 控制JSON数据的显示
-      attributeTags: ['体魄', '智慧', '魅力', '社交', '战斗', '生存', '魔力', '隐匿']
+      attributeTags: ['体魄', '智慧', '魅力', '社交', '战斗', '生存', '魔力', '隐匿'],
+      modalZIndex: 1000 // 默认z-index
     };
   },
   computed: {
@@ -165,10 +167,20 @@ export default {
       this.cardId = cardId;
       this.card = null;
       this.showJsonData = false; // 重置JSON显示状态
+      
+      // 获取新的z-index值
+      this.modalZIndex = modalService.registerModal();
+      
       await this.loadCardData();
     },
     close() {
       this.visible = false;
+      // 注销弹窗
+      modalService.unregisterModal(this.modalZIndex);
+    },
+    bringToFront() {
+      // 将当前弹窗提升到最前面
+      this.modalZIndex = modalService.bringToFront(this.modalZIndex);
     },
     async loadCardData() {
       try {
@@ -255,6 +267,10 @@ export default {
   beforeUnmount() {
     // Clean up event listener
     eventBus.off('show-card-details', this.show);
+    // 确保在组件卸载时注销弹窗
+    if (this.visible) {
+      modalService.unregisterModal(this.modalZIndex);
+    }
   }
 }
 </script>
@@ -270,7 +286,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  /* z-index 现在通过动态绑定设置 */
 }
 
 .modal-content {

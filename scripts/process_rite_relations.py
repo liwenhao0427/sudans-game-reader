@@ -100,10 +100,35 @@ def process_rite_relations(rite_dir, output_file):
                             }
                             
                             # 提取计数器
-                            counter_matches = re.findall(r'"counter\+(\d+)"\s*:', content)
-                            for counter in counter_matches:
-                                if counter not in rite_info['relations']['counters']:
-                                    rite_info['relations']['counters'].append(counter)
+                            # 在正则表达式提取部分（约在第70行附近）
+                            # 提取计数器 - 使用更广泛的模式
+                            counter_matches = re.findall(r'"(counter[^"]*?)"\s*:', content)
+                            for counter_key in counter_matches:
+                                # 尝试从键名中提取计数器ID
+                                counter_id = None
+                                
+                                # 处理常见格式
+                                if '+' in counter_key:
+                                    counter_id = counter_key.split('+')[-1].split('<')[0].split('>')[0].split('=')[0]
+                                elif '-' in counter_key:
+                                    counter_id = counter_key.split('-')[-1].split('<')[0].split('>')[0].split('=')[0]
+                                elif '=' in counter_key:
+                                    counter_id = counter_key.split('=')[-1].split('<')[0].split('>')[0]
+                                
+                                # 如果上述方法都无法提取ID，尝试使用正则表达式
+                                if not counter_id or not counter_id.isdigit():
+                                    match = re.search(r'counter.*?(\d+)', counter_key)
+                                    if match:
+                                        counter_id = match.group(1)
+                                
+                                # 如果成功提取到ID，添加到关系中
+                                if counter_id and counter_id.isdigit():
+                                    if counter_id not in rite_info['relations']['counters']:
+                                        rite_info['relations']['counters'].append(counter_id)
+                                    else:
+                                        # 如果无法提取ID，记录完整的键名
+                                        if counter_key not in rite_info['relations']['counters']:
+                                            rite_info['relations']['counters'].append(counter_key)
                             
                             # 提取成就
                             achievement_matches = re.findall(r'"steam_achievement"\s*:\s*"([^"]+)"', content)
@@ -171,6 +196,125 @@ def process_rite_relations(rite_dir, output_file):
             print(f"处理文件 {file_path} 时出错: {e}")
             skipped_files += 1
     
+    # 在处理完所有仪式后，遍历一次确保所有计数器都是对象格式
+    for rite_id, rite_info in rite_relations.items():
+        normalized_counters = []
+        for counter in rite_info['relations']['counters']:
+            # 将字符串格式的计数器转换为对象格式
+            if isinstance(counter, dict):
+                normalized_counters.append(counter)
+            else:
+                # 字符串格式的计数器转换为对象
+                counter_str = str(counter)
+                counter_obj = {'id': '', 'op': '', 'value': ''}
+                
+                # 处理counter+、counter-、counter=格式
+                if counter_str.startswith('counter+'):
+                    counter_obj['op'] = '+'
+                    counter_id = counter_str.split('+')[-1]
+                    # 检查是否有比较操作符
+                    if '>=' in counter_id:
+                        counter_obj['id'] = counter_id.split('>=')[0]
+                        counter_obj['op'] += '>='
+                    elif '<=' in counter_id:
+                        counter_obj['id'] = counter_id.split('<=')[0]
+                        counter_obj['op'] += '<='
+                    elif '>' in counter_id:
+                        counter_obj['id'] = counter_id.split('>')[0]
+                        counter_obj['op'] += '>'
+                    elif '<' in counter_id:
+                        counter_obj['id'] = counter_id.split('<')[0]
+                        counter_obj['op'] += '<'
+                    elif '=' in counter_id:
+                        counter_obj['id'] = counter_id.split('=')[0]
+                        counter_obj['op'] += '='
+                    else:
+                        counter_obj['id'] = counter_id
+                elif counter_str.startswith('counter-'):
+                    counter_obj['op'] = '-'
+                    counter_id = counter_str.split('-')[-1]
+                    # 检查是否有比较操作符
+                    if '>=' in counter_id:
+                        counter_obj['id'] = counter_id.split('>=')[0]
+                        counter_obj['op'] += '>='
+                    elif '<=' in counter_id:
+                        counter_obj['id'] = counter_id.split('<=')[0]
+                        counter_obj['op'] += '<='
+                    elif '>' in counter_id:
+                        counter_obj['id'] = counter_id.split('>')[0]
+                        counter_obj['op'] += '>'
+                    elif '<' in counter_id:
+                        counter_obj['id'] = counter_id.split('<')[0]
+                        counter_obj['op'] += '<'
+                    elif '=' in counter_id:
+                        counter_obj['id'] = counter_id.split('=')[0]
+                        counter_obj['op'] += '='
+                    else:
+                        counter_obj['id'] = counter_id
+                elif counter_str.startswith('counter='):
+                    counter_obj['op'] = '='
+                    counter_id = counter_str.split('=')[-1]
+                    # 检查是否有比较操作符
+                    if '>=' in counter_id:
+                        counter_obj['id'] = counter_id.split('>=')[0]
+                        counter_obj['op'] += '>='
+                    elif '<=' in counter_id:
+                        counter_obj['id'] = counter_id.split('<=')[0]
+                        counter_obj['op'] += '<='
+                    elif '>' in counter_id:
+                        counter_obj['id'] = counter_id.split('>')[0]
+                        counter_obj['op'] += '>'
+                    elif '<' in counter_id:
+                        counter_obj['id'] = counter_id.split('<')[0]
+                        counter_obj['op'] += '<'
+                    elif '=' in counter_id:
+                        counter_obj['id'] = counter_id.split('=')[0]
+                        counter_obj['op'] += '='
+                    else:
+                        counter_obj['id'] = counter_id
+                # 处理counter.7000xxx>=5格式
+                elif counter_str.startswith('counter.'):
+                    parts = counter_str.replace('counter.', '').split('>=')
+                    if len(parts) > 1:
+                        counter_obj['id'] = parts[0]
+                        counter_obj['op'] = '>='
+                        counter_obj['value'] = parts[1] if parts[1] else ''
+                    else:
+                        parts = counter_str.replace('counter.', '').split('<=')
+                        if len(parts) > 1:
+                            counter_obj['id'] = parts[0]
+                            counter_obj['op'] = '<='
+                            counter_obj['value'] = parts[1] if parts[1] else ''
+                        else:
+                            parts = counter_str.replace('counter.', '').split('>')
+                            if len(parts) > 1:
+                                counter_obj['id'] = parts[0]
+                                counter_obj['op'] = '>'
+                                counter_obj['value'] = parts[1] if parts[1] else ''
+                            else:
+                                parts = counter_str.replace('counter.', '').split('<')
+                                if len(parts) > 1:
+                                    counter_obj['id'] = parts[0]
+                                    counter_obj['op'] = '<'
+                                    counter_obj['value'] = parts[1] if parts[1] else ''
+                                else:
+                                    parts = counter_str.replace('counter.', '').split('=')
+                                    if len(parts) > 1:
+                                        counter_obj['id'] = parts[0]
+                                        counter_obj['op'] = '='
+                                        counter_obj['value'] = parts[1] if parts[1] else ''
+                                    else:
+                                        counter_obj['id'] = counter_str.replace('counter.', '')
+                else:
+                    # 直接使用数字ID
+                    counter_obj['id'] = counter_str
+                
+                if counter_obj['id']:
+                    normalized_counters.append(counter_obj)
+        
+        # 替换原来的计数器列表
+        rite_info['relations']['counters'] = normalized_counters
+    
     # 保存关系信息到JSON文件
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(rite_relations, f, ensure_ascii=False, indent=2)
@@ -232,21 +376,135 @@ def extract_relations_from_dict(data_dict, relations):
                 relations['events'].append(value)
         
         # 提取计数器关系 - 处理各种格式的计数器
-        elif key.startswith('counter+') or key.startswith('counter-') or key.startswith('counter='):
-            counter_id = key.split('+')[-1] if '+' in key else key.split('-')[-1] if '-' in key else key.split('=')[-1]
-            if counter_id not in relations['counters']:
-                relations['counters'].append(counter_id)
-        
-        # 处理global_counter格式
-        elif key.startswith('global_counter'):
-            parts = key.split('=')
-            if len(parts) > 1:
-                counter_id = parts[0].replace('global_counter', '')
-            else:
-                counter_id = key.replace('global_counter', '')
+        elif 'counter' in key.lower():
+            # 确保值被正确提取
+            counter_value = str(value) if value is not None else ''
+            counter_info = {'id': '', 'op': '', 'value': counter_value}
             
-            if counter_id and counter_id not in relations['counters']:
-                relations['counters'].append(counter_id)
+            # 处理counter+、counter-、counter=格式
+            if key.startswith('counter+'):
+                counter_info['op'] = '+'
+                counter_id = key.split('+')[-1]
+                # 检查是否有比较操作符
+                if '>=' in counter_id:
+                    counter_info['id'] = counter_id.split('>=')[0]
+                    counter_info['op'] += '>='
+                elif '<=' in counter_id:
+                    counter_info['id'] = counter_id.split('<=')[0]
+                    counter_info['op'] += '<='
+                elif '>' in counter_id:
+                    counter_info['id'] = counter_id.split('>')[0]
+                    counter_info['op'] += '>'
+                elif '<' in counter_id:
+                    counter_info['id'] = counter_id.split('<')[0]
+                    counter_info['op'] += '<'
+                elif '=' in counter_id:
+                    counter_info['id'] = counter_id.split('=')[0]
+                    counter_info['op'] += '='
+                else:
+                    counter_info['id'] = counter_id
+            
+            elif key.startswith('counter-'):
+                counter_info['op'] = '-'
+                counter_id = key.split('-')[-1]
+                # 检查是否有比较操作符
+                if '>=' in counter_id:
+                    counter_info['id'] = counter_id.split('>=')[0]
+                    counter_info['op'] += '>='
+                elif '<=' in counter_id:
+                    counter_info['id'] = counter_id.split('<=')[0]
+                    counter_info['op'] += '<='
+                elif '>' in counter_id:
+                    counter_info['id'] = counter_id.split('>')[0]
+                    counter_info['op'] += '>'
+                elif '<' in counter_id:
+                    counter_info['id'] = counter_id.split('<')[0]
+                    counter_info['op'] += '<'
+                elif '=' in counter_id:
+                    counter_info['id'] = counter_id.split('=')[0]
+                    counter_info['op'] += '='
+                else:
+                    counter_info['id'] = counter_id
+            
+            elif key.startswith('counter='):
+                counter_info['op'] = '='
+                counter_id = key.split('=')[-1]
+                # 检查是否有比较操作符
+                if '>=' in counter_id:
+                    counter_info['id'] = counter_id.split('>=')[0]
+                    counter_info['op'] += '>='
+                elif '<=' in counter_id:
+                    counter_info['id'] = counter_id.split('<=')[0]
+                    counter_info['op'] += '<='
+                elif '>' in counter_id:
+                    counter_info['id'] = counter_id.split('>')[0]
+                    counter_info['op'] += '>'
+                elif '<' in counter_id:
+                    counter_info['id'] = counter_id.split('<')[0]
+                    counter_info['op'] += '<'
+                elif '=' in counter_id:
+                    counter_info['id'] = counter_id.split('=')[0]
+                    counter_info['op'] += '='
+                else:
+                    counter_info['id'] = counter_id
+            
+            # 处理counter.7000xxx>=5格式
+            elif key.startswith('counter.'):
+                parts = key.replace('counter.', '').split('>=')
+                if len(parts) > 1:
+                    counter_info['id'] = parts[0]
+                    counter_info['op'] = '>='
+                    counter_info['value'] = parts[1] if parts[1] else str(value)
+                else:
+                    parts = key.replace('counter.', '').split('<=')
+                    if len(parts) > 1:
+                        counter_info['id'] = parts[0]
+                        counter_info['op'] = '<='
+                        counter_info['value'] = parts[1] if parts[1] else str(value)
+                    else:
+                        parts = key.replace('counter.', '').split('>')
+                        if len(parts) > 1:
+                            counter_info['id'] = parts[0]
+                            counter_info['op'] = '>'
+                            counter_info['value'] = parts[1] if parts[1] else str(value)
+                        else:
+                            parts = key.replace('counter.', '').split('<')
+                            if len(parts) > 1:
+                                counter_info['id'] = parts[0]
+                                counter_info['op'] = '<'
+                                counter_info['value'] = parts[1] if parts[1] else str(value)
+                            else:
+                                parts = key.replace('counter.', '').split('=')
+                                if len(parts) > 1:
+                                    counter_info['id'] = parts[0]
+                                    counter_info['op'] = '='
+                                    counter_info['value'] = parts[1] if parts[1] else str(value)
+                                else:
+                                    counter_info['id'] = key.replace('counter.', '')
+            
+            # 处理global_counter格式
+            elif key.startswith('global_counter'):
+                counter_info['id'] = 'g' + key.replace('global_counter', '')
+            
+            # 如果以上都不匹配，尝试直接提取数字作为ID
+            else:
+                match = re.search(r'(\d+)', key)
+                if match:
+                    counter_info['id'] = match.group(1)
+                else:
+                    counter_info['id'] = key
+            
+            # 如果成功提取到ID，添加到关系中
+            if counter_info['id']:
+                # 检查是否已存在相同的计数器信息
+                exists = False
+                for existing in relations['counters']:
+                    if isinstance(existing, dict) and existing.get('id') == counter_info['id'] and existing.get('op') == counter_info['op']:
+                        exists = True
+                        break
+                
+                if not exists:
+                    relations['counters'].append(counter_info)
         
         # 提取成就关系
         elif key == 'steam_achievement':
@@ -254,6 +512,7 @@ def extract_relations_from_dict(data_dict, relations):
                 relations['achievements'].append(value)
     
     return has_over
+
 
 def build_over_relations(rite_relations, output_file):
     """
@@ -286,10 +545,127 @@ def build_over_relations(rite_relations, output_file):
             if rite_id not in over_relations[over_id_str]['related_rites']:
                 over_relations[over_id_str]['related_rites'].append(rite_id)
             
-            # 添加关联的计数器
+            # 添加关联的计数器 - 确保所有计数器都是对象格式
             for counter in rite_info['relations']['counters']:
-                if counter not in over_relations[over_id_str]['related_counters']:
-                    over_relations[over_id_str]['related_counters'].append(counter)
+                # 将字符串格式的计数器转换为对象格式
+                counter_obj = None
+                if isinstance(counter, dict):
+                    counter_obj = counter
+                else:
+                    # 字符串格式的计数器转换为对象
+                    counter_str = str(counter)
+                    counter_obj = {'id': '', 'op': '', 'value': ''}
+                    
+                    # 处理counter+、counter-、counter=格式
+                    if counter_str.startswith('counter+'):
+                        counter_obj['op'] = '+'
+                        counter_id = counter_str.split('+')[-1]
+                        # 检查是否有比较操作符
+                        if '>=' in counter_id:
+                            counter_obj['id'] = counter_id.split('>=')[0]
+                            counter_obj['op'] += '>='
+                        elif '<=' in counter_id:
+                            counter_obj['id'] = counter_id.split('<=')[0]
+                            counter_obj['op'] += '<='
+                        elif '>' in counter_id:
+                            counter_obj['id'] = counter_id.split('>')[0]
+                            counter_obj['op'] += '>'
+                        elif '<' in counter_id:
+                            counter_obj['id'] = counter_id.split('<')[0]
+                            counter_obj['op'] += '<'
+                        elif '=' in counter_id:
+                            counter_obj['id'] = counter_id.split('=')[0]
+                            counter_obj['op'] += '='
+                        else:
+                            counter_obj['id'] = counter_id
+                    elif counter_str.startswith('counter-'):
+                        counter_obj['op'] = '-'
+                        counter_id = counter_str.split('-')[-1]
+                        # 检查是否有比较操作符
+                        if '>=' in counter_id:
+                            counter_obj['id'] = counter_id.split('>=')[0]
+                            counter_obj['op'] += '>='
+                        elif '<=' in counter_id:
+                            counter_obj['id'] = counter_id.split('<=')[0]
+                            counter_obj['op'] += '<='
+                        elif '>' in counter_id:
+                            counter_obj['id'] = counter_id.split('>')[0]
+                            counter_obj['op'] += '>'
+                        elif '<' in counter_id:
+                            counter_obj['id'] = counter_id.split('<')[0]
+                            counter_obj['op'] += '<'
+                        elif '=' in counter_id:
+                            counter_obj['id'] = counter_id.split('=')[0]
+                            counter_obj['op'] += '='
+                        else:
+                            counter_obj['id'] = counter_id
+                    elif counter_str.startswith('counter='):
+                        counter_obj['op'] = '='
+                        counter_id = counter_str.split('=')[-1]
+                        # 检查是否有比较操作符
+                        if '>=' in counter_id:
+                            counter_obj['id'] = counter_id.split('>=')[0]
+                            counter_obj['op'] += '>='
+                        elif '<=' in counter_id:
+                            counter_obj['id'] = counter_id.split('<=')[0]
+                            counter_obj['op'] += '<='
+                        elif '>' in counter_id:
+                            counter_obj['id'] = counter_id.split('>')[0]
+                            counter_obj['op'] += '>'
+                        elif '<' in counter_id:
+                            counter_obj['id'] = counter_id.split('<')[0]
+                            counter_obj['op'] += '<'
+                        elif '=' in counter_id:
+                            counter_obj['id'] = counter_id.split('=')[0]
+                            counter_obj['op'] += '='
+                        else:
+                            counter_obj['id'] = counter_id
+                    # 处理counter.7000xxx>=5格式
+                    elif counter_str.startswith('counter.'):
+                        parts = counter_str.replace('counter.', '').split('>=')
+                        if len(parts) > 1:
+                            counter_obj['id'] = parts[0]
+                            counter_obj['op'] = '>='
+                            counter_obj['value'] = parts[1] if parts[1] else ''
+                        else:
+                            parts = counter_str.replace('counter.', '').split('<=')
+                            if len(parts) > 1:
+                                counter_obj['id'] = parts[0]
+                                counter_obj['op'] = '<='
+                                counter_obj['value'] = parts[1] if parts[1] else ''
+                            else:
+                                parts = counter_str.replace('counter.', '').split('>')
+                                if len(parts) > 1:
+                                    counter_obj['id'] = parts[0]
+                                    counter_obj['op'] = '>'
+                                    counter_obj['value'] = parts[1] if parts[1] else ''
+                                else:
+                                    parts = counter_str.replace('counter.', '').split('<')
+                                    if len(parts) > 1:
+                                        counter_obj['id'] = parts[0]
+                                        counter_obj['op'] = '<'
+                                        counter_obj['value'] = parts[1] if parts[1] else ''
+                                    else:
+                                        parts = counter_str.replace('counter.', '').split('=')
+                                        if len(parts) > 1:
+                                            counter_obj['id'] = parts[0]
+                                            counter_obj['op'] = '='
+                                            counter_obj['value'] = parts[1] if parts[1] else ''
+                                        else:
+                                            counter_obj['id'] = counter_str.replace('counter.', '')
+                    else:
+                        # 直接使用数字ID
+                        counter_obj['id'] = counter_str
+                
+                # 检查是否已存在相同的计数器
+                exists = False
+                for existing in over_relations[over_id_str]['related_counters']:
+                    if existing.get('id') == counter_obj.get('id') and existing.get('op') == counter_obj.get('op'):
+                        exists = True
+                        break
+                
+                if not exists and counter_obj.get('id'):
+                    over_relations[over_id_str]['related_counters'].append(counter_obj)
             
             # 添加关联的成就
             for achievement in rite_info['relations']['achievements']:

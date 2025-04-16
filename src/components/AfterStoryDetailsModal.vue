@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-overlay" v-if="visible" @click.self="closeModal">
+  <div class="modal-overlay" v-if="visible" @click.self="closeModal" :style="{ zIndex: modalZIndex }" @mousedown="bringToFront">
     <div class="modal-container">
       <div class="modal-header">
         <h3>{{ afterStoryData.name || '后日谈详情' }}</h3>
@@ -25,6 +25,7 @@
 import { loadAfterStoryById } from '@/services/eventService';
 import AfterStoryDetails from '@/components/AfterStoryDetails.vue';
 import eventBus from '@/utils/eventBus';
+import { modalService } from '@/services/modalService';
 
 export default {
   name: 'AfterStoryDetailsModal',
@@ -37,7 +38,8 @@ export default {
       afterStoryData: {},
       loading: false,
       error: null,
-      afterStoryId: null
+      afterStoryId: null,
+      modalZIndex: 1000 // 默认z-index
     };
   },
   methods: {
@@ -46,6 +48,9 @@ export default {
       this.loading = true;
       this.error = null;
       this.afterStoryId = afterStoryId;
+      
+      // 获取新的z-index值
+      this.modalZIndex = modalService.registerModal();
       
       try {
         const afterStoryData = await loadAfterStoryById(afterStoryId);
@@ -63,6 +68,12 @@ export default {
     },
     closeModal() {
       this.visible = false;
+      // 注销弹窗
+      modalService.unregisterModal(this.modalZIndex);
+    },
+    bringToFront() {
+      // 将当前弹窗提升到最前面
+      this.modalZIndex = modalService.bringToFront(this.modalZIndex);
     }
   },
   created() {
@@ -72,11 +83,16 @@ export default {
   beforeUnmount() {
     // 移除事件监听
     eventBus.off('show-after-story-details', this.showModal);
+    // 确保在组件卸载时注销弹窗
+    if (this.visible) {
+      modalService.unregisterModal(this.modalZIndex);
+    }
   }
 }
 </script>
 
 <style scoped>
+/* 移除固定的z-index值，改为动态绑定 */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -87,9 +103,10 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  /* z-index 现在通过动态绑定设置 */
 }
 
+/* 其他样式保持不变 */
 .modal-container {
   background-color: white;
   border-radius: 8px;

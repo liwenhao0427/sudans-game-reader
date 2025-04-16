@@ -1,358 +1,382 @@
 {
-    "@CARD_TITLE": {
-        "font": "CardTitle SDF",
-        "size": 45,
-        "css_size": {
-            "xs": 30,
-            "sm": 34,
-            "md": 38,
-            "lg": 42,
-            "xl": 50,
-            "xxl": 58
-        }
-    },
-    "@CARD_SUDAN_TITLE": {
-        "font": "CardTitle SDF",
-        "material": "CardTitle SDF - SudanTitle",
-        "size": 45,
-        "css_size": {
-            "xs": 30,
-            "sm": 34,
-            "md": 38,
-            "lg": 42,
-            "xl": 50,
-            "xxl": 58
-        }
-    },
-    "@CARD_INFO_RARE_TEXT_FORMAT": {
-        "font": "Title SDF",
-        "size": 60
-    },
-    "@CARD_INFO_TAG_TEXT": {
-        "font":"xiquemuye SDF",
-        "enableAutoSize": true,
-        "sizeRange": [26, 30]
-    },
-    "@CARD_INFO_TAG_FIXED_TEXT": {
-        "font":"xiquemuye SDF",
-        "size": 30
-    },
-    "@CARD_INFO_TAG_TITLE": {
-        "font":"Title SDF",
-        "size": 40
-    },
-    "@TIPS_FORMAT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 25,
-            "sm": 27,
-            "md": 30,
-            "lg": 33,
-            "xl": 38,
-            "xxl": 43
-        }
-    },
-    "@RITE_TITLE": {
-        "font":"CardTitle SDF",
-        "material": "CardTitle SDF - RiteTitleNew",
-        "css_size": {
-            "xs": 30,
-            "sm": 35,
-            "md": 40,
-            "lg": 45,
-            "xl": 55,
-            "xxl": 65
-        }
-    },
-    "@RITE_TITLE_BLACK": {
-        "font":"CardTitle SDF",
-        "material": "CardTitle SDF - RiteTitleNewBlack",
-        "css_size": {
-            "xs": 30,
-            "sm": 35,
-            "md": 40,
-            "lg": 45,
-            "xl": 55,
-            "xxl": 65
-        }
-    },
-    "@RITE_PANEL_TITLE": {
-        "font":"CardTitle SDF",
-        "material": "CardTitle SDF - RiteTitle",
-        "size": 60,
-        "characterSpacing": -20,
-    },
-    "@RITE_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 28,
-            "sm": 32,
-            "md": 36,
-            "lg": 40,
-            "xl": 48,
-            "xxl": 56
-        }
-    },
-    "@RITE_SETTLEMENT_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 30,
-            "sm": 35,
-            "md": 40,
-            "lg": 45,
-            "xl": 55,
-            "xxl": 65
-        }
-    },
-    "@PROMPT_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 40,
-            "sm": 45,
-            "md": 50,
-            "lg": 55,
-            "xl": 65,
-            "xxl": 75
-        }
-    },
-    "@OPTION_ITEM_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 40,
-            "sm": 45,
-            "md": 50,
-            "lg": 55,
-            "xl": 65,
-            "xxl": 75
-        }
-    },
-    "@WIZARD_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 40,
-            "sm": 35,
-            "md": 40,
-            "lg": 45,
-            "xl": 55,
-            "xxl": 65
-        }
-    },
-    "@WIZARD_OPTION_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 30,
-            "sm": 35,
-            "md": 40,
-            "lg": 45,
-            "xl": 55,
-            "xxl": 65
-        }
-    },
-    "@TAG_TEXT": {
-        "font":"Content SDF",
-        "css_size": {
-            "xs": 25,
-            "sm": 27,
-            "md": 30,
-            "lg": 33,
-            "xl": 38,
-            "xxl": 43
-        }
-    },
-    "@POP_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 40,
-            "sm": 45,
-            "md": 50,
-            "lg": 55,
-            "xl": 65,
-            "xxl": 75
-        }
-    },
-    "@RITE_SETTLEMENT_POP_TEXT": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 28,
-            "sm": 32,
-            "md": 36,
-            "lg": 40,
-            "xl": 48,
-            "xxl": 56
-        }
-    },
-    "@BIG_BUTTON": {
-        "font": "Title SDF",
-        "size": 60
-    },
-    "@BIG_BUTTON_AUTO_SIZE": {
-        "font": "Title SDF",
-        "enableAutoSize": true,
-        "sizeRange": [30, 60]
-    },
-    "@BIG_BUTTON_HALF": {
-        "font": "Title SDF",
-        "size": 30
-    },
-    "@MAIN_BODY": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 40,
-            "sm": 45,
-            "md": 50,
-            "lg": 55,
-            "xl": 65,
-            "xxl": 75
-        }
-    },
-    "@MAIN_BODY_HALF": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 20,
-            "sm": 23,
-            "md": 25,
-            "lg": 28,
-            "xl": 33,
-            "xxl": 38
-        }
-    },
-    "@MAIN_BODY_AUTO_SIZE": {
-        "font":"xiquemuye SDF",
-        "enableAutoSize": true,
-        "sizeRange": [20, 60]
-    },
-    "@TITLE_H1": {
-        "font": "Title SDF",
-        "size": 80
-    },
-    "@TITLE_H1_HALF": {
-        "font": "Title SDF",
-        "size": 40
-    },
-    "@TITLE_H2": {
-        "font": "Title SDF",
-        "size": 70
-    },
-    "@TITLE_H3": {
-        "font": "Title SDF",
-        "size": 50
-    },
-    "@TITLE_H3_AUTO_SIZE": {
-        "font": "Title SDF",
-        "enableAutoSize": true,
-        "sizeRange": [40, 50]
-    },
-    "@BUTTON": {
-        "font": "Title SDF",
-        "size": 40
-    },
-    "@BUTTON_AUTO_SIZE": {
-        "font": "Title SDF",
-        "enableAutoSize": true,
-        "sizeRange": [30, 40]
-    },
-    "@TOGGLE": {
-        "font": "xiquemuye SDF",
-        "size": 36
-    },
-    "@OVER_RECORD_SUB_NAME": {
-        "font": "xiquemuye SDF",
-        "size": 40
-    },
-    "@CARD_INFO_NAME": {
-        "font": "Title SDF",
-        "enableAutoSize": true,
-        "sizeRange": [40, 60]
-    },
-    "@CARD_INFO_DESC": {
-        "font": "xiquemuye SDF",
-        "enableAutoSize": true,
-        "sizeRange": [18, 40]
-    },
-    "@CARD_INFO_TYPE": {
-        "font": "xiquemuye SDF",
-        "size": 30
-    },
-    "@NOTE_ITEM_TEXT": {
-        "font": "xiquemuye SDF",
-        "css_size": {
-            "xs": 30,
-            "sm": 35,
-            "md": 40,
-            "lg": 45,
-            "xl": 55,
-            "xxl": 65
-        }
-    },
-    "@SETTING_OPTION_ITEM": {
-        "font": "xiquemuye SDF",
-        "size": 22
-    },
-    "@SETTING_OPTION_TITLE": {
-        "font": "Title SDF",
-        "size": 30
-    },
-    "@EXECUTION_DAY_TITLE": {
-        "font": "Title SDF",
-        "size": 60
-    },
-    "@PRESTIGE_TITLE": {
-        "font": "Title SDF",
-        "size": 60
-    },
-    "@HELP_TEXT": {
-        "font": "Title SDF",
-        "size": 50
-    },
-    "@GUIDE_TEXT": {
-        "font": "Title SDF",
-        "size": 75
-    },
-    "SETTING_PANEL": {
-        "font": "Title SDF",
-        "size": 40
-    },
-    "NEXT_DAY": {
-        "font": "",
-        "isRightToLeftText": false,
-        "size": 100
-    },
-    "PROMPT_CHANGE_NAME_TITLE": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 40,
-            "sm": 45,
-            "md": 50,
-            "lg": 55,
-            "xl": 65,
-            "xxl": 75
-        }
-    },
-    "PROMPT_CHANGE_NAME_INPUT_PLACEHOLDER": {
-        "font":"xiquemuye SDF",
-        "css_size": {
-            "xs": 40,
-            "sm": 45,
-            "md": 50,
-            "lg": 55,
-            "xl": 65,
-            "xxl": 75
-        }
-    },
-    "ADD_TO_WISHLIST": {
-        "font": "Title SDF",
-        "size": 60,
-        "characterSpacing": -8
-    },
-    "@OVER_TITLE": {
-        "font": "CardTitle SDF",
-        "material": "CardTitle SDF - RiteTitleNew",
-        "enableAutoSize": true,
-        "sizeRange": [100, 120]
-    },
-    "@OVER_SUBTITLE": {
-        "font": "CardTitle SDF",
-        "material": "CardTitle SDF - RiteTitleNew",
-        "size": 50
+  "_CARD_TITLE": {
+    "font": "CardTitle SDF",
+    "size": 45,
+    "css_size": {
+      "xs": 30,
+      "sm": 34,
+      "md": 38,
+      "lg": 42,
+      "xl": 50,
+      "xxl": 58
     }
+  },
+  "_CARD_SUDAN_TITLE": {
+    "font": "CardTitle SDF",
+    "material": "CardTitle SDF - SudanTitle",
+    "size": 45,
+    "css_size": {
+      "xs": 30,
+      "sm": 34,
+      "md": 38,
+      "lg": 42,
+      "xl": 50,
+      "xxl": 58
+    }
+  },
+  "_CARD_INFO_RARE_TEXT_FORMAT": {
+    "font": "Title SDF",
+    "size": 60
+  },
+  "_CARD_INFO_TAG_TEXT": {
+    "font": "xiquemuye SDF",
+    "enableAutoSize": true,
+    "sizeRange": [
+      26,
+      30
+    ]
+  },
+  "_CARD_INFO_TAG_FIXED_TEXT": {
+    "font": "xiquemuye SDF",
+    "size": 30
+  },
+  "_CARD_INFO_TAG_TITLE": {
+    "font": "Title SDF",
+    "size": 40
+  },
+  "_TIPS_FORMAT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 25,
+      "sm": 27,
+      "md": 30,
+      "lg": 33,
+      "xl": 38,
+      "xxl": 43
+    }
+  },
+  "_RITE_TITLE": {
+    "font": "CardTitle SDF",
+    "material": "CardTitle SDF - RiteTitleNew",
+    "css_size": {
+      "xs": 30,
+      "sm": 35,
+      "md": 40,
+      "lg": 45,
+      "xl": 55,
+      "xxl": 65
+    }
+  },
+  "_RITE_TITLE_BLACK": {
+    "font": "CardTitle SDF",
+    "material": "CardTitle SDF - RiteTitleNewBlack",
+    "css_size": {
+      "xs": 30,
+      "sm": 35,
+      "md": 40,
+      "lg": 45,
+      "xl": 55,
+      "xxl": 65
+    }
+  },
+  "_RITE_PANEL_TITLE": {
+    "font": "CardTitle SDF",
+    "material": "CardTitle SDF - RiteTitle",
+    "size": 60,
+    "characterSpacing": -20
+  },
+  "_RITE_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 28,
+      "sm": 32,
+      "md": 36,
+      "lg": 40,
+      "xl": 48,
+      "xxl": 56
+    }
+  },
+  "_RITE_SETTLEMENT_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 30,
+      "sm": 35,
+      "md": 40,
+      "lg": 45,
+      "xl": 55,
+      "xxl": 65
+    }
+  },
+  "_PROMPT_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 40,
+      "sm": 45,
+      "md": 50,
+      "lg": 55,
+      "xl": 65,
+      "xxl": 75
+    }
+  },
+  "_OPTION_ITEM_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 40,
+      "sm": 45,
+      "md": 50,
+      "lg": 55,
+      "xl": 65,
+      "xxl": 75
+    }
+  },
+  "_WIZARD_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 40,
+      "sm": 35,
+      "md": 40,
+      "lg": 45,
+      "xl": 55,
+      "xxl": 65
+    }
+  },
+  "_WIZARD_OPTION_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 30,
+      "sm": 35,
+      "md": 40,
+      "lg": 45,
+      "xl": 55,
+      "xxl": 65
+    }
+  },
+  "_TAG_TEXT": {
+    "font": "Content SDF",
+    "css_size": {
+      "xs": 25,
+      "sm": 27,
+      "md": 30,
+      "lg": 33,
+      "xl": 38,
+      "xxl": 43
+    }
+  },
+  "_POP_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 40,
+      "sm": 45,
+      "md": 50,
+      "lg": 55,
+      "xl": 65,
+      "xxl": 75
+    }
+  },
+  "_RITE_SETTLEMENT_POP_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 28,
+      "sm": 32,
+      "md": 36,
+      "lg": 40,
+      "xl": 48,
+      "xxl": 56
+    }
+  },
+  "_BIG_BUTTON": {
+    "font": "Title SDF",
+    "size": 60
+  },
+  "_BIG_BUTTON_AUTO_SIZE": {
+    "font": "Title SDF",
+    "enableAutoSize": true,
+    "sizeRange": [
+      30,
+      60
+    ]
+  },
+  "_BIG_BUTTON_HALF": {
+    "font": "Title SDF",
+    "size": 30
+  },
+  "_MAIN_BODY": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 40,
+      "sm": 45,
+      "md": 50,
+      "lg": 55,
+      "xl": 65,
+      "xxl": 75
+    }
+  },
+  "_MAIN_BODY_HALF": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 20,
+      "sm": 23,
+      "md": 25,
+      "lg": 28,
+      "xl": 33,
+      "xxl": 38
+    }
+  },
+  "_MAIN_BODY_AUTO_SIZE": {
+    "font": "xiquemuye SDF",
+    "enableAutoSize": true,
+    "sizeRange": [
+      20,
+      60
+    ]
+  },
+  "_TITLE_H1": {
+    "font": "Title SDF",
+    "size": 80
+  },
+  "_TITLE_H1_HALF": {
+    "font": "Title SDF",
+    "size": 40
+  },
+  "_TITLE_H2": {
+    "font": "Title SDF",
+    "size": 70
+  },
+  "_TITLE_H3": {
+    "font": "Title SDF",
+    "size": 50
+  },
+  "_TITLE_H3_AUTO_SIZE": {
+    "font": "Title SDF",
+    "enableAutoSize": true,
+    "sizeRange": [
+      40,
+      50
+    ]
+  },
+  "_BUTTON": {
+    "font": "Title SDF",
+    "size": 40
+  },
+  "_BUTTON_AUTO_SIZE": {
+    "font": "Title SDF",
+    "enableAutoSize": true,
+    "sizeRange": [
+      30,
+      40
+    ]
+  },
+  "_TOGGLE": {
+    "font": "xiquemuye SDF",
+    "size": 36
+  },
+  "_OVER_RECORD_SUB_NAME": {
+    "font": "xiquemuye SDF",
+    "size": 40
+  },
+  "_CARD_INFO_NAME": {
+    "font": "Title SDF",
+    "enableAutoSize": true,
+    "sizeRange": [
+      40,
+      60
+    ]
+  },
+  "_CARD_INFO_DESC": {
+    "font": "xiquemuye SDF",
+    "enableAutoSize": true,
+    "sizeRange": [
+      18,
+      40
+    ]
+  },
+  "_CARD_INFO_TYPE": {
+    "font": "xiquemuye SDF",
+    "size": 30
+  },
+  "_NOTE_ITEM_TEXT": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 30,
+      "sm": 35,
+      "md": 40,
+      "lg": 45,
+      "xl": 55,
+      "xxl": 65
+    }
+  },
+  "_SETTING_OPTION_ITEM": {
+    "font": "xiquemuye SDF",
+    "size": 22
+  },
+  "_SETTING_OPTION_TITLE": {
+    "font": "Title SDF",
+    "size": 30
+  },
+  "_EXECUTION_DAY_TITLE": {
+    "font": "Title SDF",
+    "size": 60
+  },
+  "_PRESTIGE_TITLE": {
+    "font": "Title SDF",
+    "size": 60
+  },
+  "_HELP_TEXT": {
+    "font": "Title SDF",
+    "size": 50
+  },
+  "_GUIDE_TEXT": {
+    "font": "Title SDF",
+    "size": 75
+  },
+  "SETTING_PANEL": {
+    "font": "Title SDF",
+    "size": 40
+  },
+  "NEXT_DAY": {
+    "font": "",
+    "isRightToLeftText": false,
+    "size": 100
+  },
+  "PROMPT_CHANGE_NAME_TITLE": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 40,
+      "sm": 45,
+      "md": 50,
+      "lg": 55,
+      "xl": 65,
+      "xxl": 75
+    }
+  },
+  "PROMPT_CHANGE_NAME_INPUT_PLACEHOLDER": {
+    "font": "xiquemuye SDF",
+    "css_size": {
+      "xs": 40,
+      "sm": 45,
+      "md": 50,
+      "lg": 55,
+      "xl": 65,
+      "xxl": 75
+    }
+  },
+  "ADD_TO_WISHLIST": {
+    "font": "Title SDF",
+    "size": 60,
+    "characterSpacing": -8
+  },
+  "_OVER_TITLE": {
+    "font": "CardTitle SDF",
+    "material": "CardTitle SDF - RiteTitleNew",
+    "enableAutoSize": true,
+    "sizeRange": [
+      100,
+      120
+    ]
+  },
+  "_OVER_SUBTITLE": {
+    "font": "CardTitle SDF",
+    "material": "CardTitle SDF - RiteTitleNew",
+    "size": 50
+  }
 }

@@ -71,11 +71,13 @@
       <div class="related-section" v-if="relatedCounters.length > 0">
         <h3 class="related-header">关联计数器</h3>
         <div class="related-list">
-          <div v-for="counterId in relatedCounters" :key="counterId" class="related-item">
-            <span class="related-id">#{{ counterId }}</span>
-            <span v-if="counterNames[counterId]" class="related-name">
-              {{ counterNames[counterId] }}
+          <div v-for="counter in relatedCounters" :key="counter.id" class="related-item">
+            <span class="related-id">#{{ counter.id }}</span>
+            <span v-if="counterNames[counter.id]" class="related-name">
+              {{ counterNames[counter.id] }}
             </span>
+            <span v-if="counter.op" class="counter-op">{{ formatCounterOp(counter.op) }}</span>
+            <span v-if="counter.value" class="counter-value">{{ counter.value }}</span>
           </div>
         </div>
       </div>
@@ -167,16 +169,44 @@ export default {
       if (!text) return '';
       return text.replace(/\n/g, '<br>');
     },
+    // 格式化计数器操作符
+    formatCounterOp(op) {
+      switch(op) {
+        case '+': return '增加';
+        case '-': return '减少';
+        case '=': return '设置为';
+        case '>=': return '大于等于';
+        case '<=': return '小于等于';
+        case '>': return '大于';
+        case '<': return '小于';
+        case '+>=': return '增加后大于等于';
+        case '+<=': return '增加后小于等于';
+        case '+>': return '增加后大于';
+        case '+<': return '增加后小于';
+        case '+=': return '增加后等于';
+        case '->=': return '减少后大于等于';
+        case '-<=': return '减少后小于等于';
+        case '->': return '减少后大于';
+        case '-<': return '减少后小于';
+        case '-=': return '减少后等于';
+        case '=>=': return '设置后大于等于';
+        case '=<=': return '设置后小于等于';
+        case '=>': return '设置后大于';
+        case '=<': return '设置后小于';
+        case '==': return '设置后等于';
+        default: return op || '修改';
+      }
+    },
+    
     // 加载关联数据
     async loadRelatedData() {
-      console.log('Loading related data for over:', this.over);
       if (!this.over || !this.over.id) return;
       
       try {
         // 加载关联仪式
         this.relatedRites = await getRelatedRitesByOverId(this.over.id);
         
-        // 加载关联计数器
+        // 加载关联计数器 - 现在relatedCounters是对象数组
         this.relatedCounters = await getRelatedCountersByOverId(this.over.id);
         
         // 加载关联成就
@@ -200,7 +230,8 @@ export default {
         }
         
         // 加载计数器名称（从注释缓存中获取）
-        for (const counterId of this.relatedCounters) {
+        for (const counter of this.relatedCounters) {
+          const counterId = counter.id;
           if (!this.counterNames[counterId]) {
             const comment = getCommentFromCache(counterId);
             this.counterNames[counterId] = comment || `计数器 #${counterId}`;
@@ -394,6 +425,7 @@ export default {
   font-size: 13px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .related-id {
@@ -404,6 +436,19 @@ export default {
 
 .related-name {
   color: #333;
+  margin-right: 5px;
+}
+
+/* 添加计数器操作符和值的样式 */
+.counter-op {
+  color: #e74c3c;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+.counter-value {
+  color: #3498db;
+  font-weight: bold;
 }
 
 .clickable {

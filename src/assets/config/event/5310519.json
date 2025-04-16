@@ -1,23 +1,23 @@
 {
-        "id": 5310519,
-        "text": "结局-终点的笑声",
-        "is_replay": 0, 
-        "auto_start": false, 
-        "start_trigger": true,  //立即触发
-        "on":{   
-            "rite_end": 5010024
-        },
-        "condition":{
-            "counter.7000447>=":1, //改革
-            "counter.7100001<":30, //善名
-        },
-        "settlement": [    
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{     
-                "over":247
-            }
-        }
-    ]
-} 
+  "id": 5310519,
+  "text": "结局-终点的笑声",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": true,
+  "on": {
+    "rite_end": 5010024
+  },
+  "condition": {
+    "counter.7000447大于等于": 1,
+    "counter.7100001小于": 30
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "over": 247
+      }
+    }
+  ]
+}

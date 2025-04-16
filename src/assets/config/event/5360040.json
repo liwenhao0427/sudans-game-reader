@@ -1,23 +1,25 @@
 {
-    "id": 5360040,
-    "text": "天才少女看书3",
-    "is_replay": 1, 
-    "auto_start_init": [1], 
-    "start_trigger": false, 
-    "on":{   
-        "round_begin_ba":1 
-    },
-    "condition":{
-        "counter.7000100>=":30
-    },
-    "settlement": [    
+  "id": 5360040,
+  "text": "天才少女看书3",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "counter.7000100大于等于": 30
+  },
+  "settlement": [
     {
-        "tips_resource":"", 
-        "tips_text":"",
-        "action":{
-            "global_counter=7200183": 1,
-            "debug": "天才少女看书"
-        }
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "global_counter等于7200183": 1,
+        "debug": "天才少女看书"
+      }
     }
-    ]
+  ]
 }

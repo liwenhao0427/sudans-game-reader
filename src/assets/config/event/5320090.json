@@ -1,28 +1,27 @@
 {
-    "id": 5320090,
-    "text": "权势3的事件--苏丹的猜忌-疲软的丑态",     
-    "is_replay": 0, //是否可以重复触发
-    "auto_start": false,
-    "start_trigger": false, // 是否启动就立即开始校验条件
-    "on":{   //时机
-        "round_begin_ba": 1
-    },
-    "condition":{  //条件
-        "table_have.不举的传言":1 //主角闲置
-    },
-    "settlement": [    //效果 
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{
-                "table.不举的传言-equip":2000681, //移除不举的传言
-                "prompt":{
-                    "id":"5320090_prompt_01",
-                    "text":"苏丹的使者带来了一个血淋淋的盒子，可让你紧张了好一会儿……还好里面只是一根虎鞭，来自于苏丹今天才猎到的猛虎……这份无上的恩典当然立即就治好了你假装的阳痿。",
-                    "icon":"cards/sudan"
-                }
-            }
+  "id": 5320090,
+  "text": "权势3的事件--苏丹的猜忌-疲软的丑态",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "table_have.不举的传言": 1
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "table.不举的传言_equip": 2000681,
+        "prompt": {
+          "id": "5320090_prompt_01",
+          "text": "苏丹的使者带来了一个血淋淋的盒子，可让你紧张了好一会儿……还好里面只是一根虎鞭，来自于苏丹今天才猎到的猛虎……这份无上的恩典当然立即就治好了你假装的阳痿。",
+          "icon": "cards/sudan"
         }
-
-    ]
+      }
+    }
+  ]
 }

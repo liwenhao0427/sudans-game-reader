@@ -1,61 +1,61 @@
 {
-    "id": 6001004,
-    "name": "鲁梅拉声望事件",
-    "repeat": 1,
-    "type": 3, // 2 普通权重, 3 维新
-    "item": [
-        {
-            "condition":{
-                "counter.7000131<":1, //本体没有触发过
-                "counter.7000100>=":5 //看过5本书
-            },
-            "num" : "1",
-            "id" : "5320021",
-            "type" : "event",
-            "weight" : 60
-        },
-        {
-            "condition":{
-                "counter.7000134<":1, //本体没有触发过1
-                "counter.7100003>=":12, //权势大于12
-                "counter.7000132>=":1 //读书会选择留下
-            },
-            "num" : "1",
-            "id" : "5320023",
-            "type" : "event",
-            "weight" : 60
-        },
-        {
-            "condition":{
-                "counter.7000138<":1, //本体没有触发过
-                "counter.7000137>=":1, //成功解读咒书计数  
-                "counter.7000198>=":1  //鲁梅拉解读完星卷的3天后
-            },
-            "num" : "1",
-            "id" : "5320026", //星灵之夜
-            "type" : "event",
-            "weight" : 60
-        },
-        {
-            "condition":{
-                "counter.7000139<":1, //本体没有触发过
-                "counter.7100004>=":11, //侠名大于11
-                "counter.7000133>=":1 //读书会选择不留下
-            },
-            "num" : "1",
-            "id" : "5320027",
-            "type" : "event",
-            "weight" : 60
-        },
-        {
-            "condition":{
-                "counter.7000141<":1, //本体没有触发过
-                "counter.7000140>=":1
-            },
-            "num" : "1",
-            "id" : "5320030", //开启廊下故事
-            "type" : "event",
-            "weight" : 60
-        }
-    ]
+  "id": 6001004,
+  "name": "鲁梅拉声望事件",
+  "repeat": 1,
+  "type": 3,
+  "item": [
+    {
+      "condition": {
+        "counter.7000131小于": 1,
+        "counter.7000100大于等于": 5
+      },
+      "num": "1",
+      "id": "5320021",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "counter.7000134小于": 1,
+        "counter.7100003大于等于": 12,
+        "counter.7000132大于等于": 1
+      },
+      "num": "1",
+      "id": "5320023",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "counter.7000138小于": 1,
+        "counter.7000137大于等于": 1,
+        "counter.7000198大于等于": 1
+      },
+      "num": "1",
+      "id": "5320026",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "counter.7000139小于": 1,
+        "counter.7100004大于等于": 11,
+        "counter.7000133大于等于": 1
+      },
+      "num": "1",
+      "id": "5320027",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "counter.7000141小于": 1,
+        "counter.7000140大于等于": 1
+      },
+      "num": "1",
+      "id": "5320030",
+      "type": "event",
+      "weight": 60
+    }
+  ]
 }

@@ -1,23 +1,25 @@
 {
-    "id": 5360009,
-    "text": "一局游戏内撑过30天",
-    "is_replay": 0, 
-    "auto_start_init": [1], 
-    "start_trigger": false, 
-    "on":{   
-        "game_end":-1
-    },
-    "condition":{
-        "round":50
-    },
-    "settlement": [    
+  "id": 5360009,
+  "text": "一局游戏内撑过30天",
+  "is_replay": 0,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "game_end": -1
+  },
+  "condition": {
+    "round": 50
+  },
+  "settlement": [
     {
-        "tips_resource":"", 
-        "tips_text":"",
-        "action":{
-            "global_counter=7210007": 1,
-            "debug": "一局游戏撑过50天"
-        }
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "global_counter等于7210007": 1,
+        "debug": "一局游戏撑过50天"
+      }
     }
-    ]
+  ]
 }

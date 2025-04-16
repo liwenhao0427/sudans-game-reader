@@ -9,15 +9,20 @@ export const parseJsonWithComments = (jsonString) => {
       console.error('输入的JSON字符串为空');
       return null;
     }
+
+    try {
+      // 使用自定义解析器处理重复键
+      const result = JSON5.parse(jsonString);
+      return result;
+    } catch (parseError) {
+      console.error("第一次解析失败，尝试使用JSON5解析器", parseError);
+    }
     
     // 先将转义的换行符替换为实际的换行符
     jsonString = jsonString.replace(/\\n/g, '\n');
     jsonString = jsonString.replace(/\\r/g, '');
     jsonString = jsonString.replace(/\\t/g, '');
     
-
-    // 提取并缓存注释
-    extractAndCacheComments(jsonString);
     
 
     // 移除单行注释，但保留引号内的注释样式文本
@@ -99,58 +104,6 @@ export const parseJsonWithComments = (jsonString) => {
 let globalCommentCache = {};
 let loadDefaultCache = false;
 
-// 提取并缓存JSON中的注释
-export function extractAndCacheComments(jsonString) {
-  if (!jsonString) return;
-  
-  // 使用全局变量而不是localStorage
-  let commentCache = globalCommentCache;
-  
-  // 修改正则表达式，匹配形如 "counter.7000420>=":1 //主角戳瞎自己 的模式
-  // 或者 "counter.7000420<":1 //主角没瞎 的模式
-  const counterRegex = /"counter\.(\d+)([<>=]+)"\s*:\s*([^,\n\r}]+)(?:\s*\/\/(.*))?/g;
-  
-  let match;
-  while ((match = counterRegex.exec(jsonString)) !== null) {
-    // 正确提取各部分
-    const counterId = match[1];
-    const operator = match[2];
-    const value = match[3] ? match[3].trim() : '';
-    
-    // 提取注释部分，如果存在的话
-    let comment = '';
-    if (match[4]) {
-      comment = match[4].trim();
-    } else if (value.includes('//')) {
-      // 如果注释被包含在值部分，尝试提取
-      const commentParts = value.split('//');
-      if (commentParts.length > 1) {
-        comment = commentParts[1].trim();
-      }
-    }
-    
-    if (!comment) continue; // 如果没有注释，跳过
-    
-    // 存储完整键名的注释 (例如: "7000420>=")
-    const fullKey = `${counterId}${operator}`;
-    
-    // 检查是否已存在该键，如果存在且新注释更短，则跳过
-    if (commentCache[fullKey] && commentCache[fullKey].length <= comment.length) {
-      // 如果已有注释更短或相同长度，保留已有注释
-    } else {
-      commentCache[fullKey] = comment;
-    }
-    
-    // 同时存储不带运算符的基础键 (例如: "7000420")
-    if (!commentCache[counterId] || commentCache[counterId].length > comment.length) {
-      // 如果基础键不存在，或者新注释更短，则更新
-      commentCache[counterId] = comment;
-    }
-  }
-  
-  // 更新全局缓存
-  globalCommentCache = commentCache;
-}
 
 // 获取注释缓存
 export function getCommentFromCache(counterId) {
@@ -345,7 +298,7 @@ function parseJSONWithDuplicateKeys(jsonString) {
         cleanedJson = cleanedJson.replace(/'/g, '"');
         // 再次处理尾随逗号
         cleanedJson = cleanedJson.replace(/,(\s*[}\]])/g, '$1');
-        console.log("第一次尝试修复", cleanedJson);
+        console.log("第一次尝试修复", jsonString, cleanedJson);
 
         // 尝试使用标准JSON解析
         return JSON.parse(cleanedJson);
@@ -1029,7 +982,7 @@ export async function loadCardsData() {
   
   try {
     // 使用require直接导入JSON文件
-    const response = require('raw-loader!@/assets/cards_processed.json').default;
+    const response = require('raw-loader!@/assets/config/cards.json').default;
     
     // 处理JSON内容 - 处理module.exports包装
     let jsonContent = response;

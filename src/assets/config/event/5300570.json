@@ -1,33 +1,35 @@
 {
-    "id": 5300570,
-    "text": "誓言之证2升3",     
-    "is_replay": 1, //是否可以重复触发
-    "auto_start": false,
-    "start_trigger": false, // 是否启动就立即开始校验条件
-    "on":{   //时机
-       "round_begin_ba": 1 //每回合检测
-    },
-    "condition":{  //条件
-        "hand_have.2000913":1,  //手牌中有誓言之证
-        "hand_have.2000913.rare=":2,  //手牌中誓言之证为稀有度2
-        "any":{
-            "hand_have.2000913.回应誓言=":4,  //回应誓言4-5
-            "hand_have.2000913.回应誓言=":5  
-        }
-    },
-    "settlement": [    //效果 
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{
-                "table.2000913.uprare":1, //誓言之证升稀有度
-                "prompt":{
-                    "id":"5300570_prompt_01",
-                    "text":"誓言之证有了新的变化",
-                    "icon":"cards/2000913"
-                },  
-                "event_off":5300570 //关闭自检
-            }
-        }
-    ]
+  "id": 5300570,
+  "text": "誓言之证2升3",
+  "is_replay": 1,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "hand_have.2000913": 1,
+    "hand_have.2000913.稀有度等于": "铜",
+    "any": {
+      "hand_have.2000913.回应誓言等于": [
+        4,
+        5
+      ]
+    }
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "table.2000913.晋升": 1,
+        "prompt": {
+          "id": "5300570_prompt_01",
+          "text": "誓言之证有了新的变化",
+          "icon": "cards/2000913"
+        },
+        "event_off": 5300570
+      }
+    }
+  ]
 }

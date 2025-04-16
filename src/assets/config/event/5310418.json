@@ -1,32 +1,34 @@
 {
-        "id": 5310418,
-        "text": "结局-造反-铁卫得背叛",
-        "is_replay": 0, 
-        "auto_start": false, 
-        "start_trigger": false,
-        "on":{   
-            "rite_end": 5010013  //立即触发
+  "id": 5310418,
+  "text": "结局-造反-铁卫得背叛",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "rite_end": 5010013
+  },
+  "condition": {
+    "counter.7000429大于等于": 1,
+    "counter.7000433大于等于": 2
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "no_prompt": {
+          "table.2000024等于上朝": 0
         },
-        "condition":{
-            "counter.7000429>=":1, //铁卫倒戈
-            "counter.7000433>=":2 //胜利
+        "rite": 5010015,
+        "prompt": {
+          "id": "5310418_prompt_01",
+          "text": "最后一段通往觐见厅的走廊空无一人，所有剩下的人，都集合在了这里——等待你去推开直面苏丹的大门。"
         },
-        "settlement": [    
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{     
-                "no_prompt":{
-                    "table.2000024=上朝":0
-                },
-                "rite":5010015, //触发铁卫得背叛
-                "prompt":{
-                    "id":"5310418_prompt_01",
-                    "text":"最后一段通往觐见厅的走廊空无一人，所有剩下的人，都集合在了这里——等待你去推开直面苏丹的大门。"
-                },
-                "event_off":5310417,
-                "event_off":5310419
-            }
-        }
-    ]
-} 
+        "event_off": [
+          5310417,
+          5310419
+        ]
+      }
+    }
+  ]
+}

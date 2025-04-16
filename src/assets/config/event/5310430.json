@@ -1,33 +1,34 @@
 {
-        "id": 5310430,
-        "text": "结局-逃跑-冻结苏丹卡和猜忌卡",
-        "is_replay": 1, 
-        "auto_start_init": [1],  
-        "start_trigger": false,
-        "on":{   
-            "rite_start": 5010001 //运行出发时
+  "id": 5310430,
+  "text": "结局-逃跑-冻结苏丹卡和猜忌卡",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "rite_start": 5010001
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "counter加7000659": 1,
+        "no_prompt": {
+          "total.2001019加冻结": 1,
+          "total.sudan加冻结": 1,
+          "total.2000680加冻结": 1,
+          "sudan_pool.sudan加冻结": 1,
+          "enable_auto_gen_sudan_card": false
         },
-        "condition":{
-        },
-        "settlement": [    
-        {
-            "tips_resource":"", 
-            "tips_text":"",
-            "action":{   
-                "counter+7000659":1, //标识出发已经被激活
-                "no_prompt":{
-                    "total.2001019+冻结":1, //冻结莎姬的信物
-                    "total.sudan+冻结":1, //冻结苏丹卡
-                    "total.2000680+冻结":1, //冻结猜忌
-                    "sudan_pool.sudan+冻结":1, //冻结池子里的苏丹卡
-                    "enable_auto_gen_sudan_card": false, //禁用自动生成抽卡
-                },
-                "prompt":{
-                    "id":"5310430_prompt_01",
-                    "text":"悬在头上的处刑日已经毫无意义。",
-                    "icon":"cards/2000001"
-                }
-            }
+        "prompt": {
+          "id": "5310430_prompt_01",
+          "text": "悬在头上的处刑日已经毫无意义。",
+          "icon": "cards/2000001"
         }
-    ]
-} 
+      }
+    }
+  ]
+}

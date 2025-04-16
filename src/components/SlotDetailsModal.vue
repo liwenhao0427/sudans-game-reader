@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-overlay" v-if="visible" @click.self="closeModal">
+  <div class="modal-overlay" v-if="visible" @click.self="closeModal" :style="{ zIndex: modalZIndex }" @mousedown="bringToFront">
     <div class="modal-container">
       <div class="modal-header">
         <h3>卡位详情: {{ slotId }}</h3>
@@ -19,8 +19,9 @@
 </template>
 
 <script>
-import eventBus from '@/utils/eventBus';
 import SlotDisplay from './displays/SlotDisplay.vue';
+import eventBus from '@/utils/eventBus';
+import { modalService } from '@/services/modalService';
 
 export default {
   name: 'SlotDetailsModal',
@@ -30,20 +31,30 @@ export default {
   data() {
     return {
       visible: false,
-      slotId: null,
+      slotId: '',
       riteId: null,
-      slotInfo: null
+      slotInfo: null,
+      modalZIndex: 1000 // 默认z-index
     };
   },
   methods: {
     showModal(data) {
-      this.slotId = data.slotId;
+      this.visible = true;
       this.riteId = data.riteId;
       this.slotInfo = data.slotInfo;
-      this.visible = true;
+      this.slotId = data.id || '';
+      
+      // 获取新的z-index值
+      this.modalZIndex = modalService.registerModal();
     },
     closeModal() {
       this.visible = false;
+      // 注销弹窗
+      modalService.unregisterModal(this.modalZIndex);
+    },
+    bringToFront() {
+      // 将当前弹窗提升到最前面
+      this.modalZIndex = modalService.bringToFront(this.modalZIndex);
     }
   },
   mounted() {
@@ -53,11 +64,16 @@ export default {
   beforeUnmount() {
     // 移除事件监听
     eventBus.off('show-slot-details', this.showModal);
+    // 确保在组件卸载时注销弹窗
+    if (this.visible) {
+      modalService.unregisterModal(this.modalZIndex);
+    }
   }
 }
 </script>
 
 <style scoped>
+/* 移除固定的z-index值，改为动态绑定 */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -68,7 +84,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  /* z-index 现在通过动态绑定设置 */
 }
 
 .modal-container {
