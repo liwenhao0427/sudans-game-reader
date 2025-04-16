@@ -198,6 +198,36 @@ export function getCommentFromCache(counterId) {
   }
 }
 
+
+// ... 省略部分代码 ...
+
+// 递归查找并修复对象中的重复键
+function fixDuplicateKeys(obj, key, values) {
+  if (!obj || typeof obj !== 'object') return;
+
+  // 如果当前对象有该key且不是数组，则替换为数组
+  if (Object.prototype.hasOwnProperty.call(obj, key)) {
+    if (!Array.isArray(obj[key])) {
+      obj[key] = values.map(val => {
+        // 尝试将数字字符串转换为数字
+        if (/^\d+$/.test(val)) {
+          return parseInt(val);
+        }
+        return val;
+      });
+    }
+  }
+
+  // 递归处理子对象
+  for (const prop in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, prop) && typeof obj[prop] === 'object') {
+      fixDuplicateKeys(obj[prop], key, values);
+    }
+  }
+}
+
+// ... 省略部分代码 ...
+
 // 自定义解析器处理重复键
 /* eslint-disable */
 function parseJSONWithDuplicateKeys(jsonString) {
@@ -1309,4 +1339,245 @@ export async function getAfterStories() {
     console.error('加载后日谈列表失败:', e);
     return [];
   }
+}
+
+// 添加一个变量来缓存仪式关系数据
+let riteRelationsData = null;
+
+// 添加一个变量来缓存结局关系数据
+let overRelationsData = null;
+
+/**
+ * 加载仪式关系数据
+ * 包含仪式与结局、计数器、成就等的关联关系
+ */
+export async function loadRiteRelationsData() {
+  if (riteRelationsData !== null) {
+    return riteRelationsData;
+  }
+  
+  try {
+    // 使用require直接导入JSON文件
+    const response = require('raw-loader!@/assets/rite_relations.json').default;
+    
+    // 处理JSON内容 - 处理module.exports包装
+    let jsonContent = response;
+    if (jsonContent.startsWith('module.exports = ')) {
+      jsonContent = jsonContent.substring(16);
+    }
+    
+    // 移除字符串首尾的引号和分号
+    jsonContent = jsonContent.trim();
+    if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 2);
+    } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 1);
+    }
+    
+    
+    try {
+      // 尝试直接解析
+      riteRelationsData = JSON.parse(jsonContent);
+    } catch (directParseError) {
+      // 如果直接解析失败，尝试使用自定义解析器
+      riteRelationsData = parseJsonWithComments(jsonContent);
+      console.log('使用自定义解析器解析仪式关系数据');
+    }
+    
+    return riteRelationsData;
+  } catch (e) {
+    console.error('加载仪式关系数据失败:', e);
+    return {};
+  }
+}
+
+/**
+ * 加载结局关系数据
+ * 包含结局与仪式、计数器、成就等的关联关系
+ */
+export async function loadOverRelationsData() {
+  if (overRelationsData !== null) {
+    return overRelationsData;
+  }
+  
+  try {
+    // 使用require直接导入JSON文件
+    const response = require('raw-loader!@/assets/over_relations.json').default;
+    
+    // 处理JSON内容 - 处理module.exports包装
+    let jsonContent = response;
+    if (jsonContent.startsWith('module.exports = ')) {
+      jsonContent = jsonContent.substring(16);
+    }
+    
+    // 移除字符串首尾的引号和分号
+    jsonContent = jsonContent.trim();
+    if (jsonContent.startsWith('"') && jsonContent.endsWith('";')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 2);
+    } else if (jsonContent.startsWith('"') && jsonContent.endsWith('"')) {
+      jsonContent = jsonContent.substring(1, jsonContent.length - 1);
+    }
+    
+    // 处理转义字符
+    jsonContent = jsonContent.replace(/\\"/g, '"');
+    jsonContent = jsonContent.replace(/\\n/g, '\n');
+    jsonContent = jsonContent.replace(/\\r/g, '');
+    jsonContent = jsonContent.replace(/\\t/g, '');
+    
+    try {
+      // 尝试直接解析
+      overRelationsData = JSON.parse(jsonContent);
+      console.log('overRelationsData', overRelationsData);
+    } catch (directParseError) {
+      // 如果直接解析失败，尝试使用自定义解析器
+      overRelationsData = parseJsonWithComments(jsonContent);
+    }
+    
+    return overRelationsData;
+  } catch (e) {
+    console.error('加载结局关系数据失败:', e);
+    return {};
+  }
+}
+
+/**
+ * 获取与结局相关的仪式列表
+ * @param {string|number} overId 结局ID
+ * @returns {Promise<Array>} 相关仪式列表
+ */
+export async function getRelatedRitesByOverId(overId) {
+  try {
+    const overRelations = await loadOverRelationsData();
+    const overIdStr = overId.toString();
+    
+    if (overRelations && overRelations[overIdStr]) {
+      return overRelations[overIdStr].related_rites || [];
+    }
+    
+    return [];
+  } catch (e) {
+    console.error(`获取结局 ${overId} 相关仪式失败:`, e);
+    return [];
+  }
+}
+
+/**
+ * 获取与结局相关的计数器列表
+ * @param {string|number} overId 结局ID
+ * @returns {Promise<Array>} 相关计数器列表
+ */
+export async function getRelatedCountersByOverId(overId) {
+  try {
+    const overRelations = await loadOverRelationsData();
+    const overIdStr = overId.toString();
+    
+    if (overRelations && overRelations[overIdStr]) {
+      return overRelations[overIdStr].related_counters || [];
+    }
+    
+    return [];
+  } catch (e) {
+    console.error(`获取结局 ${overId} 相关计数器失败:`, e);
+    return [];
+  }
+}
+
+/**
+ * 获取与结局相关的成就列表
+ * @param {string|number} overId 结局ID
+ * @returns {Promise<Array>} 相关成就列表
+ */
+export async function getRelatedAchievementsByOverId(overId) {
+  try {
+    const overRelations = await loadOverRelationsData();
+    const overIdStr = overId.toString();
+    
+    if (overRelations && overRelations[overIdStr]) {
+      return overRelations[overIdStr].related_achievements || [];
+    }
+    
+    return [];
+  } catch (e) {
+    console.error(`获取结局 ${overId} 相关成就失败:`, e);
+    return [];
+  }
+}
+
+/**
+ * 获取与仪式相关的结局列表
+ * @param {string|number} riteId 仪式ID
+ * @returns {Promise<Array>} 相关结局列表
+ */
+export async function getRelatedOversByRiteId(riteId) {
+  try {
+    const riteRelations = await loadRiteRelationsData();
+    const riteIdStr = riteId.toString();
+    
+    if (riteRelations && riteRelations[riteIdStr]) {
+      return riteRelations[riteIdStr].relations.overs || [];
+    }
+    
+    return [];
+  } catch (e) {
+    console.error(`获取仪式 ${riteId} 相关结局失败:`, e);
+    return [];
+  }
+}
+
+/**
+ * 获取与仪式相关的计数器列表
+ * @param {string|number} riteId 仪式ID
+ * @returns {Promise<Array>} 相关计数器列表
+ */
+export async function getRelatedCountersByRiteId(riteId) {
+  try {
+    const riteRelations = await loadRiteRelationsData();
+    const riteIdStr = riteId.toString();
+    
+    if (riteRelations && riteRelations[riteIdStr]) {
+      return riteRelations[riteIdStr].relations.counters || [];
+    }
+    
+    return [];
+  } catch (e) {
+    console.error(`获取仪式 ${riteId} 相关计数器失败:`, e);
+    return [];
+  }
+}
+
+/**
+ * 获取与仪式相关的成就列表
+ * @param {string|number} riteId 仪式ID
+ * @returns {Promise<Array>} 相关成就列表
+ */
+export async function getRelatedAchievementsByRiteId(riteId) {
+  try {
+    const riteRelations = await loadRiteRelationsData();
+    const riteIdStr = riteId.toString();
+    
+    if (riteRelations && riteRelations[riteIdStr]) {
+      return riteRelations[riteIdStr].relations.achievements || [];
+    }
+    
+    return [];
+  } catch (e) {
+    console.error(`获取仪式 ${riteId} 相关成就失败:`, e);
+    return [];
+  }
+}
+
+/**
+ * 获取所有结局关系数据
+ * @returns {Promise<Object>} 所有结局关系数据
+ */
+export async function getAllOverRelations() {
+  return await loadOverRelationsData();
+}
+
+/**
+ * 获取所有仪式关系数据
+ * @returns {Promise<Object>} 所有仪式关系数据
+ */
+export async function getAllRiteRelations() {
+  return await loadRiteRelationsData();
 }

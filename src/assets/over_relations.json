@@ -1,0 +1,667 @@
+{
+  "23": {
+    "id": 23,
+    "related_rites": [
+      "5000154"
+    ],
+    "related_counters": [],
+    "related_achievements": []
+  },
+  "8": {
+    "id": 8,
+    "related_rites": [
+      "5000520",
+      "5000550",
+      "5000569",
+      "5000678",
+      "5000825",
+      "5000855",
+      "5006585",
+      "5006639",
+      "5006640",
+      "5006641",
+      "5006667",
+      "5006668",
+      "5008118",
+      "5008119",
+      "5008122"
+    ],
+    "related_counters": [
+      "7100004",
+      "7100002",
+      "7000489",
+      "7000258",
+      "7100003",
+      "7000498",
+      "7000510",
+      "7000305",
+      "7000509",
+      "7000511"
+    ],
+    "related_achievements": []
+  },
+  "9": {
+    "id": 9,
+    "related_rites": [
+      "5000521"
+    ],
+    "related_counters": [
+      "7000506"
+    ],
+    "related_achievements": []
+  },
+  "7": {
+    "id": 7,
+    "related_rites": [
+      "5000528",
+      "5002021"
+    ],
+    "related_counters": [],
+    "related_achievements": []
+  },
+  "1": {
+    "id": 1,
+    "related_rites": [
+      "5000528",
+      "5000708",
+      "5000709",
+      "5000791",
+      "5000792",
+      "5000793",
+      "5000796",
+      "5000798",
+      "5000800",
+      "5001001",
+      "5001002",
+      "5001003",
+      "5001016",
+      "5001018",
+      "5001027",
+      "5001028",
+      "5002021",
+      "5002025",
+      "5002031",
+      "5004902",
+      "5006013",
+      "5006018",
+      "5006019",
+      "5006027",
+      "5008099",
+      "5008120",
+      "5008153",
+      "5008169",
+      "5010057"
+    ],
+    "related_counters": [
+      "7100003",
+      "7100004",
+      "7000305",
+      "7000545",
+      "7000406",
+      "7000073",
+      "7000155",
+      "7000059",
+      "7000098",
+      "7000067",
+      "7000099",
+      "7000117",
+      "7000200",
+      "7000363",
+      "7100001",
+      "7100499",
+      "7000257",
+      "7000352",
+      "7000549",
+      "7000372",
+      "7100002",
+      "7100005"
+    ],
+    "related_achievements": []
+  },
+  "10": {
+    "id": 10,
+    "related_rites": [
+      "5000553",
+      "5000568"
+    ],
+    "related_counters": [],
+    "related_achievements": []
+  },
+  "11": {
+    "id": 11,
+    "related_rites": [
+      "5000554"
+    ],
+    "related_counters": [],
+    "related_achievements": []
+  },
+  "4": {
+    "id": 4,
+    "related_rites": [
+      "5000554",
+      "5000555",
+      "5000556",
+      "5000557",
+      "5003015",
+      "5008009",
+      "5008126",
+      "5008127"
+    ],
+    "related_counters": [
+      "7100002",
+      "7100003",
+      "7100004"
+    ],
+    "related_achievements": []
+  },
+  "12": {
+    "id": 12,
+    "related_rites": [
+      "5000667"
+    ],
+    "related_counters": [
+      "7000068",
+      "7000069"
+    ],
+    "related_achievements": []
+  },
+  "14": {
+    "id": 14,
+    "related_rites": [
+      "5000679"
+    ],
+    "related_counters": [
+      "7100003"
+    ],
+    "related_achievements": []
+  },
+  "13": {
+    "id": 13,
+    "related_rites": [
+      "5000747",
+      "5000793",
+      "5000803",
+      "5002020",
+      "5002027",
+      "5003019",
+      "5004005",
+      "5004006",
+      "5004007",
+      "5004517",
+      "5006014",
+      "5006079",
+      "5006082",
+      "5006503",
+      "5006504",
+      "5006528",
+      "5006572",
+      "5006573",
+      "5006574",
+      "5006575",
+      "5006576",
+      "5006577",
+      "5006578",
+      "5006579",
+      "5006580",
+      "5006581",
+      "5006582",
+      "5006583",
+      "5006584",
+      "5008043",
+      "5008045",
+      "5008074",
+      "5008099",
+      "5008151",
+      "5008177",
+      "5008189",
+      "5010000",
+      "5010003",
+      "5010004",
+      "5010005",
+      "5010017",
+      "5010018",
+      "5010019",
+      "5010026",
+      "5010027",
+      "5010028",
+      "5010029",
+      "5010032"
+    ],
+    "related_counters": [
+      "7000582",
+      "7100004",
+      "7100002",
+      "7000270",
+      "7100003",
+      "7000092",
+      "7000113",
+      "7000593",
+      "5000572",
+      "7100005",
+      "7000572",
+      "7000152",
+      "7100001",
+      "7000526",
+      "7000187",
+      "7000592",
+      "7000617",
+      "7000598",
+      "7000585",
+      "7000637",
+      "7000624",
+      "7000373",
+      "7000374",
+      "7000420",
+      "7000488",
+      "7000487",
+      "7000490"
+    ],
+    "related_achievements": []
+  },
+  "3": {
+    "id": 3,
+    "related_rites": [
+      "5000782",
+      "5003013",
+      "5003018",
+      "5004902",
+      "5008031"
+    ],
+    "related_counters": [
+      "7000270",
+      "7100002",
+      "7100003",
+      "7100001",
+      "7000103",
+      "7100004"
+    ],
+    "related_achievements": []
+  },
+  "24": {
+    "id": 24,
+    "related_rites": [
+      "5001029"
+    ],
+    "related_counters": [
+      "7100003"
+    ],
+    "related_achievements": []
+  },
+  "5": {
+    "id": 5,
+    "related_rites": [
+      "5002018",
+      "5002023"
+    ],
+    "related_counters": [
+      "7000350"
+    ],
+    "related_achievements": []
+  },
+  "2": {
+    "id": 2,
+    "related_rites": [
+      "5003006",
+      "5008008"
+    ],
+    "related_counters": [
+      "7000236"
+    ],
+    "related_achievements": []
+  },
+  "30": {
+    "id": 30,
+    "related_rites": [
+      "5004905"
+    ],
+    "related_counters": [
+      "7100002"
+    ],
+    "related_achievements": []
+  },
+  "301": {
+    "id": 301,
+    "related_rites": [
+      "5006069"
+    ],
+    "related_counters": [
+      "7000550"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_009"
+    ]
+  },
+  "29": {
+    "id": 29,
+    "related_rites": [
+      "5006516"
+    ],
+    "related_counters": [
+      "7000128"
+    ],
+    "related_achievements": []
+  },
+  "19": {
+    "id": 19,
+    "related_rites": [
+      "5006556"
+    ],
+    "related_counters": [
+      "7100003"
+    ],
+    "related_achievements": []
+  },
+  "25": {
+    "id": 25,
+    "related_rites": [
+      "5008131"
+    ],
+    "related_counters": [],
+    "related_achievements": []
+  },
+  "200": {
+    "id": 200,
+    "related_rites": [
+      "5010007",
+      "5010009",
+      "5010021"
+    ],
+    "related_counters": [
+      "7000531",
+      "7000435"
+    ],
+    "related_achievements": []
+  },
+  "203": {
+    "id": 203,
+    "related_rites": [
+      "5010023"
+    ],
+    "related_counters": [
+      "7000654"
+    ],
+    "related_achievements": []
+  },
+  "202": {
+    "id": 202,
+    "related_rites": [
+      "5010024"
+    ],
+    "related_counters": [
+      "7000450",
+      "7000451",
+      "7000452",
+      "7000453",
+      "7000454",
+      "7000455",
+      "7000456",
+      "7000457",
+      "7000449",
+      "7000458",
+      "7000459",
+      "7000446",
+      "7000447",
+      "7000448"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_007",
+      "ACHIEVEMENT_011",
+      "ACHIEVEMENT_001"
+    ]
+  },
+  "205": {
+    "id": 205,
+    "related_rites": [
+      "5010024"
+    ],
+    "related_counters": [
+      "7000450",
+      "7000451",
+      "7000452",
+      "7000453",
+      "7000454",
+      "7000455",
+      "7000456",
+      "7000457",
+      "7000449",
+      "7000458",
+      "7000459",
+      "7000446",
+      "7000447",
+      "7000448"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_007",
+      "ACHIEVEMENT_011",
+      "ACHIEVEMENT_001"
+    ]
+  },
+  "15": {
+    "id": 15,
+    "related_rites": [
+      "5010026",
+      "5010027",
+      "5010028",
+      "5010029"
+    ],
+    "related_counters": [
+      "7000488",
+      "7000487"
+    ],
+    "related_achievements": []
+  },
+  "403": {
+    "id": 403,
+    "related_rites": [
+      "5010030"
+    ],
+    "related_counters": [
+      "7000482",
+      "7000483",
+      "7000484",
+      "7000485"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_015"
+    ]
+  },
+  "406": {
+    "id": 406,
+    "related_rites": [
+      "5010030"
+    ],
+    "related_counters": [
+      "7000482",
+      "7000483",
+      "7000484",
+      "7000485"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_015"
+    ]
+  },
+  "404": {
+    "id": 404,
+    "related_rites": [
+      "5010030"
+    ],
+    "related_counters": [
+      "7000482",
+      "7000483",
+      "7000484",
+      "7000485"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_015"
+    ]
+  },
+  "405": {
+    "id": 405,
+    "related_rites": [
+      "5010030"
+    ],
+    "related_counters": [
+      "7000482",
+      "7000483",
+      "7000484",
+      "7000485"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_015"
+    ]
+  },
+  "402": {
+    "id": 402,
+    "related_rites": [
+      "5010031"
+    ],
+    "related_counters": [
+      "7000486"
+    ],
+    "related_achievements": []
+  },
+  "401": {
+    "id": 401,
+    "related_rites": [
+      "5010032"
+    ],
+    "related_counters": [
+      "7000490"
+    ],
+    "related_achievements": []
+  },
+  "28": {
+    "id": 28,
+    "related_rites": [
+      "5010034"
+    ],
+    "related_counters": [
+      "7000596"
+    ],
+    "related_achievements": []
+  },
+  "501": {
+    "id": 501,
+    "related_rites": [
+      "5010042",
+      "5010043",
+      "5010045",
+      "5010046",
+      "5010047",
+      "5010048",
+      "5010049"
+    ],
+    "related_counters": [
+      "7100006",
+      "7000631"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_003",
+      "ACHIEVEMENT_012"
+    ]
+  },
+  "502": {
+    "id": 502,
+    "related_rites": [
+      "5010049"
+    ],
+    "related_counters": [
+      "7000631"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_012"
+    ]
+  },
+  "34": {
+    "id": 34,
+    "related_rites": [
+      "5010050"
+    ],
+    "related_counters": [
+      "7000636"
+    ],
+    "related_achievements": []
+  },
+  "31": {
+    "id": 31,
+    "related_rites": [
+      "5010051"
+    ],
+    "related_counters": [
+      "7100005",
+      "7000623",
+      "7000635",
+      "7000584"
+    ],
+    "related_achievements": []
+  },
+  "32": {
+    "id": 32,
+    "related_rites": [
+      "5010054"
+    ],
+    "related_counters": [],
+    "related_achievements": []
+  },
+  "33": {
+    "id": 33,
+    "related_rites": [
+      "5010058"
+    ],
+    "related_counters": [],
+    "related_achievements": []
+  },
+  "603": {
+    "id": 603,
+    "related_rites": [
+      "5010059",
+      "5010060",
+      "5010061",
+      "5010062",
+      "5010063",
+      "5010064"
+    ],
+    "related_counters": [
+      "7000645"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_003",
+      "ACHIEVEMENT_015",
+      "ACHIEVEMENT_012"
+    ]
+  },
+  "601": {
+    "id": 601,
+    "related_rites": [
+      "5010059"
+    ],
+    "related_counters": [],
+    "related_achievements": [
+      "ACHIEVEMENT_003",
+      "ACHIEVEMENT_015"
+    ]
+  },
+  "602": {
+    "id": 602,
+    "related_rites": [
+      "5010059"
+    ],
+    "related_counters": [],
+    "related_achievements": [
+      "ACHIEVEMENT_003",
+      "ACHIEVEMENT_015"
+    ]
+  },
+  "604": {
+    "id": 604,
+    "related_rites": [
+      "5010064"
+    ],
+    "related_counters": [
+      "7000645"
+    ],
+    "related_achievements": [
+      "ACHIEVEMENT_012"
+    ]
+  }
+}

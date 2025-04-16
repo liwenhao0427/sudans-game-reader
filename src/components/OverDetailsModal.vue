@@ -51,6 +51,7 @@ export default {
         const overData = await getOverById(overId);
         if (overData) {
           this.overData = overData;
+          this.overData.id = overId;
         } else {
           this.error = `未找到ID为 ${overId} 的结局`;
         }

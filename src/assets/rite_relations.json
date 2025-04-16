@@ -1,0 +1,2527 @@
+{
+  "5000154": {
+    "id": 5000154,
+    "name": "维持家业",
+    "text": "权势建立于财富之上，无论是你，还是苏丹，都需要豢养仆人与犬马、赏赐支持者，用赠礼与美酒美食，维护浪费又浪漫的生活……如果失去这一切，也就失去了铠甲，失去了门户，失去了大厦的栋梁。",
+    "type": "",
+    "relations": {
+      "overs": [
+        23
+      ],
+      "rites": [],
+      "events": [
+        5310009
+      ],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000520": {
+    "id": 5000520,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000521": {
+    "id": 5000521,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        9
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000506"
+      ],
+      "achievements": []
+    }
+  },
+  "5000528": {
+    "id": 5000528,
+    "name": "弑君（废弃）",
+    "text": "弑君",
+    "type": "",
+    "relations": {
+      "overs": [
+        7,
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000550": {
+    "id": 5000550,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000553": {
+    "id": 5000553,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        10,
+        10
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000554": {
+    "id": 5000554,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        11,
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000555": {
+    "id": 5000555,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        4,
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000556": {
+    "id": 5000556,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        4,
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000557": {
+    "id": 5000557,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        4,
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000568": {
+    "id": 5000568,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        10,
+        10
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000569": {
+    "id": 5000569,
+    "name": "金子般的女人",
+    "text": "你总算知道苏丹平时都把金银财宝浪费到什么地方去了——这个女人的欲望就是一个该死的无底洞。",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [
+        5320253
+      ],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000667": {
+    "id": 5000667,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        12
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000068",
+        "7000069"
+      ],
+      "achievements": []
+    }
+  },
+  "5000678": {
+    "id": 5000678,
+    "name": "苏丹的质询",
+    "text": "你的善名在王国各地广为传颂，人们称赞你的声音甚至传到了苏丹的耳中。这名多疑的君王第一时间召见了你，想确认你是否还忠于他。",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [
+        5300169
+      ],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000679": {
+    "id": 5000679,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        14
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5000708": {
+    "id": 5000708,
+    "name": "火山魔龙",
+    "text": "一场极为困难的BOSS战",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [
+        5000735
+      ],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5000709": {
+    "id": 5000709,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100004"
+      ],
+      "achievements": []
+    }
+  },
+  "5000747": {
+    "id": 5000747,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000582"
+      ],
+      "achievements": []
+    }
+  },
+  "5000782": {
+    "id": 5000782,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        3
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000270",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5000791": {
+    "id": 5000791,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100004"
+      ],
+      "achievements": []
+    }
+  },
+  "5000792": {
+    "id": 5000792,
+    "name": "都城武馆征伐战",
+    "text": "你的宅邸被乌泱泱的人群团团围住，一个裸男站在你家门口一边炫耀自己的肌肉，一边叫你出来应战——堂堂正正的那种。原来，奈布哈尼昨天突然出现在某个并不友善的聚会上，把那些鄙夷他作风的人狠狠戏耍了一通，并且轻蔑地说他们算什么勇士，算什么武人，你才是他见过最强大、最勇武的男人……",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100004"
+      ],
+      "achievements": []
+    }
+  },
+  "5000793": {
+    "id": 5000793,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1,
+        13,
+        13,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100004"
+      ],
+      "achievements": []
+    }
+  },
+  "5000796": {
+    "id": 5000796,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7000305",
+        "7000545"
+      ],
+      "achievements": []
+    }
+  },
+  "5000798": {
+    "id": 5000798,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000406",
+        "7100003",
+        "7000545"
+      ],
+      "achievements": []
+    }
+  },
+  "5000800": {
+    "id": 5000800,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000406",
+        "7100003",
+        "7000545"
+      ],
+      "achievements": []
+    }
+  },
+  "5000803": {
+    "id": 5000803,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100002",
+        "7000270"
+      ],
+      "achievements": []
+    }
+  },
+  "5000825": {
+    "id": 5000825,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100004",
+        "7100002",
+        "7000489"
+      ],
+      "achievements": []
+    }
+  },
+  "5000855": {
+    "id": 5000855,
+    "name": "共襄盛举",
+    "text": "“啊，我已经替你安排好了，”苏丹高兴地说，“未来五天里所有人都可以免费出入欢愉之馆，看上哪个姑娘都没问题，全部免费，也就是说，全部由你出钱——这是为了赞誉我的伟大统治，你肯定不会有意见吧，[player.name]卿？",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [
+        5000855
+      ],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5001001": {
+    "id": 5001001,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1,
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000073",
+        "7000155",
+        "7100003",
+        "7000059",
+        "7000098",
+        "7000067",
+        "7000099",
+        "7000117",
+        "7000200",
+        "7000363",
+        "7100004",
+        "7100001",
+        "7100499",
+        "7000257",
+        "7000352",
+        "7000549",
+        "7000372",
+        "7000305",
+        "7100002",
+        "7100005"
+      ],
+      "achievements": []
+    }
+  },
+  "5001002": {
+    "id": 5001002,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5001003": {
+    "id": 5001003,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5001016": {
+    "id": 5001016,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5001018": {
+    "id": 5001018,
+    "name": "苏丹的戏弄",
+    "text": "有很多人都在苏丹耳边说，你手下的战士神勇无双……甚至超过了苏丹的军队。否则你是怎么完成那些困难的任务的？也许苏丹从未真正把你看做一个威胁，但他显然不介意用这件事来取乐——他命令你选出一位勇士在宫廷进行至死方休的战斗取悦神明，嗯基本上也就是取悦他本人。",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [
+        5001018
+      ],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5001027": {
+    "id": 5001027,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5001028": {
+    "id": 5001028,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5001029": {
+    "id": 5001029,
+    "name": "宫廷决斗",
+    "text": "昨天，你在宫廷上亮出一张杀戮卡。今天，到你与对方一同履行这不死不休的杀戮诺言的时刻了。",
+    "type": "",
+    "relations": {
+      "overs": [
+        24
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5002018": {
+    "id": 5002018,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        5
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000350"
+      ],
+      "achievements": []
+    }
+  },
+  "5002020": {
+    "id": 5002020,
+    "name": "奇淫巧技-苏丹的欢愉",
+    "text": "玩家淫行惊动了苏丹本人。他要求玩家为他准备一场盛大的娱乐活动。",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [
+        5300042
+      ],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5002021": {
+    "id": 5002021,
+    "name": "奇淫巧技-刺杀苏丹",
+    "text": "来都来了",
+    "type": "",
+    "relations": {
+      "overs": [
+        7,
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5002023": {
+    "id": 5002023,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        5
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5002025": {
+    "id": 5002025,
+    "name": "决斗",
+    "text": "为了帮助贾丽拉遮掩，你宣称自己在欢愉之馆杀死了那名贵族。自然而然地，他的家人来找你算账了。",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [
+        5300308
+      ],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5002027": {
+    "id": 5002027,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100002",
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5002031": {
+    "id": 5002031,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5003006": {
+    "id": 5003006,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        2
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5003013": {
+    "id": 5003013,
+    "name": "正义的挑战",
+    "text": "为了正义、复仇还是扬名呢？有人把你堵在家门口，要求和你决斗。",
+    "type": "",
+    "relations": {
+      "overs": [
+        3
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100001"
+      ],
+      "achievements": []
+    }
+  },
+  "5003015": {
+    "id": 5003015,
+    "name": "复仇的利刃",
+    "text": "你是怎样对待他人，他人就将如何对待你。蛰伏中的利刃，到了出鞘之时。",
+    "type": "",
+    "relations": {
+      "overs": [
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5003018": {
+    "id": 5003018,
+    "name": "荣誉杀戮",
+    "text": "在这里，没有无辜者，没有怜悯与责难，你可以完成苏丹的杀戮游戏，而大家只会喝彩。",
+    "type": "",
+    "relations": {
+      "overs": [
+        3
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000103"
+      ],
+      "achievements": []
+    }
+  },
+  "5003019": {
+    "id": 5003019,
+    "name": "孤高之人",
+    "text": "没有一兵一卒，又有什么土地可供征服？唯有那高耸的山峰，那终年被冰雪覆盖的纯净之地，你可以用生命征服它——每个人都只能有自己的生命去征服它，因此这是苏丹也无法做到的征服。",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000092",
+        "7000113"
+      ],
+      "achievements": []
+    }
+  },
+  "5004005": {
+    "id": 5004005,
+    "name": "轻罪",
+    "text": "轻罪审判",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5004006": {
+    "id": 5004006,
+    "name": "中罪",
+    "text": "中罪审判",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5004007": {
+    "id": 5004007,
+    "name": "重罪",
+    "text": "重罪审判",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5004517": {
+    "id": 5004517,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000593",
+        "5000572",
+        "7100002",
+        "7100005",
+        "7000572"
+      ],
+      "achievements": []
+    }
+  },
+  "5004902": {
+    "id": 5004902,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1,
+        3
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100004"
+      ],
+      "achievements": []
+    }
+  },
+  "5004905": {
+    "id": 5004905,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        30,
+        30
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006013": {
+    "id": 5006013,
+    "name": "一笔罚款",
+    "text": "亵渎什么的都无所谓，关键是你要交够罚金。",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006014": {
+    "id": 5006014,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006018": {
+    "id": 5006018,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006019": {
+    "id": 5006019,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1,
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006027": {
+    "id": 5006027,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1,
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5006069": {
+    "id": 5006069,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        301
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000550"
+      ],
+      "achievements": [
+        "ACHIEVEMENT_009"
+      ]
+    }
+  },
+  "5006079": {
+    "id": 5006079,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006082": {
+    "id": 5006082,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13,
+        13,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006503": {
+    "id": 5006503,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006504": {
+    "id": 5006504,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006516": {
+    "id": 5006516,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        29
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000128"
+      ],
+      "achievements": []
+    }
+  },
+  "5006528": {
+    "id": 5006528,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000152",
+        "7100001"
+      ],
+      "achievements": []
+    }
+  },
+  "5006556": {
+    "id": 5006556,
+    "name": "连你也……",
+    "text": "这是一个与平日无异的清晨，盟友们聚集到你的家中，等待你的派遣，或者带来宝贵的消息和建议。突然，仿佛有默契一般，他们慢慢地围住了你……然后掏出了匕首。",
+    "type": "",
+    "relations": {
+      "overs": [
+        19
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5006572": {
+    "id": 5006572,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7000526",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006573": {
+    "id": 5006573,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100001",
+        "7100002",
+        "7000526",
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5006574": {
+    "id": 5006574,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7000526",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006575": {
+    "id": 5006575,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7000526",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006576": {
+    "id": 5006576,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100001",
+        "7000526",
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006577": {
+    "id": 5006577,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100004",
+        "7000526",
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006578": {
+    "id": 5006578,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100001",
+        "7000526",
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006579": {
+    "id": 5006579,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006580": {
+    "id": 5006580,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006581": {
+    "id": 5006581,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000526",
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006582": {
+    "id": 5006582,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7000526",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006583": {
+    "id": 5006583,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006584": {
+    "id": 5006584,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000187",
+        "7100003",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006585": {
+    "id": 5006585,
+    "name": "赤字滔天",
+    "text": "面对财政赤字，你打算怎么处理？",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [
+        5320093
+      ],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006639": {
+    "id": 5006639,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000258",
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5006640": {
+    "id": 5006640,
+    "name": "强取",
+    "text": "苏丹的护卫跟着你来到家门口，可怜的小圆，她还不知道等待着她的会是什么。",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [
+        5320186
+      ],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5006641": {
+    "id": 5006641,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7000258"
+      ],
+      "achievements": []
+    }
+  },
+  "5006667": {
+    "id": 5006667,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5006668": {
+    "id": 5006668,
+    "name": "沉重的代价",
+    "text": "喝酒误事啊！你将为自己酒后失言付出沉重的代价……",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5008008": {
+    "id": 5008008,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        2
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000236"
+      ],
+      "achievements": []
+    }
+  },
+  "5008009": {
+    "id": 5008009,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        4,
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100002"
+      ],
+      "achievements": []
+    }
+  },
+  "5008031": {
+    "id": 5008031,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        3
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100002",
+        "7100004"
+      ],
+      "achievements": []
+    }
+  },
+  "5008043": {
+    "id": 5008043,
+    "name": "一次暗杀",
+    "text": "如果哲瓦德暗杀成功，你会死亡。",
+    "type": "ENEMY",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5008045": {
+    "id": 5008045,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100004",
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5008074": {
+    "id": 5008074,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5008099": {
+    "id": 5008099,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5008118": {
+    "id": 5008118,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000498",
+        "7100003",
+        "7000510",
+        "7000305"
+      ],
+      "achievements": []
+    }
+  },
+  "5008119": {
+    "id": 5008119,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7000509",
+        "7000511"
+      ],
+      "achievements": []
+    }
+  },
+  "5008120": {
+    "id": 5008120,
+    "name": "苏丹的戏弄",
+    "text": "苏丹告诉你，他有点想念上次在你舍馆里吃到的美食……所以，现在是时候展现你的忠诚了。",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [
+        5001002
+      ],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5008122": {
+    "id": 5008122,
+    "name": "苏丹的偏爱",
+    "text": "曾被苏丹宠爱过的女人，如今不知道为什么又被苏丹想起来了。",
+    "type": "",
+    "relations": {
+      "overs": [
+        8
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5008126": {
+    "id": 5008126,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100003",
+        "7100004"
+      ],
+      "achievements": []
+    }
+  },
+  "5008127": {
+    "id": 5008127,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        4,
+        4
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5008131": {
+    "id": 5008131,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        25
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5008151": {
+    "id": 5008151,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000592",
+        "7100003"
+      ],
+      "achievements": []
+    }
+  },
+  "5008153": {
+    "id": 5008153,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000549"
+      ],
+      "achievements": []
+    }
+  },
+  "5008169": {
+    "id": 5008169,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5008177": {
+    "id": 5008177,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000617",
+        "7000598",
+        "7000585"
+      ],
+      "achievements": []
+    }
+  },
+  "5008189": {
+    "id": 5008189,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000637",
+        "7000624"
+      ],
+      "achievements": []
+    }
+  },
+  "5010000": {
+    "id": 5010000,
+    "name": "逃亡倒计时",
+    "text": "游戏的胜利方式之一。",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [
+        5010000
+      ],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010003": {
+    "id": 5010003,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000373",
+        "7000374"
+      ],
+      "achievements": []
+    }
+  },
+  "5010004": {
+    "id": 5010004,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000420",
+        "7000374"
+      ],
+      "achievements": []
+    }
+  },
+  "5010005": {
+    "id": 5010005,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000374"
+      ],
+      "achievements": []
+    }
+  },
+  "5010007": {
+    "id": 5010007,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        200
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000531",
+        "7000435"
+      ],
+      "achievements": []
+    }
+  },
+  "5010009": {
+    "id": 5010009,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        200
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010017": {
+    "id": 5010017,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010018": {
+    "id": 5010018,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010019": {
+    "id": 5010019,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010021": {
+    "id": 5010021,
+    "name": "娜依拉的索求",
+    "text": "你知道自己的计划不太可能瞒得住所有人，但你的确没想到娜依拉会这么快就知道了一切。她给你写了一封甜蜜的信件，表示自己希望在战争开始之前，能带着一些价值连城的珠宝远走高飞——无论你们最后谁获得胜利，她都已经玩够了，现在是时候换个地方快活了。",
+    "type": "",
+    "relations": {
+      "overs": [
+        200
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010023": {
+    "id": 5010023,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        203
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000654"
+      ],
+      "achievements": []
+    }
+  },
+  "5010024": {
+    "id": 5010024,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        202,
+        205
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000450",
+        "7000451",
+        "7000452",
+        "7000453",
+        "7000454",
+        "7000455",
+        "7000456",
+        "7000457",
+        "7000449",
+        "7000458",
+        "7000459",
+        "7000446",
+        "7000447",
+        "7000448"
+      ],
+      "achievements": [
+        "ACHIEVEMENT_007",
+        "ACHIEVEMENT_011",
+        "ACHIEVEMENT_001"
+      ]
+    }
+  },
+  "5010026": {
+    "id": 5010026,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13,
+        15,
+        15
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000488",
+        "7000487"
+      ],
+      "achievements": []
+    }
+  },
+  "5010027": {
+    "id": 5010027,
+    "name": "最后的杀戮卡",
+    "text": "等你很久了",
+    "type": "",
+    "relations": {
+      "overs": [
+        15,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000488",
+        "7000487"
+      ],
+      "achievements": []
+    }
+  },
+  "5010028": {
+    "id": 5010028,
+    "name": "最后的奢靡卡",
+    "text": "等你很久了",
+    "type": "",
+    "relations": {
+      "overs": [
+        15,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000488",
+        "7000487"
+      ],
+      "achievements": []
+    }
+  },
+  "5010029": {
+    "id": 5010029,
+    "name": "最后的征服卡",
+    "text": "等你很久了",
+    "type": "",
+    "relations": {
+      "overs": [
+        15,
+        13
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000488",
+        "7000487"
+      ],
+      "achievements": []
+    }
+  },
+  "5010030": {
+    "id": 5010030,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        403,
+        406,
+        404,
+        405
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000482",
+        "7000483",
+        "7000484",
+        "7000485"
+      ],
+      "achievements": [
+        "ACHIEVEMENT_015"
+      ]
+    }
+  },
+  "5010031": {
+    "id": 5010031,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        402
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000486"
+      ],
+      "achievements": []
+    }
+  },
+  "5010032": {
+    "id": 5010032,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        13,
+        401
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000490"
+      ],
+      "achievements": []
+    }
+  },
+  "5010034": {
+    "id": 5010034,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        28
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000596"
+      ],
+      "achievements": []
+    }
+  },
+  "5010042": {
+    "id": 5010042,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        501,
+        501
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": [
+        "ACHIEVEMENT_003"
+      ]
+    }
+  },
+  "5010043": {
+    "id": 5010043,
+    "name": "弑神（废弃）",
+    "text": "这并不容易",
+    "type": "",
+    "relations": {
+      "overs": [
+        501
+      ],
+      "rites": [],
+      "events": [
+        5310469
+      ],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010045": {
+    "id": 5010045,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        501,
+        501
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010046": {
+    "id": 5010046,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        501,
+        501
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100006"
+      ],
+      "achievements": []
+    }
+  },
+  "5010047": {
+    "id": 5010047,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        501,
+        501,
+        501,
+        501
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010048": {
+    "id": 5010048,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        501,
+        501
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010049": {
+    "id": 5010049,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        502,
+        501
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000631"
+      ],
+      "achievements": [
+        "ACHIEVEMENT_012"
+      ]
+    }
+  },
+  "5010050": {
+    "id": 5010050,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        34
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000636"
+      ],
+      "achievements": []
+    }
+  },
+  "5010051": {
+    "id": 5010051,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        31
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7100005",
+        "7000623",
+        "7000635",
+        "7000584"
+      ],
+      "achievements": []
+    }
+  },
+  "5010054": {
+    "id": 5010054,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        32,
+        32
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010057": {
+    "id": 5010057,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        1
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010058": {
+    "id": 5010058,
+    "name": "讨伐",
+    "text": "为了拯救世界，几乎所有你的敌人都联合了起来……",
+    "type": "",
+    "relations": {
+      "overs": [
+        33
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010059": {
+    "id": 5010059,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        603,
+        601,
+        602,
+        603
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": [
+        "ACHIEVEMENT_003",
+        "ACHIEVEMENT_015"
+      ]
+    }
+  },
+  "5010060": {
+    "id": 5010060,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        603,
+        603,
+        603,
+        603,
+        603
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010061": {
+    "id": 5010061,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        603,
+        603,
+        603,
+        603,
+        603
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010062": {
+    "id": 5010062,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        603,
+        603,
+        603,
+        603,
+        603,
+        603
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010063": {
+    "id": 5010063,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        603,
+        603,
+        603,
+        603,
+        603
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [],
+      "achievements": []
+    }
+  },
+  "5010064": {
+    "id": 5010064,
+    "name": "",
+    "text": "",
+    "type": "",
+    "relations": {
+      "overs": [
+        603,
+        604
+      ],
+      "rites": [],
+      "events": [],
+      "counters": [
+        "7000645"
+      ],
+      "achievements": [
+        "ACHIEVEMENT_012"
+      ]
+    }
+  }
+}
