@@ -190,17 +190,17 @@
       </div>
       
       <!-- 计数器引用显示 -->
-      <div v-if="hasCounterReferences" class="counter-references">
-        <div v-for="(counterRef, key) in counterReferences" :key="key" class="counter-reference-item">
-          <div class="counter-reference-header">{{ formatKey(key) }}</div>
-          <div class="counter-reference">
-            <span class="counter-id">#{{ extractCounterId(key) }}</span>
-            <span v-if="counterNames[extractCounterId(key)]" class="counter-name">
+      <div v-if="hasCounterReferences" class="counter减references">
+        <div v-for="(counterRef, key) in counterReferences" :key="key" class="counter减reference-item">
+          <div class="counter减reference-header">{{ formatKey(key) }}</div>
+          <div class="counter减reference">
+            <span class="counter减id">#{{ extractCounterId(key) }}</span>
+            <span v-if="counterNames[extractCounterId(key)]" class="counter减name">
               {{ counterNames[extractCounterId(key)] }} 
               {{ key.indexOf('PLUS') > -1 ? '增加' : (key.indexOf('EQUALS') > -1 ? '设置为' : '减少') }} 
               {{ counterRef }} 点
             </span>
-            <span v-else class="counter-value">{{ counterRef }}</span>
+            <span v-else class="counter减value">{{ counterRef }}</span>
           </div>
         </div>
       </div>
@@ -343,7 +343,7 @@ export default {
     const counterReferences = computed(() => {
       const result = {};
       for (const [key, value] of Object.entries(props.action)) {
-        if (key.includes('counter_PLUS_') || key.includes('counter-') || key.includes('counter_EQUALS_')) {
+        if (key.includes('counter加') || key.includes('counter减') || key.includes('counter等于')) {
           result[key] = value;
         }
       }
@@ -381,11 +381,11 @@ export default {
         return '牌库';
       } else if (key.startsWith('hand_pop.')) {
         return '手牌提示';
-      } else if (key.includes('counter_PLUS_')) {
+      } else if (key.includes('counter加')) {
         return '计数器增加';
-      } else if (key.includes('counter_EQUALS_')) {
+      } else if (key.includes('counter等于')) {
         return '计数器设置';
-      } else if (key.includes('counter-')) {
+      } else if (key.includes('counter减')) {
         return '计数器减少';
       } else if (key === 'card') {
         return '获得卡片';
@@ -471,9 +471,9 @@ export default {
     
      // 提取计数器ID
      const extractCounterId = (key) => {
-      const plusMatch = key.match(/counter_PLUS_(\d+)/);
-      const minusMatch = key.match(/counter-(\d+)/);
-      const equalsMatch = key.match(/counter_EQUALS_(\d+)/);
+      const plusMatch = key.match(/counter加(\d+)/);
+      const minusMatch = key.match(/counter减(\d+)/);
+      const equalsMatch = key.match(/counter等于(\d+)/);
       
       if (plusMatch) return plusMatch[1];
       if (minusMatch) return minusMatch[1];
@@ -755,7 +755,7 @@ export default {
 .option-item,
 .table-reference-item,
 .hand-reference-item,
-.counter-reference-item {
+.counter减reference-item {
   background-color: #fff;
   border-radius: 6px;
   padding: 12px;
@@ -772,7 +772,7 @@ export default {
 .option-header,
 .table-reference-header,
 .hand-reference-header,
-.counter-reference-header {
+.counter减reference-header {
   font-weight: 500;
   color: #555;
   margin-bottom: 8px;
@@ -789,7 +789,7 @@ export default {
 .loot-reference,
 .table-reference,
 .hand-reference,
-.counter-reference {
+.counter减reference {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -801,7 +801,7 @@ export default {
 .card-id,
 .loot-id,
 .over-id,
-.counter-id {
+.counter减id {
   color: #666;
   font-size: 12px;
 }
@@ -811,7 +811,7 @@ export default {
 .card-name,
 .loot-name,
 .over-name,
-.counter-name {
+.counter减name {
   color: #333;
 }
 
@@ -872,7 +872,7 @@ export default {
   color: #9b59b6; /* 紫色，用于结局 */
 }
 
-.counter-name {
+.counter减name {
   color: #4caf50;
 }
 

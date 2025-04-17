@@ -19,7 +19,7 @@ export default {
   },
   setup() {
     const formatSlotRestriction = (key) => {
-      if (key.startsWith('!s')) {
+      if (key.startsWith('非s')) {
         const slotNum = key.substring(2);
         return `不能与卡位 ${slotNum} 同时填入`;
       } else if (key.startsWith('s')) {

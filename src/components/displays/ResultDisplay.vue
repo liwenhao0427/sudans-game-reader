@@ -51,10 +51,10 @@
       <div v-if="hasCounters" class="result-section">
         <div class="section-title">计数器操作</div>
         <div class="counters-grid">
-          <div v-for="(counter, index) in counters" :key="index" class="counter-item">
-            <span class="counter-operation">{{ counter.operation }}</span>
-            <span class="counter-id">{{ getCounterText(counter.id) }}</span>
-            <span class="counter-value">{{ counter.value }}</span>
+          <div v-for="(counter, index) in counters" :key="index" class="counter减item">
+            <span class="counter减operation">{{ counter.operation }}</span>
+            <span class="counter减id">{{ getCounterText(counter.id) }}</span>
+            <span class="counter减value">{{ counter.value }}</span>
           </div>
         </div>
       </div>
@@ -194,9 +194,9 @@ export default {
       const counters = [];
       
       Object.entries(this.result).forEach(([key, value]) => {
-        // 处理 counter_PLUS_7000467 和 counter_EQUALS_7000465 格式
-        const plusMatch = key.match(/counter_PLUS_(\d+)/);
-        const equalsMatch = key.match(/counter_EQUALS_(\d+)/);
+        // 处理 counter加7000467 和 counter等于7000465 格式
+        const plusMatch = key.match(/counter加(\d+)/);
+        const equalsMatch = key.match(/counter等于(\d+)/);
         
         if (plusMatch) {
           counters.push({
@@ -210,37 +210,37 @@ export default {
             id: equalsMatch[1],
             value: value
           });
-        } else if (key.startsWith('counter+')) {
+        } else if (key.startsWith('counter加')) {
           counters.push({
             operation: '增加',
             id: key.slice(8),
             value: value
           });
-        } else if (key.startsWith('counter-')) {
+        } else if (key.startsWith('counter减')) {
           counters.push({
             operation: '减少',
             id: key.slice(8),
             value: value
           });
-        } else if (key.startsWith('counter=')) {
+        } else if (key.startsWith('counter等于')) {
           counters.push({
             operation: '设置为',
             id: key.slice(8),
             value: value
           });
-        } else if (key.startsWith('global_counter+')) {
+        } else if (key.startsWith('global_counter加')) {
           counters.push({
             operation: '增加全局',
             id: key.slice(15),
             value: value
           });
-        } else if (key.startsWith('global_counter-')) {
+        } else if (key.startsWith('global_counter减')) {
           counters.push({
             operation: '减少全局',
             id: key.slice(15),
             value: value
           });
-        } else if (key.startsWith('global_counter=')) {
+        } else if (key.startsWith('global_counter等于')) {
           counters.push({
             operation: '设置全局为',
             id: key.slice(15),
@@ -255,18 +255,29 @@ export default {
       return this.counters.length > 0;
     },
     
-    // 提取卡位属性操作 (s1_PLUS_体魄 等)
+    // 提取卡位属性操作 (s1加体魄 等)
     slotAttributes() {
       const attributes = [];
       
       Object.entries(this.result).forEach(([key, value]) => {
-        // 匹配 s1_PLUS_体魄 格式
-        const slotAttrMatch = key.match(/s(\d+)_([A-Z]+)_(.+)/);
+        // 匹配 s1加体魄 格式
+        const slotAttrMatch = key.match(/s(\d+)_([A-Z]+)_(.加)/);
         if (slotAttrMatch) {
           attributes.push({
             slot: slotAttrMatch[1],
             operation: slotAttrMatch[2],
             attribute: slotAttrMatch[3],
+            value: value
+          });
+        }
+        
+        // 添加匹配 s2加妆扮 格式的代码
+        const directSlotAttrMatch = key.match(/s(\d+)加(.+)/);
+        if (directSlotAttrMatch) {
+          attributes.push({
+            slot: directSlotAttrMatch[1],
+            operation: 'PLUS', // 默认为增加操作
+            attribute: directSlotAttrMatch[2],
             value: value
           });
         }
@@ -283,15 +294,15 @@ export default {
       const operations = [];
       
       Object.entries(this.result).forEach(([key, value]) => {
-        if (key.startsWith('s') && key.includes('+') && !key.includes('_PLUS_')) {
-          const [slot, card] = key.split('+');
+        if (key.startsWith('s') && key.includes('加') && !key.includes('加')) {
+          const [slot, card] = key.split('加');
           operations.push({
             operation: '添加',
             slot: slot,
             card: card,
             value: value
           });
-        } else if (key.startsWith('s') && key.includes('-') && !key.includes('_')) {
+        } else if (key.startsWith('s') && key.includes('减') && !key.includes('_')) {
           const [slot, card] = key.split('-');
           operations.push({
             operation: '移除',
@@ -361,12 +372,12 @@ export default {
         'card', 'loot', 'choose', 'rite', // 添加 'rite' 到排除列表
         ...Object.keys(this.resources),
         ...this.counters.map(c => {
-          if (c.operation === '增加') return `counter+${c.id}`;
-          if (c.operation === '减少') return `counter-${c.id}`;
-          if (c.operation === '设置为') return `counter=${c.id}`;
-          if (c.operation === '增加全局') return `global_counter+${c.id}`;
-          if (c.operation === '减少全局') return `global_counter-${c.id}`;
-          if (c.operation === '设置全局为') return `global_counter=${c.id}`;
+          if (c.operation === '增加') return `counter加${c.id}`;
+          if (c.operation === '减少') return `counter减${c.id}`;
+          if (c.operation === '设置为') return `counter等于${c.id}`;
+          if (c.operation === '增加全局') return `global_counter加${c.id}`;
+          if (c.operation === '减少全局') return `global_counter减${c.id}`;
+          if (c.operation === '设置全局为') return `global_counter等于${c.id}`;
           return `counter_${c.operation === '增加' ? 'PLUS' : 'EQUALS'}_${c.id}`;
         }),
         ...this.slotAttributes.map(a => `s${a.slot}_${a.operation}_${a.attribute}`),
@@ -375,8 +386,8 @@ export default {
       
       return Object.entries(this.result)
         .filter(([key]) => !excludeKeys.includes(key) && 
-                          !key.match(/counter_PLUS_\d+/) && 
-                          !key.match(/counter_EQUALS_\d+/) && 
+                          !key.match(/counter加\d+/) && 
+                          !key.match(/counter等于\d+/) && 
                           !key.match(/s\d+_[A-Z]+_.+/) && 
                           !key.startsWith('counter') && 
                           !key.startsWith('global_counter') && 
@@ -651,7 +662,7 @@ export default {
   gap: 10px;
 }
 
-.card-item, .loot-item, .counter-item, .slot-item, .resource-item, .other-item, .choice-item, .slot-attribute-item {
+.card-item, .loot-item, .counter减item, .slot-item, .resource-item, .other-item, .choice-item, .slot-attribute-item {
   display: flex;
   flex-direction: column;
   padding: 8px;
@@ -660,7 +671,7 @@ export default {
   border: 1px solid #e0e0e0;
 }
 
-.card-id, .loot-id, .counter-id {
+.card-id, .loot-id, .counter减id {
   color: #909399;
   font-size: 0.9em;
   margin-bottom: 4px;
@@ -685,13 +696,13 @@ export default {
   color: #909399;
 }
 
-.counter-operation, .slot-operation {
+.counter减operation, .slot-operation {
   font-weight: bold;
   color: #606266;
   margin-bottom: 4px;
 }
 
-.counter-value, .slot-card {
+.counter减value, .slot-card {
   color: #333;
 }
 
@@ -784,13 +795,13 @@ export default {
   color: #909399;
 }
 
-.counter-operation, .slot-operation {
+.counter减operation, .slot-operation {
   font-weight: bold;
   color: #606266;
   margin-bottom: 4px;
 }
 
-.counter-value, .slot-card {
+.counter减value, .slot-card {
   color: #333;
 }
 
@@ -864,13 +875,13 @@ export default {
   color: #909399;
 }
 
-.counter-operation, .slot-operation {
+.counter减operation, .slot-operation {
   font-weight: bold;
   color: #606266;
   margin-bottom: 4px;
 }
 
-.counter-value, .slot-card {
+.counter减value, .slot-card {
   color: #333;
 }
 

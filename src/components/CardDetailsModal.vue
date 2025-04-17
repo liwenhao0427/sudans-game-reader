@@ -118,7 +118,7 @@ export default {
       for (const key in this.card) {
         if (key.match(/^s\d+$/) || key.match(/^!s\d+$/)) {
           const slotNum = key.replace(/[!s]/g, '');
-          const isNegative = key.startsWith('!');
+          const isNegative = key.startsWith('非');
           const name = isNegative ? `不能与卡位${slotNum}` : `卡位${slotNum}`;
           let value = this.card[key];
           

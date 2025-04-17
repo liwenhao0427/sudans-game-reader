@@ -147,7 +147,7 @@ export default {
       const specialKeys = ['is', 'type', 'any'];
       return specialKeys.some(key => key in props.condition) || 
         Object.keys(props.condition).some(key => 
-          key.startsWith('!s') || 
+          key.startsWith('非s') || 
           key.startsWith('s') || 
           key.startsWith('r') || 
           key === 'round_begin_ba'
@@ -193,7 +193,7 @@ export default {
       const others = {};
       Object.entries(props.condition).forEach(([key, value]) => {
         if (!specialKeys.includes(key) && 
-            !key.startsWith('!s') && 
+            !key.startsWith('非s') && 
             !key.startsWith('s') && 
             typeof value !== 'object' || 
             // 特殊处理r开头的属性条件和天数限制
@@ -211,7 +211,7 @@ export default {
       // 获取所有卡槽限制条件
       const restrictions = {};
       Object.entries(props.condition).forEach(([key, value]) => {
-        if ((key.startsWith('!s') || key.startsWith('s')) && /^(!)?s\d+$/.test(key)) {
+        if ((key.startsWith('非s') || key.startsWith('s')) && /^(!)?s\d+$/.test(key)) {
           restrictions[key] = value;
         }
       });

@@ -80,7 +80,7 @@ export default {
     // 新增：检测是否为卡位卡片条件
     const isSlotCardCondition = computed(() => {
       // 匹配形如 s3.is 或 !s3.纵欲的痕迹 的模式
-      return /^(!)?s\d+\.(is|[^.]+)/.test(props.conditionKey);
+      return /^(非)?s\d+\.(is|[^.]+)/.test(props.conditionKey);
     });
     
     const formattedKey = computed(() => {
@@ -90,13 +90,13 @@ export default {
     // 方法
     const formatKey = (key) => {
       // 处理卡位相关条件
-      if (/^(!)?s\d+\.is$/.test(key)) {
-        const isNegated = key.startsWith('!');
+      if (/^(非)?s\d+\.is$/.test(key)) {
+        const isNegated = key.startsWith('非');
         const slotMatch = key.match(/s(\d+)/);
         const slotNum = slotMatch ? slotMatch[1] : '';
         return isNegated ? `卡位 ${slotNum} 不是` : `卡位 ${slotNum} 是`;
-      } else if (/^(!)?s\d+\.[^.]+$/.test(key)) {
-        const isNegated = key.startsWith('!');
+      } else if (/^(非)?s\d+\.[^.]+$/.test(key)) {
+        const isNegated = key.startsWith('非');
         const slotMatch = key.match(/s(\d+)\.([^.]+)/);
         if (slotMatch) {
           const slotNum = slotMatch[1];
@@ -115,27 +115,27 @@ export default {
         return '天数限制';
       } else if (key === '杀戮' || key === '纵欲' || key === '奢靡' || key === '征服') {
         return `需要${key}`;
-      } else if (key.startsWith('rite_end') || key.startsWith('!rite_end')) {
+      } else if (key.startsWith('rite_end') || key.startsWith('非rite_end')) {
         // 处理仪式结束条件
-        const isNegated = key.startsWith('!');
+        const isNegated = key.startsWith('非');
         return isNegated ? `仪式结束未触发` : `仪式结束已触发`;
-      } else if (key.startsWith('rite') || key.startsWith('!rite')) {
+      } else if (key.startsWith('rite') || key.startsWith('非rite')) {
         // 处理仪式条件
-        const isNegated = key.startsWith('!');
+        const isNegated = key.startsWith('非');
         return isNegated ? `仪式未开启` : `仪式已开启`;
-      } else if (key.startsWith('have.') || key.startsWith('!have.')) {
+      } else if (key.startsWith('have.') || key.startsWith('非have.')) {
         // 处理拥有卡片条件
-        const isNegated = key.startsWith('!');
-        const cardInfo = key.replace(/^(!)?have\./, '').split('.');
+        const isNegated = key.startsWith('非');
+        const cardInfo = key.replace(/^(非)?have\./, '').split('.');
         const cardDesc = cardInfo.length > 1 ? cardInfo[1] : '';
         return isNegated ? `未拥有卡片${cardDesc ? ` ${cardDesc}` : ''}` : `拥有卡片${cardDesc ? ` ${cardDesc}` : ''}`;
-      } else if (key.startsWith('hand_have.') || key.startsWith('!hand_have.')) {
+      } else if (key.startsWith('hand_have.') || key.startsWith('非hand_have.')) {
         // 处理手牌中的卡片条件
-        const isNegated = key.startsWith('!');
+        const isNegated = key.startsWith('非');
         return isNegated ? `手牌中没有` : `手牌中有`;
-      } else if (key.startsWith('table_have.') || key.startsWith('!table_have.')) {
+      } else if (key.startsWith('table_have.') || key.startsWith('非table_have.')) {
         // 处理牌库中的卡片条件
-        const isNegated = key.startsWith('!');
+        const isNegated = key.startsWith('非');
         return isNegated ? `牌库中没有` : `牌库中有`;
       } else if (key.startsWith('counter.')) {
         // 处理counter类型的条件
@@ -164,9 +164,9 @@ export default {
           let attribute = slotMatch[2]; // 体魄、战斗等属性
           const operator = slotMatch[3]; // <, >, >=, <= 等操作符
           
-          // 处理复合属性，如 "智慧_PLUS_生存"
-          if (attribute.includes('_PLUS_')) {
-            attribute = attribute.split('_PLUS_').join(' + ');
+          // 处理复合属性，如 "智慧加生存"
+          if (attribute.includes('加')) {
+            attribute = attribute.split('加').join(' + ');
           }
           
           let operatorText = operator;
@@ -192,7 +192,7 @@ export default {
           }
         }
         return key;
-      } else if (key.startsWith('!s') && /^!s\d+$/.test(key)) {
+      } else if (key.startsWith('非s') && /^非s\d+$/.test(key)) {
         const slotNum = key.substring(2);
         return `不能与卡位 ${slotNum} 同时填入`;
       } else if (key.startsWith('s') && /^s\d+$/.test(key)) {
@@ -200,7 +200,7 @@ export default {
         return `卡位 ${slotNum}`;
       } else if (key.endsWith('=')) {
         return key.slice(0, -1) + ' 等于';
-      } else if (key.startsWith('!')) {
+      } else if (key.startsWith('非')) {
         return '非 ' + key.slice(1);
       } else if (key.includes('<')) {
         return key.replace('<', ' 小于 ');
@@ -236,26 +236,26 @@ export default {
     
     const formatValue = (key, value) => {
       // 处理卡位卡片条件
-      if (/^(!)?s\d+\.is$/.test(key) && typeof value === 'number') {
+      if (/^(非)?s\d+\.is$/.test(key) && typeof value === 'number') {
         return `卡片 #${value}`;
       }
       
       // 处理卡位属性条件
-      if (/^(!)?s\d+\.[^.]+$/.test(key)) {
+      if (/^(非)?s\d+\.[^.]+$/.test(key)) {
         const slotMatch = key.match(/s(\d+)/);
         if (slotMatch) {
           return `卡位 ${slotMatch[1]}`;
         }
       }
       
-      if (key.startsWith('rite') || key.startsWith('!rite')) {
+      if (key.startsWith('rite') || key.startsWith('非rite')) {
         // 处理仪式值，显示仪式名称
         const riteId = getRiteId();
         const riteName = getRiteName(riteId);
         return riteName ? `${riteName} (#${riteId})` : `仪式 #${riteId}`;
-      } else if (key.startsWith('have.') || key.startsWith('!have.') || 
-                 key.startsWith('hand_have.') || key.startsWith('!hand_have.') ||
-                 key.startsWith('table_have.') || key.startsWith('!table_have.')) {
+      } else if (key.startsWith('have.') || key.startsWith('非have.') || 
+                 key.startsWith('hand_have.') || key.startsWith('非hand_have.') ||
+                 key.startsWith('table_have.') || key.startsWith('非table_have.')) {
         // 处理卡片值，显示卡片名称
         const cardId = getCardIdFromKey(key);
         return `卡片 #${cardId}`;
@@ -279,7 +279,7 @@ export default {
     
     // 新增：异步加载卡片和卡位信息
     const loadCardAndSlotInfo = async () => {
-      if (/^(!)?s\d+\.is$/.test(props.conditionKey) && typeof props.conditionValue === 'number') {
+      if (/^(非)?s\d+\.is$/.test(props.conditionKey) && typeof props.conditionValue === 'number') {
         // 加载卡片信息
         try {
           const cardData = await getCardById(props.conditionValue);
@@ -292,7 +292,7 @@ export default {
           console.error(`获取卡片 ${props.conditionValue} 名称失败:`, e);
           displayValue.value = `卡片 #${props.conditionValue}`;
         }
-      } else if (/^(!)?s\d+\.[^.]+$/.test(props.conditionKey)) {
+      } else if (/^(非)?s\d+\.[^.]+$/.test(props.conditionKey)) {
         // 加载卡位信息
         const slotMatch = props.conditionKey.match(/s(\d+)/);
         if (slotMatch) {
@@ -337,7 +337,7 @@ export default {
       if (typeof props.conditionValue === 'number') {
         return props.conditionValue;
       } else {
-        return props.conditionKey.replace(/^(!)?rite(_end)?/, '').replace(/^\./, '');
+        return props.conditionKey.replace(/^(非)?rite(_end)?/, '').replace(/^\./, '');
       }
     };
     
@@ -353,7 +353,7 @@ export default {
         return {
           slotNumber: slotMatch[1],
           // 如果是 s3.is 类型，值就是卡片ID
-          cardId: /^(!)?s\d+\.is$/.test(props.conditionKey) ? props.conditionValue : null,
+          cardId: /^(非)?s\d+\.is$/.test(props.conditionKey) ? props.conditionValue : null,
           // 提取属性名，如 "纵欲的痕迹"
           attribute: props.conditionKey.match(/\.([^.]+)$/)?.[1]
         };
@@ -368,16 +368,16 @@ export default {
     // 修复 getCardIdFromKey 函数中未使用的 key 参数
     const getCardIdFromKey = (key) => {
       // 处理卡位卡片条件
-      if (/^(!)?s\d+\.is$/.test(props.conditionKey)) {
+      if (/^(非)?s\d+\.is$/.test(props.conditionKey)) {
         return props.conditionValue;
       }
       
-      if (key.startsWith('have.') || key.startsWith('!have.')) {
-        return key.replace(/^(!)?have\./, '').split('.')[0];
-      } else if (key.startsWith('hand_have.') || key.startsWith('!hand_have.')) {
-        return key.replace(/^(!)?hand_have\./, '');
-      } else if (key.startsWith('table_have.') || key.startsWith('!table_have.')) {
-        return key.replace(/^(!)?table_have\./, '');
+      if (key.startsWith('have.') || key.startsWith('非have.')) {
+        return key.replace(/^(非)?have\./, '').split('.')[0];
+      } else if (key.startsWith('hand_have.') || key.startsWith('非hand_have.')) {
+        return key.replace(/^(非)?hand_have\./, '');
+      } else if (key.startsWith('table_have.') || key.startsWith('非table_have.')) {
+        return key.replace(/^(非)?table_have\./, '');
       }
       return null;
     };

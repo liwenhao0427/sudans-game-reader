@@ -56,6 +56,13 @@
               后日谈
             </button>
             <button 
+              @click="filterByType('card')" 
+              class="type-filter-button" 
+              :class="{'active': activeTypeFilter === 'card'}"
+            >
+              卡牌
+            </button>
+            <button 
               @click="filterByType('all')" 
               class="type-filter-button" 
               :class="{'active': activeTypeFilter === 'all'}"
@@ -196,6 +203,7 @@ import AfterStoryDetailsModal from '@/components/AfterStoryDetailsModal.vue';
 // 导入本地版本信息
 import localVersionInfo from '@/assets/version.json';
 import { 
+  loadCardsData,
   handleDuplicateKeys, 
   loadEventData, 
   loadGameDataIndex,
@@ -224,7 +232,8 @@ export default {
         'rite': '仪式',
         'loot': '战利品',
         'over': '结局',
-        'after_story': '后日谈'
+        'after_story': '后日谈',
+        'card': '卡牌'
       };
       return typeMap[type] || type;
     };
@@ -260,7 +269,9 @@ export default {
         
         if (isNewer) {
           if (window.confirm(`发现新版本 ${remoteVersion}, 当前版本 ${localVersion}. 是否刷新页面更新到最新版本?`)) {
-            window.location.reload(true);
+             // 添加时间戳作为缓存破坏参数
+             const newUrl = "https://liwenhao0427.github.io/sudans-game-reader/?t=" + new Date().getTime();
+            window.location.href = newUrl;
           } else {
             console.log('User chose to update later');
           }
@@ -369,9 +380,17 @@ export default {
         showOverDetails(event.id);
       } else if (event.type === 'after_story') {
         showAfterStoryDetails(event.id);
+      } else if (event.type === 'card') {
+        showCardDetails(event.id);
       } else {
         loadEventAsRoot(event.id, event.type);
       }
+    };
+
+    // 显示卡片详情
+    const showCardDetails = (cardId) => {
+      console.log(`显示卡片详情:`, cardId);
+      eventBus.emit('show-card-details', cardId);
     };
 
     // 显示后日谈详情
@@ -446,6 +465,26 @@ export default {
         } else {
           combinedEvents = [...combinedEvents, ...allEventsCache.value['over']];
         }
+        
+        // 加载卡片数据
+        if (!allEventsCache.value['card']) {
+          try {
+            const cardsData = await loadCardsData();
+            const cardItems = Object.entries(cardsData).map(([id, data]) => ({
+              id,
+              name: data.name || data.text || `卡片 ${id}`,
+              text: data.text || '',
+              type: 'card'
+            }));
+            allEventsCache.value['card'] = cardItems;
+            combinedEvents = [...combinedEvents, ...cardItems];
+          } catch (e) {
+            console.error('加载卡片数据失败:', e);
+          }
+        } else {
+          combinedEvents = [...combinedEvents, ...allEventsCache.value['card']];
+        }
+        
         
         // 加载后日谈数据
         if (!allEventsCache.value['after_story']) {
@@ -1028,7 +1067,10 @@ export default {
 
 /* 添加后日谈类型样式 */
 .type-after_story {
-  background-color: #8e44ad; /* 深紫色，用于后日谈类型 */
+  background-color: #33d0db; /* 深紫色，用于后日谈类型 */
 }
 
+.type-card {
+  background-color: #2ecc71; /* 绿色，用于卡片类型 */
+}
 </style>
