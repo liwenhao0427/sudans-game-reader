@@ -122,7 +122,7 @@ def process_all_json_files(directory):
 
 if __name__ == "__main__":
     # 设置config目录路径
-    config_dir = r"c:\Users\Administrator\IdeaProjects\sudans-game-reader\src\assets\config"
+    config_dir = r"C:\Users\liwen\Documents\GitHub\sudans-game-reader\src\assets\config"
     
     # 处理所有JSON文件
     process_all_json_files(config_dir)

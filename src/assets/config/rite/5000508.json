@@ -41,7 +41,7 @@
   "settlement_prior": [
     {
       "condition": {
-        "counter.5000572大于等于": 1
+        "counter.7000572大于等于": 1
       },
       "result_title": "慢着",
       "result_text": "纯净者教会的祭司们不是都已经和你翻脸了吗？他们不会帮你的，还是想想别的办法吧。",

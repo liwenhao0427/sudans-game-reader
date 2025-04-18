@@ -1,0 +1,27 @@
+{
+  "id": 5321191,
+  "text": "做羔羊（正",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": true,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "rite": 5008081,
+        "prompt": {
+          "id": "prompt_5321191_01",
+          "text": "你想出了一个新点子。",
+          "icon": [
+            "cards/2000887"
+          ]
+        }
+      }
+    }
+  ]
+}

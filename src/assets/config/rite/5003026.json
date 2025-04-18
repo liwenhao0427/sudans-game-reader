@@ -3,6 +3,7 @@
   "name": "狩猎游戏",
   "text": "一次成功的狩猎不仅能够获得猎物，还能获得声望与人脉。",
   "tips": "",
+  "mapping_id": 8001250,
   "once_new": 0,
   "round_number": 1,
   "waiting_round": 1,
@@ -89,7 +90,7 @@
         ]
       },
       "result_title": "",
-      "result_text": "很难说这些小动物都什么用，但总之不算空手而归。",
+      "result_text": "很难说这些小动物都有什么用，但总之不算空手而归。",
       "result": {
         "counter等于7000115": 0,
         "金币": 1

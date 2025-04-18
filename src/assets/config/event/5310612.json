@@ -3,7 +3,7 @@
   "text": "通奸被抓",
   "is_replay": 0,
   "auto_start": false,
-  "start_trigger": false,
+  "start_trigger": true,
   "on": {
     "round_begin_ba": 1
   },
@@ -39,7 +39,6 @@
           "no_prompt": {
             "table.2000021等于被抓": 0,
             "card": [
-              2001078,
               2001079,
               2001079,
               2001079
@@ -62,7 +61,6 @@
           "no_prompt": {
             "table.主角等于被抓": 0,
             "card": [
-              2001078,
               2001079,
               2001079,
               2001079

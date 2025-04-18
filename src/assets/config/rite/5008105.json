@@ -14,7 +14,11 @@
   "location": "商业区:[10,19]",
   "icon": "rite_18",
   "tag_tips": [],
-  "tag_tips_up": {},
+  "tag_tips_up": {
+    "tips": [
+      "体魄"
+    ]
+  },
   "tips_text": [
     "帮忙干活的人需要强健的体魄，不低于10点",
     "需要放入十金币"

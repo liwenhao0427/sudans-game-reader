@@ -12,7 +12,8 @@
   "condition": {
     "hand_have.2000989": 1,
     "counter.7000559小于": 1,
-    "have.2000065.追随者": 1
+    "have.2000065.追随者": 1,
+    "counter.7000556小于": 5
   },
   "settlement": [
     {

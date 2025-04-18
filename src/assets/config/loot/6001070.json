@@ -1,0 +1,64 @@
+{
+  "id": 6001070,
+  "name": "孩子们(重复",
+  "repeat": 1,
+  "type": 2,
+  "item": [
+    {
+      "num": "1",
+      "id": "5321189",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "have.2000005": 1
+      },
+      "num": "1",
+      "id": "5321190",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "num": "1",
+      "id": "5321191",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "num": "1",
+      "id": "5321192",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "have.2000022": 1,
+        "counter.7000011大于等于": 1
+      },
+      "num": "1",
+      "id": "5321193",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "have.2000113": 1
+      },
+      "num": "1",
+      "id": "5321194",
+      "type": "event",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "counter.7000379小于": 1,
+        "have.2000113": 1
+      },
+      "num": "1",
+      "id": "5321195",
+      "type": "event",
+      "weight": 60
+    }
+  ]
+}
