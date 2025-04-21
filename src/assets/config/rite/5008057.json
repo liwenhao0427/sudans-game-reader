@@ -63,19 +63,6 @@
     },
     {
       "condition": {
-        "counter.7000069大于等于": 1,
-        "s3": 1
-      },
-      "result_title": "你借机折断了一张纵欲卡",
-      "result_text": "看着再一次垂首站在青金石宫殿最中间、紧抿着唇的法尔达克，看着他磨红的膝盖和手肘，苏丹哈哈大笑着，允许你折断这张卡片。\n这正是他期待看到的。",
-      "result": {
-        "clean.s3": 1,
-        "card": 2000083
-      },
-      "action": {}
-    },
-    {
-      "condition": {
         "counter.7000069小于": 1,
         "非s3": 1
       },
@@ -102,7 +89,21 @@
       "action": {}
     }
   ],
-  "settlement_extre": [],
+  "settlement_extre": [
+    {
+      "condition": {
+        "counter.7000069大于等于": 1,
+        "s3": 1
+      },
+      "result_title": "你借机折断了一张纵欲卡",
+      "result_text": "看着再一次垂首站在青金石宫殿最中间、紧抿着唇的法尔达克，看着他磨红的膝盖和手肘，苏丹哈哈大笑着，允许你折断这张卡片。\n这正是他期待看到的。",
+      "result": {
+        "clean.s3": 1,
+        "card": 2000083
+      },
+      "action": {}
+    }
+  ],
   "cards_slot": {
     "s1": {
       "condition": {

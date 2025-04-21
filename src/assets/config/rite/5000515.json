@@ -27,7 +27,7 @@
       "result_title": "",
       "result_text": "宝珠散发出洁净的光辉，驱逐了缠绕在[s2.name]身上的怨念和诅咒。",
       "result": {
-        "s1_equip": 2000163,
+        "s2_equip": 2000163,
         "clean.s1": 1
       },
       "action": {}

@@ -134,7 +134,8 @@ export function getCommentFromCache(counterId) {
     
     // 检查是否为全局计数器ID (通常以g开头)
     if (counterId.toString().startsWith('g')) {
-      const baseId = counterId.toString().substring(1); // 移除g前缀
+      // 使用正则表达式提取数字部分，而不仅仅是移除g前缀
+      const baseId = counterId.toString().replace(/\D/g, ''); // 移除所有非数字字符
       return commentCache[baseId] || null;
     }
     
@@ -922,7 +923,7 @@ export async function loadOversData() {
   
   try {
     // 使用require直接导入JSON文件
-    const response = require('raw-loader!@/assets/over_processed.json').default;
+    const response = require('raw-loader!@/assets/config/over.json').default;
     
     // 处理JSON内容 - 处理module.exports包装
     let jsonContent = response;

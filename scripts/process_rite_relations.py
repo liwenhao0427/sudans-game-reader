@@ -36,23 +36,6 @@ def process_rite_relations(rite_dir, output_file):
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            # 处理可能的module.exports包装
-            if content.startswith('module.exports = '):
-                content = content[16:]
-            
-            # 处理可能的引号和分号
-            content = content.strip()
-            if content.startswith('"') and content.endswith('";'):
-                content = content[1:-2]
-            elif content.startswith('"') and content.endswith('"'):
-                content = content[1:-1]
-            
-            # 处理转义字符
-            content = content.replace(r'\"', '"')
-            content = content.replace(r'\n', '\n')
-            content = content.replace(r'\r', '')
-            content = content.replace(r'\t', '')
-            
             # 直接使用json5解析，而不是先尝试移除注释
             try:
                 rite_data = json5.loads(content)

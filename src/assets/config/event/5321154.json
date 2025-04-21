@@ -7,7 +7,7 @@
   ],
   "start_trigger": true,
   "on": {
-    "round_begin_ba": 3
+    "round_begin_ba": 1
   },
   "condition": {
     "hand_have.2000989": 1,

@@ -64,7 +64,7 @@
     "comment": "标注仪式是一个对抗事件"
   },
   "RITE_FIGHT_EVENT_TIPS": {
-    "zhCN": "对抗事件说明(待补充",
+    "zhCN": "在检定时，你的骰子数量将受到敌方属性的影响",
     "comment": "说明对抗仪式的作用的提示, 鼠标悬停到对抗事件上时显示"
   },
   "RITE_NEED_RUN_ROUND_NUMBER": {
@@ -76,7 +76,7 @@
     "comment": "仪式运行需要持续的回合数, {0}是具体的回合数量, 复数形式"
   },
   "RITE_AUTO_SETTLEMENT_TIPS": {
-    "zhCN": "开启后当前仪式的结算将不进行显示",
+    "zhCN": "开启后当前事件的结算将不进行显示",
     "comment": "仪式自动结算提示"
   },
   "RITE_STARTED_NOTICE": {
@@ -1001,6 +1001,26 @@
   "BAG_POS_4_TIPS": {
     "zhCN": "按4选中",
     "comment": "背包位置1提示"
+  },
+  "BAG_AUTO_CLASSIFY_TIPS": {
+    "zhCN": "开启后，获得的卡牌将进行自动分类",
+    "comment": "背包自动分类提示"
+  },
+  "AUTO_CLASSIFY_BAG": {
+    "zhCN": "背包{0}",
+    "comment": "自动分类下拉列表标题，{0}是背包位置编号"
+  },
+  "CLASSIFY_TYPE_char": {
+    "zhCN": "角色",
+    "comment": "背包自动分类类型: char"
+  },
+  "CLASSIFY_TYPE_sudan": {
+    "zhCN": "苏丹卡",
+    "comment": "背包自动分类类型: sudan"
+  },
+  "CLASSIFY_TYPE_other": {
+    "zhCN": "其他",
+    "comment": "背包自动分类类型: other"
   },
   "RITE_AUTO_RESULT_TIPS": {
     "zhCN": "自动播放",

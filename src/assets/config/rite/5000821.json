@@ -9,7 +9,9 @@
   "waiting_round": 3,
   "waiting_round_end_action": [
     {
-      "condition": {},
+      "condition": {
+        "have.2000349": 1
+      },
       "result_title": "",
       "result_text": "",
       "result": {

@@ -62,7 +62,7 @@
         "delay_off": 1,
         "no_show": {
           "table.clean.char_主角等于0": 0,
-          "table.clean.item": 0,
+          "table.clean.item_非2000545": 0,
           "table.主角_已拥有": 1,
           "table.主角_主角": 1,
           "total.正当性_正当性": 1
@@ -86,7 +86,7 @@
         "delay_off": 1,
         "no_show": {
           "table.clean.char_主角等于0": 0,
-          "table.clean.item": 0,
+          "table.clean.item_非2000545": 0,
           "table.主角_已拥有": 1,
           "table.主角_主角": 1,
           "total.正当性_正当性": 1

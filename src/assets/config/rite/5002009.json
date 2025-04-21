@@ -3,6 +3,7 @@
   "name": "还书的少女",
   "text": "她在你家附近徘徊……天知道她是怎么找到你家的……看起来，她想要还书。",
   "tips": "",
+  "mapping_id": 8001309,
   "once_new": 0,
   "round_number": 1,
   "waiting_round": 2,
@@ -194,7 +195,7 @@
       "is_key": 0,
       "is_empty": 1,
       "is_enemy": 0,
-      "text": "好好招待她"
+      "text": "消耗5金币，好好招待她"
     }
   }
 }

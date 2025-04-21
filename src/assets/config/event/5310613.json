@@ -9,7 +9,8 @@
   },
   "condition": {
     "table_have.2000021": 1,
-    "table_have.主角": 1
+    "table_have.主角": 1,
+    "counter.7000608小于": 1
   },
   "settlement": [
     {
