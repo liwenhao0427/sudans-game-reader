@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <div class="header-container">
-      <h1 class="app-title">苏丹的游戏剧情阅读器</h1>
+      <div class="title-version">
+        <h1 class="app-title">苏丹的游戏剧情阅读器</h1>
+        <span class="version-badge">V{{ localVersionText }}</span>
+      </div>
       <a href="https://liwenhao0427.github.io/sultans-game-mod-git-manager/" target="_blank" class="mod-manager-link">
         <i class="fas fa-tools"></i> Mod管理
       </a>
@@ -74,16 +77,20 @@
         <div class="list-stats">共 {{ filteredEvents.length }} 条记录</div>
       </div>
       
-      <div class="event-list">
+      <div class="event-list card-grid">
         <div 
           v-for="event in currentPageEvents" 
           :key="event.id" 
-          class="event-list-item"
+          class="event-card"
           @click="handleItemClick(event)"
         >
-          <div class="event-list-id">{{ event.id }}</div>
-          <div class="event-list-type" :class="'type-' + event.type">{{ getTypeLabel(event.type) }}</div>
-          <div class="event-list-name">{{ event.name || event.text || '未命名事件' }}</div>
+          <div class="event-card-header">
+            <div class="event-list-id">#{{ event.id }}</div>
+            <div class="event-list-type" :class="'type-' + event.type">{{ getTypeLabel(event.type) }}</div>
+          </div>
+          <div class="event-card-content">
+            <div class="event-list-name">{{ event.name || event.text || '未命名事件' }}</div>
+          </div>
         </div>
         <div v-if="currentPageEvents.length === 0" class="no-events">
           <i class="fas fa-info-circle"></i> 没有找到事件，请尝试其他筛选条件
@@ -91,52 +98,54 @@
       </div>
       
       
-      <div class="pagination">
-        <button 
-          @click="goToFirstPage" 
-          :disabled="currentPage <= 1"
-          class="page-button"
-          title="第一页"
-        >
-          <i class="fas fa-angle-double-left"></i>
-        </button>
-        <button 
-          @click="prevPage" 
-          :disabled="currentPage <= 1"
-          class="page-button"
-          title="上一页"
-        >
-          <i class="fas fa-angle-left"></i>
-        </button>
-        
-        <div class="page-jump">
-          <input 
-            type="number" 
-            v-model.number="jumpToPage" 
-            min="1" 
-            :max="totalPages"
-            class="page-input"
-            @keyup.enter="goToPage"
-          />
-          <span class="page-total">/ {{ totalPages }}</span>
+      <div class="pagination-container">
+        <div class="pagination">
+          <button 
+            @click="goToFirstPage" 
+            :disabled="currentPage <= 1"
+            class="page-button"
+            title="第一页"
+          >
+            <i class="fas fa-angle-double-left"></i>
+          </button>
+          <button 
+            @click="prevPage" 
+            :disabled="currentPage <= 1"
+            class="page-button"
+            title="上一页"
+          >
+            <i class="fas fa-angle-left"></i>
+          </button>
+          
+          <div class="page-jump">
+            <input 
+              type="number" 
+              v-model.number="jumpToPage" 
+              min="1" 
+              :max="totalPages"
+              class="page-input"
+              @keyup.enter="goToPage"
+            />
+            <span class="page-total">/ {{ totalPages }}</span>
+          </div>
+          
+          <button 
+            @click="nextPage" 
+            :disabled="currentPage >= totalPages"
+            class="page-button"
+            title="下一页"
+          >
+            <i class="fas fa-angle-right"></i>
+          </button>
+          <button 
+            @click="goToLastPage" 
+            :disabled="currentPage >= totalPages"
+            class="page-button"
+            title="最后一页"
+          >
+            <i class="fas fa-angle-double-right"></i>
+          </button>
         </div>
-        
-        <button 
-          @click="nextPage" 
-          :disabled="currentPage >= totalPages"
-          class="page-button"
-          title="下一页"
-        >
-          <i class="fas fa-angle-right"></i>
-        </button>
-        <button 
-          @click="goToLastPage" 
-          :disabled="currentPage >= totalPages"
-          class="page-button"
-          title="最后一页"
-        >
-          <i class="fas fa-angle-double-right"></i>
-        </button>
       </div>
     </div>
     
@@ -191,7 +200,7 @@ import EventDetails from './components/EventDetails.vue';
 // 导入卡片详情模态框组件
 import CardDetailsModal from '@/components/CardDetailsModal.vue';
 import OverDetailsModal from '@/components/OverDetailsModal.vue';
-import { ref, onMounted, reactive, computed, watch } from 'vue';
+import { ref, onMounted, reactive, computed, watch, nextTick, onUnmounted } from 'vue';
 // 导入现有组件
 import EventDetailsModal from '@/components/EventDetailsModal.vue';
 import RiteDetailsModal from '@/components/RiteDetailsModal.vue';
@@ -248,11 +257,40 @@ export default {
     const allEventsCache = ref({}); // 缓存所有类型的数据
     const currentPage = ref(1);
     const jumpToPage = ref(1);
-    const pageSize = 20;
+    const pageSize = ref(32); // 改为响应式变量
     const isLoading = ref(false);
     const listFilter = ref(''); // 列表内筛选
     const activeTypeFilter = ref('all'); // 当前激活的类型筛选
     
+    // 添加窗口大小变化监听和动态计算页面大小
+    const calculatePageSize = () => {
+      // 获取容器宽度和高度
+      const container = document.querySelector('.event-list-container');
+      if (!container) return;
+      
+      const containerWidth = container.clientWidth - 40; // 减去内边距
+      const paginationHeight = 70; // 分页控件高度
+      const containerHeight = window.innerHeight - 250 - paginationHeight; // 预留顶部和底部空间，包括分页
+      
+      // 计算每行可以放置的卡片数量
+      const cardWidth = 220 + 15; // 卡片宽度 + 间距
+      const cardsPerRow = Math.floor(containerWidth / cardWidth);
+      
+      // 计算可以放置的行数
+      const cardHeight = 110 + 15; // 卡片高度调整为100px + 间距
+      const rows = Math.floor(containerHeight / cardHeight);
+      
+      // 计算总卡片数量
+      const calculatedPageSize = Math.max(cardsPerRow * rows, 8); // 至少显示8个
+      
+      // 更新页面大小
+      pageSize.value = calculatedPageSize;
+    };
+    
+    
+    
+    // 添加本地版本号
+    const localVersionText =  ref(JSON.parse(localVersionInfo)?.version || '0.0.0');
 
     const checkVersion = async () => {
       try {
@@ -328,17 +366,23 @@ export default {
       return events;
     });
     
-    // 计算当前页的事件
+    // 计算当前页的事件 - 使用动态pageSize
     const currentPageEvents = computed(() => {
-      const start = (currentPage.value - 1) * pageSize;
-      const end = start + pageSize;
+      const start = (currentPage.value - 1) * pageSize.value;
+      const end = start + pageSize.value;
       return filteredEvents.value.slice(start, end);
     });
     
-    // 计算总页数
+    // 计算总页数 - 使用动态pageSize
     const totalPages = computed(() => {
-      return Math.ceil(filteredEvents.value.length / pageSize) || 1;
+      return Math.ceil(filteredEvents.value.length / pageSize.value) || 1;
     });
+
+    // 在组件销毁时移除事件监听
+    onUnmounted(() => {
+      window.removeEventListener('resize', calculatePageSize);
+    });
+
     
     // 监听当前页变化，更新跳转页码
     watch(currentPage, (newPage) => {
@@ -590,12 +634,19 @@ export default {
     };
 
     onMounted(async () => {
+      calculatePageSize();
+      window.addEventListener('resize', calculatePageSize);
       try {
         // 预加载索引文件
-        await loadGameDataIndex();
-        
-        // 加载所有数据
-        await loadAllEvents();
+        loadGameDataIndex().then(() => {
+          // 加载所有数据
+          loadAllEvents().then(() => {
+            // 计算完成后重新计算页面大小
+            nextTick(() => {
+              calculatePageSize();
+            });
+          });
+        });
 
         // 检查版本更新
         checkVersion();
@@ -615,7 +666,9 @@ export default {
       jumpToPage,
       totalPages,
       nextPage,
+      localVersionText,
       prevPage,
+      pageSize, // 添加到返回值中
       goToPage,
       goToFirstPage,
       goToLastPage,
@@ -1073,5 +1126,169 @@ export default {
 
 .type-card {
   background-color: #2ecc71; /* 绿色，用于卡片类型 */
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #42b983;
+}
+
+/* 卡片网格布局 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-height: none;
+  overflow: visible;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  height: 110px; 
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-color: #d0d0d0;
+}
+
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.event-card-content {
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.event-list-id {
+  font-weight: bold;
+  color: #555;
+}
+
+.event-list-name {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+}
+
+/* 修改原有列表样式 */
+.event-list {
+  max-height: none;
+}
+
+.event-list-type {
+  color: white;
+  font-size: 0.75em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 调整分页控件位置 */
+.pagination {
+  margin-top: 20px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
+
+
+/* 版本号样式 */
+.version-badge {
+  background-color: #42b983;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+/* 分页容器样式 */
+.pagination-container {
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* 确保卡片网格有足够的底部边距，避免被分页遮挡 */
+.card-grid {
+  padding-bottom: 70px;
+}
+
+/* 调整事件列表容器，确保分页始终可见 */
+.event-list-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+}
+
+/* 确保卡片网格可以滚动但不会超出容器 */
+.event-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* 标题和版本号容器 */
+.title-version {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 版本号样式 */
+.version-badge {
+  background-color: #42b983;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 </style>

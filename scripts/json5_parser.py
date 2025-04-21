@@ -45,6 +45,10 @@ def normalize_keys(obj):
             if '+' in new_key:
                 new_key = re.sub(r'([^"]+)\+([^"]*)', r'\1加\2', new_key)
 
+            # 处理减号
+            if '-' in new_key:
+                new_key = re.sub(r'([^"]+)\+([^"]*)', r'\1减\2', new_key)
+
             # 处理大于
             if '>' in new_key:
                 new_key = re.sub(r'([^"]+)\>([^"]*)', r'\1大于\2', new_key)
@@ -121,8 +125,10 @@ def process_all_json_files(directory):
     print(f"处理完成! 成功: {success_count}, 失败: {fail_count}")
 
 if __name__ == "__main__":
-    # 设置config目录路径
-    config_dir = r"c:\Users\Administrator\IdeaProjects\sudans-game-reader\src\assets\config"
+    # 设置config目录路径，使用相对路径
+    script_dir = Path(__file__).parent.resolve()
+    project_root = script_dir.parent
+    config_dir = project_root / "src" / "assets" / "config"
     
     # 处理所有JSON文件
     process_all_json_files(config_dir)

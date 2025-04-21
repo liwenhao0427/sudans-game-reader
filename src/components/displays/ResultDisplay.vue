@@ -51,10 +51,10 @@
       <div v-if="hasCounters" class="result-section">
         <div class="section-title">计数器操作</div>
         <div class="counters-grid">
-          <div v-for="(counter, index) in counters" :key="index" class="counter减item">
-            <span class="counter减operation">{{ counter.operation }}</span>
-            <span class="counter减id">{{ getCounterText(counter.id) }}</span>
-            <span class="counter减value">{{ counter.value }}</span>
+          <div v-for="(counter, index) in counters" :key="index" class="counter_item">
+            <span class="counter_operation">{{ counter.operation }}</span>
+            <span class="counter_id">{{ getCounterText(counter.id) }}</span>
+            <span class="counter_value">{{ counter.value }}</span>
           </div>
         </div>
       </div>
@@ -216,7 +216,7 @@ export default {
             id: key.slice(8),
             value: value
           });
-        } else if (key.startsWith('counter减')) {
+        } else if (key.startsWith('counter_')) {
           counters.push({
             operation: '减少',
             id: key.slice(8),
@@ -234,7 +234,7 @@ export default {
             id: key.slice(15),
             value: value
           });
-        } else if (key.startsWith('global_counter减')) {
+        } else if (key.startsWith('global_counter_')) {
           counters.push({
             operation: '减少全局',
             id: key.slice(15),
@@ -373,10 +373,10 @@ export default {
         ...Object.keys(this.resources),
         ...this.counters.map(c => {
           if (c.operation === '增加') return `counter加${c.id}`;
-          if (c.operation === '减少') return `counter减${c.id}`;
+          if (c.operation === '减少') return `counter_${c.id}`;
           if (c.operation === '设置为') return `counter等于${c.id}`;
           if (c.operation === '增加全局') return `global_counter加${c.id}`;
-          if (c.operation === '减少全局') return `global_counter减${c.id}`;
+          if (c.operation === '减少全局') return `global_counter_${c.id}`;
           if (c.operation === '设置全局为') return `global_counter等于${c.id}`;
           return `counter_${c.operation === '增加' ? 'PLUS' : 'EQUALS'}_${c.id}`;
         }),
@@ -662,7 +662,7 @@ export default {
   gap: 10px;
 }
 
-.card-item, .loot-item, .counter减item, .slot-item, .resource-item, .other-item, .choice-item, .slot-attribute-item {
+.card-item, .loot-item, .counter_item, .slot-item, .resource-item, .other-item, .choice-item, .slot-attribute-item {
   display: flex;
   flex-direction: column;
   padding: 8px;
@@ -671,7 +671,7 @@ export default {
   border: 1px solid #e0e0e0;
 }
 
-.card-id, .loot-id, .counter减id {
+.card-id, .loot-id, .counter_id {
   color: #909399;
   font-size: 0.9em;
   margin-bottom: 4px;
@@ -696,13 +696,13 @@ export default {
   color: #909399;
 }
 
-.counter减operation, .slot-operation {
+.counter_operation, .slot-operation {
   font-weight: bold;
   color: #606266;
   margin-bottom: 4px;
 }
 
-.counter减value, .slot-card {
+.counter_value, .slot-card {
   color: #333;
 }
 
@@ -795,13 +795,13 @@ export default {
   color: #909399;
 }
 
-.counter减operation, .slot-operation {
+.counter_operation, .slot-operation {
   font-weight: bold;
   color: #606266;
   margin-bottom: 4px;
 }
 
-.counter减value, .slot-card {
+.counter_value, .slot-card {
   color: #333;
 }
 
@@ -875,13 +875,13 @@ export default {
   color: #909399;
 }
 
-.counter减operation, .slot-operation {
+.counter_operation, .slot-operation {
   font-weight: bold;
   color: #606266;
   margin-bottom: 4px;
 }
 
-.counter减value, .slot-card {
+.counter_value, .slot-card {
   color: #333;
 }
 

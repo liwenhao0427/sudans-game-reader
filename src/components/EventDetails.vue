@@ -68,13 +68,13 @@
                   </div>
                   
                   <div v-if="isOptionExpanded(index, option.tag)" class="option-details">
-                    <div v-if="item.action['case:' + option.tag]?.prompt" class="option-result">
-                      {{ item.action['case:' + option.tag].prompt.text }}
+                    <div v-if="item.action['case_' + option.tag]?.prompt" class="option-result">
+                      {{ item.action['case_' + option.tag].prompt.text }}
                     </div>
                     <div class="option-effects">
                       <action-display 
-                        v-if="hasEffects(item.action['case:' + option.tag])" 
-                        :action="getEffects(item.action['case:' + option.tag])">
+                        v-if="hasEffects(item.action['case_' + option.tag])" 
+                        :action="getEffects(item.action['case_' + option.tag])">
                       </action-display>
                     </div>
                   </div>
