@@ -1381,7 +1381,6 @@ export async function loadOverRelationsData() {
     try {
       // 尝试直接解析
       overRelationsData = JSON.parse(jsonContent);
-      console.log('overRelationsData', overRelationsData);
     } catch (directParseError) {
       // 如果直接解析失败，尝试使用自定义解析器
       overRelationsData = parseJsonWithComments(jsonContent);

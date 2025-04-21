@@ -1,9 +1,5 @@
 <template>
   <div class="condition-container" v-if="Object.keys(condition).length > 0">
-    <div class="container-header">
-      <span class="container-icon">🔍</span>
-      <span class="container-title">条件</span>
-    </div>
     <div class="condition-content">
       <!-- 简单条件显示 -->
       <div v-if="isSimpleCondition" class="simple-condition">

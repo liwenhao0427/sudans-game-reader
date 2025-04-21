@@ -112,7 +112,7 @@ export default {
       } else if (key === 'any') {
         return '任意满足';
       } else if (key === 'round_begin_ba') {
-        return '天数限制';
+        return '天数';
       } else if (key === '杀戮' || key === '纵欲' || key === '奢靡' || key === '征服') {
         return `需要${key}`;
       } else if (key.startsWith('rite_end') || key.startsWith('非rite_end')) {
@@ -260,7 +260,9 @@ export default {
         const cardId = getCardIdFromKey(key);
         return `卡片 #${cardId}`;
       } else if (key === 'round_begin_ba' && Array.isArray(value) && value.length === 2) {
-        return `第 ${value[0]} 天到第 ${value[1]} 天`;
+        return `每 ${value[0]} 天检查一次是否满足触发条件`;
+      } else if (key === 'round_begin_ba' && !Array.isArray(value) ) {
+        return `每 ${value} 天检查一次是否满足触发条件`;
       } else if (key.startsWith('r') && /^r\d+:.+[<>=]/.test(key) && Array.isArray(value)) {
         // 处理卡槽角色属性条件的值
         if (value.length === 1) {

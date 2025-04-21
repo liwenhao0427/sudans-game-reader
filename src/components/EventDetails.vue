@@ -357,7 +357,7 @@ export default {
         randomText: false,
         settlementPrior: false,
         settlement: true,
-        settlementExtre: false,
+        settlementExtre: true,
         cardsSlot: true,
         on: false,
         condition: false
