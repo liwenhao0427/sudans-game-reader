@@ -5,7 +5,7 @@
         <h1 class="app-title">苏丹的游戏剧情阅读器</h1>
         <span class="version-badge">V{{ localVersionText }}</span>
       </div>
-      <a href="https://liwenhao0427.github.io/sultans-game-mod-git-manager/" target="_blank" class="mod-manager-link">
+      <a href="https://sultans-game-mod-git-manager.pages.dev/" target="_blank" class="mod-manager-link">
         <i class="fas fa-tools"></i> Mod管理
       </a>
     </div>
@@ -308,7 +308,7 @@ export default {
         if (isNewer) {
           if (window.confirm(`发现新版本 ${remoteVersion}, 当前版本 ${localVersion}. 是否刷新页面更新到最新版本?`)) {
             //  // 添加时间戳作为缓存破坏参数
-            //  const newUrl = "https://liwenhao0427.github.io/sudans-game-reader/?t=" + new Date().getTime();
+            //  const newUrl = "https://sudans-game-reader.pages.dev/?t=" + new Date().getTime();
             // window.location.href = newUrl;
             window.location.reload(true);
           } else {

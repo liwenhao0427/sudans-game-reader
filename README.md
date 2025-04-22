@@ -2,7 +2,7 @@
 
 苏丹的游戏剧情阅读器是一个用于解析和展示游戏事件数据的项目，如有侵权请联系我删除项目。
 
-访问地址： https://liwenhao0427.github.io/sudans-game-reader/
+访问地址： https://sudans-game-reader.pages.dev/
 
 相关项目： 苏丹的游戏MOD管理器： https://liwenhao0427.github.io/sultans-game-mod-manager/
 
