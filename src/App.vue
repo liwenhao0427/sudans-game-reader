@@ -648,8 +648,10 @@ export default {
           });
         });
 
-        // 检查版本更新
-        checkVersion();
+        setTimeout(() => {
+          // 检查版本更新
+          checkVersion();          
+        }, 1000);
       } catch (e) {
         console.error('初始化数据失败:', e);
       }
