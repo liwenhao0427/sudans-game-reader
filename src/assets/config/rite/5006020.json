@@ -67,7 +67,8 @@
       "pops": [
         {
           "condition": {
-            "非主角": 1
+            "非主角": 1,
+            "非s1.is": 2000352
           },
           "action": {
             "choose": {

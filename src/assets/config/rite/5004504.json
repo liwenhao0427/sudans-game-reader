@@ -3,6 +3,7 @@
   "name": "仪式的助手",
   "text": "纯净者教会正在准备一场祝神仪式，你可以派遣几位长相过关的追随者去协助他们。",
   "tips": "",
+  "mapping_id": 8001201,
   "once_new": 1,
   "round_number": 3,
   "waiting_round": 3,

@@ -114,7 +114,10 @@
       "condition": {
         "部队": 1,
         "any": {
-          "type": "item",
+          "type": [
+            "item",
+            "char"
+          ],
           "is": "2000554"
         }
       },

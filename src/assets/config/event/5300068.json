@@ -1,0 +1,22 @@
+{
+  "id": 5300068,
+  "text": "没有乳链子",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": true,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "非have.2001146": 1
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "magic_sudan": 1
+      }
+    }
+  ]
+}

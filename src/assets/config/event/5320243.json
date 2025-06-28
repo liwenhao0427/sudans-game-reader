@@ -52,6 +52,7 @@
           "steam_achievement": "ACHIEVEMENT_011",
           "table.主角加宰相": 1,
           "table.主角.晋升": 1,
+          "table.主角等于图片": 2,
           "table.主角加社交": 1,
           "table.主角加魅力": 2,
           "counter加7100003": 3,
@@ -75,6 +76,7 @@
         "case_op2": {
           "table.2000312加宰相": 1,
           "table.2000312.晋升": 1,
+          "table.2000312等于图片": 1,
           "table.2000312加社交": 1,
           "table.2000312加魅力": 2,
           "prompt": {
@@ -104,6 +106,7 @@
           "steam_achievement": "ACHIEVEMENT_011",
           "table.主角加宰相": 1,
           "table.主角.晋升": 1,
+          "table.主角等于图片": 2,
           "table.主角加社交": 1,
           "table.主角加魅力": 2,
           "counter加7100003": 3,

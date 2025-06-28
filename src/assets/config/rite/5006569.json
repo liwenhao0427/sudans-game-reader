@@ -3,6 +3,7 @@
   "name": "隐匿小屋",
   "text": "修建一栋房屋很容易，但让一栋房屋在大家眼中消失就是另外的技术了。",
   "tips": "",
+  "mapping_id": 8001210,
   "once_new": 0,
   "round_number": 1,
   "waiting_round": 3,

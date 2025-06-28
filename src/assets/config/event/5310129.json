@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "RITE_CONFIRM",
           "anim_type": "MouseLeftClick",
+          "bind": "UI/StartRite",
           "pos": [
             -217,
             -202

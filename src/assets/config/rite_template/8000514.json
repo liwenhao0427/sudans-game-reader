@@ -4,6 +4,7 @@
   "tips": "",
   "bg": "sd_01_bg",
   "fg": "sd_01_fg",
+  "fg_in_slot_index": 0,
   "nomal_slot_bg": "",
   "bg_pos": {
     "x": 0,
@@ -19,7 +20,7 @@
       "is_set_card_hide_bg": false,
       "slot_bg": "normal_4",
       "pos": {
-        "x": 1401,
+        "x": 1332,
         "y": 1606
       },
       "scale": {
@@ -47,7 +48,7 @@
       "is_set_card_hide_bg": false,
       "slot_bg": "normal_4",
       "pos": {
-        "x": 1401,
+        "x": 1332,
         "y": 1089
       },
       "scale": {

@@ -1,0 +1,25 @@
+{
+  "id": 5300663,
+  "text": "众筹道具-生命之心-夏玛复活",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "rite_end": 5000167
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "table.2001178加equip": 2001155,
+        "prompt": {
+          "id": "5300663_prompt_01",
+          "text": "……呵呃……",
+          "icon": "cards/2001178"
+        }
+      }
+    }
+  ]
+}

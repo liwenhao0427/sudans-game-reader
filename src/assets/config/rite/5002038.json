@@ -151,7 +151,7 @@
     {
       "condition": {
         "counter.7000117大于等于": 6,
-        "counter.7000200小于": 34,
+        "counter.7000200小于": 39,
         "any": {
           "counter.7000332小于": 3,
           "counter.7000332大于": 3

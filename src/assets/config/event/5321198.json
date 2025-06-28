@@ -1,0 +1,28 @@
+{
+  "id": 5321198,
+  "text": "纯洁之纱",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "have.欲蛇之纱": 1,
+    "have.教领": 1
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "rite": 5008194,
+        "success": {
+          "event_off": 5321198
+        }
+      }
+    }
+  ]
+}

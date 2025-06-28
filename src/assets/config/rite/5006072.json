@@ -3,6 +3,7 @@
   "name": "处置被俘的异教徒",
   "text": "你没有把这个异教徒交给神庙的祭司们，而是打算自行处置……",
   "tips": "",
+  "mapping_id": 8001106,
   "once_new": 0,
   "round_number": 3,
   "waiting_round": 1,

@@ -1,0 +1,28 @@
+{
+  "id": 5300652,
+  "text": "众筹道具-生命之心-梅姬死亡",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "card_clean": [
+      2000006,
+      2000457,
+      2000458
+    ]
+  },
+  "condition": {
+    "counter.7000668小于": 1
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "card": 2001157
+      }
+    }
+  ]
+}

@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "RITE_STOP",
           "anim_type": "Arrow",
+          "bind": "UI/StopRite",
           "pos": [
             196,
             -158

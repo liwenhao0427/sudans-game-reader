@@ -3,6 +3,7 @@
   "name": "隐匿小屋",
   "text": "你可以将罪证存入其中而不被人发现。",
   "tips": "",
+  "mapping_id": 8001131,
   "once_new": 1,
   "round_number": 7,
   "waiting_round": 0,

@@ -329,10 +329,6 @@
     "font": "Title SDF",
     "size": 75
   },
-  "SETTING_PANEL": {
-    "font": "Title SDF",
-    "size": 40
-  },
   "NEXT_DAY": {
     "font": "",
     "isRightToLeftText": false,
@@ -378,5 +374,17 @@
     "font": "CardTitle SDF",
     "material": "CardTitle SDF - RiteTitleNew",
     "size": 50
+  },
+  "_PRESITGE_COUNT": {
+    "font": "Title SDF",
+    "css_size": {
+      "xs": 32,
+      "sm": 38,
+      "md": 44,
+      "lg": 50,
+      "xl": 56,
+      "xxl": 62
+    },
+    "characterSpacing": -20
   }
 }

@@ -1,8 +1,9 @@
 {
   "id": 5006610,
-  "name": "移除诅咒",
+  "name": "移除诅咒（已弃用）",
   "text": "一个简单的仪式",
   "tips": "",
+  "mapping_id": 8001077,
   "once_new": 0,
   "round_number": 0,
   "waiting_round": 1,

@@ -4,6 +4,7 @@
   "tips": "",
   "bg": "ts_05_bg",
   "fg": null,
+  "fg_in_slot_index": 0,
   "nomal_slot_bg": "",
   "bg_pos": {
     "x": 0,
@@ -35,6 +36,34 @@
       "pos": {
         "x": 1731,
         "y": 1446
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s3": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_3",
+      "pos": {
+        "x": 1731,
+        "y": 847
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s4": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_3",
+      "pos": {
+        "x": 826,
+        "y": 847
       },
       "scale": {
         "x": 1,

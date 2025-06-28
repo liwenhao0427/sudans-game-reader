@@ -48,7 +48,10 @@
     },
     {
       "condition": {
-        "counter.7000439大于等于": 1
+        "any": {
+          "counter.7000596大于等于": 1,
+          "counter.7000636大于等于": 1
+        }
       },
       "result_title": "",
       "result_text": "",
@@ -1263,6 +1266,24 @@
         "rite": 5000044,
         "prompt": {
           "id": "5000002_prompt_47",
+          "text": "书里什么都有，前提是你要看得懂。",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2000945
+      },
+      "result_title": "",
+      "result_text": "书里什么都有，前提是你要看得懂。",
+      "result": {
+        "s1加正在阅读": 1
+      },
+      "action": {
+        "rite": 5008195,
+        "prompt": {
+          "id": "5000002_prompt_500",
           "text": "书里什么都有，前提是你要看得懂。",
           "icon": "cards/2000001"
         }
@@ -3327,6 +3348,155 @@
     },
     {
       "condition": {
+        "s1.is": 2001170
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {
+        "s1加正在阅读": 1
+      },
+      "action": {
+        "rite": 5000164,
+        "prompt": {
+          "id": "5000002_prompt_339",
+          "text": "书里什么都有，前提是你要看得懂。",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001154
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "rite": 5000166,
+        "prompt": {
+          "id": "5000002_prompt_340",
+          "text": "这难道只是一件单纯的饰品么？这团奇异的石中火焰又意味着什么？",
+          "icon": "cards/2001154"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001155,
+        "any": {
+          "table_have.2001157": 1,
+          "table_have.2001158": 1,
+          "table_have.2001159": 1,
+          "table_have.2001160": 1,
+          "table_have.2001171": 1,
+          "table_have.2001172": 1,
+          "table_have.2001173": 1
+        }
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "rite": 5000167,
+        "prompt": {
+          "id": "5000002_prompt_341",
+          "text": "复活吧！我的……",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001155,
+        "非table_have.2001157": 1,
+        "非table_have.2001158": 1,
+        "非table_have.2001159": 1,
+        "非table_have.2001160": 1,
+        "非table_have.2001171": 1,
+        "非table_have.2001172": 1,
+        "非table_have.2001173": 1
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "prompt": {
+          "id": "5000002_prompt_343",
+          "text": "你对死者的思念不足以摹画其面容。",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001156
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "rite": 5000168,
+        "prompt": {
+          "id": "5000002_prompt_342",
+          "text": "只要吃下它，是的，只要把它镶嵌在你的胸膛，你就能够得到永生！",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001165
+      },
+      "result_title": "",
+      "result_text": "书里什么都有，前提是你要看得懂。",
+      "result": {
+        "s1加正在阅读": 1
+      },
+      "action": {
+        "rite": 5008191,
+        "prompt": {
+          "id": "5000002_prompt_351",
+          "text": "书里什么都有，前提是你要看得懂。",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001150
+      },
+      "result_title": "",
+      "result_text": "书里什么都有，前提是你要看得懂。",
+      "result": {
+        "s1加正在阅读": 1
+      },
+      "action": {
+        "rite": 5000204,
+        "prompt": {
+          "id": "5000002_prompt_352",
+          "text": "书里什么都有，前提是你要看得懂。",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001151
+      },
+      "result_title": "",
+      "result_text": "就像诱惑蜜蜂的花蜜……",
+      "result": {},
+      "action": {
+        "rite": 5000206,
+        "prompt": {
+          "id": "5000002_prompt_353",
+          "text": "就像诱惑蜜蜂的花蜜……",
+          "icon": "cards/2000001"
+        }
+      }
+    },
+    {
+      "condition": {
         "s1.is": 2000707
       },
       "result_title": "",
@@ -4579,6 +4749,53 @@
     },
     {
       "condition": {
+        "非s1.消耗品": 1,
+        "s1.is": 2001161
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "rite": 5008190,
+        "prompt": {
+          "id": "5000002_prompt_350",
+          "text": "这柄武器在你的耳畔啸叫——它需要灵魂！需要更多的……更多的灵魂！",
+          "icon": [
+            null,
+            [
+              2001161
+            ],
+            null
+          ]
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.消耗品": 1,
+        "s1.is": 2001161
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {
+        "s1加回收": 1
+      },
+      "action": {
+        "prompt": {
+          "id": "5000002_prompt_354",
+          "text": "魂印杵已经吸收了足够的灵魂力量。",
+          "icon": [
+            null,
+            [
+              2001161
+            ],
+            null
+          ]
+        }
+      }
+    },
+    {
+      "condition": {
         "s1.is": 2001050
       },
       "result_title": "",
@@ -4627,6 +4844,7 @@
     },
     {
       "condition": {
+        "have.2000010": 1,
         "s1.is": 2001019
       },
       "result_title": "",
@@ -4882,6 +5100,58 @@
         }
       },
       "action": {}
+    },
+    {
+      "condition": {
+        "s1.is": 2001146
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "rite": 5000160,
+        "prompt": {
+          "id": "5000002_prompt_336",
+          "text": "为什么不试试仿照你的君主，把它佩戴在胸前呢？",
+          "icon": "cards/2001146"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001152
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "no_prompt": {
+          "loot.馆藏加1_已拥有_1": 6000119
+        },
+        "rite": 5000161,
+        "prompt": {
+          "id": "5000002_prompt_337",
+          "text": "凭借这枚徽章，你可以自由出入学会的藏书室。",
+          "icon": "cards/2001152"
+        }
+      }
+    },
+    {
+      "condition": {
+        "s1.is": 2001149
+      },
+      "result_title": "",
+      "result_text": "",
+      "result": {},
+      "action": {
+        "no_prompt": {},
+        "rite": 5000201,
+        "prompt": {
+          "id": "5000002_prompt_338",
+          "text": "想好了要怎么使用这个马衔了吗？",
+          "icon": "cards/2001149"
+        }
+      }
     },
     {
       "condition": {

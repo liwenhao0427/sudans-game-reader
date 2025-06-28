@@ -288,6 +288,7 @@
             "begin_guide": {
               "type": "FILL_COIN",
               "anim_type": "MouseRightClick",
+              "bind": "UI/Submit",
               "pos": [
                 -1024,
                 -404

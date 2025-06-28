@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "NEXT_DAY",
           "anim_type": "MouseLeftClick",
+          "bind": "UI/NextDay",
           "pos": [
             -581,
             441

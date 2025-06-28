@@ -1,0 +1,226 @@
+{
+  "id": 5000206,
+  "name": "异色花园",
+  "text": "你放任荆棘扎根，让那诱人的花香飘散……一个无知无觉的人可能会走进这个花园，而你则可以将其捕获。",
+  "tips": "",
+  "mapping_id": 8001049,
+  "once_new": 0,
+  "round_number": 1,
+  "waiting_round": 0,
+  "waiting_round_end_action": [],
+  "method_settlement": "",
+  "auto_begin": 1,
+  "auto_result": 0,
+  "location": "自宅:[2,12]",
+  "icon": "rite_22",
+  "tag_tips": [],
+  "tag_tips_up": {},
+  "tips_text": [
+    "这个事件每次都会随机捕获一个目标",
+    "如果不亲自前往，则不会加害这个目标",
+    "亲自前往则可以永久性控制这个目标的肉身",
+    "控制目标后，戒指将会与其融为一体，无法反复使用",
+    "这会被视同一次杀戮行为"
+  ],
+  "open_conditions": [],
+  "random_text": {},
+  "random_text_up": {},
+  "random_effect": {},
+  "settlement_prior": [],
+  "settlement": [
+    {
+      "condition": {
+        "非s1": 1
+      },
+      "result_title": "空荡荡的花园",
+      "result_text": "今天，花与你皆寂寞，但这未尝不是一件好事。",
+      "result": {},
+      "action": {}
+    },
+    {
+      "condition": {
+        "s1": 1,
+        "非s2": 1
+      },
+      "result_title": "你放任[s1.name]离去",
+      "result_text": "[s1.gender]并非合适人选，抑或时机未到。今天，在花香的作用下，[s1.gender]会做个好梦，然后完全忘却此事。",
+      "result": {},
+      "action": {}
+    },
+    {
+      "condition": {
+        "s1": 1,
+        "s2": 1
+      },
+      "result_title": "扎根",
+      "result_text": "[s1.name]被花园中的香气所迷醉。[s1.gender]痴痴地看着一朵色彩斑斓的花，完全没有注意到你的接近……\n你摇晃了一下那朵最美丽的花，让花粉荡漾，而[s1.name]的面容也随之陷入了呆滞。从那花蕊深处，你取出了戒指，它已经饱胀而充盈……\n将它戴到[s1.name]手上的瞬间，戒指就开始生根发芽，并与[s1.gender]融为一体……\n最后，你看见那根脉在对方脖颈的皮肤下面延伸，蠕动，一直生长到脑髓里——甚至[s1.gender]的眼底和口鼻中有有隐隐约约的绿意！这具曾经是[s1.name]的肉体抽搐了几下，一些花骨朵从[s1.gender]的嘴里钻了出来，旋即盛开——它再也不需要发问了，也不再有自己的意见：古老的魔法为你制造了一位忠贞不渝的奴仆，宠物，爱人，玩具，随便你怎么想。",
+      "result": {
+        "no_show": [
+          {
+            "s4等于装备": 0,
+            "s4等于饰品": 0
+          },
+          {
+            "s1等于爱书人": 0,
+            "s1等于苏丹的近卫": 0,
+            "s1等于密教徒": 0,
+            "s1等于贵族": 0,
+            "s1等于奴隶": 0,
+            "s1等于法图娜": 0,
+            "s1等于扎齐伊": 0,
+            "s1等于妓女": 0,
+            "s1等于宰相": 0,
+            "s1等于质子": 0,
+            "s1等于正教的信徒": 0,
+            "s1等于命运的羁绊": 0
+          }
+        ],
+        "s1加追随者": 1,
+        "s1加s4": 1,
+        "s1加荆棘戒指": 1,
+        "s1加遗世": 1,
+        "s1加装备": 1,
+        "s1加驯兽": 1,
+        "s1加已装备": 1,
+        "s1加怪物": 1,
+        "counter加7100002": 3
+      },
+      "action": {}
+    }
+  ],
+  "settlement_extre": [
+    {
+      "condition": {
+        "s1": 1,
+        "s2": 1,
+        "非s3": 1
+      },
+      "result_title": "人人都害怕你的魔法",
+      "result_text": "他们都说你因为苏丹的游戏发疯了，与魔鬼或者更糟糕的什么玩意儿签了契约……很快就要害死所有人——甚至苏丹也听进去了一些呢。",
+      "result": {
+        "card": [
+          2000558,
+          2000558,
+          2000168,
+          2000168
+        ]
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s1": 1,
+        "s2": 1,
+        "s3": 1
+      },
+      "result_title": "苏丹当着你的面摘了一些花",
+      "result_text": "后来，你将那变成无声傀儡的[s1.name]带到苏丹的宫廷去展示——很可惜，它只跟随你，而苏丹并不愿意剥夺你在这个游戏中获得的战利品。\n只是出于兴趣，苏丹从这片属于你的花圃中扯下了一些花朵，每一朵都深深地扎根在[s1.name]的喉咙里，而这个过程给了苏丹很大的乐趣。",
+      "result": {
+        "clean.s3": 1
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s1": 1,
+        "s2": 1,
+        "非s2.equip_slot_驯兽": 1
+      },
+      "result_title": "你获得了一些超自然的支配能力",
+      "result_text": "现在，你的心意能够传达给这位仆从，也可以传达给其他驯服的牲畜……它们本质上都一样，不是么？",
+      "result": {
+        "s2加equip_slot": "animal_handling"
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s1": 1,
+        "s2": 1,
+        "s1.is": 2000064
+      },
+      "result_title": "",
+      "result_text": "苏丹补充了一名铁卫。",
+      "result": {
+        "card": 2000923
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s1": 1,
+        "s2": 1,
+        "s1.is": 2000054
+      },
+      "result_title": "",
+      "result_text": "苏丹补充了一名铁卫。",
+      "result": {
+        "card": 2000925
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s1": 1,
+        "s2": 1,
+        "s1.is": 2000065
+      },
+      "result_title": "",
+      "result_text": "苏丹补充了一名铁卫。",
+      "result": {
+        "card": 2000926
+      },
+      "action": {}
+    }
+  ],
+  "cards_slot": {
+    "s1": {
+      "condition": {
+        "type": "char",
+        "非追随者": 1,
+        "非is": 2000024,
+        "非食客": 1,
+        "非主角": 1
+      },
+      "open_adsorb": 1,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "迷醉的受害者"
+    },
+    "s2": {
+      "condition": {
+        "type": "char",
+        "主角": 1
+      },
+      "open_adsorb": 0,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "你必须亲自出马才能捕获猎物"
+    },
+    "s3": {
+      "condition": {
+        "type": "sudan",
+        "杀戮": 1,
+        "f_rare_s1.稀有度小于等于": 0
+      },
+      "open_adsorb": 0,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "可在此使用一张品级合适的杀戮苏丹卡"
+    },
+    "s4": {
+      "condition": {
+        "type": "item",
+        "is": 2001151
+      },
+      "open_adsorb": 1,
+      "is_key": 0,
+      "is_empty": 0,
+      "is_enemy": 0,
+      "text": "它藏在花园的最深处"
+    }
+  }
+}

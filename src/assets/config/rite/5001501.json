@@ -200,7 +200,7 @@
     {
       "condition": {
         "counter.7000117大于等于": 6,
-        "counter.7000200小于": 34
+        "counter.7000200小于": 39
       },
       "result_title": "",
       "result_text": "一件值得注意的事情发生了。",
@@ -242,6 +242,20 @@
       "action": {
         "event_on": 5321007
       }
+    },
+    {
+      "condition": {
+        "s1.君王的胸襟": 1
+      },
+      "result_title": "只要没有漂起来",
+      "result_text": "[s1.name]脱下外衣时袒露出的那条该死的、熟悉的金链引得人们频频侧目，又纷纷低下头不敢直视，只有越来越多的，越传越离奇的谣言，在水雾中慢慢逸散。",
+      "result": {
+        "choose": {
+          "counter加7100004": 1,
+          "counter加7199999": 1
+        }
+      },
+      "action": {}
     }
   ],
   "cards_slot": {

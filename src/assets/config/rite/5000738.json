@@ -93,10 +93,25 @@
     },
     {
       "condition": {
-        "s6": 1
+        "s6": 1,
+        "非s6.is": 2000986
       },
       "result_title": "黑暗置换",
       "result_text": "将一个此间的生灵献给黑暗，为一个异界怪物留出存在的空隙。",
+      "result": {
+        "global_counter加7200149": 1,
+        "clean.s6": 1,
+        "loot.追随者加1": 6000085
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s6": 1,
+        "s6.is": 2000986
+      },
+      "result_title": "黑暗通路",
+      "result_text": "用乙太精粹绘制出的复杂咒纹，为异界怪物打开了一条通往此间的狭窄道路。",
       "result": {
         "global_counter加7200149": 1,
         "clean.s6": 1,

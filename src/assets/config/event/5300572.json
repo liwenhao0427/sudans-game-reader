@@ -9,7 +9,8 @@
   },
   "condition": {
     "counter.7000618大于等于": 1,
-    "table_have.2000013": 1
+    "table_have.2000013": 1,
+    "counter.7000682小于": 1
   },
   "settlement": [
     {
@@ -19,6 +20,7 @@
         "no_prompt": {
           "card": 2001024
         },
+        "counter加7000682": 1,
         "rite": 5000850,
         "prompt": {
           "id": "5300572_prompt_01",

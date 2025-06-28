@@ -6,7 +6,7 @@
   "mapping_id": 8001123,
   "once_new": 0,
   "round_number": 1,
-  "waiting_round": 1,
+  "waiting_round": 0,
   "waiting_round_end_action": [],
   "method_settlement": "",
   "auto_begin": 1,

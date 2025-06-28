@@ -20,7 +20,19 @@
     "随你心意处置他吧",
     "历史会记住你的选择"
   ],
-  "open_conditions": [],
+  "open_conditions": [
+    {
+      "condition": {
+        "any": {
+          "s2": 1,
+          "s3": 1,
+          "s4": 1,
+          "s5": 1
+        }
+      },
+      "tips": "你必须做出选择"
+    }
+  ],
   "random_text": {},
   "random_text_up": {},
   "random_effect": {},

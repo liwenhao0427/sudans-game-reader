@@ -1,0 +1,22 @@
+{
+  "id": 5300656,
+  "text": "众筹道具-生命之心-夏玛死亡",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "card_clean": 2000082
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "card": 2001171
+      }
+    }
+  ]
+}

@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "RITE_LAST_STATE",
           "anim_type": "Arrow",
+          "bind": "UI/RestoreRite",
           "pos": [
             -208,
             -202

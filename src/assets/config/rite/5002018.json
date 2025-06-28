@@ -120,7 +120,6 @@
       "result_title": "",
       "result_text": "你的意识逐渐模糊。朱娜的身体晃动着，欢愉如水，淹没了你的意识……\n也许，这就是最好的结局。",
       "result": {
-        "clean.s2": 1,
         "global_counter等于7200135": 1
       },
       "action": {
@@ -151,7 +150,7 @@
       "is_key": 0,
       "is_empty": 0,
       "is_enemy": 1,
-      "text": "朱娜，热情的有点可怕"
+      "text": "朱娜，热情得有点可怕"
     },
     "s2": {
       "condition": {

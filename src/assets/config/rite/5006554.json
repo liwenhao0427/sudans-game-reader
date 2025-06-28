@@ -3,6 +3,7 @@
   "name": "富有的巨魔",
   "text": "你得到消息，某处有个巨魔统治的矿洞，里面都是金子……但巨魔会开矿吗？第一次听说这种事情，虽然这并不重要。",
   "tips": "",
+  "mapping_id": 8001352,
   "once_new": 0,
   "round_number": 1,
   "waiting_round": 5,
@@ -134,7 +135,10 @@
       "condition": {
         "部队": 1,
         "any": {
-          "type": "item",
+          "type": [
+            "item",
+            "char"
+          ],
           "is": "2000554"
         }
       },

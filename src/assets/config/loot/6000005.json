@@ -336,25 +336,77 @@
     },
     {
       "num": "1",
+      "id": "2001060",
+      "type": "card",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "非have.2000707": 1,
+        "counter.7000673小于": 1
+      },
+      "num": "1",
       "id": "2000707",
       "type": "card",
       "weight": 60
     },
     {
+      "condition": {
+        "非have.2000708": 1,
+        "counter.7000674小于": 1
+      },
       "num": "1",
       "id": "2000708",
       "type": "card",
       "weight": 60
     },
     {
+      "condition": {
+        "非have.2000709": 1,
+        "counter.7000675小于": 1
+      },
       "num": "1",
       "id": "2000709",
       "type": "card",
       "weight": 60
     },
     {
+      "condition": {
+        "非have.2000710": 1,
+        "counter.7000676小于": 1
+      },
       "num": "1",
       "id": "2000710",
+      "type": "card",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "非have.2001165": 1,
+        "counter.7000678小于": 1
+      },
+      "num": "1",
+      "id": "2001165",
+      "type": "card",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "非have.2001150": 1,
+        "counter.7000683小于": 1
+      },
+      "num": "1",
+      "id": "2001150",
+      "type": "card",
+      "weight": 60
+    },
+    {
+      "condition": {
+        "非have.2001170": 1,
+        "counter.7000677小于": 1
+      },
+      "num": "1",
+      "id": "2001170",
       "type": "card",
       "weight": 60
     }

@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "RIGHT_CLICK_CARD",
           "anim_type": "MouseRightClick",
+          "bind": "UI/Submit",
           "pos": [
             -144,
             638

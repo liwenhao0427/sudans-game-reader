@@ -1,0 +1,25 @@
+{
+  "id": 5300660,
+  "text": "众筹道具-生命之心-奈布哈尼复活",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "rite_end": 5000167
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "table.2001175加equip": 2001155,
+        "prompt": {
+          "id": "5300660_prompt_01",
+          "text": "……嗷啊………",
+          "icon": "cards/2001175"
+        }
+      }
+    }
+  ]
+}

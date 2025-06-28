@@ -3,6 +3,7 @@
   "name": "救济日",
   "text": "有人向你提议做一次公开的救济，为饥饿的灾民提供一些吃食，让他们填饱肚子之余，也能够弘扬你的善名。",
   "tips": "",
+  "mapping_id": 8001346,
   "once_new": 0,
   "round_number": 1,
   "waiting_round": 3,
@@ -36,7 +37,7 @@
   "tag_tips": [],
   "tag_tips_up": {},
   "tips_text": [
-    "你可以借机折断苏丹卡，但，你真要怎么做么？"
+    "你可以借机折断苏丹卡，但，你真要这么做么？"
   ],
   "open_conditions": [],
   "random_text": {},

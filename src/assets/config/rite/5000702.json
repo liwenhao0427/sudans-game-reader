@@ -62,9 +62,12 @@
           2000317,
           "已拥有+1"
         ],
-        "clean.s7": 1
+        "clean.s7": 1,
+        "counter加7000673": 1
       },
-      "action": {}
+      "action": {
+        "counter加7000673": 1
+      }
     },
     {
       "condition": {

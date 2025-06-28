@@ -6,7 +6,7 @@
   "mapping_id": 8001125,
   "once_new": 0,
   "round_number": 1,
-  "waiting_round": 1,
+  "waiting_round": 0,
   "waiting_round_end_action": [],
   "method_settlement": "",
   "auto_begin": 1,
@@ -30,8 +30,7 @@
       "result_title": "你信不过阿里木",
       "result_text": "也许，还有其他办法？总之，你先婉拒了阿里木的建议。",
       "result": {
-        "counter等于7000430": 0,
-        "counter等于7000379": 0
+        "counter等于7000430": 0
       },
       "action": {}
     }
@@ -50,7 +49,7 @@
       },
       "action": {
         "global_counter等于7200231": 1,
-        "rite": 5006677
+        "event_on": 5321199
       }
     }
   ],
@@ -69,7 +68,7 @@
       },
       "action": {
         "global_counter等于7200231": 1,
-        "rite": 5006677
+        "event_on": 5321199
       }
     }
   ],

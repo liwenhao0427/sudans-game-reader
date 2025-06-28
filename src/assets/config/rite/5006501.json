@@ -3,6 +3,7 @@
   "name": "讨伐氏族",
   "text": "你需要拿出一张征服卡，以获得踏平那个氏族所在领地的权利。",
   "tips": "",
+  "mapping_id": 8001183,
   "once_new": 1,
   "round_number": 1,
   "waiting_round": 3,

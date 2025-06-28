@@ -83,7 +83,12 @@
     },
     "s2": {
       "condition": {
-        "type": "item",
+        "any": {
+          "type": [
+            "item",
+            "char"
+          ]
+        },
         "部队": 1
       },
       "open_adsorb": 0,
@@ -94,7 +99,12 @@
     },
     "s3": {
       "condition": {
-        "type": "item",
+        "any": {
+          "type": [
+            "item",
+            "char"
+          ]
+        },
         "部队": 1
       },
       "open_adsorb": 0,
@@ -105,7 +115,12 @@
     },
     "s4": {
       "condition": {
-        "type": "item",
+        "any": {
+          "type": [
+            "item",
+            "char"
+          ]
+        },
         "部队": 1
       },
       "open_adsorb": 0,

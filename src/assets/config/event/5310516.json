@@ -10,7 +10,8 @@
   "condition": {
     "counter.7000447大于等于": 1,
     "have.2000113.宰相": 1,
-    "counter.7100003大于等于": 30
+    "f_counter.7100003_counter.7100004加counter.7100001大于等于": 80,
+    "counter.7100002小于": 10
   },
   "settlement": [
     {

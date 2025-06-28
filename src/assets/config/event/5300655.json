@@ -1,0 +1,22 @@
+{
+  "id": 5300655,
+  "text": "众筹道具-生命之心-伊曼死亡",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "card_clean": 2000021
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "card": 2001160
+      }
+    }
+  ]
+}

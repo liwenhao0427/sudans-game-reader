@@ -1,47 +1,4 @@
 ﻿{
-    "settle_card_new_bad": [
-        2000168, // 谗言
-        2000083, // 妻子的不满
-        2000698, // 娜依拉的不满
-        2000558, // 罪证
-        2000326, // 疯狂
-        2000672, // 苏丹的猜疑
-        2000680 // 苏丹的猜忌
-    ],
-    "player_card_ids": [
-        2000001,
-        2000002,
-        2000003,
-        2000861
-    ],
-    "fade_in_transition_time": {
-        "Default": 1.5,
-        "MakerTeam": 0.5,
-        "StartGame": 1.5,
-        "MainGame": 1.5,
-        "Settlement": 4,
-        "DestroySudanCard": 3,
-        "DrawSudanCard": 1.5,
-        "OverGame": 2.5,
-        "Tutorial_MainGame": 1.5,
-        "Tutorial_Settlement": 1.5,
-        "Tutorial_DrawSudanCard": 1.5,
-        "Armageddon":2.5
-    },
-    "fade_out_transition_time": {
-        "Default": 1.5,
-        "MakerTeam": 0.5,
-        "StartGame": 1.5,
-        "MainGame": 1,
-        "Settlement": 4,
-        "DestroySudanCard": 3,
-        "DrawSudanCard": 1.5,
-        "OverGame": 1.5,
-        "Tutorial_MainGame": 1.5,
-        "Tutorial_Settlement": 1.5,
-        "Tutorial_DrawSudanCard": 1.5,
-        "Armageddon":4
-    },
     "main_game_loop": {
         "7":{
             "clip": "main_game_level1",
@@ -158,20 +115,20 @@
         "5":{
             "clip": "settlement_level2",
             "start": 0,
-            "loop_start": 15.004,
-            "loop_end": 32.015
+            "loop_start": 15.724,
+            "loop_end": 33.14
         },
         "4":{
             "clip": "settlement_level2",
             "start": 0,
-            "loop_start": 15.004,
-            "loop_end": 32.015
+            "loop_start": 15.724,
+            "loop_end": 33.14
         },
         "3":{
             "clip": "settlement_level2",
             "start": 0,
-            "loop_start": 15.004,
-            "loop_end": 32.015
+            "loop_start": 15.724,
+            "loop_end": 33.14
         },
         "2":{
             "clip": "settlement_level3",
@@ -215,13 +172,13 @@
             "clip": "settlement_level2",
             "start": 0,
             "loop_start": 15.004,
-            "loop_end": 32.015
+            "loop_end": 33.14
         },
         "2":{
             "clip": "settlement_level2",
             "start": 0,
             "loop_start": 15.004,
-            "loop_end": 32.015
+            "loop_end": 33.14
         },
         "1":{
             "clip": "settlement_level3",

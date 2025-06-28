@@ -40,7 +40,7 @@
         "x": 0.8,
         "y": 0.8
       },
-      "rotation_z": 10
+      "rotation_z": 9.999999
     },
     "s7": {
       "is_hide_bg": false,
@@ -68,7 +68,7 @@
         "x": 0.8,
         "y": 0.8
       },
-      "rotation_z": 10
+      "rotation_z": 9.999999
     },
     "s2": {
       "is_hide_bg": false,
@@ -90,11 +90,11 @@
       "slot_bg": "normal_4",
       "pos": {
         "x": 1435,
-        "y": 1510
+        "y": 1548
       },
       "scale": {
-        "x": 1.2,
-        "y": 1.2
+        "x": 1.5,
+        "y": 1.5
       },
       "rotation_z": 0
     },

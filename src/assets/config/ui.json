@@ -20,7 +20,7 @@
     "comment": "卡牌品级, 4(最高"
   },
   "NOTICE": {
-    "zhCN": "尊敬的玩家： \n\n为了避免黑魔法的危害，我们混淆了不同文化的符号和艺术，运用假名与隐喻将这个故事封印在远离现实世界的时间线上，希望得到您的理解。 感谢您对《苏丹的游戏》的关注！\n\n游戏已经正式发布，我们也将持续根据大家的反馈对游戏进行修正与内容更新，如果有BUG或者建议，您可以在<u><link=qq_channel>QQ频道</link></u>和<u><link=discord>discord</link></u>（链接见上方图标）中向我们反馈。\n\n希望您能享受《苏丹的游戏》！",
+    "zhCN": "尊敬的玩家： \n\n为了避免黑魔法的危害，我们混淆了不同文化的符号和艺术，运用假名与隐喻将这个故事封印在远离现实世界的时间线上，希望得到您的理解。 感谢您对《苏丹的游戏》的关注！\n\n游戏已经正式发布，我们也将持续根据大家的反馈对游戏进行修正与内容更新，如果有BUG或者建议，您可以在<u><link=qq_channel>QQ频道</link></u>和<u><link=discord>discord</link></u>（链接见下方图标）中向我们反馈。\n\n希望您能享受《苏丹的游戏》！",
     "comment": "游戏开始公告内容"
   },
   "RITE_SETTLEMENT_NOTHING_HAPPEND": {
@@ -235,6 +235,10 @@
     "zhCN": "制作组",
     "comment": "开始界面, 制作组按钮文本"
   },
+  "GALLERY": {
+    "zhCN": "历史画廊",
+    "comment": "开始界面, 历史画廊按钮文本"
+  },
   "START_NEW_GAME": {
     "zhCN": "开始新游戏",
     "comment": "esc菜单, 新游戏按钮文本"
@@ -272,7 +276,7 @@
     "comment": "苏丹卡折断演出第一阶段提示"
   },
   "SUDAN_CARD_BREAKER_STEP1_NOTICE_Gamepad": {
-    "zhCN": "长按L2+R2掰断苏丹卡",
+    "zhCN": "长按{0}掰断苏丹卡",
     "comment": "苏丹卡折断演出第一阶段提示"
   },
   "SUDAN_CARD_BREAKER_STEP2_NOTICE": {
@@ -379,6 +383,22 @@
     "zhCN": "显示模式：",
     "comment": "设置界面-显示模式设置标题"
   },
+  "SCREEN_SOUND_SETTING": {
+    "zhCN": "画面声音",
+    "comment": "设置界面-画面声音分页按钮文本"
+  },
+  "OTHER_SETTING": {
+    "zhCN": "其他设置",
+    "comment": "设置界面-其他设置分页按钮文本"
+  },
+  "SCREEN_SETTING_TITLE": {
+    "zhCN": "画面",
+    "comment": "设置界面-画面声音分页，画面设置标题"
+  },
+  "SOUND_SETTING_TITLE": {
+    "zhCN": "声音",
+    "comment": "设置界面-画面声音分页，声音设置标题"
+  },
   "LANGUAGE_SETTING": {
     "zhCN": "语言：",
     "comment": "设置界面-语言设置标题"
@@ -400,11 +420,11 @@
     "comment": "设置界面-音效音量设置标题"
   },
   "DATA_COLLECT_TOGGLE": {
-    "zhCN": "数据收集 <link=data_collect><sprite=36></link>：",
+    "zhCN": "数据收集：",
     "comment": "设置界面-数据收集设置标题"
   },
   "HARMONIOUS_TOGGLE": {
-    "zhCN": "主播辅助 <link=harmonious><sprite=36></link>：",
+    "zhCN": "主播辅助：",
     "comment": "设置界面-和谐设置标题"
   },
   "DATA_COLLECT_TIPS": {
@@ -717,6 +737,54 @@
   "BEGIN_GUIDE_CHANGE_SUDAN_CARD_PROMPT": {
     "zhCN": "对抽取的苏丹卡不满意？可以更换一张苏丹卡。\n如果足够自信，可以再来一张苏丹卡。",
     "comment": "抽卡界面新手引导"
+  },
+  "BEGIN_GUIDE_RIGHT_CLICK_SLOT_PROMPT_Gamepad": {
+    "zhCN": "选中卡槽，按下{0}，筛选出可以放置的卡牌。",
+    "comment": "点击卡槽新手引导"
+  },
+  "BEGIN_GUIDE_RIGHT_CLICK_CARD_PROMPT_Gamepad": {
+    "zhCN": "选中卡牌，按下{0}，将其快速放入卡槽中。",
+    "comment": "右键置入卡牌新手引导"
+  },
+  "BEGIN_GUIDE_FILL_COIN_PROMPT_Gamepad": {
+    "zhCN": "选中金币卡按下{0}两次，自动填充奢靡卡要求的金币数量。",
+    "comment": "欢愉之馆奢靡卡金币放置新手引导, 右键快捷放置卡牌说明"
+  },
+  "BEGIN_GUIDE_REDRAW_SUDAN_CARD_PROMPT_Gamepad": {
+    "zhCN": "选中苏丹卡， 按下{0}确认更换。",
+    "comment": "抽卡界面新手引导, 更换苏丹卡方法说明"
+  },
+  "BEGIN_GUIDE_RITE_LAST_STATE_PROMPT_Gamepad": {
+    "zhCN": "按下{0}自动填充上一次搭配的卡牌。",
+    "comment": "仪式界面新手引导, 自动填充按钮说明"
+  },
+  "BEGIN_GUIDE_RITE_CONFIRM_PROMPT_Gamepad": {
+    "zhCN": "按下{0}开启事件。",
+    "comment": "仪式界面新手引导, 开启事件按钮说明"
+  },
+  "BEGIN_GUIDE_RITE_STOP_PROMPT_Gamepad": {
+    "zhCN": "放错卡牌？按下{0}停止事件。",
+    "comment": "仪式界面新手引导, 停止事件按钮说明"
+  },
+  "BEGIN_GUIDE_CARD_INFO_PROMPT_Gamepad": {
+    "zhCN": "长按{0}查看卡牌说明。",
+    "comment": "卡牌详情新手引导, 说明按钮说明"
+  },
+  "BEGIN_GUIDE_READ_BOOK_PROMPT_Gamepad": {
+    "zhCN": "你获得了一本书，选中后按下{0}放入俺寻思试试吧。",
+    "comment": "获得书籍新手引导, 拖进俺寻思说明"
+  },
+  "BEGIN_GUIDE_BACK_ROUND_PROMPT_Gamepad": {
+    "zhCN": "如果需要，可以按下{0}回到上一天。",
+    "comment": "返回上一回合新手引导, 返回上一回合按钮说明"
+  },
+  "BEGIN_GUIDE_MAIN_HELP_PROMPT_Gamepad": {
+    "zhCN": "长按{0}查看功能说明。",
+    "comment": "主界面新手引导, 说明按钮"
+  },
+  "BEGIN_GUIDE_NEXT_DAY_PROMPT_Gamepad": {
+    "zhCN": "长按{0}触发下一天推进剧情。",
+    "comment": "主界面新手引导, 下一天按钮说明"
   },
   "RITE_HELP_TAG_PROMPT": {
     "zhCN": "当前仪式考验的卡牌<b><color=white><size=86>属性</size></color></b>。",
@@ -1137,5 +1205,149 @@
   "KEYMAP_RestoreRite_Keyboard_Mouse": {
     "zhCN": "填充上一次使用的卡牌",
     "comment": "填充上一次使用的卡牌"
+  },
+  "ILLEGAL_NAME": {
+    "zhCN": "当前名字无法使用，请尝试其他名称。",
+    "comment": "输入文本存在特殊字符提示"
+  },
+  "USER_ARCHIVE_SAVE": {
+    "zhCN": "保存游戏",
+    "comment": "保存游戏按钮标题"
+  },
+  "USER_ARCHIVE_SAVE_TITLE": {
+    "zhCN": "保存游戏",
+    "comment": "保存游戏界面标题"
+  },
+  "USER_ARCHIVE_SAVE_DESC": {
+    "zhCN": "读取存档后，你将无法返回到更早的回合。",
+    "comment": "保存游戏界面描述"
+  },
+  "USER_ARCHIVE_LOAD": {
+    "zhCN": "加载游戏",
+    "comment": "加载游戏按钮标题"
+  },
+  "USER_ARCHIVE_LOAD_TITLE": {
+    "zhCN": "加载游戏",
+    "comment": "加载游戏界面标题"
+  },
+  "USER_ARCHIVE_LOAD_DESC": {
+    "zhCN": "读取存档后，你将无法返回到更早的回合。",
+    "comment": "加载游戏界面描述"
+  },
+  "USER_ARCHIVE_ORVEWRITE_PROMPT": {
+    "zhCN": "该存档已存在, 是否覆盖?",
+    "comment": "覆盖存档提示"
+  },
+  "USER_ARCHIVE_LOAD_PROMPT": {
+    "zhCN": "当前进行中的游戏将会被覆盖，确定加载该存档?",
+    "comment": "加载存档提示"
+  },
+  "USER_ARCHIVE_LIVE_TIME": {
+    "zhCN": "存活天数：{0} 天",
+    "comment": "存档状态, 已存活天数"
+  },
+  "USER_ARCHIVE_LEFT_SUDAN_CARD_COUNT": {
+    "zhCN": "苏丹卡剩余：{0}",
+    "comment": "存档状态, 苏丹卡剩余状态"
+  },
+  "USER_ARCHIVE_EXECUTION_DAY_LEFT": {
+    "zhCN": "处刑日残余：{0} 天",
+    "comment": "存档状态, 处刑日残余天数"
+  },
+  "USER_ARCHIVE_SLOT_EMPTY": {
+    "zhCN": "空",
+    "comment": "未使用存档槽位的显示内容"
+  },
+  "USER_ARCHIVE_NAME_PLACEHOLDER": {
+    "zhCN": "请输入存档名称",
+    "comment": "存档保存输入框的提示信息"
+  },
+  "USER_ARCHIVE_UNNAMED": {
+    "zhCN": "未命名存档",
+    "comment": "存档默认名称"
+  },
+  "MOD_TITLE": {
+    "zhCN": "模组管理",
+    "comment": "模组管理界面标题"
+  },
+  "MOD_DESC": {
+    "zhCN": "模组管理界面，您可以在这里上传、下载、启用、禁用模组。",
+    "comment": "模组管理界面描述"
+  },
+  "MOD_OP_REFRESH": {
+    "zhCN": "刷新列表",
+    "comment": "刷新模组列表按钮标题"
+  },
+  "MOD_OP_EXPLORER_WORKSHOP": {
+    "zhCN": "Steam创意工坊",
+    "comment": "打开 Steam 创意工坊按钮标题"
+  },
+  "MOD_OP_EXPLORER_MODS": {
+    "zhCN": "模组目录",
+    "comment": "打开模组目录按钮标题"
+  },
+  "MOD_ITEM_ACTIVATE": {
+    "zhCN": "启用",
+    "comment": "模组列表中模组启用按钮标题"
+  },
+  "MOD_ITEM_DEACTIVATE": {
+    "zhCN": "禁用",
+    "comment": "模组列表中模组禁用按钮标题"
+  },
+  "MOD_ITEM_UPLOAD": {
+    "zhCN": "上传",
+    "comment": "模组列表中模组上传按钮标题"
+  },
+  "MOD_ITEM_UPDATE": {
+    "zhCN": "更新",
+    "comment": "模组列表中模组更新按钮标题"
+  },
+  "MOD_ITEM_DOWNLOAD": {
+    "zhCN": "下载",
+    "comment": "模组列表中模组下载按钮标题"
+  },
+  "MOD_CONFLICT": {
+    "zhCN": "模组 {0} 与 {1} 存在冲突，请先禁用 {1}。 详情:\n{2}",
+    "comment": "模组列表中模组冲突提示"
+  },
+  "MOD_UPLOAD_PROMPT": {
+    "zhCN": "上传该模组，您将需要同意<u><link=\"steam_workshop_legal_agreement@internal\">创意工坊服务条款</link></u>",
+    "comment": "模组首次上传提示"
+  },
+  "MOD_ACTIVE_FAILED": {
+    "zhCN": "模组 {0} 启用失败，请检查日志。",
+    "comment": "模组列表中模组激活失败提示"
+  },
+  "MOD_UPLOAD_FAILED": {
+    "zhCN": "模组 {0} 上传失败，请检查日志。",
+    "comment": "模组列表中模组上传失败提示"
+  },
+  "MOD_PROCESS_UPLOAD": {
+    "zhCN": "正在上传 {0}，请稍候  <size=20%><sprite anim=\"26,31,5\"></size>",
+    "comment": "模组列表中模组上传提示"
+  },
+  "MOD_PROCESS_DOWNLOAD": {
+    "zhCN": "正在下载 {0}，请稍候  <size=20%><sprite anim=\"26,31,5\"></size>",
+    "comment": "模组列表中模组下载提示"
+  },
+  "MOD_PROCESS_ACTIVE": {
+    "zhCN": "正在启用 {0}，请稍候  <size=20%><sprite anim=\"26,31,5\"></size>",
+    "comment": "模组列表中模组启用提示"
+  },
+  "MOD_BAN_WORDS": {
+    "zhCN": "模组存在违反社区规范的内容，请修改后再上传",
+    "comment": "模组列表中模组名称包含非法字符提示"
+  },
+  "MOD_INVALID_TITLE": {
+    "zhCN": "模组标题非法，请修改后再上传",
+    "comment": "模组列表中模组标题非法提示"
+  },
+  "MOD_INVALID_DESCRIPTION": {
+    "zhCN": "模组描述非法，请修改后再上传",
+    "comment": "模组列表中模组描述非法提示"
+  },
+  "MOD_INVALID_TAGS": {
+    "zhCN": "模组标签非法，请修改后再上传",
+    "comment": "模组列表中模组标签非法提示"
   }
 }

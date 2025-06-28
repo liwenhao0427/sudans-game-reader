@@ -1,0 +1,25 @@
+{
+  "id": 5300664,
+  "text": "众筹道具-生命之心-朱娜复活",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "rite_end": 5000167
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "table.2001179加equip": 2001155,
+        "prompt": {
+          "id": "5300664_prompt_01",
+          "text": "……嗯呜…………",
+          "icon": "cards/2001179"
+        }
+      }
+    }
+  ]
+}

@@ -22,6 +22,7 @@
         "begin_guide": {
           "type": "READ_BOOK",
           "anim_type": "MouseDrag",
+          "bind": "UI/IThink",
           "pos": [
             570,
             428

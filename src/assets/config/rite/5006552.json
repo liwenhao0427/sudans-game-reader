@@ -3,6 +3,7 @@
   "name": "劫掠商队",
   "text": "有个商队的老板最近得罪了人，所以他的运输计划被悄悄送到了你桌上。",
   "tips": "",
+  "mapping_id": 8001352,
   "once_new": 0,
   "round_number": 1,
   "waiting_round": 5,
@@ -134,7 +135,10 @@
       "condition": {
         "部队": 1,
         "any": {
-          "type": "item",
+          "type": [
+            "item",
+            "char"
+          ],
           "is": "2000554"
         }
       },

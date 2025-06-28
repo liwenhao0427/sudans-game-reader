@@ -3,7 +3,7 @@
   "text": "法务官之死",
   "is_replay": 1,
   "auto_start": false,
-  "start_trigger": false,
+  "start_trigger": true,
   "on": {
     "round_begin_ba": 1
   },

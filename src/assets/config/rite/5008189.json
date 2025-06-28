@@ -9,7 +9,7 @@
   "waiting_round": 15,
   "waiting_round_end_action": [],
   "method_settlement": "",
-  "auto_begin": 1,
+  "auto_begin": 0,
   "auto_result": 0,
   "location": "野外:[9,14]",
   "icon": "rite_23",

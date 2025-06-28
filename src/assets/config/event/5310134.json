@@ -19,6 +19,7 @@
         "begin_guide": {
           "type": "MAIN_HELP",
           "anim_type": "ArrowUp",
+          "bind": "UI/Help",
           "pos": [
             -463,
             -212

@@ -1,0 +1,222 @@
+{
+  "id": 5000161,
+  "name": "学会藏书室",
+  "text": "和庄重寂静的皇家图书馆不同，这里充满了人的声音——学会成员，还有求知的普通人，在抄录和翻页的间隙里，她们讨论、探究、询问、解释，偶尔争执，却不显得吵闹，出乎意料地交汇成一曲平凡却充满希望的乐章。",
+  "tips": "",
+  "mapping_id": 8001360,
+  "once_new": 0,
+  "round_number": 5,
+  "waiting_round": 1,
+  "waiting_round_end_action": [],
+  "method_settlement": "",
+  "auto_begin": 0,
+  "auto_result": 0,
+  "location": "自宅:[2,12]",
+  "icon": "rite_7",
+  "tag_tips": [],
+  "tag_tips_up": {},
+  "tips_text": [
+    "在这里，你可以找到市面上大部分的书",
+    "由于这里的书籍是手工抄录，想要带走它们则需付更高的价格"
+  ],
+  "open_conditions": [
+    {
+      "condition": {
+        "any": {
+          "s4": 1,
+          "s5": 1,
+          "s6": 1
+        }
+      },
+      "tips": "你看中了哪本书？"
+    }
+  ],
+  "random_text": {},
+  "random_text_up": {},
+  "settlement_prior": [],
+  "settlement": [
+    {
+      "condition": {
+        "s7.借书次数小于": 3,
+        "s7.稀有度小于": "金"
+      },
+      "result_title": "你出示了自己的徽章",
+      "result_text": "管理员微笑着向你致意。",
+      "result": {
+        "s7加借书次数": 1
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s7.借书次数大于等于": 3,
+        "s7.稀有度等于": "石"
+      },
+      "result_title": "您是这里的常客",
+      "result_text": "管理员显然认出了你，她朝你点点头，无需繁冗的手续，请进吧。",
+      "result": {
+        "s7等于借书次数": 1,
+        "s7.晋升": 1,
+        "s7等于图片": 1,
+        "s7加智慧": 1
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s7.借书次数大于等于": 3,
+        "s7.稀有度等于": "铜"
+      },
+      "result_title": "你赢得了人们的尊重",
+      "result_text": "流连于浩繁卷帙之中时，你偶然听到了几个年轻人为一个问题争执不休，而你恰好知道答案。",
+      "result": {
+        "s7等于借书次数": 1,
+        "s7.晋升": 1,
+        "s7等于图片": 2,
+        "s7加智慧": 1,
+        "s7加魅力": 1,
+        "s7加社交": 1
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s7.借书次数大于等于": 3,
+        "s7.稀有度等于": "银"
+      },
+      "result_title": "你是否有资格引领她们",
+      "result_text": "你越来越多地在学会露面，学会的成员们也越来越多地审视你。尽管苏丹允许学会建立的初衷是为了压制民众的思想，但她们早已达成共识——知识不该被套上枷锁束之高阁。那么，帮助她们斩断枷锁的人，会是你吗？",
+      "result": {
+        "s7等于借书次数": 0,
+        "s7.晋升": 1,
+        "s7等于图片": 3,
+        "s7加智慧": 2,
+        "s7加魔力": 2
+      },
+      "action": {}
+    }
+  ],
+  "settlement_extre": [
+    {
+      "condition": {
+        "s1": 1,
+        "s4": 1
+      },
+      "result_title": "[s1.name]",
+      "result_text": "请收好。",
+      "result": {
+        "s1_馆藏": 1,
+        "s1加已拥有": 1
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s2": 1,
+        "s5": 1
+      },
+      "result_title": "[s2.name]",
+      "result_text": "请收好。",
+      "result": {
+        "s2_馆藏": 1,
+        "s2加已拥有": 1
+      },
+      "action": {}
+    },
+    {
+      "condition": {
+        "s3": 1,
+        "s6": 1
+      },
+      "result_title": "[s3.name]",
+      "result_text": "请收好。",
+      "result": {
+        "s3_馆藏": 1,
+        "s3加已拥有": 1
+      },
+      "action": {}
+    }
+  ],
+  "cards_slot": {
+    "s1": {
+      "condition": {
+        "type": "item",
+        "馆藏": 1
+      },
+      "open_adsorb": 1,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "学会藏书"
+    },
+    "s2": {
+      "condition": {
+        "type": "item",
+        "馆藏": 1
+      },
+      "open_adsorb": 1,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "学会藏书"
+    },
+    "s3": {
+      "condition": {
+        "type": "item",
+        "馆藏": 1
+      },
+      "open_adsorb": 1,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "学会藏书"
+    },
+    "s4": {
+      "condition": {
+        "type": "item",
+        "cost.金币": 3,
+        "s1": 1
+      },
+      "open_adsorb": 0,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "3金币"
+    },
+    "s5": {
+      "condition": {
+        "type": "item",
+        "cost.金币": 3,
+        "s2": 1
+      },
+      "open_adsorb": 0,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "3金币"
+    },
+    "s6": {
+      "condition": {
+        "type": "item",
+        "cost.金币": 3,
+        "s3": 1
+      },
+      "open_adsorb": 0,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "3金币"
+    },
+    "s7": {
+      "condition": {
+        "type": "item",
+        "is": 2001152
+      },
+      "open_adsorb": 1,
+      "is_key": 0,
+      "is_empty": 1,
+      "is_enemy": 0,
+      "text": "你需要出示你的学会徽章"
+    }
+  }
+}

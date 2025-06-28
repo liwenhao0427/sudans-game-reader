@@ -1,0 +1,25 @@
+{
+  "id": 5300665,
+  "text": "众筹道具-生命之心-贾丽拉复活",
+  "is_replay": 0,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "rite_end": 5000167
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "table.2001180加equip": 2001155,
+        "prompt": {
+          "id": "5300665_prompt_01",
+          "text": "……吼……",
+          "icon": "cards/2001180"
+        }
+      }
+    }
+  ]
+}

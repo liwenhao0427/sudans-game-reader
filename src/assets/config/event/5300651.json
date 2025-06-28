@@ -1,0 +1,25 @@
+{
+  "id": 5300651,
+  "text": "众筹道具-黑暗幻想2",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "table_have.主角.黑暗幻想大于等于": 3,
+    "counter.7000685小于": 3
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "rite": 5000163
+      }
+    }
+  ]
+}

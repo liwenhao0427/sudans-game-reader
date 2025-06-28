@@ -319,7 +319,9 @@
       "result": {
         "clean.s4": 1
       },
-      "action": {}
+      "action": {
+        "rite": 5010062
+      }
     },
     {
       "condition": {

@@ -1,0 +1,23 @@
+{
+  "id": 5300666,
+  "text": "众筹道具-生命之心-怪物的气泡",
+  "is_replay": 1,
+  "auto_start": false,
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": [
+      3,
+      10
+    ]
+  },
+  "condition": {},
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "hand_pop.5300666_01.生命之心": "………"
+      }
+    }
+  ]
+}

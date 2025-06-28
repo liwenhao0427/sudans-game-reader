@@ -4,6 +4,7 @@
   "tips": "",
   "bg": "sd_02_bg",
   "fg": "sd_02_fg",
+  "fg_in_slot_index": 0,
   "nomal_slot_bg": "",
   "bg_pos": {
     "x": 0,
@@ -19,7 +20,7 @@
       "is_set_card_hide_bg": false,
       "slot_bg": "normal_4",
       "pos": {
-        "x": 1401,
+        "x": 1331,
         "y": 1606
       },
       "scale": {
@@ -33,7 +34,7 @@
       "is_set_card_hide_bg": false,
       "slot_bg": "normal_4",
       "pos": {
-        "x": 1196,
+        "x": 1133,
         "y": 644
       },
       "scale": {
@@ -47,7 +48,7 @@
       "is_set_card_hide_bg": false,
       "slot_bg": "normal_4",
       "pos": {
-        "x": 1401,
+        "x": 1331,
         "y": 1089
       },
       "scale": {
@@ -61,7 +62,7 @@
       "is_set_card_hide_bg": false,
       "slot_bg": "normal_4",
       "pos": {
-        "x": 1600,
+        "x": 1537,
         "y": 644
       },
       "scale": {
@@ -75,7 +76,7 @@
       "is_set_card_hide_bg": false,
       "slot_bg": "normal_4",
       "pos": {
-        "x": 1399,
+        "x": 1336,
         "y": 644
       },
       "scale": {

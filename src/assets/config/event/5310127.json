@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "RIGHT_CLICK_SLOT",
           "anim_type": "MouseRightClick",
+          "bind": "UI/Submit",
           "pos": [
             767,
             103

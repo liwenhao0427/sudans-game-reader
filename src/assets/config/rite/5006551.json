@@ -3,6 +3,7 @@
   "name": "玩泥巴的异族",
   "text": "在山区，有一个全族赤身裸体，涂抹泥浆裹身，刀耕火种的迷信部落，很多人都说他们有一些诡异的黑魔法传承，也许有研究的价值。",
   "tips": "",
+  "mapping_id": 8001352,
   "once_new": 0,
   "round_number": 1,
   "waiting_round": 5,
@@ -130,7 +131,10 @@
       "condition": {
         "部队": 1,
         "any": {
-          "type": "item",
+          "type": [
+            "item",
+            "char"
+          ],
           "is": "2000554"
         }
       },

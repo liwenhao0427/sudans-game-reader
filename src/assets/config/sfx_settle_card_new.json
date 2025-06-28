@@ -1,0 +1,12 @@
+﻿{
+  "0": "settle_card_new_nomal", // 通用音效（非角色卡默认使用通用音效）
+  "1": "settle_card_new_great", // 正面音效（角色卡默认使用正面音效）
+  // 负面音效
+  "2000168": "settle_card_new_bad", // 谗言
+  "2000083": "settle_card_new_bad", // 妻子的不满
+  "2000698": "settle_card_new_bad", // 娜依拉的不满
+  "2000558": "settle_card_new_bad", // 罪证
+  "2000326": "settle_card_new_bad", // 疯狂
+  "2000672": "settle_card_new_bad", // 苏丹的猜疑
+  "2000680": "settle_card_new_bad" // 苏丹的猜忌
+}

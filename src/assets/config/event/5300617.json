@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "REDRAW_SUDAN_CARD",
           "anim_type": "MouseDrag",
+          "bind": "UI/Submit",
           "pos": [
             1210,
             -366

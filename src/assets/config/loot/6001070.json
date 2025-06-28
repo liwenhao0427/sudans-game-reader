@@ -53,12 +53,12 @@
     {
       "condition": {
         "counter.7000379小于": 1,
-        "have.2000113": 1
+        "table_have.2000113": 1
       },
       "num": "1",
       "id": "5321195",
       "type": "event",
-      "weight": 60
+      "weight": 220
     }
   ]
 }

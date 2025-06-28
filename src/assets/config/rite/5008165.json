@@ -29,7 +29,7 @@
         "s2.妻子": 1
       },
       "result_title": "",
-      "result_text": "赶走拜玲耶",
+      "result_text": "赶走拜铃耶",
       "result": {
         "counter_7100005": 1,
         "counter加7000573": 1
@@ -118,7 +118,7 @@
       "is_key": 0,
       "is_empty": 0,
       "is_enemy": 0,
-      "text": "拜玲耶"
+      "text": "拜铃耶"
     },
     "s2": {
       "condition": {

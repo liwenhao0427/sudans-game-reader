@@ -9,7 +9,7 @@
   "waiting_round": 0,
   "waiting_round_end_action": [],
   "method_settlement": "",
-  "auto_begin": 1,
+  "auto_begin": 0,
   "auto_result": 0,
   "location": "商业区:[10,19]",
   "icon": "rite_1",

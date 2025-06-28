@@ -55,10 +55,7 @@
       "action": {
         "rite": 5000812
       }
-    }
-  ],
-  "settlement": [],
-  "settlement_extre": [
+    },
     {
       "condition": {
         "s13": 1,
@@ -77,8 +74,13 @@
         "coin": 5,
         "counter加7000557": 1
       },
-      "action": {}
-    },
+      "action": {
+        "rite": 5000812
+      }
+    }
+  ],
+  "settlement": [],
+  "settlement_extre": [
     {
       "condition": {
         "s1": 1,

@@ -102,6 +102,34 @@
     "equipment"
   ],
   "athor_auto_classify_tag": "other",
+  "fade_in_transition_time": {
+    "Default": 1.5,
+    "MakerTeam": 0.5,
+    "StartGame": 1.5,
+    "MainGame": 1.5,
+    "Settlement": 4,
+    "DestroySudanCard": 3,
+    "DrawSudanCard": 1.5,
+    "OverGame": 2.5,
+    "Tutorial_MainGame": 1.5,
+    "Tutorial_Settlement": 1.5,
+    "Tutorial_DrawSudanCard": 1.5,
+    "Armageddon": 2.5
+  },
+  "fade_out_transition_time": {
+    "Default": 1.5,
+    "MakerTeam": 0.5,
+    "StartGame": 1.5,
+    "MainGame": 1,
+    "Settlement": 4,
+    "DestroySudanCard": 3,
+    "DrawSudanCard": 1.5,
+    "OverGame": 1.5,
+    "Tutorial_MainGame": 1.5,
+    "Tutorial_Settlement": 1.5,
+    "Tutorial_DrawSudanCard": 1.5,
+    "Armageddon": 4
+  },
   "special_counters": [
     7100001,
     7100002,
@@ -159,7 +187,11 @@
     "MouseDrag": [
       "mouse_drag_1",
       "mouse_drag_2"
-    ]
+    ],
+    "MouseWheel_Gamepad": [],
+    "MouseRightClick_Gamepad": [],
+    "MouseLeftClick_Gamepad": [],
+    "MouseDrag_Gamepad": []
   },
   "harmonious_replacer": {
     "cards_2010001": "safe/cards/2010001",
@@ -389,6 +421,9 @@
       "full": true
     }
   ],
+  "text_link": {
+    "steam_workshop_legal_agreement": "https://steamcommunity.com/sharedfiles/workshoplegalagreement"
+  },
   "REDRAW_NOTICE": "<line-height=-2.1em><align=right><voffset=-2><size=120><link=\"redraw\"><sprite=4></link></size></voffset> <b>x</b><voffset=10><size=80>{1}</size></voffset>\t</align>\n</line-height>",
   "REDRAW_NOTICE_NUMBER_NAME": "number_5",
   "START_UI_START_GAME_BUTTON_BG": "ss://i18n/zhCN/ui/start_ui_start_game_button_bg.png",
@@ -430,11 +465,14 @@
   "RITE_SETTLEMENT_RESULT_TITLE_FORMAT": "<sprite=1><indent=80><size=+10><font=\"Title SDF\">{0}</font></size></indent>",
   "RITE_SETTLEMENT_RESULT_DICE_WAITING": "<sprite=2><indent=120><sprite anim=\"5,11,4\">  <sprite anim=\"14,15,3\"></indent>",
   "RITE_SETTLEMENT_RESULT_NORMAL_WAITING": "<sprite=0><indent=80><sprite anim=\"5,11,3\">  <sprite anim=\"14,15,3\"></indent>",
+  "RITE_SETTLEMENT_RESULT_DICE_WAITING_Gamepad": "<sprite=2><indent=120><sprite anim=\"5,11,4\">  {0}</indent>",
+  "RITE_SETTLEMENT_RESULT_NORMAL_WAITING_Gamepad": "<sprite=0><indent=80><sprite anim=\"5,11,3\">  {0}</indent>",
   "QUEST_FAVOUR_TEXT_FORMAT": "<indent=30%>\n\n\n\n<i><color=#A28E58>{0}</color></i>",
   "PRESTIGE_CHANGE_POSITIVE": "<color=#FFDD00>+{0}</color>",
   "PRESTIGE_CHANGE_NEGATIVE": "<color=#FF1600>-{0}</color>",
   "OVER_STORY_TITLE_FORMAT": "<size=250%><color=#FFCF00>{0}</color></size>\n",
   "OVER_PROMPT_FORMAT": "{0}\n{1}",
+  "USER_ARCHIVE_ITEM_DESC_FORMAT": "{0}    {1}    {2}    <size=60%>{3:G}",
   "slide_1_1": "slide/1-1",
   "slide_1_2": "slide/1-2",
   "slide_1_3": "slide/1-3",

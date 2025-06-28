@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "BACK_ROUND",
           "anim_type": "Arrow",
+          "bind": "UI/PrevDay",
           "pos": [
             -746,
             377

@@ -21,6 +21,7 @@
         "begin_guide": {
           "type": "CARD_INFO",
           "anim_type": "Arrow",
+          "bind": "UI/Help",
           "pos": [
             345,
             -69

@@ -27,7 +27,7 @@
     {
       "condition": {},
       "result_title": "",
-      "result_text": "为了不让这样美丽的马鞍蒙尘，[player.name]日夜精进骑术。",
+      "result_text": "为了不让这样美丽的马鞍蒙尘，[s2.name]日夜精进骑术。",
       "result": {
         "s2加equip_slot": "animal_handling",
         "s2加生存": 2,

@@ -1,0 +1,27 @@
+{
+  "id": 5321197,
+  "text": "欲望之蛇",
+  "is_replay": 1,
+  "auto_start_init": [
+    1
+  ],
+  "start_trigger": false,
+  "on": {
+    "round_begin_ba": 1
+  },
+  "condition": {
+    "table_have.char.毒蛇之链": 1
+  },
+  "settlement": [
+    {
+      "tips_resource": "",
+      "tips_text": "",
+      "action": {
+        "rite": 5008193,
+        "success": {
+          "event_off": 5321197
+        }
+      }
+    }
+  ]
+}

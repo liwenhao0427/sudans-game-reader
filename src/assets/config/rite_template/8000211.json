@@ -1,0 +1,145 @@
+{
+  "id": 8000211,
+  "name": "",
+  "tips": "",
+  "bg": "zz_01_bg",
+  "fg": "zz_01_fg",
+  "fg_in_slot_index": 0,
+  "nomal_slot_bg": "",
+  "bg_pos": {
+    "x": 0,
+    "y": 210
+  },
+  "title_pos": {
+    "x": 1427,
+    "y": -227
+  },
+  "slots": {
+    "s1": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 689,
+        "y": 1290
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s2": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 462,
+        "y": 716
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s3": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 776,
+        "y": 788
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s4": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 1495,
+        "y": 1577
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s5": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 1193,
+        "y": 1577
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s6": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 1789,
+        "y": 1577
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s7": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 1535,
+        "y": 983
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s8": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 1219,
+        "y": 925
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    },
+    "s9": {
+      "is_hide_bg": false,
+      "is_set_card_hide_bg": false,
+      "slot_bg": "normal_1",
+      "pos": {
+        "x": 1848,
+        "y": 925
+      },
+      "scale": {
+        "x": 1,
+        "y": 1
+      },
+      "rotation_z": 0
+    }
+  }
+}
