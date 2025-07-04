@@ -8,5 +8,6 @@ python process_over.py
 @REM 缓存文件映射 rite_relations.json
 python process_rite_relations.py
 @REM 缓存游戏数据
-python ../extract_game_data.py
+cd ..
+python extract_game_data.py
 pause
